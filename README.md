@@ -26,7 +26,7 @@ We may further use SQL type of programming languages for the database.
 ## Group Members (Group 1E)
 - Lara Fenercioğlu - 21802536
 - Gökhan Taş - 21802136
-- Sebahattin Utku Sezer - 21802798 
+- Sebahattin Utku Sezer - 21802798AHAHAHA
 - Kimya Ghasemlou - 21801412 
 - Bedirhan Sakinoğlu - 21802576
 
