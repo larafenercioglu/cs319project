@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Classroom Helper</title>
+</head>
+
+<body>
+    <div class="my-container">
+        <div class="row">
+            <!-- Image -->
+            <div class="col-md-8">
+                <img src="Login_img.jpg" alt="login_image">
+            </div>
+
+            <!-- Login Part -->
+            <div class="col-md-4 d-flex flex-column">
+
+                <!-- Upper part -->
+                <div class="upper-div">
+
+                    <h1 class="h1 text-center my-5" style="font-family: monospace; ">Login</h1>
+
+                    <form>
+                        <div class="form-group mx-auto" style="width: 300px; height: 70px;">
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input type="email" id="input_email" class="form-control" placeholder="Email" value="">
+                            </div>
+                        </div>
+                        <div class="form-group mx-auto" style="width: 300px; height: 70px;">
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" id="input_password" class="form-control" placeholder="Password"
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn mt-2 mb-5" onclick="getInputValue();">Login</button>
+                            <a href="" class="d-block my-2"> Don't have an account?</a>
+                            <button type="button" class="btn">Register</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <!-- Bottom part -->
+                <div class="bottom-div align-self-center text-center">
+                    <a href="">About Us</a>
+                    <br>
+                    <a href="file:///Users/kimya/Downloads/First_Design_V0/Contact.html?">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
