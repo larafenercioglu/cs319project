@@ -1,5 +1,5 @@
 localStorage.setItem("mail", "gokhan.tas@ug.bilkent.edu.tr");
-localStorage.setItem("pw", "kimdirbuyaprak");
+localStorage.setItem("pw", "test123");
 
 function getInputValue(){
     // Selecting the input element and get its value 
