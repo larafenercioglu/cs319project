@@ -29,6 +29,39 @@
             <!-- Login Part -->
             <div class="col-md-4 d-flex flex-column">
 
+                <!--Hidden Parts-->
+                <div>
+                    <div id="mySideAboutUs" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
+                        <a href="#">Gökhan Taş</a>
+                        <a href="#">Bedirhan Sakinoğlu</a>
+                        <a href="#">Sebahattin Utku Sezer</a>
+                        <a href="#">Lara Fenercioğlu</a>
+                        <a href="#">Kimya Ghasemlou</a>
+                    </div>
+
+                    <div id="mySideContact" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
+                        <div class="container">
+                            <form>
+                                <h1 class="h1 text-center my-2" style="font-family: monospace; ">Contact Us</h1>
+                                <label for="fname">First Name</label>
+                                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                                <label for="lname">Last Name</label>
+                                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                                <textarea id="subject" name="subject" placeholder="Write something.."
+                                    style="height:200px"></textarea>
+
+                                <div class="text-center">
+                                    <button type="submit" href="" class="btn mt-2 mb-5"
+                                        onclick="sendMessage();">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Upper part -->
                 <div class="upper-div">
 
@@ -54,7 +87,7 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn mt-2 mb-5" onclick="getInputValue();">Login</button>
-                            <a href="" class="d-block my-2"> Don't have an account?</a>
+                            <p>Don't have an account?</p>
                             <button type="button" class="btn">Register</button>
                         </div>
                     </form>
@@ -63,13 +96,12 @@
 
                 <!-- Bottom part -->
                 <div class="bottom-div align-self-center text-center">
-                    <a href="">About Us</a>
+                    <a href="#" id="AboutUs" onclick="openSideNav(this.id);">About Us</a>
                     <br>
-                    <a href="">Contact</a>
+                    <a href="#" id="Contact" onclick="openSideNav(this.id);">Contact</a>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <script src="app.js"></script>
