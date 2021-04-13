@@ -31,6 +31,8 @@
 
                 <!--Hidden Parts-->
                 <div>
+
+                    <!--About Us-->
                     <div id="mySideAboutUs" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
                         <a href="#">Gökhan Taş</a>
@@ -40,6 +42,7 @@
                         <a href="#">Kimya Ghasemlou</a>
                     </div>
 
+                    <!--Contact-->
                     <div id="mySideContact" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
                         <div class="container">
@@ -56,6 +59,36 @@
                                 <div class="text-center">
                                     <button type="submit" href="" class="btn mt-2 mb-5"
                                         onclick="sendMessage();">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--Register-->
+                    <div id="mySideRegister" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
+                        <div class="container">
+                            <form>
+                                <h1 class="h1 text-center my-2" style="font-family: monospace; ">Register</h1>
+
+                                <label>First Name</label>
+                                <input type="text" id="register_name" placeholder="Your name...">
+
+                                <label>Last Name</label>
+                                <input type="text" id="register_surname" placeholder="Your last name...">
+
+                                <label>ID</label>
+                                <input type="text" id="register_id" placeholder="Enter your ID...">
+
+                                <label>Email</label>
+                                <input type="text" id="register_email" placeholder="Email...">
+
+                                <label>Password</label>
+                                <input type="password" id="register_password" placeholder="Password...">
+
+                                <div class="text-center">
+                                    <button type="submit" href="#" class="btn mt-2 mb-5"
+                                        onclick="sendRegInformation();">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -88,7 +121,8 @@
                         <div class="text-center">
                             <button type="submit" class="btn mt-2 mb-5" onclick="getInputValue();">Login</button>
                             <p>Don't have an account?</p>
-                            <button type="button" class="btn">Register</button>
+                            <button type="button" id="Register" class="btn"
+                                onclick="openSideNav(this.id)">Register</button>
                         </div>
                     </form>
 
