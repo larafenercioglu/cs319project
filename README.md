@@ -1,4 +1,4 @@
-# CS 319 Project: Classroom Helper
+# CS 319 Project: ProCheck
 ## Description
 This project will be a web application using Java programming language. 
 There will also be a database where we can keep track of the users and other 
