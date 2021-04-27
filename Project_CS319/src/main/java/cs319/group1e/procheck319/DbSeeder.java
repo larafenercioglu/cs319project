@@ -1,5 +1,8 @@
 package cs319.group1e.procheck319;
 
+//import cs319.group1e.repositories.StudentRepository;
+//import cs319.group1e.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import java.util.Arrays;
@@ -16,6 +19,7 @@ public class DbSeeder implements CommandLineRunner {
         this.studentRepository = studentRepository;
     }
 
+
     @Override
     public void run(String... args) throws Exception {
         User bedo = new Student("Bedirhan", "Sakinoglu" , "bedo123", 21801, "bedisakinoglu@gmail.com","student");
@@ -24,8 +28,10 @@ public class DbSeeder implements CommandLineRunner {
         User lara = new Student("Lara", "Fenerci", "yes", 21804, "lara@ug.bilkent.edu.tr","student");
         User kim = new Student("Kimya","Ghasem", "kimya", 21805, "kimya@ug.bilkent.edu.tr","student");
 
-        //this.studentRepository.deleteAll();
-        List<Student> users = Arrays.asList((Student) bedo,(Student) gok,(Student)tutku,(Student) lara,(Student) kim);
+
+        this.studentRepository.deleteAll();
+        List<Student> users = Arrays.asList((Student) bedo, (Student) gok, (Student) tutku,(Student) lara ,(Student) kim);
+        //System.out.println(((Student) bedo).getPeerReviews());
         this.studentRepository.saveAll(users);
 
         /*

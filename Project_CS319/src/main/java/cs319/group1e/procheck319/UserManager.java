@@ -1,5 +1,10 @@
+//package cs319.group1e.managers;
 package cs319.group1e.procheck319;
 
+import cs319.group1e.procheck319.*;
+//import cs319.group1e.repositories.InstructorAndTAsRepository;
+//import cs319.group1e.repositories.StudentRepository;
+//import cs319.group1e.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

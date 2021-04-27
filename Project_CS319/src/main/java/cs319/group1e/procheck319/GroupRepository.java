@@ -1,12 +1,13 @@
 //package cs319.group1e.repositories;
 package cs319.group1e.procheck319;
 
-import cs319.group1e.procheck319.Student;
+import cs319.group1e.procheck319.Group;
+import cs319.group1e.procheck319.InstructorAndTAs;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StudentRepository extends MongoRepository<Student, Integer>{
+public interface GroupRepository extends MongoRepository<Group, Integer> {
 
     /*
     ---How to implement---
@@ -17,5 +18,5 @@ public interface StudentRepository extends MongoRepository<Student, Integer>{
     System.out.println(user.getUserName());
     System.out.println(user.getUserSurname());
     */
-    Student findByUserId(int id);
+    Group findByGroupId(int id);
 }

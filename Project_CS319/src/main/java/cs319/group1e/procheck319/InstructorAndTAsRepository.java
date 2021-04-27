@@ -1,5 +1,7 @@
+//package cs319.group1e.repositories;
 package cs319.group1e.procheck319;
 
+import cs319.group1e.procheck319.InstructorAndTAs;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
