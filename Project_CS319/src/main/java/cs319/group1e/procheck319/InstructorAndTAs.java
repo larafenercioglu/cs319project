@@ -2,7 +2,7 @@ package cs319.group1e.procheck319;
 
 import org.springframework.data.annotation.Id;
 
-public class InstructorAndTAs  implements User {
+public class InstructorAndTAs implements User {
 
     //Properties
     private String userName;

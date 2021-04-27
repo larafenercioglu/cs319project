@@ -53,8 +53,9 @@ public class UserManager {
                 theUser.setUserSurname(newList.get(i).getUserSurname());
                 theUser.setUserId(newList.get(i).getUserId());
                 theUser.setType(newList.get(i).getType());
-                System.out.println("DENEMEEEE" + theUser.getType());
+
                 if(theUser.getType().equals("student")){
+                    System.out.println("INSIDE checkUserByLoginInput");
                     System.out.println(theUser.getUserName());
                     System.out.println(theUser.getUserSurname());
                     System.out.println(theUser.getClass());
@@ -74,7 +75,6 @@ public class UserManager {
     */
     @GetMapping("/updateStudent/{userId}")
     public String updateStudentById(@PathVariable int userId, @ModelAttribute("user") Student theStudent) {
-
         User user = studentRepository.findByUserId(userId);
 
         theStudent.setUserName(user.getUserName());
@@ -82,6 +82,7 @@ public class UserManager {
         theStudent.setUserId(user.getUserId());
         theStudent.setEmail(user.getEmail());
         theStudent.setPassword(user.getPassword());
+        theStudent.setType(user.getType());
 
         return "dashboardIndex";
     }
@@ -107,7 +108,7 @@ public class UserManager {
         Delete a student by using id
         It is done by StudentRepository class
     */
-    @DeleteMapping(value = "delete/{userId}")
+    @DeleteMapping(value = "deleteStudent/{userId}")
     public String deleteStudent(@PathVariable("userId") int id) {
         studentRepository.deleteById(id);
         return "redirect:/login";
@@ -143,25 +144,85 @@ public class UserManager {
     }
 
     /*
-    @GetMapping(value = "/all")
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-     */
+        Register new Instructor
+        It is done by InstructorRepository class
+    */
+    @PostMapping("/saveInstructorAndTAs")
+    public String saveInstructor(@ModelAttribute("user") InstructorAndTAs theInstructor) {
+        boolean flag = true;
+        List<InstructorAndTAs> newList = instructorAndTAsRepository.findAll();
 
-    /*
-    @GetMapping(value = "/{userId}")
-    public boolean checkUserById(@PathVariable("userId") int id) {
-
-        List<User> newList = userRepository.findAll();
-        for(int i  = 0; i < newList.size(); i++) {
-            if(newList.get(i).getUserId() == id) {
-                return true;
+        for(int i = 0; i < newList.size() && flag; i++) {
+            if(newList.get(i).getEmail().equals(theInstructor.getEmail()) || newList.get(i).getUserId() == (theInstructor.getUserId())) {
+                flag = false;
+                System.out.println("Instructor Already Exists!");
             }
         }
-        return false;
+
+        if(flag){
+            // save the student
+            theInstructor.setType("instructor");
+            instructorAndTAsRepository.save(theInstructor);
+
+            //Print message
+            System.out.println("Instructor has been saved successfully");
+        }
+
+        // use a redirect to prevent duplicate submissions
+        return "redirect:/login";
     }
+
+    /*
+        Delete a instructor by using id
+        It is done by instructorAndTAsRepository class
     */
+    @DeleteMapping(value = "deleteInstructor/{userId}")
+    public String deleteInstructor(@PathVariable("userId") int id) {
+        instructorAndTAsRepository.deleteById(id);
+        return "redirect:/login";
+    }
+
+    /*
+        Update a student by using id
+        It is done by StudentRepository class
+    */
+    @GetMapping("/updateInstructor/{userId}")
+    public String updateInstructorById(@PathVariable int userId, @ModelAttribute("user") InstructorAndTAs theInstructorAndTAs) {
+
+        User user = instructorAndTAsRepository.findByUserId(userId);
+
+        theInstructorAndTAs.setUserName(user.getUserName());
+        theInstructorAndTAs.setUserSurname(user.getUserSurname());
+        theInstructorAndTAs.setUserId(user.getUserId());
+        theInstructorAndTAs.setEmail(user.getEmail());
+        theInstructorAndTAs.setPassword(user.getPassword());
+
+        return "dashboardIndex";
+    }
+
+    /*
+        Update instructor
+        It is done by instructorAndTAsRepository class
+    */
+    @PostMapping("/updateInstructor")
+    public String updateInstructor(@ModelAttribute("user") InstructorAndTAs theInstructor) {
+
+        System.out.println(theInstructor.getUserName());
+        System.out.println(theInstructor.getClass());
+
+        //Save the user
+        instructorAndTAsRepository.save(theInstructor);
+
+        //Use a redirect to prevent duplicate submissions
+        return "redirect:/login";
+    }
+
+
+    @GetMapping(value = "/allInstructorAndTAs")
+    public List<InstructorAndTAs> getAllInstructorAndTAs() {
+        return instructorAndTAsRepository.findAll();
+    }
+
 
     /*
     @PostMapping
