@@ -7,6 +7,7 @@ import java.util.List;
 
 @Component
 public class Student implements User {
+    //TODO: fonksiyonlar kontrol edilecek
 
     //Properties
     private String userName;

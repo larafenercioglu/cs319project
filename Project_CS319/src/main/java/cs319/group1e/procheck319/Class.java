@@ -1,7 +1,7 @@
 package cs319.group1e.procheck319;
 
 import java.util.*;
-import java.util.List;
+
 public class Class {
     private String classKey;
     private List<Student> students;
@@ -120,6 +120,7 @@ public class Class {
     /**
       If there are students without group then this method will form groups randomly
      */
+    //TODO YARIn
     public boolean formRandomGroups(){
         Date date =  new Date();
         //gathering students without group
@@ -132,20 +133,25 @@ public class Class {
                 singles.add(students.get(i));
             }
             int index = 0;
-            for (int i = 0; i < groups.size(); i++) {
-                if (groups.get(i).isFull()){
-                    continue;
-                }else{
-                    while(!groups.get(i).isFull()){
-                        groups.get(i).addGroupMember(singles.get(index));
-                        index += 1;
-                    }
+            int groupNumbersToCreate = (singles.size() / project.getMaxGroupSize()); //olabilecek tam grup sayısı
+            int studentNumberToDistribute = (singles.size() % project.getMaxGroupSize()); //Sayıları bir grup oluşturmayan öğrenci sayısı
+
+            for(int i = 0; i < groupNumbersToCreate; i++){
+                Group g = new Group();
+                for(int j = 0; j < project.getMaxGroupSize(); j++){
+                    g.addGroupMember(singles.get(index));
+                    index += 1;
+                }
+                groups.add(g);
+            }
+            //TODO: başa kalan dona kalır   yarin bakalim!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            for(int i = 0; i < studentNumberToDistribute; i++){
+                while(!groups.get(i).isFull()) {
+                    groups.get(i).addGroupMember(singles.get(index));
+                    index += 1;
                 }
             }
-            if(singles.size() == 0){
-                return true;
-            }
-            //boşta kalanları eşit şekilde grup oluşturarak dağıtmayı bulcam
+            return true;
         }
         return false;
     }
