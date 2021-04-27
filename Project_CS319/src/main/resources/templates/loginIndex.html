@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Thymeleaf Demo</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+<div class="my-container">
+    <div class="row">
+        <!-- Image -->
+        <div class="col-md-8">
+            <img th:src="@{/img/Login_img.jpg}"  alt="login_image">
+        </div>
+
+        <!-- Login Part -->
+        <div class="col-md-4 d-flex flex-column">
+
+            <!--Hidden Parts-->
+            <div>
+
+                <!--About Us-->
+                <div id="mySideAboutUs" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
+                    <a href="#">Gökhan Taş</a>
+                    <a href="#">Bedirhan Sakinoğlu</a>
+                    <a href="#">Sebahattin Utku Sezer</a>
+                    <a href="#">Lara Fenercioğlu</a>
+                    <a href="#">Kimya Ghasemlou</a>
+                </div>
+
+                <!--Contact-->
+                <div id="mySideContact" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
+                    <div class="container">
+                        <form>
+                            <h1 class="h1 text-center my-2" style="font-family: monospace; ">Contact Us</h1>
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                            <textarea id="subject" name="subject" placeholder="Write something.."
+                                      style="height:200px"></textarea>
+
+                            <div class="text-center">
+                                <button type="submit" href="" class="btn mt-2 mb-5"
+                                        onclick="sendMessage();">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--Register-->
+                <div id="mySideRegister" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav(this);">&times;</a>
+                    <div class="container">
+                        <form action="#" th:action= "@{/saveStudent}" th:object="${user}" method="POST">
+                            <h1 class="h1 text-center my-2" style="font-family: monospace; ">Register</h1>
+
+                            <label>First Name</label>
+                            <input type="text" th:field="*{userName}" id="register_name" placeholder="Your name...">
+
+                            <label>Last Name</label>
+                            <input type="text" th:field="*{userSurname}" id="register_surname" placeholder="Your last name...">
+
+                            <label>ID</label>
+                            <input type="text" th:field="*{userId}" id="register_id" placeholder="Enter your ID...">
+
+                            <label>Email</label>
+                            <input type="text" th:field="*{email}" id="register_email" placeholder="Email...">
+
+                            <label>Password</label>
+                            <input type="password" th:field="*{password}" id="register_password" placeholder="Password...">
+
+
+                            <div class="text-center">
+                                <button type="submit" href="#"  class="btn mt-2 mb-5"
+                                        onclick="sendRegInformation();">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upper part -->
+            <div class="upper-div">
+
+                <h1 class="h1 text-center my-5" style="font-family: monospace; ">Login</h1>
+
+                <form action="#" th:action= "@{/checkUserInput}" th:object="${user}" method="POST">
+                    <div class="form-group mx-auto" style="width: 300px; height: 70px;">
+                        <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="email" th:field="*{email}" id="input_email" class="form-control" placeholder="Email" value="">
+                        </div>
+                    </div>
+                    <div class="form-group mx-auto" style="width: 300px; height: 70px;">
+                        <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" th:field="*{password}" id="input_password" class="form-control" placeholder="Password"
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn mt-2 mb-5">Login</button>
+                        <p>Don't have an account?</p>
+                        <button type="button" id="Register" class="btn"
+                                onclick="openSideNav(this.id)">Register</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- Bottom part -->
+            <div class="bottom-div align-self-center text-center">
+                <a href="#" id="AboutUs" onclick="openSideNav(this.id);">About Us</a>
+                <br>
+                <a href="#" id="Contact" onclick="openSideNav(this.id);">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/app.js}"></script>
+</body>
+
+</html>
