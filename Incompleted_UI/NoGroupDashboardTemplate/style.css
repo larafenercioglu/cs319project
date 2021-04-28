@@ -1,0 +1,55 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    background-color: #EBEBEB;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.my-row {
+    height: 99vh;
+}
+
+
+.my-height-20 {
+    height: 20vh;
+
+}
+
+.my-height-40 {
+    height: 40vh;
+}
+
+
+.project-end-date {
+    background-color: #BBAFE3;
+}
+
+.project-prompt {
+    font-size: 25px;
+}
+
+.test {
+    display: inline-block;
+}
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
