@@ -1,9 +1,11 @@
 package cs319.group1e.procheck319;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-public class Group {
+public class Group{
     /*
         ATTRIBUTES OF GROUP
     */
@@ -19,12 +21,13 @@ public class Group {
 
     //Default Constructor
     public Group() {
+        studentList = new ArrayList<>(); //TODO: DEFAULT OLARAK INITIALIZE ETMEMIZ GEREK
     }
 
     //Constructor
     public Group(int groupId, List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, int maxGroupSize, Calendar calendar, int progress, List<Request> requests, List<Invitation> invitations) {
         this.groupId = groupId;
-        this.studentList = studentList;
+        this.studentList = new ArrayList<>();
         this.groupSubmissionList = groupSubmissionList;
         this.groupAssignmentList = groupAssignmentList;
         this.maxGroupSize = maxGroupSize;
@@ -118,8 +121,8 @@ public class Group {
       Returns false if the group's studentList is not full
      */
     public boolean isFull(){
-        if(studentList.size() <= maxGroupSize){
-            return false;
+        if(studentList.size() <= 5){
+                return false;
         }
         return true;
     }
@@ -147,8 +150,18 @@ public class Group {
             return false;
         }else{
             studentList.add(student);
+            student.setGroupMember(true); //TODO bunu burada yapmamız lazım ama algılamıy öğrenciyi
             return true;
         }
+    }
+    /**
+     Adding a student to a group whether the group reached the max size or not
+     Will be used in some exceptional cases
+     */
+    public boolean addGroupMemberException(Student student){
+        studentList.add(student);
+        student.setGroupMember(true); //TODO bunu burada yapmamız lazım ama algılamıy öğrenciyi
+        return true;
     }
 
     /**
@@ -216,7 +229,6 @@ public class Group {
         submission.getArtifactReviews().add(artifactReview);
 
     }
-
 
     //To upload peer review for students
 
