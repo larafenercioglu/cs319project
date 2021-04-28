@@ -13,12 +13,13 @@ public class DbSeeder implements CommandLineRunner {
 
     private UserRepository userRepository;
     private StudentRepository studentRepository;
+    private GroupRepository groupRepository;
 
-    public DbSeeder(UserRepository userRepository, StudentRepository studentRepository) {
+    public DbSeeder(UserRepository userRepository, StudentRepository studentRepository, GroupRepository groupRepository) {
         this.userRepository = userRepository;
         this.studentRepository = studentRepository;
+        this.groupRepository = groupRepository;
     }
-
 
     @Override
     public void run(String... args) throws Exception {
@@ -28,12 +29,13 @@ public class DbSeeder implements CommandLineRunner {
         User lara = new Student("Lara", "Fenerci", "yes", 21804, "lara@ug.bilkent.edu.tr","student");
         User kim = new Student("Kimya","Ghasem", "kimya", 21805, "kimya@ug.bilkent.edu.tr","student");
 
-
         this.studentRepository.deleteAll();
         List<Student> users = Arrays.asList((Student) bedo, (Student) gok, (Student) tutku,(Student) lara ,(Student) kim);
-        //System.out.println(((Student) bedo).getPeerReviews());
         this.studentRepository.saveAll(users);
 
+        Group g1 = new Group();
+        g1.setStudentList(users);
+        this.groupRepository.save(g1);
         /*
             System.out.println(users.getClass());
             System.out.println(kim.getClass());

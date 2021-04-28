@@ -40,7 +40,7 @@ public class UserManager {
         return "loginIndex";
     }
 
-    /*
+    /**
         Login the system
         It is done by UserRepository class
     */
@@ -74,7 +74,7 @@ public class UserManager {
         return "redirect:/login";
     }
 
-    /*
+    /**
         Update a student by using id
         It is done by StudentRepository class
     */
@@ -92,7 +92,7 @@ public class UserManager {
         return "dashboardIndex";
     }
 
-    /*
+    /**
         Update student
         It is done by StudentRepository class
     */
@@ -109,7 +109,7 @@ public class UserManager {
         return "redirect:/login";
     }
 
-    /*
+    /**
         Delete a student by using id
         It is done by StudentRepository class
     */
@@ -119,7 +119,7 @@ public class UserManager {
         return "redirect:/login";
     }
 
-    /*
+    /**
         Register new Student
         It is done by StudentRepository class
     */
@@ -148,7 +148,7 @@ public class UserManager {
         return "redirect:/login";
     }
 
-    /*
+    /**
         Register new Instructor
         It is done by InstructorRepository class
     */
@@ -177,7 +177,7 @@ public class UserManager {
         return "redirect:/login";
     }
 
-    /*
+    /**
         Delete a instructor by using id
         It is done by instructorAndTAsRepository class
     */
@@ -187,7 +187,7 @@ public class UserManager {
         return "redirect:/login";
     }
 
-    /*
+    /**
         Update a student by using id
         It is done by StudentRepository class
     */
@@ -205,7 +205,7 @@ public class UserManager {
         return "dashboardIndex";
     }
 
-    /*
+    /**
         Update instructor
         It is done by instructorAndTAsRepository class
     */

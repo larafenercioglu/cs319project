@@ -1,10 +1,13 @@
 package cs319.group1e.procheck319;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+@Document(collection = "allGroups")
 public class Group{
     /*
         ATTRIBUTES OF GROUP
@@ -21,7 +24,8 @@ public class Group{
 
     //Default Constructor
     public Group() {
-        studentList = new ArrayList<>(); //TODO: DEFAULT OLARAK INITIALIZE ETMEMIZ GEREK
+        studentList = new ArrayList<Student>();
+        groupSubmissionList = new ArrayList<Submission>();
     }
 
     //Constructor
@@ -121,7 +125,7 @@ public class Group{
       Returns false if the group's studentList is not full
      */
     public boolean isFull(){
-        if(studentList.size() <= 5){
+        if(studentList.size() <= maxGroupSize){
                 return false;
         }
         return true;
@@ -150,7 +154,8 @@ public class Group{
             return false;
         }else{
             studentList.add(student);
-            student.setGroupMember(true); //TODO bunu burada yapmamız lazım ama algılamıy öğrenciyi
+            student.setGroupMember(true);
+            student.setStudentGroup(this);
             return true;
         }
     }
@@ -160,7 +165,8 @@ public class Group{
      */
     public boolean addGroupMemberException(Student student){
         studentList.add(student);
-        student.setGroupMember(true); //TODO bunu burada yapmamız lazım ama algılamıy öğrenciyi
+        student.setGroupMember(true);
+        student.setStudentGroup(this);
         return true;
     }
 
@@ -228,6 +234,14 @@ public class Group{
         ArtifactReview artifactReview = new ArtifactReview( context );
         submission.getArtifactReviews().add(artifactReview);
 
+    }
+
+    public String toString(){
+        String groupP = "";
+        for(int i = 0;i<this.getStudentList().size();i++){
+            groupP = groupP + " " + this.getStudentList().get(i);
+        }
+        return groupP;
     }
 
     //To upload peer review for students

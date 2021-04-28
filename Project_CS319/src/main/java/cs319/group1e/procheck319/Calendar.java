@@ -33,7 +33,6 @@ public class Calendar {
     }
 
     public void deleteEvent(Event event) {
-
         //For loop to find event
         for(int i = 0; i < events.size(); i++) {
             if(events.get(i).getTitle().equals(event.getTitle())) {

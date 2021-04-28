@@ -3,6 +3,8 @@ package cs319.group1e.procheck319;
 //import cs319.group1e.repositories.StudentRepository;
 import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -27,6 +29,8 @@ public class Student implements User {
 
     //Default Constructor
     public Student() {
+        invitations = new ArrayList<Invitation>();
+        peerReviews = new ArrayList<PeerReview>();
     }
 
     //Constructor
@@ -38,11 +42,13 @@ public class Student implements User {
         this.email = email;
         this.type = type;
         this.groupId = groupId;
-        this.peerReviews = peerReviews;
+        this.studentGroup = studentGroup;
+        this.invitations = invitations;
+        this.peerReviews = new ArrayList<>();
         this.isGroupMember = isGroupMember;
         this.isRegisteredInClass = isRegisteredInClass;
         this.studentGroup = studentGroup;
-        this.invitations = invitations;
+        this.invitations = new ArrayList<>();
     }
 
     //Constructor for Seeder
@@ -53,6 +59,14 @@ public class Student implements User {
         this.userId = userId;
         this.email = email;
         this.type = type;
+        invitations = new ArrayList<Invitation>();
+        peerReviews = new ArrayList<PeerReview>();
+        this.groupId = -1;
+        this.peerReviews = new ArrayList<>();
+        this.isGroupMember = false;
+        this.isRegisteredInClass = false;
+        this.studentGroup = null;
+        this.invitations = new ArrayList<>();
     }
 
     //Getters
@@ -181,15 +195,21 @@ public class Student implements User {
     /**
      * Student adds a submission to an assignment on behalf of group
      */
-    public void addSubmission(Group group, Assignment assignment){
-        Submission submission = new Submission();
+    public void addSubmission(Submission submission, Assignment assignment){
+        submission.setGroupId( this.groupId );
+        studentGroup.getGroupSubmissionList().add(submission);
+        assignment.getSubmissionList().add(submission);
     }
 
     /**
       Student reviews a peer
      */
-    public void reviewPeer(Group studentGroup, int studentId){
-
+    /**
+     Student reviews a peer
+     */
+    public void reviewPeer(PeerReview pr, Student s){
+        s.getPeerReviews().add(pr);
+        System.out.println("PeerReview "+pr+" has been added to Student "+s);
     }
 
     /* PS: OLD VERSION --------------------------------------------------------------------------
@@ -206,10 +226,17 @@ public class Student implements User {
         int index = subNo - 1;
         studentGroup.getRandomGroupArtifact( studentGroup.getGroupAssignmentList().get(index) );
     }
+    public boolean equals(Student s) {
+        if(this.getUserId() == s.getUserId() ){
+            return true;
+        }
+        return false;
+    }
 
     //-------------------------------------------------------------------------------------------------
 
     /**
+     TODO
       Student sends a request to a group
      */
     public void sendRequest(Group group){
@@ -218,6 +245,7 @@ public class Student implements User {
     }
 
     /**
+     TODO
       Student sends an invitation to a student on behalf of the group
       Student will get the studentId of the student that will be invited to this student's group
      */
@@ -272,5 +300,8 @@ public class Student implements User {
      */
     public void addInvitation(Invitation invitation){
         invitations.add(invitation);
+    }
+    public String toString(){
+        return this.userName;
     }
 }

@@ -3,18 +3,27 @@ package cs319.group1e.procheck319;
 import java.util.List;
 
 public class Submission {
+    private String title;
     private double grade;
     private Assignment assignment;
     private InstructorFeedback feedback;
     private List<ArtifactReview> artifactReviews;
+    private int groupId;
     //TODO: File nasıl eklenecek bilmiyom
 
     //Default Constructor
     public Submission() {
+        this.title = groupId + "_" + assignment.getTitle();
+    }
+
+    public Submission(Assignment assignment) {
+        this.assignment = assignment;
+        this.title = groupId + "_" + assignment.getTitle();
     }
 
     //Constructor
-    public Submission(double grade, Assignment assignment, InstructorFeedback feedback, List<ArtifactReview> artifactReviews) {
+    public Submission(int groupId, double grade, Assignment assignment, InstructorFeedback feedback, List<ArtifactReview> artifactReviews) {
+        this.groupId = groupId;
         this.grade = grade;
         this.assignment = assignment;
         this.feedback = feedback;
@@ -22,6 +31,10 @@ public class Submission {
     }
 
     //Getters
+    public String getTitle() {
+        return title;
+    }
+
     public double getGrade() {
         return grade;
     }
@@ -36,6 +49,10 @@ public class Submission {
 
     public List<ArtifactReview> getArtifactReviews() {
         return artifactReviews;
+    }
+
+    public int getGroupId() {
+        return groupId;
     }
 
     //Setters
@@ -55,4 +72,11 @@ public class Submission {
         this.artifactReviews = artifactReviews;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
 }

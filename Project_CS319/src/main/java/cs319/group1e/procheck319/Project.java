@@ -5,12 +5,12 @@ public class Project {
     private  int maxGroupSize;
     private Date groupFormationDeadline; // Time
     private Date projectDeadline; //Time
-    private  Date peerReviewStartDate; //Time
+    private Date peerReviewStartDate; //Time
     private Date peerReviewDeadline; // Time
     private ArrayList<Assignment> assignmentList;
 
-
     public Project() {
+        assignmentList = new ArrayList<Assignment>();
     }
 
     public Project(Map<String, Boolean> availability, int maxGroupSize, Date groupFormationDeadline, Date projectDeadline, Date peerReviewStartDate, Date peerReviewDeadline, ArrayList<Assignment> assignmentList) {
@@ -112,7 +112,5 @@ public class Project {
         }
         return false;
     }
-
-
 
 }

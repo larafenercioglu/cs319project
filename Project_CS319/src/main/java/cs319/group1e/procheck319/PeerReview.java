@@ -34,4 +34,12 @@ public class PeerReview {
     public void setReviews(List<String> reviews) {
         this.reviews = reviews;
     }
+    //TODO: reviews da eklenecek
+    public String toString(){
+        String pointss = "";
+        for(int i = 0;i<points.size();i++){
+            pointss = pointss + " " + points.get(i) + " ";
+        }
+        return pointss;
+    }
 }

@@ -3,6 +3,7 @@ package cs319.group1e.procheck319;
 import java.util.List;
 import java.util.Date;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Assignment {
 
@@ -17,6 +18,7 @@ public class Assignment {
 
     //Default Constructor
     public Assignment() {
+        submissionList = new ArrayList<Submission>();
     }
 
     //Constructor
@@ -81,8 +83,8 @@ public class Assignment {
         this.visibility = visibility;
     }
 
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
+    public void setDeadline(int year, int month, int day) {
+        this.deadline = new Date(year-1900, month-1, day);
     }
 
     public void setStartDate(Date startDate) {
@@ -96,7 +98,7 @@ public class Assignment {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    //TODO: buna bakalim
     public void addSubmission(Submission submission){
         submissionList.add(submission);
     }
@@ -112,7 +114,7 @@ public class Assignment {
         return date.after(deadline);
     }
 
-    public boolean isARtifactReviewDeeadlineOver(){
+    public boolean isArtifactReviewDeadlineOver(){
         Date date = new Date();
         return date.after(artifactReviewDeadline);
     }

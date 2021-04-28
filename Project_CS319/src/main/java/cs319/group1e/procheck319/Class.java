@@ -9,8 +9,7 @@ public class Class {
     private List<Group> groups;
     private String className;
     private List<Double> averages;
-    private Project project; //TODO: BUNU Bİ YERDE INITIALIZE ETMEMİZ LAZIM new Project() diye.... ve her class
-                                //içerisinde aynı project alınmalı!!!
+    private Project project;
     private Announcement announcementList;
     private Map<String, List<Submission>> groupSubmissions;
     private Boolean groupFormation;
@@ -21,6 +20,12 @@ public class Class {
     public Class(String classKey, String className){
         this.classKey = classKey;
         this.className = className;
+        this.project =  new Project();
+        this.instructorAndTAs = new ArrayList<>();
+        this.groups = new ArrayList<>();
+        this.students = new ArrayList<>();
+        this.averages = new ArrayList<>();
+        this.groupSubmissions = new HashMap<>() ;
     }
 
     public Class(String classKey, String className, List<Student> students, List<InstructorAndTAs> instructorAndTAs, List<Group> groups, List<Double> averages, Project project, Announcement announcementList, Map<String, List<Submission>> groupSubmissions, Boolean groupFormation) {
@@ -30,7 +35,7 @@ public class Class {
         this.groups = groups;
         this.className = className;
         this.averages = averages;
-        this.project = project;
+        this.project = new Project();
         this.announcementList = announcementList;
         this.groupSubmissions = groupSubmissions;
         this.groupFormation = groupFormation;
@@ -121,7 +126,6 @@ public class Class {
     /**
       If there are students without group then this method will form groups randomly
      */
-    //TODO YARIn
     public boolean formRandomGroups(){
         Date date =  new Date();
         //gathering students without group
@@ -130,40 +134,24 @@ public class Class {
             //Merges groups with student number less than the half of the max size
             boolean flag = false;
             int indexOfGroupToReform = 0;
-            System.out.println("\nbefore merge");
-            /*
-            for(int i = 0; i < getGroups().size(); i++){
-                System.out.println("\ngroup---");
-                for(int j = 0; j < getGroups().get(i).getStudentList().size(); j++){
-                    System.out.println("student "+getGroups().get(i).getStudentList().get(j).getUserName());
-                }
-            }
-            */
+
             for (int i = 0; i < groups.size(); i++) {
-                if ( groups.get(i).getStudentList().size() <= 5 / 2 && flag == false ) {
+                if ( groups.get(i).getStudentList().size() <= project.getMaxGroupSize() / 2 && flag == false ) {
                     indexOfGroupToReform = i;
                     flag = true;
                 }
-                else if ( groups.get(i).getStudentList().size() <= 5 / 2 && flag == true ){
+                else if ( groups.get(i).getStudentList().size() <= project.getMaxGroupSize() / 2 && flag == true ){
                     int listSize = groups.get(i).getStudentList().size();
                     for( int t = 0 ; t < listSize ; t++ ) {
                         groups.get(indexOfGroupToReform).addGroupMember(groups.get(i).getStudentList().get(0));
-                        groups.get(i).removeGroupMember(groups.get(i).getStudentList().get(0)); //remove diyince sola kaycak hep!!!!!
+                        groups.get(i).removeGroupMember(groups.get(i).getStudentList().get(0));
                     }
                     groups.remove(i);
-                    i = -1; //increment edicek yukarı çıknca!!!!!!
+                    i = -1;
                     flag = false;
                 }
             }
-            /*
-            System.out.println("\nafter merge");
-            for(int i = 0; i < getGroups().size(); i++){
-                System.out.println("\ngroup---");
-                for(int j = 0; j < getGroups().get(i).getStudentList().size(); j++){
-                    System.out.println("student "+getGroups().get(i).getStudentList().get(j).getUserName());
-                }
-            }
-               */
+
             List<Student> singles = new ArrayList<>();
             for (int i = 0; i < students.size(); i++) {
                 if (students.get(i).isGroupMember()) {
@@ -171,29 +159,24 @@ public class Class {
                 }
                 singles.add(students.get(i));
             }
-            /*
-            System.out.println("yalnız garibanlar...----------------------------------");
-            for(int i = 0; i < singles.size(); i++){
-                System.out.println(singles.get(i).getUserName());
-            }
-        System.out.println("-----------------------------------------------------------");
-            */
+
             int index = 0;
             int groupNumbersToCreate = 0;
             int studentNumberToDistribute = 0;
 
             if(flag){
-                groupNumbersToCreate = (singles.size() / 5) - 1; //olabilecek tam grup sayısı
-                studentNumberToDistribute = (singles.size() % 5) + 5; //Sayıları bir grup oluşturmayan öğrenci sayısı
+                groupNumbersToCreate = (singles.size() / project.getMaxGroupSize()) - 1; //olabilecek tam grup sayısı
+                studentNumberToDistribute = (singles.size() % project.getMaxGroupSize()) + project.getMaxGroupSize(); //Sayıları bir grup oluşturmayan öğrenci sayısı
             }
             else{
-                groupNumbersToCreate = (singles.size() / 5); //olabilecek tam grup sayısı
-                studentNumberToDistribute = (singles.size() % 5); //Sayıları bir grup oluşturmayan öğrenci sayısı
+                groupNumbersToCreate = (singles.size() / project.getMaxGroupSize()); //olabilecek tam grup sayısı
+                studentNumberToDistribute = (singles.size() % project.getMaxGroupSize()); //Sayıları bir grup oluşturmayan öğrenci sayısı
             }
 
             for(int i = 0; i < groupNumbersToCreate; i++){
                 Group g = new Group();
-                for(int j = 0; j < 5; j++){
+                g.setMaxGroupSize(project.getMaxGroupSize());
+                for(int j = 0; j < project.getMaxGroupSize(); j++){
                     g.addGroupMember(singles.get(index));
                     index += 1;
                 }
@@ -214,45 +197,32 @@ public class Class {
                 }
                 groups.get(indexOfMinGroup).addGroupMemberException(singles.get(index));
                 index++;
-
             }
-
             return true;
         //}
         //return false;
-
     }
 
-
     /**
-      Adding a student to the class
+     Adding a student to the class
      */
     public boolean addStudent(Student student){
-        if(students == null){
-            students = new ArrayList<>(); //TODO: students null veriyor initialize etmemiz gerek
-        }
         students.add(student);
         return true;
     }
 
     /**
-      Adding a instructor or TA to the class
+     Adding a instructor or TA to the class
      */
     public boolean addInstructorAndTAs(InstructorAndTAs instructorAndTA){
-        if(instructorAndTAs == null){
-            instructorAndTAs = new ArrayList<>(); //TODO: instructorAndTAs null veriyor initialize etmemiz gerek
-        }
         instructorAndTAs.add(instructorAndTA);
         return true;
     }
 
     /**
-      Adding a group to the class
+     Adding a group to the class
      */
     public boolean addGroup(Group group){
-        if(groups == null){
-            groups = new ArrayList<>(); //TODO: groups null veriyor initialize etmemiz gerek
-        }
         groups.add(group);
         return true;
     }
@@ -272,14 +242,10 @@ public class Class {
     /**
       Returns a random group from the group list
      */
-    public Group getRandomGroup(){ //TODO: burada parametre olarak group alıyodu ama saçma
+    public Group getRandomGroup(){
         Random rand = new Random();
         Group randomGroup = groups.get(rand.nextInt(groups.size()));
         return randomGroup;
-    }
-
-    public boolean isUserValid(User user){ //TODO: gerek var mı buna? usermanager'da yapıyoz zaten
-        return true;
     }
 
     /**

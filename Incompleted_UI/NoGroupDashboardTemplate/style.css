@@ -10,7 +10,7 @@ body,html {
 
 
 .my-row {
-    height: 100%;
+    height: 99vh;
 }
 
 
@@ -23,9 +23,6 @@ body,html {
     height: 40vh;
 }
 
-.my-height-80 {
-    height: 80vh;
-}
 
 .project-end-date {
     background-color: #BBAFE3;

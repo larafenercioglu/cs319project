@@ -25,7 +25,28 @@ public class InstructorAndTAs implements User {
     public InstructorAndTAs() {
     }
 
-    //Constructor
+    public InstructorAndTAs(String userName, String userSurname, String password, int userId, String email, String type) {
+        this.userName = userName;
+        this.userSurname = userSurname;
+        this.password = password;
+        this.userId = userId;
+        this.email = email;
+        this.type = type;
+    }
+
+    /**
+     * Constructor
+     * @param userName
+     * @param userSurname
+     * @param password
+     * @param userId
+     * @param email
+     * @param type
+     * @param calendar
+     * @param project
+     * @param aClass
+     * @param classKey
+     */
     public InstructorAndTAs(String userName, String userSurname, String password, int userId, String email, String type, Calendar calendar, Project project, Class aClass, String classKey) {
         this.userName = userName;
         this.userSurname = userSurname;
@@ -189,7 +210,7 @@ public class InstructorAndTAs implements User {
     /**
       Instructor creates a class
      */
-    public Class createClass(String classKey, String className){
+    public Class createClass(String className){
         Class aClass1 = new Class(createClassKey(), className);
         return aClass1;
     }
