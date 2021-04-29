@@ -16,6 +16,43 @@
     <link rel="stylesheet" href="css/theme1.css" />
     <link rel="stylesheet" href="css/style.css">
 
+    <!--Chart-->
+    <link rel="stylesheet" href="css/chartstyle.css">
+
+    <style>
+        #chart {
+            max-width: 650px;
+            margin: 35px 5px;
+        }
+    </style>
+
+    <script>
+        window.Promise ||
+            document.write(
+                '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+            )
+        window.Promise ||
+            document.write(
+                '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+            )
+        window.Promise ||
+            document.write(
+                '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+            )
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script>
+        // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+        // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+        var _seed = 42;
+        Math.random = function () {
+            _seed = _seed * 16807 % 2147483647;
+            return (_seed - 1) / 2147483646;
+        };
+    </script>
+
 </head>
 
 <body>
@@ -77,58 +114,10 @@
                         </div>
                     </div>
 
-                    <!--Invitations module-->
+                    <!--Chart module-->
                     <div class="col-md">
                         <div class="mx-1 bg-white my-height-40 d-flex flex-column my-overflow">
-                            <h5 class="text-center py-4">Group Invitations</h5>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 1
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 2
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 3
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 4
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 5
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 6
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 7
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
-                            <div>
-                                <p class="pr-3" style="display: inline-block;">
-                                    -Invitation from Group 8
-                                </p>
-                                <a href="#">View Invitation</a>
-                            </div>
+                            <div id="chart"></div>
                         </div>
                     </div>
                 </div>
@@ -288,6 +277,60 @@
 
     <script type="text/javascript" src="js/caleandar.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script>
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+            }, {
+                name: 'Revenue',
+                data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+            },
+            yaxis: {
+                title: {
+                    text: 'Grades'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return val + " points"
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+
+    </script>
 </body>
 
 </html>

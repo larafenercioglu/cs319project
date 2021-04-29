@@ -1,0 +1,88 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    background-color: #e0dfdf;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.my-row {
+    height: 100%;
+}
+
+
+.my-height-20 {
+    height: 20vh;
+
+}
+
+.my-height-40 {
+    height: 40vh;
+}
+
+.my-height-80 {
+    height: 80vh;
+}
+
+.project-end-date {
+    background-color: #BBAFE3;
+}
+
+.project-prompt {
+    font-size: 25px;
+}
+
+.my-overflow {
+    overflow: auto;
+}
+
+/*
+Progress bar css
+*/
+.progress {
+    margin: 15px;
+    width: 150px;
+    height: 100px;
+}
+
+.barOverflow { /* Wraps the rotating .bar */
+    position: relative;
+    overflow: hidden; /* Comment this line to understand the trick */
+    width: 90px; height: 45px; /* Half circle (overflow) */
+    margin-bottom: -14px; /* bring the numbers up */
+}
+
+.bar {
+    position: absolute;
+    top: 0; left: 0;
+    width: 90px; height: 90px; /* full circle! */
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 10px solid rgb(53, 4, 4);     /* half gray, */
+    border-bottom-color: #0bf;  /* half azure */
+    border-right-color: #0bf;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/*
+Calendar
+*/
