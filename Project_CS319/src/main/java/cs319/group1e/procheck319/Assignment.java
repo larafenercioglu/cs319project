@@ -87,12 +87,12 @@ public class Assignment {
         this.deadline = new Date(year-1900, month-1, day);
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStartDate(int year, int month, int day) {
+        this.startDate = new Date(year-1900, month-1, day);
     }
 
-    public void setArtifactReviewDeadline(Date artifactReviewDeadline) {
-        this.artifactReviewDeadline = artifactReviewDeadline;
+    public void setArtifactReviewDeadline(int year, int month, int day) {
+        this.artifactReviewDeadline = new Date(year-1900, month-1, day);
     }
 
     public void setTitle(String title) {

@@ -202,24 +202,29 @@ public class Group{
     }
 
     //To get a random artifact submission
-    public void getRandomGroupArtifact(Assignment assignment){
+    public Submission getRandomGroupArtifact(Assignment assignment , ArtifactReview ar){
         Random rand = new Random();
 
         int randomIndex;
         boolean flag;
 
-        do { //Check for if submission belongs to the group
-            flag = true;
-            randomIndex = rand.nextInt((groupAssignmentList.get(assignment.getAssignmentNo())).getSubmissionList().size()); //Assignment no eklenecek
-            for(int i = 0 ; i < groupSubmissionList.size() && flag ; i++){
-                if( (groupAssignmentList.get(assignment.getAssignmentNo())).getSubmissionList().get(randomIndex) == groupSubmissionList.get(i) ){
+        if(assignment.getSubmissionList().size() == 0){
+            return null;
+        }
+        else{
+            do { //Check for if submission belongs to the group
+                flag = true;
+                System.out.println(assignment.getTitle());
+                System.out.println(assignment.getSubmissionList().size());
+                randomIndex = rand.nextInt(assignment.getSubmissionList().size()); //Assignment no eklenecek
+                if( groupId == assignment.getSubmissionList().get(randomIndex).getGroupId() ){
                     flag = false;
                 }
-            }
-        }while( flag == false );
+            }while( flag == false );
 
-        reviewRandomGroupArtifact((groupAssignmentList.get(assignment.getAssignmentNo())).getSubmissionList().get(randomIndex));
-
+            assignment.getSubmissionList().get(randomIndex).getArtifactReviews().add(ar);
+            return assignment.getSubmissionList().get(randomIndex);
+        }
     }
 
     //TODO To display artifact reviews submitted for an assignment submitted by the group
@@ -227,14 +232,6 @@ public class Group{
         return null;
     }
 
-    //To review a randomly selected artifact submission as a group
-    public void reviewRandomGroupArtifact( Submission submission ){     //ArtifactReview -> Submission TODO
-
-        String context = ""; //TODO
-        ArtifactReview artifactReview = new ArtifactReview( context );
-        submission.getArtifactReviews().add(artifactReview);
-
-    }
 
     public String toString(){
         String groupP = "";

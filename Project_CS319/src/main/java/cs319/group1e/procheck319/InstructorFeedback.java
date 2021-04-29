@@ -17,4 +17,7 @@ public class InstructorFeedback {
     public void setContext(String context) {
         this.context = context;
     }
+    public String toString(){
+        return "Instructor's feedback: " + getContext();
+    }
 }

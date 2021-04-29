@@ -1,6 +1,8 @@
 package cs319.group1e.procheck319;
 
+import java.sql.Array;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Submission {
     private String title;
@@ -19,6 +21,7 @@ public class Submission {
     public Submission(Assignment assignment) {
         this.assignment = assignment;
         this.title = groupId + "_" + assignment.getTitle();
+        artifactReviews = new ArrayList<>();
     }
 
     //Constructor
@@ -27,7 +30,7 @@ public class Submission {
         this.grade = grade;
         this.assignment = assignment;
         this.feedback = feedback;
-        this.artifactReviews = artifactReviews;
+        this.artifactReviews = new ArrayList<>();
     }
 
     //Getters

@@ -41,7 +41,8 @@ public class Procheck319Application {
         assignment1.setTitle("README Document");
         assignment1.setVisibility(true);
         assignment1.setWeight(5);
-        assignment1.setDeadline(2021, 5, 3);
+        assignment1.setDeadline(2021, 1, 3);
+        ;
         p.createAssignment(assignment1);
 
         Assignment assignment2 = new Assignment();
@@ -49,15 +50,17 @@ public class Procheck319Application {
         assignment2.setTitle("Analysis Report Iteration 1");
         assignment2.setVisibility(true);
         assignment2.setWeight(0);
-        assignment2.setDeadline(2021, 11, 26);
+        assignment2.setDeadline(2022, 1, 6);
+
         p.createAssignment(assignment2);
 
         Assignment assignment3 = new Assignment();
         assignment3.setAssignmentNo(3);
         assignment3.setTitle("Design Report Iteration 1");
         assignment3.setVisibility(true);
+        assignment3.setDeadline(2021, 4, 6);
         assignment3.setWeight(0);
-        assignment3.setDeadline(2022, 1, 6);
+
         p.createAssignment(assignment3);
 
         Assignment assignment4 = new Assignment();
@@ -65,15 +68,16 @@ public class Procheck319Application {
         assignment4.setTitle("Analysis Report Iteration 2");
         assignment4.setVisibility(true);
         assignment4.setWeight(25);
-        assignment4.setDeadline(2021, 4, 6);
+        assignment4.setDeadline(2021, 5, 3);
         p.createAssignment(assignment4);
 
         Assignment assignment5 = new Assignment();
         assignment5.setAssignmentNo(5);
         assignment5.setTitle("Design Report Iteration 2");
         assignment5.setVisibility(true);
+        assignment5.setDeadline(2021, 11, 26);
         assignment5.setWeight(35);
-        assignment5.setDeadline(2021, 1, 3);
+
         p.createAssignment(assignment5);
 
         c.addInstructorAndTAs(tuzun);
@@ -130,14 +134,44 @@ public class Procheck319Application {
             System.out.println( i + " : " + c.getGroups().get(i));
         }
 
+        System.out.println("---------------ASSIGNMENT and SUBMISSION------------------");
         //Adds the assignment list to all groups
         for(int i = 0; i < c.getGroups().size(); i++){
             c.getGroups().get(i).setGroupAssignmentList(c.getProject().getAssignmentList());
         }
 
-        Submission s1Sub = new Submission( assignment1 );
+        /////////////////////////////////////////////////////////////
+        Submission s1SubToAs1 = new Submission( assignment1 );
+        Submission s2SubToAs1 = new Submission( assignment1 );
+        Submission s6SubToAs1 = new Submission( assignment1 );
+        Submission s9SubToAs1 = new Submission( assignment1 );
 
-        s1.addSubmission(s1Sub,assignment1);
+        s1.addSubmission(s1SubToAs1,assignment1);
+        s2.addSubmission(s2SubToAs1,assignment1);
+        s6.addSubmission(s6SubToAs1,assignment1);
+        s9.addSubmission(s9SubToAs1,assignment1);
+        //////////////////////////////////////////////////////////////
+        Submission s1SubToAs3 = new Submission( assignment3 );
+        Submission s2SubToAs3 = new Submission( assignment3 );
+        Submission s6SubToAs3 = new Submission( assignment3 );
+        Submission s9SubToAs3 = new Submission( assignment3 );
+
+        s1.addSubmission(s1SubToAs3,assignment3);
+        s2.addSubmission(s2SubToAs3,assignment3);
+        s6.addSubmission(s6SubToAs3,assignment3);
+        s9.addSubmission(s9SubToAs3,assignment3);
+
+        //////////////////////////////////////////////////////////////
+        Submission s1SubToAs2 = new Submission( assignment2 );
+        Submission s2SubToAs2 = new Submission( assignment2 );
+        Submission s6SubToAs2 = new Submission( assignment2 );
+        Submission s9SubToAs2 = new Submission( assignment2 );
+
+        s1.addSubmission(s1SubToAs2,assignment2);
+        s2.addSubmission(s2SubToAs2,assignment2);
+        s6.addSubmission(s6SubToAs2,assignment2);
+        s9.addSubmission(s9SubToAs2,assignment2);
+        ///////////////////////////////////////////////////////////////
 
         for(int i = 0; i < c.getGroups().get(0).getGroupAssignmentList().size(); i++){
             Assignment assign = c.getProject().getAssignmentList().get(i);
@@ -146,9 +180,44 @@ public class Procheck319Application {
 
         System.out.println("LARA BURADA " + s5.getStudentGroup().getGroupSubmissionList().get(0).getTitle());
 
+        System.out.println("---------------INSTRUCTOR FEEDBACK------------------"); //GRADE VERMİYİ DAHAAAAA
+        /*
+            assignment1 ---> s1SubToAs1     s2SubToAs1     s3SubToAs1      s4SubToAs1
+            assignment2 ---> s1SubToAs2     s2SubToAs2     s3SubToAs2      s4SubToAs2
+            assignment3 ---> s1SubToAs3     s2SubToAs3     s3SubToAs3      s4SubToAs3
+            assignment4 --->
+            assignment5 --->
+         */
+        List<String> feedbacks = new ArrayList<>();
+        feedbacks.add("yaaani daha iyi olabilirdi sizden daha iyisini beklerdim...PU");
+        feedbacks.add("aferim len size keretalar");
+        feedbacks.add("on numara beş yıldız demek isterdim ama PU");
+        feedbacks.add("olay yerindeyim rıza baba ama olay yok gibi..");
+        for(int i = 0; i < c.getProject().getAssignmentList().size(); i++){
+            for(int j = 0; j < c.getProject().getAssignmentList().get(i).getSubmissionList().size(); j++){
+                InstructorFeedback instructorFeedback = tuzun.giveFeedback(feedbacks.get(j));
+                c.getProject().getAssignmentList().get(i).getSubmissionList().get(j).setFeedback(instructorFeedback);
+            }
+        }
+
+        for(int i = 0; i < c.getProject().getAssignmentList().size(); i++){
+            System.out.println("****"+c.getProject().getAssignmentList().get(i).getTitle()+"****");
+            for(int j = 0; j < c.getProject().getAssignmentList().get(i).getSubmissionList().size(); j++){
+                System.out.println(c.getProject().getAssignmentList().get(i).getSubmissionList().get(j).getFeedback());
+            }
+        }
+        //gruplara yapılmış instructor feedbackleri görmek
+        for(int i = 0; i < c.getGroups().size(); i++){
+            System.out.println("Group "+i);
+            for(int j = 0; j < c.getGroups().get(i).getGroupSubmissionList().size(); j++){
+                System.out.println("**"+c.getGroups().get(i).getGroupSubmissionList().get(j).getTitle()+"**");
+                System.out.println(c.getGroups().get(i).getGroupSubmissionList().get(j).getFeedback());
+            }
+        }
+
         //--------------------PEER REVIEW-----------------------
         System.out.println("--------------------PEER REVIEW-----------------------");
-
+        // peer review available ise
         List<Integer> arr0 = new ArrayList<Integer>();
         arr0.add(1);
         arr0.add(3);
@@ -199,6 +268,17 @@ public class Procheck319Application {
                 System.out.println(c.getGroups().get(1).getStudentList().get(i).getPeerReviews().get(j));
             }
         }
+
+        //--------------------Artifact Review -----------------------
+
+        System.out.println("\n----------------Artifact Review--------------------\n");
+
+        Submission sub = s1.reviewArtifact("bunu beğenmedim canım dostlarım" );
+
+        System.out.println("ARTIFACT REVIEW: " + sub.getArtifactReviews().get(0));
+
+
     }
+
 
 }

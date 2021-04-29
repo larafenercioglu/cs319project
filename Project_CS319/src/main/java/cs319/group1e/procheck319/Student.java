@@ -221,11 +221,23 @@ public class Student implements User {
         Submission s = getRandomArtifact(subNo);
     }
     */
-
-    public void reviewArtifact(int subNo){
-        int index = subNo - 1;
-        studentGroup.getRandomGroupArtifact( studentGroup.getGroupAssignmentList().get(index) );
+    //TODO: subNo karar verilecek
+    public Submission reviewArtifact(String context){
+        int index = -1;
+        for( int i = 0; i < studentGroup.getGroupAssignmentList().size() ; i++ ){
+            if(studentGroup.getGroupAssignmentList().get(i).isDeadlineOver() ){
+                index = i;
+            }
+        }
+        if( index == -1){}
+        else {
+            ArtifactReview ar = new ArtifactReview(context);
+            Submission submission = studentGroup.getRandomGroupArtifact(studentGroup.getGroupAssignmentList().get(index) , ar);
+            return submission;
+        }
+        return null;
     }
+
     public boolean equals(Student s) {
         if(this.getUserId() == s.getUserId() ){
             return true;
@@ -288,12 +300,6 @@ public class Student implements User {
         studentGroup.editCalendar(studentGroup.getCalendar());
     }
 
-    /**
-      Student reviews an artifact on behalf of the group
-     */
-    public void reviewArtifact(){
-
-    }
 
     /**
       Adding invitation to the student
