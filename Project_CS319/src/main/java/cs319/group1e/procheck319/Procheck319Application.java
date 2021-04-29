@@ -27,6 +27,7 @@ public class Procheck319Application {
         Student s12 = new Student("mali","fe","3243",432,"fdl","student");
         Student s13 = new Student("leonard","fe","3243",432,"fdl","student");
         Student s14 = new Student("lara","fe","3243",432,"fdl","student");
+        Student s15 = new Student("mehmet","se","3242",432,"fal","student");
         InstructorAndTAs tuzun = new InstructorAndTAs("eray","tuzun","4590",345,"lkfgb","instructor");
 
         //creating class
@@ -96,11 +97,10 @@ public class Procheck319Application {
         c.addStudent(s12);
         c.addStudent(s13);
         c.addStudent(s14);
+        c.addStudent(s15);
 
         // group formation begins
-        Group g1 = new Group();
-        g1.setMaxGroupSize(p.getMaxGroupSize());
-        g1.addGroupMember(s1);
+        Group g1 = s1.formAGroup(1,p.getMaxGroupSize());
         //g1.addGroupMember(s5);
         //--------------------REQUEST-----------------------
         s5.sendRequest(g1);
@@ -111,22 +111,29 @@ public class Procheck319Application {
         System.out.println(g1);
         //--------------------REQUEST-----------------------
 
+        //--------------------Invitation-----------------------
+        s1.sendInvitation(s15);
+        System.out.println("--------------------AFTER SENDING AN INVITATION-----------------------");
+        System.out.println(s15.getInvitations().get(0));
+        System.out.println("--------------------AFTER ACCEPTING THE REQUEST-----------------------");
+        s5.acceptInvitation(s15.getInvitations().get(0));
+        System.out.println(g1);
+        //--------------------Invitation-----------------------
 
 
-
-        Group g2 = new Group();
+        Group g2 = new Group(2);
         g2.setMaxGroupSize(p.getMaxGroupSize());
         g2.addGroupMember(s2);
         g2.addGroupMember(s3);
         g2.addGroupMember(s4);
 
-        Group g3 = new Group();
+        Group g3 = new Group(3);
         g3.setMaxGroupSize(p.getMaxGroupSize());
         g3.addGroupMember(s6);
         g3.addGroupMember(s7);
         g3.addGroupMember(s8);
 
-        Group g4 = new Group();
+        Group g4 = new Group(4);
         g4.setMaxGroupSize(p.getMaxGroupSize());
         g4.addGroupMember(s14);
         c.addGroup(g1);
@@ -138,7 +145,7 @@ public class Procheck319Application {
         for( int i = 0 ; i < 4 ; i++ ){
             System.out.println( c.getGroups().get(i));
         }
-        System.out.println("-------------------------------------");
+        //---------------------------------------------------------------------
         c.formRandomGroups();
         System.out.println("---------------AFTER GROUP FORMATION DEADLINE------------------");
         for(int i = 0; i < c.getGroups().size(); i++){

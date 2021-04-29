@@ -33,7 +33,7 @@ public class DbSeeder implements CommandLineRunner {
         List<Student> users = Arrays.asList((Student) bedo, (Student) gok, (Student) tutku,(Student) lara ,(Student) kim);
         this.studentRepository.saveAll(users);
 
-        Group g1 = new Group();
+        Group g1 = new Group(1);
         g1.setStudentList(users);
         this.groupRepository.save(g1);
         /*

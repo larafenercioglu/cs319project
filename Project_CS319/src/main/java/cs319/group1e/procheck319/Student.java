@@ -9,7 +9,6 @@ import java.util.List;
 
 @Component
 public class Student implements User {
-    //TODO: fonksiyonlar kontrol edilecek
 
     //Properties
     private String userName;
@@ -173,25 +172,16 @@ public class Student implements User {
 
     //PS: Student Register to Class Deleted
 
-    //TODO: Gerek var mı
     /**
       Student forms a group on his/her own
      */
-    public boolean formAGroup(int groupId, List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, int maxGroupSize, Calendar calendar, int progress, List<Request> requests, List<Invitation> invitations){
-        Group group = new Group( groupId, studentList, groupSubmissionList, groupAssignmentList, maxGroupSize, calendar, progress, requests, invitations );
+    public Group formAGroup(int groupId,  int maxGroupSize ){
+        Group group = new Group( groupId, maxGroupSize);
         group.addGroupMember(this);
-        return true;
+        return group;
     }
 
-    /* OLD Version --------------------------------------------
-      Student joins an already existed group
-    public boolean joinAGroup(int groupId){
 
-        return true;
-    }
-    */
-
-    //TODO
     /**
      * Student adds a submission to an assignment on behalf of group
      */
@@ -202,9 +192,6 @@ public class Student implements User {
     }
 
     /**
-      Student reviews a peer
-     */
-    /**
      Student reviews a peer
      */
     public void reviewPeer(PeerReview pr, Student s){
@@ -212,15 +199,6 @@ public class Student implements User {
         System.out.println("PeerReview "+pr+" has been added to Student "+s);
     }
 
-    /* PS: OLD VERSION --------------------------------------------------------------------------
-    public Submission getRandomArtifact(int subNo){
-        return null;
-    }
-
-    public void reviewArtifact(int subNo){
-        Submission s = getRandomArtifact(subNo);
-    }
-    */
     //TODO: subNo karar verilecek
     public Submission reviewArtifact(String context){
         int index = -1;
@@ -245,10 +223,7 @@ public class Student implements User {
         return false;
     }
 
-    //-------------------------------------------------------------------------------------------------
-
     /**
-     TODO
       Student sends a request to a group
      */
     public void sendRequest(Group group){
@@ -257,44 +232,35 @@ public class Student implements User {
     }
 
     /**
-     TODO
-      Student sends an invitation to a student on behalf of the group
-      Student will get the studentId of the student that will be invited to this student's group
-     */
-    public void sendInvitation(int studentId){
-
-    }
-
-    /**
       Student views specific submission's feedback
      */
     public void viewFeedback(InstructorFeedback instructorFeedback){
-
+        System.out.println(instructorFeedback);
     }
 
     /**
       Student views an artifact review
      */
     public void viewArtifactReview(ArtifactReview artifactReview){
-
+        System.out.println(artifactReview);
     }
 
     /**
       Student views the invitation
      */
     public void viewInvitation(int index){
-
+        System.out.println(this.getInvitations().get(index));
     }
 
     /**
-
+        TODO
      */
     public boolean isDeadlineClose(Group studentGroup, int index){
         return true;
     }
 
     /**
-      Student edits his/her belonging group
+      Student edits his/her belonging group TODO?
      */
     public void editGroupCalendar(){
         studentGroup.editCalendar(studentGroup.getCalendar());
@@ -307,10 +273,34 @@ public class Student implements User {
         }
     }
     /**
+     Student sends an invitation to a student on behalf of the group
+     Student will get the studentId of the student that will be invited to this student's group
+     */
+    public void sendInvitation(Student student){
+        if(!studentGroup.isFull()){
+            Invitation invitation = new Invitation(student,this.studentGroup);
+            student.addInvitation(invitation);
+            studentGroup.getInvitations().add(invitation);
+            student.getInvitations().add(invitation);
+        }
+
+    }
+    /**
       Adding invitation to the student
      */
     public void addInvitation(Invitation invitation){
         invitations.add(invitation);
+    }
+    public void acceptInvitation(Invitation inv){
+        if(!inv.getSender().isFull()){
+            inv.getSender().addGroupMember(inv.getReceiver());
+            inv.getSender().getInvitations().remove(inv);
+            inv.getReceiver().getInvitations().remove(inv);
+        }else {
+            inv.getSender().getInvitations().remove(inv);
+            inv.getReceiver().getInvitations().remove(inv);
+        }
+
     }
     public String toString(){
         return this.userName;

@@ -23,10 +23,21 @@ public class Group{
     private List<Invitation> invitations;
 
     //Default Constructor
-    public Group() {
+    public Group(int groupId) {
+        this.groupId = groupId;
         studentList = new ArrayList<Student>();
         groupSubmissionList = new ArrayList<Submission>();
         requests = new ArrayList<Request>();
+        invitations = new ArrayList<Invitation>();
+    }
+
+    public Group(int groupId,  int maxGroupSize) {
+        this.groupId = groupId;
+        this.maxGroupSize = maxGroupSize;
+        studentList = new ArrayList<Student>();
+        groupSubmissionList = new ArrayList<Submission>();
+        requests = new ArrayList<Request>();
+        invitations = new ArrayList<Invitation>();
     }
 
     //Constructor
@@ -131,13 +142,7 @@ public class Group{
         }
         return true;
     }
-    /**
-      Group sends individual invitation to a student
-     */
-    public void sendInvitation(Student student){
-        Invitation invitation = new Invitation();
-        student.addInvitation(invitation);
-    }
+
 
     /**
       Calculating the progress of a group according to their submissions and assignments
@@ -171,17 +176,6 @@ public class Group{
         return true;
     }
 
-    /**
-      Group sends an invitation to a group by id
-     */
-    public void sendInvitationAsGroup(Student student){
-        User receiver = student;
-        Group sender = this;
-        boolean isAccepted = false; //TODO- ne TODO?
-        String title = "Group " + groupId + " Invitation"; //TODO- ne TODO?
-
-        Invitation groupInvitation = new Invitation( (Student)receiver, sender, isAccepted, title );
-    }
 
     /**
       Removing a group member if group
@@ -196,7 +190,7 @@ public class Group{
     }
 
     /**
-      Group calendar is edited
+      Group calendar is edited TODO?
      */
     public void editCalendar(Calendar calendar){
 
@@ -229,15 +223,15 @@ public class Group{
     }
 
     //TODO To display artifact reviews submitted for an assignment submitted by the group
-    List<ArtifactReview> showArtifactReviewsDoneByOthers( int subNo ){
+    public List<ArtifactReview> showArtifactReviewsDoneByOthers( int subNo ){
         return null;
     }
 
 
     public String toString(){
-        String groupP ="GROUP " +String.valueOf(this.getGroupId())+":\n";
+        String groupP ="GROUP " +String.valueOf(this.getGroupId())+":\t";
         for(int i = 0;i<this.getStudentList().size();i++){
-            groupP = groupP + " " + this.getStudentList().get(i)+"\n";
+            groupP = groupP + " " + this.getStudentList().get(i)+"\t";
         }
         return groupP;
     }

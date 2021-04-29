@@ -21,7 +21,7 @@ public class GroupManager {
     @GetMapping("/formGroup")
     public String getMain(Model theModel) {
         // create model attribute to bind form data
-        Group theGroup = new Group();
+        Group theGroup = new Group(5);
 
         theModel.addAttribute("group", theGroup);
         return "";
