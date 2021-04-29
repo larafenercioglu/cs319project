@@ -58,7 +58,6 @@ public class Procheck319Application {
         assignment2.setVisibility(true);
         assignment2.setWeight(0);
         assignment2.setDeadline(2022, 1, 6);
-
         p.createAssignment(assignment2);
 
         Assignment assignment3 = new Assignment();
@@ -67,7 +66,6 @@ public class Procheck319Application {
         assignment3.setVisibility(true);
         assignment3.setDeadline(2021, 4, 6);
         assignment3.setWeight(0);
-
         p.createAssignment(assignment3);
 
         Assignment assignment4 = new Assignment();
@@ -84,9 +82,7 @@ public class Procheck319Application {
         assignment5.setVisibility(true);
         assignment5.setDeadline(2021, 11, 26);
         assignment5.setWeight(35);
-
         p.createAssignment(assignment5);
-
 
         //-----------------------------classkey dogru girilirse eger-----------------------------
         c.addStudent(s1);
@@ -177,17 +173,7 @@ public class Procheck319Application {
         s6.addSubmission(s6SubToAs1,assignment1);
         s9.addSubmission(s9SubToAs1,assignment1);
         //////////////////////////////////////////////////////////////
-        Submission s1SubToAs3 = new Submission( assignment3 );
-        Submission s2SubToAs3 = new Submission( assignment3 );
-        Submission s6SubToAs3 = new Submission( assignment3 );
-        Submission s9SubToAs3 = new Submission( assignment3 );
 
-        s1.addSubmission(s1SubToAs3,assignment3);
-        s2.addSubmission(s2SubToAs3,assignment3);
-        s6.addSubmission(s6SubToAs3,assignment3);
-        s9.addSubmission(s9SubToAs3,assignment3);
-
-        //////////////////////////////////////////////////////////////
         Submission s1SubToAs2 = new Submission( assignment2 );
         Submission s2SubToAs2 = new Submission( assignment2 );
         Submission s6SubToAs2 = new Submission( assignment2 );
@@ -198,6 +184,39 @@ public class Procheck319Application {
         s6.addSubmission(s6SubToAs2,assignment2);
         s9.addSubmission(s9SubToAs2,assignment2);
         ///////////////////////////////////////////////////////////////
+
+        Submission s1SubToAs3 = new Submission( assignment3 );
+        Submission s2SubToAs3 = new Submission( assignment3 );
+        Submission s6SubToAs3 = new Submission( assignment3 );
+        Submission s9SubToAs3 = new Submission( assignment3 );
+
+        s1.addSubmission(s1SubToAs3,assignment3);
+        s2.addSubmission(s2SubToAs3,assignment3);
+        s6.addSubmission(s6SubToAs3,assignment3);
+        s9.addSubmission(s9SubToAs3,assignment3);
+        //////////////////////////////////////////////////////////////
+
+        Submission s1SubToAs4 = new Submission( assignment4 );
+        Submission s2SubToAs4 = new Submission( assignment4 );
+        Submission s6SubToAs4 = new Submission( assignment4 );
+        Submission s9SubToAs4 = new Submission( assignment4 );
+
+        s1.addSubmission(s1SubToAs4,assignment4);
+        //s2.addSubmission(s2SubToAs4,assignment4);
+        //s6.addSubmission(s6SubToAs4,assignment4);
+        //s9.addSubmission(s9SubToAs4,assignment4);
+        //////////////////////////////////////////////////////////////
+
+        Submission s1SubToAs5 = new Submission( assignment5 );
+        Submission s2SubToAs5 = new Submission( assignment5 );
+        Submission s6SubToAs5 = new Submission( assignment5 );
+        Submission s9SubToAs5 = new Submission( assignment5 );
+
+        s1.addSubmission(s1SubToAs5,assignment5);
+        s2.addSubmission(s2SubToAs5,assignment5);
+        s6.addSubmission(s6SubToAs5,assignment5);
+        //s9.addSubmission(s9SubToAs5,assignment5);
+        //////////////////////////////////////////////////////////////
 
         for(int i = 0; i < c.getGroups().get(0).getGroupAssignmentList().size(); i++){
             Assignment assign = c.getProject().getAssignmentList().get(i);
@@ -321,6 +340,13 @@ public class Procheck319Application {
             }
         }
 
+        //displaying progress for each group
+        System.out.println("-----------PROGRESS FOR EACH GROUP-----------");
+        for(int i = 0; i < c.getGroups().size(); i++){
+            System.out.println("-----------GROUP " + (i+1) + "s PROGRESS-----------");
+            c.getGroups().get(i).calculateProgress();
+            System.out.println("%"+c.getGroups().get(i).getProgress());
+        }
     }
 
 

@@ -19,7 +19,7 @@ public class Group{
     private List<Announcement> announcementList;
     private int maxGroupSize;
     private Calendar calendar;
-    private int progress;
+    private double progress;
     private List<Request> requests;
     private List<Invitation> invitations;
 
@@ -52,7 +52,7 @@ public class Group{
     }
 
     //Constructor
-    public Group(int groupId, List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, List<Announcement> announcementList, int maxGroupSize, Calendar calendar, int progress, List<Request> requests, List<Invitation> invitations) {
+    public Group(int groupId, List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, List<Announcement> announcementList, int maxGroupSize, Calendar calendar, double progress, List<Request> requests, List<Invitation> invitations) {
         this.groupId = groupId;
         this.studentList = studentList;
         this.groupSubmissionList = groupSubmissionList;
@@ -90,7 +90,7 @@ public class Group{
         this.calendar = calendar;
     }
 
-    public void setProgress(int progress) {
+    public void setProgress(double progress) {
         this.progress = progress;
     }
 
@@ -127,7 +127,7 @@ public class Group{
         return calendar;
     }
 
-    public int getProgress() {
+    public double getProgress() {
         return progress;
     }
 
@@ -159,9 +159,10 @@ public class Group{
     /**
       Calculating the progress of a group according to their submissions and assignments
      */
-    public void calculateProgress(){
+    public void calculateProgress(){ //yüzdelik hesaplayak
         double progressOfGroup;
-        progressOfGroup = (double)(groupSubmissionList.size()) / (double)(groupAssignmentList.size());
+        progressOfGroup = ((double)(groupSubmissionList.size()) / (double)(groupAssignmentList.size()))*100;
+        this.progress = progressOfGroup;
     }
 
     /**
