@@ -252,7 +252,7 @@ public class Student implements User {
       Student sends a request to a group
      */
     public void sendRequest(Group group){
-        Request request = new Request();
+        Request request = new Request(group,this);
         group.getRequests().add(request);
     }
 
@@ -300,7 +300,12 @@ public class Student implements User {
         studentGroup.editCalendar(studentGroup.getCalendar());
     }
 
-
+    public void acceptRequest(Request req){
+        if(!studentGroup.isFull()){
+            studentGroup.addGroupMember(req.getSender());
+            studentGroup.getRequests().remove(req);
+        }
+    }
     /**
       Adding invitation to the student
      */

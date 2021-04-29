@@ -26,6 +26,7 @@ public class Group{
     public Group() {
         studentList = new ArrayList<Student>();
         groupSubmissionList = new ArrayList<Submission>();
+        requests = new ArrayList<Request>();
     }
 
     //Constructor
@@ -234,9 +235,9 @@ public class Group{
 
 
     public String toString(){
-        String groupP = "";
+        String groupP ="GROUP " +String.valueOf(this.getGroupId())+":\n";
         for(int i = 0;i<this.getStudentList().size();i++){
-            groupP = groupP + " " + this.getStudentList().get(i);
+            groupP = groupP + " " + this.getStudentList().get(i)+"\n";
         }
         return groupP;
     }
