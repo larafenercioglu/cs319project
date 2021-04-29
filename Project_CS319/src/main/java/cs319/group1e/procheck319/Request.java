@@ -12,7 +12,12 @@ public class Request {
     private String content;
 
     //default constructor
-    public Request(){
+    public Request(Group receiver, Student sender){
+        this.receiver = receiver;
+        this.sender = sender;
+        this.isAccepted = false;
+        this.title = null;
+        this.content = null;
     }
 
     //Constructor
@@ -63,5 +68,10 @@ public class Request {
 
     public void setContent(String content) {
         this.content = content;
+    }
+    public String toString(){
+        String req = "";
+        req = sender + " has sent and invitation to your group: "+receiver;
+        return req;
     }
 }

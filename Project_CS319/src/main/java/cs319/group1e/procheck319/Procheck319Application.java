@@ -101,7 +101,18 @@ public class Procheck319Application {
         Group g1 = new Group();
         g1.setMaxGroupSize(p.getMaxGroupSize());
         g1.addGroupMember(s1);
-        g1.addGroupMember(s5);
+        //g1.addGroupMember(s5);
+        //--------------------REQUEST-----------------------
+        s5.sendRequest(g1);
+        System.out.println("--------------------BEFORE SENDING A REQUEST-----------------------");
+        System.out.println(s1.getStudentGroup().getRequests());;
+        s1.acceptRequest(s1.getStudentGroup().getRequests().get(0));
+        System.out.println("--------------------AFTER SENDING AND ACCEPTING A REQUEST-----------------------");
+        System.out.println(g1);
+        //--------------------REQUEST-----------------------
+
+
+
 
         Group g2 = new Group();
         g2.setMaxGroupSize(p.getMaxGroupSize());
@@ -125,13 +136,13 @@ public class Procheck319Application {
 
         System.out.println("--------------------BEFORE GROUP FORMATION DEADLINE-----------------------");
         for( int i = 0 ; i < 4 ; i++ ){
-            System.out.println( i + " : " + c.getGroups().get(i));
+            System.out.println( c.getGroups().get(i));
         }
         System.out.println("-------------------------------------");
         c.formRandomGroups();
         System.out.println("---------------AFTER GROUP FORMATION DEADLINE------------------");
         for(int i = 0; i < c.getGroups().size(); i++){
-            System.out.println( i + " : " + c.getGroups().get(i));
+            System.out.println( c.getGroups().get(i));
         }
 
         System.out.println("---------------ASSIGNMENT and SUBMISSION------------------");
@@ -254,6 +265,7 @@ public class Procheck319Application {
         2 :  doga aslı ömer
         3 :  fadik leman furkan mali leonard
          */
+
         for(int j = 0; j < c.getGroups().get(1).getStudentList().size(); j++){
             for(int i =0;i<c.getGroups().get(1).getStudentList().size(); i++){
                 if(c.getGroups().get(1).getStudentList().get(j) == (c.getGroups().get(1).getStudentList().get(i))){
