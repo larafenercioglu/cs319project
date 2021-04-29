@@ -231,15 +231,40 @@ public class Class {
     }
 
     /**
+     Calculates the average grade of a all assignments
+     */
+    public void calculateAllAverages(){
+        for(int i = 0 ; i < project.getAssignmentList().size() ; i++ ){
+            calculateAverageOfAnAssignment(project.getAssignmentList().get(i));
+        }
+    }
+
+    /**
       Calculates the average grade of a specific assignment
      */
-    public double calculateAverage(Assignment assignment){
+    public double calculateAverageOfAnAssignment(Assignment assignment){
+        double average;
         int sum = 0;
         int length = assignment.getSubmissionList().size();
-        for(int i = 0; i < length; i++){
-            sum += assignment.getSubmissionList().get(i).getGrade();
+        int gradedLength = 0;
+
+        if( length != 0 ) {
+            for (int i = 0; i < length; i++) {
+                if (assignment.getSubmissionList().get(i).getIsGraded()) {
+                    sum += assignment.getSubmissionList().get(i).getGrade();
+                    gradedLength++;
+                }
+            }
+            if(gradedLength == 0){
+                average = 0;
+            }
+            else {
+                average = sum / gradedLength;
+                assignment.setAverage(average);
+            }
+            return average;
         }
-        return sum / length;
+        return -1;
     }
 
     /**

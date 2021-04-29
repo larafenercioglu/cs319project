@@ -11,6 +11,7 @@ public class Submission {
     private InstructorFeedback feedback;
     private List<ArtifactReview> artifactReviews;
     private int groupId;
+    private boolean isGraded;
     //TODO: File nasıl eklenecek bilmiyom
 
     //Default Constructor
@@ -58,6 +59,10 @@ public class Submission {
         return groupId;
     }
 
+    public boolean getIsGraded(){
+        return isGraded;
+    }
+
     //Setters
     public void setGrade(double grade) {
         this.grade = grade;
@@ -81,5 +86,9 @@ public class Submission {
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
+    }
+
+    public void setIsGraded(boolean isGraded){
+        this.isGraded = isGraded;
     }
 }

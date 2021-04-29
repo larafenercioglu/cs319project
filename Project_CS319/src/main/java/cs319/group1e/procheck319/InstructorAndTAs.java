@@ -175,6 +175,7 @@ public class InstructorAndTAs implements User {
 
     public boolean gradeSubmission(Submission sub, double grade){
         sub.setGrade(grade);
+        sub.setIsGraded(true);
         return true;
     }
 

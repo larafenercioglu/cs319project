@@ -292,6 +292,7 @@ public class Student implements User {
     public void addInvitation(Invitation invitation){
         invitations.add(invitation);
     }
+
     public void acceptInvitation(Invitation inv){
         if(!inv.getSender().isFull()){
             inv.getSender().addGroupMember(inv.getReceiver());

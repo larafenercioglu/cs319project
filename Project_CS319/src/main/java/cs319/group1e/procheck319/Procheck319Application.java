@@ -84,6 +84,14 @@ public class Procheck319Application {
         assignment5.setWeight(35);
         p.createAssignment(assignment5);
 
+        Assignment assignment6 = new Assignment();
+        assignment6.setAssignmentNo(6);
+        assignment6.setTitle("Presentation");
+        assignment6.setVisibility(true);
+        assignment6.setDeadline(2021, 12, 29);
+        assignment6.setWeight(10);
+        p.createAssignment(assignment6);
+
         //-----------------------------classkey dogru girilirse eger-----------------------------
         c.addStudent(s1);
         c.addStudent(s2);
@@ -349,8 +357,28 @@ public class Procheck319Application {
         }
 
         System.out.println("\n-----------GRADING-----------");
-        tuzun.gradeSubmission(s1SubToAs1, 74);
-        tuzun.gradeSubmission(s2SubToAs1, 95);
+        tuzun.gradeSubmission(s1SubToAs1, 70);
+        tuzun.gradeSubmission(s2SubToAs1, 70);
+        tuzun.gradeSubmission(s6SubToAs1, 90);
+        tuzun.gradeSubmission(s9SubToAs1, 90);
+
+        tuzun.gradeSubmission(s1SubToAs2, 50);
+        tuzun.gradeSubmission(s2SubToAs2, 50);
+        tuzun.gradeSubmission(s6SubToAs2, 60);
+        tuzun.gradeSubmission(s9SubToAs2, 60);
+
+        //tuzun.gradeSubmission(s1SubToAs3, 20);
+        tuzun.gradeSubmission(s2SubToAs3, 40);
+        //tuzun.gradeSubmission(s6SubToAs3, 20);
+        //tuzun.gradeSubmission(s9SubToAs3, 40);
+
+        tuzun.gradeSubmission(s1SubToAs4, 77);
+
+        tuzun.gradeSubmission(s1SubToAs5, 60);
+        tuzun.gradeSubmission(s2SubToAs5, 65);
+        tuzun.gradeSubmission(s6SubToAs5, 70);
+
+
         System.out.println("Grade: " + s1SubToAs1.getGrade());
         System.out.println("Grade: " + s2SubToAs1.getGrade());
 
@@ -375,6 +403,12 @@ public class Procheck319Application {
             System.out.println( "\n" + (i+1) + ")" + g2.getAnnouncementList().get(i).getTitle() );
             System.out.println( g2.getAnnouncementList().get(i).getContext() );
             System.out.println( "written by - " + g2.getAnnouncementList().get(i).getAuthor() );
+        }
+
+        System.out.println("\n-----------CALCULATE AVERAGE-----------\n");
+        c.calculateAllAverages();
+        for(int i = 0 ; i < p.getAssignmentList().size() ; i++) {
+            System.out.println( "Average of Assignment " + (i+1) + " : " + p.getAssignmentList().get(i).getAverage());
         }
     }
 

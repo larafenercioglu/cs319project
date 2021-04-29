@@ -15,6 +15,7 @@ public class Assignment {
     private Date startDate; //Date olmayabilir
     private Date artifactReviewDeadline; //Date olmayabilir
     private String title;
+    private double average;
 
     //Default Constructor
     public Assignment() {
@@ -31,6 +32,7 @@ public class Assignment {
         this.startDate = startDate;
         this.artifactReviewDeadline = artifactReviewDeadline;
         this.title = title;
+        this.average = average;
     }
 
     //Getter
@@ -66,6 +68,10 @@ public class Assignment {
         return title;
     }
 
+    public double getAverage() {
+        return average;
+    }
+
     //Setter
     public void setAssignmentNo(int assignmentNo) {
         this.assignmentNo = assignmentNo;
@@ -98,6 +104,11 @@ public class Assignment {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public void setAverage(double average) {
+        this.average = average;
+    }
+
     //TODO: buna bakalim
     public void addSubmission(Submission submission){
         submissionList.add(submission);
@@ -128,5 +139,6 @@ public class Assignment {
         Random rand = new Random();
         return submissionList.get(rand.nextInt(submissionList.size()));
     }
+
 
 }
