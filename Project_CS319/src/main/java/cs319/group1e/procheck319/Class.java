@@ -174,7 +174,7 @@ public class Class {
             }
 
             for(int i = 0; i < groupNumbersToCreate; i++){
-                Group g = new Group();
+                Group g = new Group(5);
                 g.setMaxGroupSize(project.getMaxGroupSize());
                 for(int j = 0; j < project.getMaxGroupSize(); j++){
                     g.addGroupMember(singles.get(index));

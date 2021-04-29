@@ -10,7 +10,11 @@ public class Invitation {
     private boolean isAccepted;
     private String title;
 
-    public Invitation() {
+    public Invitation(Student receiver, Group sender) {
+        this.receiver = receiver;
+        this.sender = sender;
+        this.isAccepted = false;
+        this.title = "Group " + sender.getGroupId()+ " Invitation";
     }
 
     //Constructor
@@ -53,5 +57,9 @@ public class Invitation {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+    public String toString(){
+        String inv = sender + " has sent an invitation to you "+ receiver;
+        return inv;
     }
 }
