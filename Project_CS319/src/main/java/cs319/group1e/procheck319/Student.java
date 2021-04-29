@@ -195,9 +195,27 @@ public class Student implements User {
     /**
      Student reviews a peer
      */
+    /*
     public void reviewPeer(PeerReview pr, Student s){
         s.getPeerReviews().add(pr);
         System.out.println("PeerReview "+pr+" has been added to Student "+s);
+    }
+     */
+
+    public void reviewPeer(Student s, int point1, int point2, int point3, int point4, int point5, String response1, String response2 ){
+        if(this.groupId == s.getGroupId()){
+            List<Integer> arrPoint = new ArrayList<Integer>();
+            arrPoint.add(point1);
+            arrPoint.add(point2);
+            arrPoint.add(point3);
+            arrPoint.add(point4);
+            arrPoint.add(point5);
+            List<String> arrText = new ArrayList<String>();
+            arrText.add(response1);
+            arrText.add(response2);
+            PeerReview pr = new PeerReview(arrPoint, arrText);
+            s.getPeerReviews().add(pr);
+        }
     }
 
     //TODO: subNo karar verilecek

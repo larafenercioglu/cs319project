@@ -270,54 +270,35 @@ public class Procheck319Application {
         }
 
         //--------------------PEER REVIEW-----------------------
-        System.out.println("--------------------PEER REVIEW-----------------------");
-        // peer review available ise
-        List<Integer> arr0 = new ArrayList<Integer>();
-        arr0.add(1);
-        arr0.add(3);
-        arr0.add(1);
-        arr0.add(2);
-        PeerReview pr0 = new PeerReview(arr0);
-        ArrayList arr1 = new ArrayList<Integer>();
-        arr1.add(5);
-        arr1.add(5);
-        arr1.add(5);
-        arr1.add(5);
-        PeerReview pr1 = new PeerReview(arr1);
-        ArrayList arr2 = new ArrayList<Integer>();
-        arr2.add(5);
-        arr2.add(3);
-        arr2.add(4);
-        arr2.add(1);
-        PeerReview pr2 = new PeerReview(arr2);
-        ArrayList arr3 = new ArrayList<Integer>();
-        arr3.add(5);
-        arr3.add(5);
-        arr3.add(4);
-        arr3.add(4);
-        PeerReview pr3 = new PeerReview(arr3);
-        List<PeerReview> prList = new ArrayList<PeerReview>();
-        prList.add(pr0);
-        prList.add(pr1);
-        prList.add(pr2);
-        prList.add(pr3);
+        System.out.println("--------------------PEER REVIEW-------------------");
+        // peer review available ise        s1 s5 s15 s11 --- s2 s3 s4 s12 --- s6 s7 s8 s13 --- s14 s9 s10
 
-        //AADING THE PEER REVIEWS OF GROUP 2
-        for(int j = 0; j < c.getGroups().get(1).getStudentList().size(); j++){
-            for(int i =0;i<c.getGroups().get(1).getStudentList().size(); i++){
-                if(c.getGroups().get(1).getStudentList().get(j) == (c.getGroups().get(1).getStudentList().get(i))){
-                    continue;
-                }
-                c.getGroups().get(1).getStudentList().get(j).reviewPeer(prList.get(i),c.getGroups().get(1).getStudentList().get(i));
+        s1.reviewPeer(s15, 1, 3, 1, 2, 4, "I didnt like him", "I would never work with him ever again!");
+        s1.reviewPeer(s11, 5, 5, 5, 5, 1, "He was generally good", "But I didnt like his personality");
+        s1.reviewPeer(s5, 8, 5,3,5,6, "He was really helpful", "");
+
+        s5.reviewPeer(s1,5,5,5,5,5, "bilemiyorum altan","olur giibi");
+        s5.reviewPeer(s15,4,4,5,5, 5, "super birisi", "");
+        s5.reviewPeer(s11,3,4,3,5,5,"daha iyi olabilirdi", "tamam");
+
+
+        s15.reviewPeer(s1, 1, 1,1,1,1, "Idiot", "No");
+        s15.reviewPeer(s11, 2, 2,3,1, 2 , "cs bilgisi yok sadece kopya çekerek gelmiş proje proje diye geziyor ama iş yapmıyor", "Çalışmam");
+        s15.reviewPeer(s11, 5, 5,5,5, 5 , "süper adam", "kesinlikle tekrar çalışmak isterim");
+
+        s11.reviewPeer(s1,3,2,1,4,3,"bana bisi yazdırmadı hic","no comment");
+        s11.reviewPeer(s5,1,1,1,4,5,"venedik pasta ısmarladı","vahim");
+        s11.reviewPeer(s15,2,2,5,1,1,"raporları yazdırmadı bana","");
+
+
+        //SHOWING THE PEER REVIEWS OF GROUP 1
+        for(int i = 0; i < c.getGroups().get(0).getStudentList().size(); i++){
+            System.out.println("Student " + c.getGroups().get(0).getStudentList().get(i).getUserName() + " has peer reviews as follows...");
+            for(int j = 0; j < c.getGroups().get(0).getStudentList().get(i).getPeerReviews().size(); j++){
+                System.out.println(c.getGroups().get(0).getStudentList().get(i).getPeerReviews().get(j));
             }
         }
 
-        //SHOWING THE PEER REVIEWS OF GROUP 2
-        for(int i = 0; i < c.getGroups().get(1).getStudentList().size(); i++){
-            for(int j = 0; j < c.getGroups().get(1).getStudentList().get(i).getPeerReviews().size(); j++){
-                System.out.println(c.getGroups().get(1).getStudentList().get(i).getPeerReviews().get(j));
-            }
-        }
 
         //--------------------Artifact Review -----------------------
 
