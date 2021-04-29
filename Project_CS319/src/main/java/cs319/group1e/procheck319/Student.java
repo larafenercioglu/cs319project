@@ -26,6 +26,7 @@ public class Student implements User {
     private Group studentGroup;
     private List<Invitation> invitations;
 
+
     //Default Constructor
     public Student() {
         invitations = new ArrayList<Invitation>();

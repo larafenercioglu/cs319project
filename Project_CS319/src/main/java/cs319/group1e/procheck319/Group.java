@@ -16,11 +16,20 @@ public class Group{
     private List<Student> studentList;
     private List<Submission> groupSubmissionList;
     private List<Assignment> groupAssignmentList;
+    private List<Announcement> announcementList;
     private int maxGroupSize;
     private Calendar calendar;
     private int progress;
     private List<Request> requests;
     private List<Invitation> invitations;
+
+    public List<Announcement> getAnnouncementList() {
+        return announcementList;
+    }
+
+    public void setAnnouncementList(List<Announcement> announcementList) {
+        this.announcementList = announcementList;
+    }
 
     //Default Constructor
     public Group(int groupId) {
@@ -29,6 +38,7 @@ public class Group{
         groupSubmissionList = new ArrayList<Submission>();
         requests = new ArrayList<Request>();
         invitations = new ArrayList<Invitation>();
+        announcementList = new ArrayList<>();
     }
 
     public Group(int groupId,  int maxGroupSize) {
@@ -38,12 +48,13 @@ public class Group{
         groupSubmissionList = new ArrayList<Submission>();
         requests = new ArrayList<Request>();
         invitations = new ArrayList<Invitation>();
+        announcementList = new ArrayList<>();
     }
 
     //Constructor
-    public Group(int groupId, List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, int maxGroupSize, Calendar calendar, int progress, List<Request> requests, List<Invitation> invitations) {
+    public Group(int groupId, List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, List<Announcement> announcementList, int maxGroupSize, Calendar calendar, int progress, List<Request> requests, List<Invitation> invitations) {
         this.groupId = groupId;
-        this.studentList = new ArrayList<>();
+        this.studentList = studentList;
         this.groupSubmissionList = groupSubmissionList;
         this.groupAssignmentList = groupAssignmentList;
         this.maxGroupSize = maxGroupSize;
@@ -51,6 +62,7 @@ public class Group{
         this.progress = progress;
         this.requests = requests;
         this.invitations = invitations;
+        this.announcementList = announcementList;
     }
 
     //SETTERS
@@ -235,6 +247,7 @@ public class Group{
         }
         return groupP;
     }
+
 
     //To upload peer review for students
 

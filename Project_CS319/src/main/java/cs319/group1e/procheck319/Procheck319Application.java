@@ -12,7 +12,7 @@ public class Procheck319Application {
     public static void main(String[] args) {
         SpringApplication.run(Procheck319Application.class, args);
 
-        //Adding student and instructor
+        //-----------------------------Adding student and instructor-----------------------------
         Student s1 = new Student("ayşe","fe","3243",432,"fdl","student");
         Student s2 = new Student("fatma","fe","3243",432,"fdl","student");
         Student s3 = new Student("hayriye","fe","3243",432,"fdl","student");
@@ -29,13 +29,20 @@ public class Procheck319Application {
         Student s14 = new Student("lara","fe","3243",432,"fdl","student");
         Student s15 = new Student("mehmet","se","3242",432,"fal","student");
         InstructorAndTAs tuzun = new InstructorAndTAs("eray","tuzun","4590",345,"lkfgb","instructor");
+        InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun","jabrayilzade","8886",315,"hehe","instructor");
 
-        //creating class
+        //-----------------------------creating class-----------------------------
         Class c = tuzun.createClass("CS319");
         String classKey = c.getClassKey();
-        //creating project
+
+        c.addInstructorAndTAs(tuzun);
+        c.addInstructorAndTAs(jabrayilzade);
+
+        //-----------------------------creating project-----------------------------
         Project p = c.getProject();
         p.setMaxGroupSize(5);
+
+        //-----------------------------assignments-----------------------------
 
         Assignment assignment1 = new Assignment();
         assignment1.setAssignmentNo(1);
@@ -43,7 +50,6 @@ public class Procheck319Application {
         assignment1.setVisibility(true);
         assignment1.setWeight(5);
         assignment1.setDeadline(2021, 1, 3);
-        ;
         p.createAssignment(assignment1);
 
         Assignment assignment2 = new Assignment();
@@ -81,8 +87,8 @@ public class Procheck319Application {
 
         p.createAssignment(assignment5);
 
-        c.addInstructorAndTAs(tuzun);
-        // classkey dogru girilirse eger
+
+        //-----------------------------classkey dogru girilirse eger-----------------------------
         c.addStudent(s1);
         c.addStudent(s2);
         c.addStudent(s3);
@@ -99,9 +105,10 @@ public class Procheck319Application {
         c.addStudent(s14);
         c.addStudent(s15);
 
-        // group formation begins
+        //-----------------------------group formation begins-----------------------------
         Group g1 = s1.formAGroup(1,p.getMaxGroupSize());
         //g1.addGroupMember(s5);
+
         //--------------------REQUEST-----------------------
         s5.sendRequest(g1);
         System.out.println("--------------------BEFORE SENDING A REQUEST-----------------------");
@@ -120,7 +127,7 @@ public class Procheck319Application {
         System.out.println(g1);
         //--------------------Invitation-----------------------
 
-
+        //-----------------------------adding groups-----------------------------
         Group g2 = new Group(2);
         g2.setMaxGroupSize(p.getMaxGroupSize());
         g2.addGroupMember(s2);
@@ -136,6 +143,7 @@ public class Procheck319Application {
         Group g4 = new Group(4);
         g4.setMaxGroupSize(p.getMaxGroupSize());
         g4.addGroupMember(s14);
+
         c.addGroup(g1);
         c.addGroup(g2);
         c.addGroup(g3);
@@ -158,7 +166,7 @@ public class Procheck319Application {
             c.getGroups().get(i).setGroupAssignmentList(c.getProject().getAssignmentList());
         }
 
-        /////////////////////////////////////////////////////////////
+        //-----------------------------adding submissions-----------------------------
         Submission s1SubToAs1 = new Submission( assignment1 );
         Submission s2SubToAs1 = new Submission( assignment1 );
         Submission s6SubToAs1 = new Submission( assignment1 );
@@ -218,6 +226,7 @@ public class Procheck319Application {
             }
         }
 
+        //assignmentların submissionlarına yapılan feedbackleri görmek
         for(int i = 0; i < c.getProject().getAssignmentList().size(); i++){
             System.out.println("****"+c.getProject().getAssignmentList().get(i).getTitle()+"****");
             for(int j = 0; j < c.getProject().getAssignmentList().get(i).getSubmissionList().size(); j++){
@@ -266,13 +275,7 @@ public class Procheck319Application {
         prList.add(pr2);
         prList.add(pr3);
 
-        /*
-        0 :  ayşe lale lara
-        1 :  fatma hayriye figen
-        2 :  doga aslı ömer
-        3 :  fadik leman furkan mali leonard
-         */
-
+        //AADING THE PEER REVIEWS OF GROUP 2
         for(int j = 0; j < c.getGroups().get(1).getStudentList().size(); j++){
             for(int i =0;i<c.getGroups().get(1).getStudentList().size(); i++){
                 if(c.getGroups().get(1).getStudentList().get(j) == (c.getGroups().get(1).getStudentList().get(i))){
@@ -282,6 +285,7 @@ public class Procheck319Application {
             }
         }
 
+        //SHOWING THE PEER REVIEWS OF GROUP 2
         for(int i = 0; i < c.getGroups().get(1).getStudentList().size(); i++){
             for(int j = 0; j < c.getGroups().get(1).getStudentList().get(i).getPeerReviews().size(); j++){
                 System.out.println(c.getGroups().get(1).getStudentList().get(i).getPeerReviews().get(j));
@@ -296,6 +300,26 @@ public class Procheck319Application {
 
         System.out.println("ARTIFACT REVIEW: " + sub.getArtifactReviews().get(0));
 
+
+        //----------------------INTSTRUCTOR MAKES AN ANNOUNCEMENT
+        Announcement announcement1 = tuzun.announce("Related to Grading update that we talked about today here is the latest version: Final 30%, Project 40 %, Midterm 15%,  Q1 (1)+GitLab(5)+Design Patterns Lab (7) + Attendance to final presentations (2)","Grading");
+        Announcement announcement2 = jabrayilzade.announce("Please share the links for these 2 things in the appropriate column in the Final Demo Schedule (a Google sheet to which you have write access) in the course page.","Project Demo Links");
+        c.addAnnouncement(announcement1);
+        c.addAnnouncement(announcement2);
+
+        //displaying announcements in the class
+        System.out.println("-----------CLASS ANNOUNCEMENTS-----------");
+        for(int i = 0; i < c.getAnnouncementList().size(); i++){
+            System.out.println(c.getAnnouncementList().get(i));
+        }
+
+        //displaying announcements from group class
+        for(int i = 0; i < c.getGroups().size(); i++){
+            System.out.println("-----------GROUP " + (i+1) + "s ANNOUNCEMENTS-----------");
+            for(int j = 0; j < c.getGroups().get(i).getAnnouncementList().size(); j++){
+                System.out.println(c.getGroups().get(i).getAnnouncementList().get(j));
+            }
+        }
 
     }
 

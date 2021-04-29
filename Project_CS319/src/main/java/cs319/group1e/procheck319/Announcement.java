@@ -24,4 +24,8 @@ public class Announcement {
     public String getTitle() {
         return title;
     }
+
+    public String toString(){
+        return "Title: " + getTitle() + "\nContext: " + getContext();
+    }
 }

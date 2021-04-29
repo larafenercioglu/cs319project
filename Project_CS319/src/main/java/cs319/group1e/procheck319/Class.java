@@ -10,7 +10,7 @@ public class Class {
     private String className;
     private List<Double> averages;
     private Project project;
-    private Announcement announcementList;
+    private List<Announcement> announcementList;
     private Map<String, List<Submission>> groupSubmissions;
     private Boolean groupFormation;
 
@@ -26,9 +26,10 @@ public class Class {
         this.students = new ArrayList<>();
         this.averages = new ArrayList<>();
         this.groupSubmissions = new HashMap<>() ;
+        this.announcementList = new ArrayList<>();
     }
 
-    public Class(String classKey, String className, List<Student> students, List<InstructorAndTAs> instructorAndTAs, List<Group> groups, List<Double> averages, Project project, Announcement announcementList, Map<String, List<Submission>> groupSubmissions, Boolean groupFormation) {
+    public Class(String classKey, String className, List<Student> students, List<InstructorAndTAs> instructorAndTAs, List<Group> groups, List<Double> averages, Project project, List<Announcement> announcementList, Map<String, List<Submission>> groupSubmissions, Boolean groupFormation) {
         this.classKey = classKey;
         this.students = students;
         this.instructorAndTAs = instructorAndTAs;
@@ -70,7 +71,7 @@ public class Class {
         return project;
     }
 
-    public Announcement getAnnouncementList() {
+    public List<Announcement> getAnnouncementList() {
         return announcementList;
     }
 
@@ -111,7 +112,7 @@ public class Class {
         this.project = project;
     }
 
-    public void setAnnouncementList(Announcement announcementList) {
+    public void setAnnouncementList(List<Announcement> announcementList) {
         this.announcementList = announcementList;
     }
 
@@ -257,5 +258,15 @@ public class Class {
             return true;
         }
         return false;
+    }
+
+    /**
+     Adding announcement to the list and adding them to groups
+     */
+    public void addAnnouncement(Announcement announcement){
+        this.getAnnouncementList().add(announcement);
+        for(int i = 0; i < getGroups().size(); i++){
+            getGroups().get(i).getAnnouncementList().add(announcement);
+        }
     }
 }
