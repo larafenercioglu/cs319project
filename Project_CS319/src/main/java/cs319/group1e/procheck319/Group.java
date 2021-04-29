@@ -209,6 +209,10 @@ public class Group{
 
     }
 
+    public void addAnnouncement( Announcement announcement ){
+        announcementList.add(announcement);
+    }
+
     //To get a random artifact submission
     public Submission getRandomGroupArtifact(Assignment assignment , ArtifactReview ar){
         Random rand = new Random();
@@ -235,9 +239,9 @@ public class Group{
         }
     }
 
-    //TODO To display artifact reviews submitted for an assignment submitted by the group
-    public List<ArtifactReview> showArtifactReviewsDoneByOthers( int subNo ){
-        return null;
+    //TODO To display artifact reviews submitted for an assignment submitted by the group PS: parametre int subNo'ydu sub yaptım
+    public List<ArtifactReview> showArtifactReviewsDoneByOthers( Submission sub ){
+        return sub.getArtifactReviews();
     }
 
 

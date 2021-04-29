@@ -164,11 +164,17 @@ public class InstructorAndTAs implements User {
     /**
       Instructor grades a submission
     */
+    /*
     public boolean gradeSubmission(Group group, int subNo, double grade){
         if(group.getGroupSubmissionList().get(subNo-1) == null){
             return false;
         }
         group.getGroupSubmissionList().get(subNo-1).setGrade(grade);
+        return true;
+    }*/
+
+    public boolean gradeSubmission(Submission sub, double grade){
+        sub.setGrade(grade);
         return true;
     }
 
@@ -204,7 +210,17 @@ public class InstructorAndTAs implements User {
       Instructor creates an announcement
      */
     public Announcement announce(String context, String title){
-        return new Announcement(context,title);
+        Announcement announcement = new Announcement(context, title, this.userName + " " + this.userSurname);
+        for(int i = 0 ; i < aClass.getGroups().size() ; i++){
+            aClass.getGroups().get(i).addAnnouncement(announcement);
+        }
+        return announcement;
+    }
+
+    public Announcement announceToAGroup(Group group, String context, String title){
+        Announcement announcement = new Announcement(context, title + " - (Group" + group.getGroupId() + ")", this.userName + " " + this.userSurname);
+        group.addAnnouncement( announcement );
+        return announcement;
     }
 
     /**
@@ -212,6 +228,7 @@ public class InstructorAndTAs implements User {
      */
     public Class createClass(String className){
         Class aClass1 = new Class(createClassKey(), className);
+        this.aClass = aClass1;
         return aClass1;
     }
 

@@ -15,6 +15,7 @@ public class Class {
     private Boolean groupFormation;
 
     public Class() {
+        this.announcementList = new ArrayList<>();
     }
 
     public Class(String classKey, String className){
@@ -217,6 +218,7 @@ public class Class {
      */
     public boolean addInstructorAndTAs(InstructorAndTAs instructorAndTA){
         instructorAndTAs.add(instructorAndTA);
+        instructorAndTA.setaClass(this);
         return true;
     }
 

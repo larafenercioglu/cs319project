@@ -3,10 +3,20 @@ package cs319.group1e.procheck319;
 public class Announcement {
     private String context;
     private String title;
+    private String author;
 
-    public Announcement(String context, String title) {
+    public Announcement(String context, String title, String author) {
         this.context = context;
         this.title = title;
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getContext() {

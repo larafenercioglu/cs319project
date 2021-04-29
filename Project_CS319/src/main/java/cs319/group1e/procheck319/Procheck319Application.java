@@ -319,7 +319,7 @@ public class Procheck319Application {
 
         System.out.println("ARTIFACT REVIEW: " + sub.getArtifactReviews().get(0));
 
-
+/*
         //----------------------INTSTRUCTOR MAKES AN ANNOUNCEMENT
         Announcement announcement1 = tuzun.announce("Related to Grading update that we talked about today here is the latest version: Final 30%, Project 40 %, Midterm 15%,  Q1 (1)+GitLab(5)+Design Patterns Lab (7) + Attendance to final presentations (2)","Grading");
         Announcement announcement2 = jabrayilzade.announce("Please share the links for these 2 things in the appropriate column in the Final Demo Schedule (a Google sheet to which you have write access) in the course page.","Project Demo Links");
@@ -339,13 +339,42 @@ public class Procheck319Application {
                 System.out.println(c.getGroups().get(i).getAnnouncementList().get(j));
             }
         }
-
+*/
         //displaying progress for each group
         System.out.println("-----------PROGRESS FOR EACH GROUP-----------");
         for(int i = 0; i < c.getGroups().size(); i++){
             System.out.println("-----------GROUP " + (i+1) + "s PROGRESS-----------");
             c.getGroups().get(i).calculateProgress();
             System.out.println("%"+c.getGroups().get(i).getProgress());
+        }
+
+        System.out.println("\n-----------GRADING-----------");
+        tuzun.gradeSubmission(s1SubToAs1, 74);
+        tuzun.gradeSubmission(s2SubToAs1, 95);
+        System.out.println("Grade: " + s1SubToAs1.getGrade());
+        System.out.println("Grade: " + s2SubToAs1.getGrade());
+
+
+        System.out.println("\n-----------ANNOUNCEMENT-----------\n");
+        tuzun.announce("Hey guys. Form your groups until the deadline or the the system will randomly distribute you if you don't have any groups. Take care." , "Welcome to CS 319");
+        jabrayilzade.announce("Hey guys i am your TA. You can ask me if you have any questions via chat in ProCheck." , "Hello!");
+        tuzun.announce("Related to Grading update that we talked about today here is the latest version: Final 30%, Project 40 %, Midterm 15%,  Q1 (1)+GitLab(5)+Design Patterns Lab (7) + Attendance to final presentations (2)","Grading");
+        jabrayilzade.announce("Please share the links for these 2 things in the appropriate column in the Final Demo Schedule (a Google sheet to which you have write access) in the course page.","Project Demo Links");
+
+        tuzun.announceToAGroup(g1, "Guys I can give you feedback at the end of the tomorrows lecture.", "About Submission 1 Feedback");
+
+        System.out.print( "Group 1 Announcements ---------------------------------" );
+        for(int i = 0 ; i < g1.getAnnouncementList().size() ; i++){
+            System.out.println( "\n" + (i+1) + ")" + g1.getAnnouncementList().get(i).getTitle() );
+            System.out.println( g1.getAnnouncementList().get(i).getContext() );
+            System.out.println( "written by - " + g1.getAnnouncementList().get(i).getAuthor() );
+        }
+
+        System.out.print( "\nGroup 2 Announcements -------------------------------" );
+        for(int i = 0 ; i < g2.getAnnouncementList().size() ; i++){
+            System.out.println( "\n" + (i+1) + ")" + g2.getAnnouncementList().get(i).getTitle() );
+            System.out.println( g2.getAnnouncementList().get(i).getContext() );
+            System.out.println( "written by - " + g2.getAnnouncementList().get(i).getAuthor() );
         }
     }
 
