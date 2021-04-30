@@ -19,15 +19,15 @@ public class UserManager {
     @Autowired
     private UserRepository userRepository;
     private StudentRepository studentRepository;
-    private InstructorAndTAsRepository instructorAndTAsRepository;
+    //private InstructorAndTAsRepository instructorAndTAsRepository;
     private GroupRepository groupRepository;
 
     //Constructor
     public UserManager(UserRepository theUserRepository, StudentRepository studentRepository,
-                       InstructorAndTAsRepository instructorAndTAsRepository, GroupRepository groupRepository) {
+                        GroupRepository groupRepository) {
         userRepository = theUserRepository;
         this.studentRepository = studentRepository;
-        this.instructorAndTAsRepository =instructorAndTAsRepository;
+        //this.instructorAndTAsRepository =instructorAndTAsRepository;
         this.groupRepository = groupRepository;
     }
 
@@ -150,90 +150,18 @@ public class UserManager {
         return "redirect:/login";
     }
 
-    /**
-        Register new Instructor
-        It is done by InstructorRepository class
-    */
-    @PostMapping("/saveInstructorAndTAs")
-    public String saveInstructor(@ModelAttribute("user") InstructorAndTAs theInstructor) {
-        boolean flag = true;
-        List<InstructorAndTAs> newList = instructorAndTAsRepository.findAll();
-
-        for(int i = 0; i < newList.size() && flag; i++) {
-            if(newList.get(i).getEmail().equals(theInstructor.getEmail()) || newList.get(i).getUserId() == (theInstructor.getUserId())) {
-                flag = false;
-                System.out.println("Instructor Already Exists!");
-            }
-        }
-
-        if(flag){
-            // save the student
-            theInstructor.setType("instructor");
-            instructorAndTAsRepository.save(theInstructor);
-
-            //Print message
-            System.out.println("Instructor has been saved successfully");
-        }
-
-        // use a redirect to prevent duplicate submissions
-        return "redirect:/login";
-    }
-
-    /**
-        Delete a instructor by using id
-        It is done by instructorAndTAsRepository class
-    */
-    @DeleteMapping(value = "deleteInstructor/{userId}")
-    public String deleteInstructor(@PathVariable("userId") int id) {
-        instructorAndTAsRepository.deleteById(id);
-        return "redirect:/login";
-    }
-
-    /**
-        Update a student by using id
-        It is done by StudentRepository class
-    */
-    @GetMapping("/updateInstructor/{userId}")
-    public String updateInstructorById(@PathVariable int userId, @ModelAttribute("user") InstructorAndTAs theInstructorAndTAs) {
-
-        User user = instructorAndTAsRepository.findByUserId(userId);
-
-        theInstructorAndTAs.setUserName(user.getUserName());
-        theInstructorAndTAs.setUserSurname(user.getUserSurname());
-        theInstructorAndTAs.setUserId(user.getUserId());
-        theInstructorAndTAs.setEmail(user.getEmail());
-        theInstructorAndTAs.setPassword(user.getPassword());
-
-        return "dashboardIndex";
-    }
-
-    /**
-        Update instructor
-        It is done by instructorAndTAsRepository class
-    */
-    @PostMapping("/updateInstructor")
-    public String updateInstructor(@ModelAttribute("user") InstructorAndTAs theInstructor) {
-
-        System.out.println(theInstructor.getUserName());
-        System.out.println(theInstructor.getClass());
-
-        //Save the user
-        instructorAndTAsRepository.save(theInstructor);
-
-        //Use a redirect to prevent duplicate submissions
-        return "redirect:/login";
-    }
 
 
-    @GetMapping(value = "/allInstructorAndTAs")
+
+    /*@GetMapping(value = "/allInstructorAndTAs")
     public List<InstructorAndTAs> getAllInstructorAndTAs() {
         return instructorAndTAsRepository.findAll();
-    }
+    }*/
 
     @PostMapping("/formNewGroup")
     public String formNewGroup(@ModelAttribute("user") Student theStudent) {
 
-        groupRepository.save(theStudent.formAGroup(5)); //TODO id artık parametre değil sıkıntı çıkarabilir
+        groupRepository.save(theStudent.formAGroup(31, 5)); //TODO id artık parametre değil sıkıntı çıkarabilir
         studentRepository.save(theStudent);
         return "dashboardIndex";
     }

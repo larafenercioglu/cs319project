@@ -14,7 +14,7 @@ public class Group{
     */
     @Id
     private int groupId;
-    private List<Student> studentList;
+    private List<Integer> studentIdList;
     private List<Submission> groupSubmissionList;
     private List<Assignment> groupAssignmentList;
     private List<Announcement> announcementList;
@@ -22,45 +22,47 @@ public class Group{
     private Calendar calendar;
     private double progress;
     private List<Request> requests;
-    private List<Invitation> invitations;
-
-    public List<Announcement> getAnnouncementList() {
-        return announcementList;
-    }
-
-    public void setAnnouncementList(List<Announcement> announcementList) {
-        this.announcementList = announcementList;
-    }
+    //private List<Invitation> invitations;
 
     //Default Constructor
     public Group() {
-        studentList = new ArrayList<Student>();
+        studentIdList = new ArrayList<>();
         groupSubmissionList = new ArrayList<Submission>();
         requests = new ArrayList<Request>();
-        invitations = new ArrayList<Invitation>();
+        //invitations = new ArrayList<Invitation>();
         announcementList = new ArrayList<>();
     }
 
-    public Group(int maxGroupSize) {
+    public Group( int maxGroupSize) {
         this.maxGroupSize = maxGroupSize;
-        studentList = new ArrayList<Student>();
+        studentIdList = new ArrayList<>();
         groupSubmissionList = new ArrayList<Submission>();
         requests = new ArrayList<Request>();
-        invitations = new ArrayList<Invitation>();
+        //invitations = new ArrayList<Invitation>();
+        announcementList = new ArrayList<>();
+    }
+
+    public Group( int groupId, int maxGroupSize) {
+        this.groupId = groupId;
+        this.maxGroupSize = maxGroupSize;
+        studentIdList = new ArrayList<>();
+        groupSubmissionList = new ArrayList<Submission>();
+        requests = new ArrayList<Request>();
+        //invitations = new ArrayList<Invitation>();
         announcementList = new ArrayList<>();
     }
 
     //Constructor
     public Group(List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, List<Announcement> announcementList, int maxGroupSize, Calendar calendar, double progress, List<Request> requests, List<Invitation> invitations) {
         //this.groupId = groupId;
-        this.studentList = studentList;
+        this.studentIdList = studentIdList;
         this.groupSubmissionList = groupSubmissionList;
         this.groupAssignmentList = groupAssignmentList;
         this.maxGroupSize = maxGroupSize;
         this.calendar = calendar;
         this.progress = progress;
         this.requests = requests;
-        this.invitations = invitations;
+        //this.invitations = invitations;
         this.announcementList = announcementList;
     }
 
@@ -70,7 +72,7 @@ public class Group{
     }
 
     public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
+        this.studentIdList = studentIdList;
     }
 
     public void setGroupSubmissionList(List<Submission> groupSubmissionList) {
@@ -79,6 +81,10 @@ public class Group{
 
     public void setGroupAssignmentList(List<Assignment> groupAssignmentList) {
         this.groupAssignmentList = groupAssignmentList;
+    }
+
+    public void setAnnouncementList(List<Announcement> announcementList) {
+        this.announcementList = announcementList;
     }
 
     public void setMaxGroupSize(int maxGroupSize) {
@@ -97,21 +103,25 @@ public class Group{
         this.requests = requests;
     }
 
-    public void setInvitations(List<Invitation> invitations) {
-        this.invitations = invitations;
-    }
+    //public void setInvitations(List<Invitation> invitations) {
+    //    this.invitations = invitations;
+    //}
 
     //GETTERS
     public int getGroupId() {
         return groupId;
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
+    public List<Integer> getStudentIdList() {
+        return studentIdList;
     }
 
     public List<Submission> getGroupSubmissionList() {
         return groupSubmissionList;
+    }
+
+    public List<Announcement> getAnnouncementList() {
+        return announcementList;
     }
 
     public List<Assignment> getGroupAssignmentList() {
@@ -134,9 +144,9 @@ public class Group{
         return requests;
     }
 
-    public List<Invitation> getInvitations() {
-        return invitations;
-    }
+    //public List<Invitation> getInvitations() {
+    //    return invitations;
+    //}
 
     /*
         OPERATIONS OF GROUP
@@ -148,7 +158,7 @@ public class Group{
       Returns false if the group's studentList is not full
      */
     public boolean isFull(){
-        if(studentList.size() <= maxGroupSize){
+        if(studentIdList.size() <= maxGroupSize){
                 return false;
         }
         return true;
@@ -171,7 +181,7 @@ public class Group{
         if(isFull()){
             return false;
         }else{
-            studentList.add(student);
+            studentIdList.add(student.getUserId());
             student.setGroupMember(true);
             student.setGroupId(groupId);
             return true;
@@ -182,7 +192,7 @@ public class Group{
      Will be used in some exceptional cases
      */
     public boolean addGroupMemberException(Student student){
-        studentList.add(student);
+        studentIdList.add(student.getUserId());
         student.setGroupMember(true);
         student.setGroupId(groupId);
         return true;
@@ -193,10 +203,13 @@ public class Group{
       Removing a group member if group
      */
     public boolean removeGroupMember(Student student){
-        if(studentList.size() == 0){
+        if(studentIdList.size() == 0) {
             return false;
-        }else{
-            studentList.remove(student);
+        }
+        else {
+            student.setGroupId(-1);
+            student.setGroupMember(false);
+            studentIdList.remove(student.getUserId());
             return true;
         }
     }
@@ -246,8 +259,8 @@ public class Group{
 
     public String toString(){
         String groupP ="GROUP " +String.valueOf(this.getGroupId())+":\t";
-        for(int i = 0;i<this.getStudentList().size();i++){
-            groupP = groupP + " " + this.getStudentList().get(i)+"\t";
+        for(int i = 0;i<this.getStudentIdList().size();i++){
+            groupP = groupP + " " + this.getStudentIdList().get(i)+"\t";
         }
         return groupP;
     }

@@ -26,11 +26,8 @@ public class Student implements User {
     //private Group studentGroup;
     private List<Invitation> invitations;
 
-
     //Default Constructor
     public Student() {
-        invitations = new ArrayList<Invitation>();
-        peerReviews = new ArrayList<PeerReview>();
     }
 
     //Constructor
@@ -42,13 +39,11 @@ public class Student implements User {
         this.email = email;
         this.type = type;
         this.groupId = groupId;
-        //this.studentGroup = studentGroup;
         this.invitations = invitations;
-        this.peerReviews = new ArrayList<>();
+        this.peerReviews = peerReviews;
         this.isGroupMember = isGroupMember;
         this.isRegisteredInClass = isRegisteredInClass;
         //this.studentGroup = studentGroup;
-        this.invitations = new ArrayList<>();
     }
 
     //Constructor for Seeder
@@ -59,14 +54,12 @@ public class Student implements User {
         this.userId = userId;
         this.email = email;
         this.type = type;
-        invitations = new ArrayList<Invitation>();
-        peerReviews = new ArrayList<PeerReview>();
-        this.groupId = -1;
+        this.invitations = new ArrayList<>();
         this.peerReviews = new ArrayList<>();
+        this.groupId = -1;
         this.isGroupMember = false;
         this.isRegisteredInClass = false;
         //this.studentGroup = null;
-        this.invitations = new ArrayList<>();
     }
 
     //Getters
@@ -176,8 +169,8 @@ public class Student implements User {
     /**
       Student forms a group on his/her own
      */
-    public Group formAGroup(int maxGroupSize ){
-        Group group = new Group(maxGroupSize);
+    public Group formAGroup(int id, int maxGroupSize ){
+        Group group = new Group(id, maxGroupSize);
         group.addGroupMember(this);
         return group;
     }
@@ -298,7 +291,7 @@ public class Student implements User {
         if(!studentGroup.isFull()){
             Invitation invitation = new Invitation(student,studentGroup);
             student.addInvitation(invitation);
-            studentGroup.getInvitations().add(invitation);
+            //studentGroup.getInvitations().add(invitation);
             student.getInvitations().add(invitation);
         }
 
@@ -313,10 +306,10 @@ public class Student implements User {
     public void acceptInvitation(Invitation inv){
         if(!inv.getSender().isFull()){
             inv.getSender().addGroupMember(inv.getReceiver());
-            inv.getSender().getInvitations().remove(inv);
+            //inv.getSender().getInvitations().remove(inv);
             inv.getReceiver().getInvitations().remove(inv);
         }else {
-            inv.getSender().getInvitations().remove(inv);
+            //inv.getSender().getInvitations().remove(inv);
             inv.getReceiver().getInvitations().remove(inv);
         }
 

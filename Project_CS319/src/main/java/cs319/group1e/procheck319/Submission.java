@@ -8,6 +8,7 @@ public class Submission {
     private String title;
     private double grade;
     private Assignment assignment;
+    private int assignmentNo;
     private InstructorFeedback feedback;
     private List<ArtifactReview> artifactReviews;
     private int groupId;
