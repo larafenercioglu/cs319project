@@ -30,13 +30,20 @@ public class DbSeeder implements CommandLineRunner {
         User kim = new Student("Kimya","Ghasem", "kimya", 21805, "kimya@ug.bilkent.edu.tr","student");
 
         this.studentRepository.deleteAll();
-        List<Student> users = Arrays.asList((Student) bedo, (Student) gok, (Student) tutku,(Student) lara ,(Student) kim);
+        List<Student> users = Arrays.asList((Student) bedo, (Student) gok, (Student) tutku,(Student) lara);
+        List<Student> users2 = Arrays.asList( (Student) kim);
         this.studentRepository.saveAll(users);
 
         this.groupRepository.deleteAll();
-        Group g1 = new Group(1);
+        Group g1 = new Group();
         g1.setStudentList(users);
         this.groupRepository.save(g1);
+
+        Group g2 = new Group(2, 5);
+        g2.setStudentList(users2);
+        this.groupRepository.save(g2);
+
+
         /*
             System.out.println(users.getClass());
             System.out.println(kim.getClass());

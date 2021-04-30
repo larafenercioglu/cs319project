@@ -23,7 +23,7 @@ public class Student implements User {
     private List<PeerReview> peerReviews;
     private boolean isGroupMember;
     private boolean isRegisteredInClass;
-    private Group studentGroup;
+    //private Group studentGroup;
     private List<Invitation> invitations;
 
 
@@ -42,12 +42,12 @@ public class Student implements User {
         this.email = email;
         this.type = type;
         this.groupId = groupId;
-        this.studentGroup = studentGroup;
+        //this.studentGroup = studentGroup;
         this.invitations = invitations;
         this.peerReviews = new ArrayList<>();
         this.isGroupMember = isGroupMember;
         this.isRegisteredInClass = isRegisteredInClass;
-        this.studentGroup = studentGroup;
+        //this.studentGroup = studentGroup;
         this.invitations = new ArrayList<>();
     }
 
@@ -65,7 +65,7 @@ public class Student implements User {
         this.peerReviews = new ArrayList<>();
         this.isGroupMember = false;
         this.isRegisteredInClass = false;
-        this.studentGroup = null;
+        //this.studentGroup = null;
         this.invitations = new ArrayList<>();
     }
 
@@ -110,9 +110,9 @@ public class Student implements User {
         return isRegisteredInClass;
     }
 
-    public Group getStudentGroup() {
-        return studentGroup;
-    }
+    //public Group getStudentGroup() {
+    //    return studentGroup;
+    //}
 
     public List<Invitation> getInvitations() {
         return invitations;
@@ -159,9 +159,9 @@ public class Student implements User {
         isRegisteredInClass = registeredInClass;
     }
 
-    public void setStudentGroup(Group studentGroup) {
-        this.studentGroup = studentGroup;
-    }
+    //public void setStudentGroup(Group studentGroup) {
+    //    this.studentGroup = studentGroup;
+    //}
 
     public void setInvitations(List<Invitation> invitations) {
         this.invitations = invitations;
@@ -186,7 +186,7 @@ public class Student implements User {
     /**
      * Student adds a submission to an assignment on behalf of group
      */
-    public void addSubmission(Submission submission, Assignment assignment){
+    public void addSubmission(Submission submission, Assignment assignment, Group studentGroup){
         submission.setGroupId( this.groupId );
         studentGroup.getGroupSubmissionList().add(submission);
         assignment.getSubmissionList().add(submission);
@@ -219,7 +219,7 @@ public class Student implements User {
     }
 
     //TODO: subNo karar verilecek
-    public Submission reviewArtifact(String context){
+    public Submission reviewArtifact(String context, Group studentGroup){
         int index = -1;
         for( int i = 0; i < studentGroup.getGroupAssignmentList().size() ; i++ ){
             if(studentGroup.getGroupAssignmentList().get(i).isDeadlineOver() ){
@@ -281,11 +281,11 @@ public class Student implements User {
     /**
       Student edits his/her belonging group TODO?
      */
-    public void editGroupCalendar(){
+    public void editGroupCalendar(Group studentGroup){
         studentGroup.editCalendar(studentGroup.getCalendar());
     }
 
-    public void acceptRequest(Request req){
+    public void acceptRequest(Request req , Group studentGroup){
         if(!studentGroup.isFull()){
             studentGroup.addGroupMember(req.getSender());
             studentGroup.getRequests().remove(req);
@@ -295,9 +295,9 @@ public class Student implements User {
      Student sends an invitation to a student on behalf of the group
      Student will get the studentId of the student that will be invited to this student's group
      */
-    public void sendInvitation(Student student){
+    public void sendInvitation(Student student, Group studentGroup){
         if(!studentGroup.isFull()){
-            Invitation invitation = new Invitation(student,this.studentGroup);
+            Invitation invitation = new Invitation(student,studentGroup);
             student.addInvitation(invitation);
             studentGroup.getInvitations().add(invitation);
             student.getInvitations().add(invitation);

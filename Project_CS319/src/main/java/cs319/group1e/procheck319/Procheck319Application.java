@@ -110,20 +110,21 @@ public class Procheck319Application {
         c.addStudent(s15);
 
         //-----------------------------group formation begins-----------------------------
-        Group g1 = s1.formAGroup(1,p.getMaxGroupSize());
+        Group g1 = s1.formAGroup(0,p.getMaxGroupSize());
+        c.addGroup(g1);
         //g1.addGroupMember(s5);
 
         //--------------------REQUEST-----------------------
         s5.sendRequest(g1);
         System.out.println("--------------------BEFORE SENDING A REQUEST-----------------------");
-        System.out.println(s1.getStudentGroup().getRequests());;
-        s1.acceptRequest(s1.getStudentGroup().getRequests().get(0));
+        System.out.println(c.getGroupOfAStudent(s1).getRequests());;
+        s1.acceptRequest(c.getGroupOfAStudent(s1).getRequests().get(0), c.getGroupOfAStudent(s1));
         System.out.println("--------------------AFTER SENDING AND ACCEPTING A REQUEST-----------------------");
         System.out.println(g1);
         //--------------------REQUEST-----------------------
 
         //--------------------Invitation-----------------------
-        s1.sendInvitation(s15);
+        s1.sendInvitation(s15, c.getGroupOfAStudent(s1));
         System.out.println("--------------------AFTER SENDING AN INVITATION-----------------------");
         System.out.println(s15.getInvitations().get(0));
         System.out.println("--------------------AFTER ACCEPTING THE REQUEST-----------------------");
@@ -132,26 +133,25 @@ public class Procheck319Application {
         //--------------------Invitation-----------------------
 
         //-----------------------------adding groups-----------------------------
-        Group g2 = new Group(2);
+        Group g2 = new Group();
+        c.addGroup(g2);
         g2.setMaxGroupSize(p.getMaxGroupSize());
         g2.addGroupMember(s2);
         g2.addGroupMember(s3);
         g2.addGroupMember(s4);
 
-        Group g3 = new Group(3);
+        Group g3 = new Group();
+        c.addGroup(g3);
         g3.setMaxGroupSize(p.getMaxGroupSize());
         g3.addGroupMember(s6);
         g3.addGroupMember(s7);
         g3.addGroupMember(s8);
 
-        Group g4 = new Group(4);
+        Group g4 = new Group();
+        c.addGroup(g4);
         g4.setMaxGroupSize(p.getMaxGroupSize());
         g4.addGroupMember(s14);
 
-        c.addGroup(g1);
-        c.addGroup(g2);
-        c.addGroup(g3);
-        c.addGroup(g4);
 
         System.out.println("--------------------BEFORE GROUP FORMATION DEADLINE-----------------------");
         for( int i = 0 ; i < 4 ; i++ ){
@@ -176,10 +176,10 @@ public class Procheck319Application {
         Submission s6SubToAs1 = new Submission( assignment1 );
         Submission s9SubToAs1 = new Submission( assignment1 );
 
-        s1.addSubmission(s1SubToAs1,assignment1);
-        s2.addSubmission(s2SubToAs1,assignment1);
-        s6.addSubmission(s6SubToAs1,assignment1);
-        s9.addSubmission(s9SubToAs1,assignment1);
+        s1.addSubmission(s1SubToAs1,assignment1, c.getGroupOfAStudent(s1));
+        s2.addSubmission(s2SubToAs1,assignment1,c.getGroupOfAStudent(s2));
+        s6.addSubmission(s6SubToAs1,assignment1,c.getGroupOfAStudent(s6));
+        s9.addSubmission(s9SubToAs1,assignment1,c.getGroupOfAStudent(s9));
         //////////////////////////////////////////////////////////////
 
         Submission s1SubToAs2 = new Submission( assignment2 );
@@ -187,10 +187,10 @@ public class Procheck319Application {
         Submission s6SubToAs2 = new Submission( assignment2 );
         Submission s9SubToAs2 = new Submission( assignment2 );
 
-        s1.addSubmission(s1SubToAs2,assignment2);
-        s2.addSubmission(s2SubToAs2,assignment2);
-        s6.addSubmission(s6SubToAs2,assignment2);
-        s9.addSubmission(s9SubToAs2,assignment2);
+        s1.addSubmission(s1SubToAs2,assignment2, c.getGroupOfAStudent(s1));
+        s2.addSubmission(s2SubToAs2,assignment2, c.getGroupOfAStudent(s2));
+        s6.addSubmission(s6SubToAs2,assignment2, c.getGroupOfAStudent(s6));
+        s9.addSubmission(s9SubToAs2,assignment2, c.getGroupOfAStudent(s9));
         ///////////////////////////////////////////////////////////////
 
         Submission s1SubToAs3 = new Submission( assignment3 );
@@ -198,10 +198,10 @@ public class Procheck319Application {
         Submission s6SubToAs3 = new Submission( assignment3 );
         Submission s9SubToAs3 = new Submission( assignment3 );
 
-        s1.addSubmission(s1SubToAs3,assignment3);
-        s2.addSubmission(s2SubToAs3,assignment3);
-        s6.addSubmission(s6SubToAs3,assignment3);
-        s9.addSubmission(s9SubToAs3,assignment3);
+        s1.addSubmission(s1SubToAs3,assignment3, c.getGroupOfAStudent(s1));
+        s2.addSubmission(s2SubToAs3,assignment3, c.getGroupOfAStudent(s2));
+        s6.addSubmission(s6SubToAs3,assignment3, c.getGroupOfAStudent(s6));
+        s9.addSubmission(s9SubToAs3,assignment3, c.getGroupOfAStudent(s9));
         //////////////////////////////////////////////////////////////
 
         Submission s1SubToAs4 = new Submission( assignment4 );
@@ -209,7 +209,7 @@ public class Procheck319Application {
         Submission s6SubToAs4 = new Submission( assignment4 );
         Submission s9SubToAs4 = new Submission( assignment4 );
 
-        s1.addSubmission(s1SubToAs4,assignment4);
+        s1.addSubmission(s1SubToAs4,assignment4, c.getGroupOfAStudent(s1));
         //s2.addSubmission(s2SubToAs4,assignment4);
         //s6.addSubmission(s6SubToAs4,assignment4);
         //s9.addSubmission(s9SubToAs4,assignment4);
@@ -220,9 +220,9 @@ public class Procheck319Application {
         Submission s6SubToAs5 = new Submission( assignment5 );
         Submission s9SubToAs5 = new Submission( assignment5 );
 
-        s1.addSubmission(s1SubToAs5,assignment5);
-        s2.addSubmission(s2SubToAs5,assignment5);
-        s6.addSubmission(s6SubToAs5,assignment5);
+        s1.addSubmission(s1SubToAs5,assignment5, c.getGroupOfAStudent(s1));
+        s2.addSubmission(s2SubToAs5,assignment5, c.getGroupOfAStudent(s2));
+        s6.addSubmission(s6SubToAs5,assignment5, c.getGroupOfAStudent(s6));
         //s9.addSubmission(s9SubToAs5,assignment5);
         //////////////////////////////////////////////////////////////
 
@@ -231,7 +231,7 @@ public class Procheck319Application {
             System.out.println("Deadline şu: " + assign.getDeadline() + " " );
         }
 
-        System.out.println("LARA BURADA " + s5.getStudentGroup().getGroupSubmissionList().get(0).getTitle());
+        System.out.println("LARA BURADA " + c.getGroupOfAStudent(s5).getGroupSubmissionList().get(0).getTitle());
 
         System.out.println("---------------INSTRUCTOR FEEDBACK------------------"); //GRADE VERMİYİ DAHAAAAA
         /*
@@ -255,16 +255,16 @@ public class Procheck319Application {
 
         //assignmentların submissionlarına yapılan feedbackleri görmek
         for(int i = 0; i < c.getProject().getAssignmentList().size(); i++){
-            System.out.println("****"+c.getProject().getAssignmentList().get(i).getTitle()+"****");
+            System.out.println("\n****"+c.getProject().getAssignmentList().get(i).getTitle()+"****");
             for(int j = 0; j < c.getProject().getAssignmentList().get(i).getSubmissionList().size(); j++){
                 System.out.println(c.getProject().getAssignmentList().get(i).getSubmissionList().get(j).getFeedback());
             }
         }
         //gruplara yapılmış instructor feedbackleri görmek
         for(int i = 0; i < c.getGroups().size(); i++){
-            System.out.println("Group "+i);
+            System.out.println("\nGroup "+i);
             for(int j = 0; j < c.getGroups().get(i).getGroupSubmissionList().size(); j++){
-                System.out.println("**"+c.getGroups().get(i).getGroupSubmissionList().get(j).getTitle()+"**");
+                System.out.println("\n**"+c.getGroups().get(i).getGroupSubmissionList().get(j).getTitle()+"**");
                 System.out.println(c.getGroups().get(i).getGroupSubmissionList().get(j).getFeedback());
             }
         }
@@ -304,7 +304,7 @@ public class Procheck319Application {
 
         System.out.println("\n----------------Artifact Review--------------------\n");
 
-        Submission sub = s1.reviewArtifact("bunu beğenmedim canım dostlarım" );
+        Submission sub = s1.reviewArtifact("bunu beğenmedim canım dostlarım" , c.getGroupOfAStudent(s1));
 
         System.out.println("ARTIFACT REVIEW: " + sub.getArtifactReviews().get(0));
 

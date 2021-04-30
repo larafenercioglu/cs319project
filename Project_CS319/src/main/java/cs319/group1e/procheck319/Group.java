@@ -12,6 +12,7 @@ public class Group{
     /*
         ATTRIBUTES OF GROUP
     */
+    @Id
     private int groupId;
     private List<Student> studentList;
     private List<Submission> groupSubmissionList;
@@ -32,8 +33,7 @@ public class Group{
     }
 
     //Default Constructor
-    public Group(int groupId) {
-        this.groupId = groupId;
+    public Group() {
         studentList = new ArrayList<Student>();
         groupSubmissionList = new ArrayList<Submission>();
         requests = new ArrayList<Request>();
@@ -174,7 +174,7 @@ public class Group{
         }else{
             studentList.add(student);
             student.setGroupMember(true);
-            student.setStudentGroup(this);
+            student.setGroupId(groupId);
             return true;
         }
     }
@@ -185,7 +185,7 @@ public class Group{
     public boolean addGroupMemberException(Student student){
         studentList.add(student);
         student.setGroupMember(true);
-        student.setStudentGroup(this);
+        student.setGroupId(groupId);
         return true;
     }
 

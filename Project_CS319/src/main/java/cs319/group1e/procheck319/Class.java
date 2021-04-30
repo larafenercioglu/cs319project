@@ -176,7 +176,8 @@ public class Class {
             }
 
             for(int i = 0; i < groupNumbersToCreate; i++){
-                Group g = new Group(5);
+                Group g = new Group();
+                addGroup(g);
                 g.setMaxGroupSize(project.getMaxGroupSize());
                 for(int j = 0; j < project.getMaxGroupSize(); j++){
                     g.addGroupMember(singles.get(index));
@@ -227,7 +228,17 @@ public class Class {
      */
     public boolean addGroup(Group group){
         groups.add(group);
+        group.setGroupId(groups.indexOf(group));
         return true;
+    }
+
+    public Group getGroupOfAStudent( Student s ){
+        for( int i = 0 ; i < groups.size() ; i++ ){
+            if(s.getGroupId() == groups.get(i).getGroupId() ){
+                return groups.get(i);
+            }
+        }
+        return null;
     }
 
     /**

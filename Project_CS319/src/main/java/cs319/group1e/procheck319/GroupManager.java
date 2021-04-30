@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping
 public class GroupManager {
     @Autowired
@@ -21,10 +21,16 @@ public class GroupManager {
     @GetMapping("/formGroup")
     public String getMain(Model theModel) {
         // create model attribute to bind form data
-        Group theGroup = new Group(5);
+        Group theGroup = new Group();
 
         theModel.addAttribute("group", theGroup);
         return "";
+    }
+
+    @GetMapping("/allGroups")
+    public List<Group> getAllGroups() {
+        List<Group> groups = groupRepository.findAll();
+        return groups;
     }
 
     @DeleteMapping(value = "deleteGroup/{groupId}")
@@ -34,17 +40,10 @@ public class GroupManager {
     }
 
     @PostMapping("/saveGroup")
-    public String saveGroup(@ModelAttribute("group") Group theGroup) {
+    public String saveGroup(@RequestBody Group theGroup) {
         groupRepository.save(theGroup);
 
         return "redirect:/";
     }
 
-    public String updateGroup(@ModelAttribute("group") Group theGroup) {
-
-        //Save the user
-        groupRepository.save(theGroup);
-
-        return "redirect:/";
-    }
 }
