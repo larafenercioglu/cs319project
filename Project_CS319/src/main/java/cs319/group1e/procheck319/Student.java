@@ -179,6 +179,8 @@ public class Student implements User {
     public Group formAGroup(int groupId,  int maxGroupSize ){
         Group group = new Group( groupId, maxGroupSize);
         group.addGroupMember(this);
+        //Newly Added
+        this.setGroupId(groupId);
         return group;
     }
 

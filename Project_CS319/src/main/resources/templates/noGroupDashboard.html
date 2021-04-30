@@ -65,7 +65,28 @@
                     <div class="mx-1 bg-white my-height-40 d-flex flex-column">
                         <h5 class="text-center py-4">Form a New Group</h5>
                         <p class="text-center pb-3">You can form your group</p>
-                        <a href="#" class="text-center py-3">Click Here to Form A New Group</a>
+                        <form id="my_form" action="#" th:action= "@{/formNewGroup}" th:object="${user}" method="POST">
+
+                            <input type="hidden" th:field="*{userId}"
+                                   class="form-control mb-4 col-4" placeholder="First name">
+
+                            <input type="hidden" th:field="*{userName}"
+                                   class="form-control mb-4 col-4" placeholder="First name">
+
+                            <input type="hidden" th:field="*{userSurname}"
+                                   class="form-control mb-4 col-4" placeholder="Last name">
+
+                            <input type="hidden" th:field="*{email}"
+                                   class="form-control mb-4 col-4" placeholder="Email">
+
+                            <input type="hidden" th:field="*{password}"
+                                   class="form-control mb-4 col-4" placeholder="password">
+
+                            <input type="hidden" th:field="*{type}" />
+
+                            <a href="javascript:{}" class="text-center py-3" onclick="document.getElementById('my_form').submit();">Click Here to Form A New Group</a>
+                        </form>
+
                     </div>
                 </div>
 

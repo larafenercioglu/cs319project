@@ -20,13 +20,15 @@ public class UserManager {
     private UserRepository userRepository;
     private StudentRepository studentRepository;
     private InstructorAndTAsRepository instructorAndTAsRepository;
+    private GroupRepository groupRepository;
 
     //Constructor
     public UserManager(UserRepository theUserRepository, StudentRepository studentRepository,
-                       InstructorAndTAsRepository instructorAndTAsRepository) {
+                       InstructorAndTAsRepository instructorAndTAsRepository, GroupRepository groupRepository) {
         userRepository = theUserRepository;
         this.studentRepository = studentRepository;
         this.instructorAndTAsRepository =instructorAndTAsRepository;
+        this.groupRepository = groupRepository;
     }
 
     //Open Login page
@@ -228,6 +230,13 @@ public class UserManager {
         return instructorAndTAsRepository.findAll();
     }
 
+    @PostMapping("/formNewGroup")
+    public String formNewGroup(@ModelAttribute("user") Student theStudent) {
+
+        groupRepository.save(theStudent.formAGroup(31,5));
+        studentRepository.save(theStudent);
+        return "dashboardIndex";
+    }
 
     /*
     @PostMapping
