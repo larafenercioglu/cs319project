@@ -41,8 +41,7 @@ public class Group{
         announcementList = new ArrayList<>();
     }
 
-    public Group(int groupId,  int maxGroupSize) {
-        this.groupId = groupId;
+    public Group(int maxGroupSize) {
         this.maxGroupSize = maxGroupSize;
         studentList = new ArrayList<Student>();
         groupSubmissionList = new ArrayList<Submission>();
@@ -52,8 +51,8 @@ public class Group{
     }
 
     //Constructor
-    public Group(int groupId, List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, List<Announcement> announcementList, int maxGroupSize, Calendar calendar, double progress, List<Request> requests, List<Invitation> invitations) {
-        this.groupId = groupId;
+    public Group(List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, List<Announcement> announcementList, int maxGroupSize, Calendar calendar, double progress, List<Request> requests, List<Invitation> invitations) {
+        //this.groupId = groupId;
         this.studentList = studentList;
         this.groupSubmissionList = groupSubmissionList;
         this.groupAssignmentList = groupAssignmentList;

@@ -233,7 +233,7 @@ public class UserManager {
     @PostMapping("/formNewGroup")
     public String formNewGroup(@ModelAttribute("user") Student theStudent) {
 
-        groupRepository.save(theStudent.formAGroup(31,5));
+        groupRepository.save(theStudent.formAGroup(5)); //TODO id artık parametre değil sıkıntı çıkarabilir
         studentRepository.save(theStudent);
         return "dashboardIndex";
     }

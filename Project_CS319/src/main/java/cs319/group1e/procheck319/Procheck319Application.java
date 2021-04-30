@@ -110,7 +110,7 @@ public class Procheck319Application {
         c.addStudent(s15);
 
         //-----------------------------group formation begins-----------------------------
-        Group g1 = s1.formAGroup(0,p.getMaxGroupSize());
+        Group g1 = s1.formAGroup(p.getMaxGroupSize());
         c.addGroup(g1);
         //g1.addGroupMember(s5);
 

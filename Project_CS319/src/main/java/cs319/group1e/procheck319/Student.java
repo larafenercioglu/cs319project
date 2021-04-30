@@ -176,14 +176,11 @@ public class Student implements User {
     /**
       Student forms a group on his/her own
      */
-    public Group formAGroup(int groupId,  int maxGroupSize ){
-        Group group = new Group( groupId, maxGroupSize);
+    public Group formAGroup(int maxGroupSize ){
+        Group group = new Group(maxGroupSize);
         group.addGroupMember(this);
-        //Newly Added
-        this.setGroupId(groupId);
         return group;
     }
-
 
     /**
      * Student adds a submission to an assignment on behalf of group
