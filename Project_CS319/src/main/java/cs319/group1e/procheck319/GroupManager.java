@@ -41,13 +41,13 @@ public class GroupManager {
     @DeleteMapping(value = "deleteGroup/{groupId}")
     public String deleteGroup(@PathVariable("groupId") int id) {
         groupRepository.deleteById(id);
-        return "redirect:/";
+        return "Group is deleted";
     }
 
     @PostMapping("/saveGroup")
     public String saveGroup(@RequestBody Group theGroup) {
         groupRepository.save(theGroup);
-        return "redirect:/";
+        return "New Group is created";
     }
 
     @PostMapping("/saveGroup/{groupId}/{userId}")
