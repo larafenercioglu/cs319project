@@ -146,4 +146,100 @@ public class InstructorAndTAs implements User {
         OPERATIONS OF INSTRUCTORANDTAS
     */
 
+    /**
+     Instructor gets group's specific submission
+     */
+    public Submission getSubmission(Group group, int subNo){
+        return group.getGroupSubmissionList().get(subNo-1);
+    }
+
+    /**
+     Instructor gives feedback
+     */
+    public InstructorFeedback giveFeedback(String context){
+        InstructorFeedback instructorFeedback = new InstructorFeedback(context);
+        return instructorFeedback;
+    }
+
+    /**
+     Instructor grades a submission
+     */
+    /*
+    public boolean gradeSubmission(Group group, int subNo, double grade){
+        if(group.getGroupSubmissionList().get(subNo-1) == null){
+            return false;
+        }
+        group.getGroupSubmissionList().get(subNo-1).setGrade(grade);
+        return true;
+    }*/
+
+    public boolean gradeSubmission(Submission sub, double grade){
+        sub.setGrade(grade);
+        sub.setIsGraded(true);
+        return true;
+    }
+
+    /**
+     Instructor views the submission list of a specific group
+     */
+    public List<Submission> viewSubmission(List<Group> groups, int index){
+        return groups.get(index-1).getGroupSubmissionList();
+    }
+
+    /**
+     Instructor views the peer review list of a specified group's specified student
+     */
+    public List<PeerReview> viewPeerReviews(List<Group> groups, int groupId, int studentId){
+        return groups.get(groupId-1).getStudentList().get(studentId-1).getPeerReviews();
+    }
+
+    /**
+     Instructor views the artifact reviews of a group's submission
+     */
+    public List<ArtifactReview> viewArtifactReviews(List<Group> groups, int groupId, int subNo){
+        return groups.get(groupId-1).getGroupSubmissionList().get(subNo-1).getArtifactReviews();
+    }
+
+    /**
+     Instructor views a specific group
+     */
+    public Group viewGroup(List<Group> groups, int groupId){
+        return groups.get(groupId-1);
+    }
+
+    /**
+     Instructor creates an announcement
+     */
+    public Announcement announce(String context, String title){
+        Announcement announcement = new Announcement(context, title, this.userName + " " + this.userSurname);
+        for(int i = 0 ; i < aClass.getGroups().size() ; i++){
+            aClass.getGroups().get(i).addAnnouncement(announcement);
+        }
+        return announcement;
+    }
+
+    public Announcement announceToAGroup(Group group, String context, String title){
+        Announcement announcement = new Announcement(context, title + " - (Group" + group.getGroupId() + ")", this.userName + " " + this.userSurname);
+        group.addAnnouncement( announcement );
+        return announcement;
+    }
+
+    /**
+     Instructor creates a class
+     */
+    public Class createClass(String className){
+        Class aClass1 = new Class(createClassKey(), className);
+        this.aClass = aClass1;
+        return aClass1;
+    }
+
+    /**
+     Creating a random class key
+     */
+    public String createClassKey(){
+        byte[] array = new byte[7]; // length is bounded by 7
+        new Random().nextBytes(array);
+        String generatedString = new String(array, Charset.forName("UTF-8"));
+        return generatedString;
+    }
 }

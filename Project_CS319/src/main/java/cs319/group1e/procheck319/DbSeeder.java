@@ -26,7 +26,9 @@ public class DbSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        this.classRepository.deleteAll();
+        this.studentRepository.deleteAll();
+        this.groupRepository.deleteAll();
         /*
         classRepository.deleteAll();
         Class erayClass = new Class("AnanZa", "CS",0, 319);
@@ -104,12 +106,34 @@ public class DbSeeder implements CommandLineRunner {
         this.studentRepository.saveAll(users);
         //-----------------------------adding groups-----------------------------
 
-        Group g1 = new Group(erayClass.assignGroupId(),p.getMaxGroupSize());
-        erayClass.addGroupId(g1.getGroupId());
-        g1.addGroupMember(s1);
-        g1.addGroupMember(s5);
-        g1.addGroupMember(s15);
+        Group g1 = s1.formAGroup(erayClass.assignGroupId(),p.getMaxGroupSize()); // GROUP s1
+        erayClass.addGroupId(g1.getGroupId());//
+
+        Request req1 = s5.sendRequest(g1); // s5 GROUP 'a request a
+        s1.acceptRequest(req1,g1, s5);
+        studentRepository.saveAll(users);
         groupRepository.save(g1);
+
+
+        Group gg = groupRepository.findByGroupId(s1.getGroupId());
+        g1 = gg;
+        Invitation invit = s1.sendInvitation(s15, g1); //s1 grubuna s15 i davet etti
+        studentRepository.saveAll(users);
+        groupRepository.save(g1);
+
+
+        s15.acceptInvitation(invit,g1 ); //s15 s1 in gruba davet isteiğini kabul etti
+
+        //Check s15
+        System.out.println(s1.getGroupId());
+        System.out.println("DbSeeder Checkpoint for g1 student list:" + g1.getStudentIdList());
+        System.out.println("DbSeeder Checkpoint for g1 id no:" + g1.getGroupId());
+        studentRepository.saveAll(users);
+        groupRepository.save(g1);
+
+
+        //Check s15
+        System.out.println("DbSeeder Checkpoint for g1 student list:" + g1.getStudentIdList());
 
         Group g2 = new Group(erayClass.assignGroupId(),p.getMaxGroupSize());
         erayClass.addGroupId(g2.getGroupId());
@@ -129,7 +153,6 @@ public class DbSeeder implements CommandLineRunner {
         erayClass.addGroupId(g4.getGroupId());
         g4.addGroupMember(s14);
         groupRepository.save(g4);
-
         studentRepository.saveAll(users);
 
         System.out.println("--------------------BEFORE GROUP FORMATION DEADLINE-----------------------");
@@ -142,23 +165,12 @@ public class DbSeeder implements CommandLineRunner {
             }
         }
 
-        //---------------------------------------------------------------------
         List<Group> groups = groupRepository.findAll();
         List<Student> students = studentRepository.findAll();
         HashMap<Integer,List<Student>> studentsGroupsMap = new HashMap<>();
 
-        /*for(Integer j =0;j<groups.size();j++){
-            studentsGroupsMap.keySet((groups.get(j).getGroupId()));
-            //groups.get(j).getGroupId()
-        }*/
         System.out.println("BURASIII"+groups);
 
-        /*
-        for(int i=0;i<students.size();i++){
-            studentsGroupsMap.get(students.get(i).getGroupId()).add(students.get(i));
-            studentsGroupsMap.putIfAbsent(students.get(i).getGroupId());
-        }
-         */
         //iterate over groups
         for(int i = 0; i < groups.size(); i++) {
             //create an empty student list to put group students and put that into map
@@ -187,36 +199,162 @@ public class DbSeeder implements CommandLineRunner {
             }
         }
 
+        classRepository.save(erayClass);
+
+        System.out.println("---------------ASSIGMENT------------------");
+        //HashMap<Integer,List<Submissoin>>sSubmissionMap = new HashMap<>()
+        //List<Assgnment> Assignments = ?
+        //-----------------------------assignments-----------------------------
+        //Map<Assignment,>
+        Assignment assignment1 = new Assignment();
+        assignment1.setAssignmentNo(1);
+        assignment1.setTitle("README Document");
+        assignment1.setVisibility(true);
+        assignment1.setWeight(5);
+        assignment1.setDeadline(2021, 1, 3);
+        p.createAssignment(assignment1);
+
+        Assignment assignment2 = new Assignment();
+        assignment2.setAssignmentNo(2);
+        assignment2.setTitle("Analysis Report Iteration 1");
+        assignment2.setVisibility(true);
+        assignment2.setWeight(0);
+        assignment2.setDeadline(2022, 1, 6);
+        p.createAssignment(assignment2);
+
+        Assignment assignment3 = new Assignment();
+        assignment3.setAssignmentNo(3);
+        assignment3.setTitle("Design Report Iteration 1");
+        assignment3.setVisibility(true);
+        assignment3.setDeadline(2021, 4, 6);
+        assignment3.setWeight(0);
+        p.createAssignment(assignment3);
+
+        Assignment assignment4 = new Assignment();
+        assignment4.setAssignmentNo(4);
+        assignment4.setTitle("Analysis Report Iteration 2");
+        assignment4.setVisibility(true);
+        assignment4.setWeight(25);
+        assignment4.setDeadline(2021, 5, 3);
+        p.createAssignment(assignment4);
+
+        Assignment assignment5 = new Assignment();
+        assignment5.setAssignmentNo(5);
+        assignment5.setTitle("Design Report Iteration 2");
+        assignment5.setVisibility(true);
+        assignment5.setDeadline(2021, 11, 26);
+        assignment5.setWeight(35);
+        p.createAssignment(assignment5);
+
+        classRepository.save(erayClass);
+        groupRepository.saveAll(groups);
+        studentRepository.saveAll(students);
+
+        s1 = students.get(0);
+        s2 = students.get(1);
+        s3 = students.get(2);
+        s4 = students.get(3);
+        s5 = students.get(4);
+        s6 = students.get(5);
+        s7 = students.get(6);
+        s8 = students.get(7);
+        s9 = students.get(8);
+        s10 = students.get(9);
+        s11 = students.get(10);
+        s12 = students.get(11);
+        s13 = students.get(12);
+        s14 = students.get(13);
+        s15 = students.get(14);
+
+        System.out.println("Group ID ::::::::::::::::::::  " + s9.getGroupId());
+
+        System.out.println(":) " + groupRepository.findByGroupId(s9.getGroupId()));
+
+        //-----------------------------adding submissions-----------------------------
+        Submission s1SubToAs1 = new Submission( assignment1 );
+        Submission s2SubToAs1 = new Submission( assignment1 );
+        Submission s6SubToAs1 = new Submission( assignment1 );
+        Submission s9SubToAs1 = new Submission( assignment1 );
+
+        List<Group> newGroups = Arrays.asList(groupRepository.findByGroupId(s1.getGroupId()), groupRepository.findByGroupId(s2.getGroupId()), groupRepository.findByGroupId(s6.getGroupId()), groupRepository.findByGroupId(s9.getGroupId()));
+
+        s1.addSubmission(s1SubToAs1,assignment1, newGroups.get(0));
+        s2.addSubmission(s2SubToAs1,assignment1, newGroups.get(1));
+        s6.addSubmission(s6SubToAs1,assignment1, newGroups.get(2));
+        s9.addSubmission(s9SubToAs1,assignment1, newGroups.get(3));
+        ////////////////////////////////////////////////////////2/////3
+        Submission s1SubToAs2 = new Submission( assignment2 );
+        Submission s2SubToAs2 = new Submission( assignment2 );
+        Submission s6SubToAs2 = new Submission( assignment2 );
+        Submission s9SubToAs2 = new Submission( assignment2 );
+
+        s1.addSubmission(s1SubToAs2,assignment2, newGroups.get(0));
+        s2.addSubmission(s2SubToAs2,assignment2, newGroups.get(1));
+        s6.addSubmission(s6SubToAs2,assignment2, newGroups.get(2));
+        s9.addSubmission(s9SubToAs2,assignment2, newGroups.get(3));
+        ///////////////////////////////////////////////////////////////
+
+        Submission s1SubToAs3 = new Submission( assignment3 );
+        Submission s2SubToAs3 = new Submission( assignment3 );
+        Submission s6SubToAs3 = new Submission( assignment3 );
+        Submission s9SubToAs3 = new Submission( assignment3 );
+
+        s1.addSubmission(s1SubToAs3,assignment3, newGroups.get(0));
+        s2.addSubmission(s2SubToAs3,assignment3, newGroups.get(1));
+        s6.addSubmission(s6SubToAs3,assignment3, newGroups.get(2));
+        s9.addSubmission(s9SubToAs3,assignment3, newGroups.get(3));
+        //////////////////////////////////////////////////////////////
+
+        Submission s1SubToAs4 = new Submission( assignment4 );
+        Submission s2SubToAs4 = new Submission( assignment4 );
+        Submission s6SubToAs4 = new Submission( assignment4 );
+        Submission s9SubToAs4 = new Submission( assignment4 );
+
+
+        s1.addSubmission(s1SubToAs4,assignment4, newGroups.get(0));
+        s2.addSubmission(s2SubToAs4,assignment4,newGroups.get(1));
+        s6.addSubmission(s6SubToAs4,assignment4,newGroups.get(2));
+        s9.addSubmission(s9SubToAs4,assignment4,newGroups.get(3));
+        //////////////////////////////////////////////////////////////
+
+        Submission s1SubToAs5 = new Submission( assignment5 );
+        Submission s2SubToAs5 = new Submission( assignment5 );
+        Submission s6SubToAs5 = new Submission( assignment5 );
+        Submission s9SubToAs5 = new Submission( assignment5 );
+
+        s1.addSubmission(s1SubToAs5,assignment5, newGroups.get(0));
+        s2.addSubmission(s2SubToAs5,assignment5, newGroups.get(1));
+        s6.addSubmission(s6SubToAs5,assignment5 , newGroups.get(2));
+        s9.addSubmission(s9SubToAs5,assignment5, newGroups.get(3));
+        /////////////////////////////////////////////////////////
+        users = Arrays.asList(s1, s2, s3,s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15);
+
+        studentRepository.saveAll(users);
+        groupRepository.saveAll(newGroups);
+        classRepository.save(erayClass);
 
         /*
-        Group otherGroup = new Group(5);
-        otherGroup.addGroupMember((Student)kim);
-        otherGroup.addGroupMember((Student)tutku);
-         */
+        Announcement announcement1 = tuzun.announce("Related to Grading update that we talked about today here is the latest version: Final 30%, Project 40 %, Midterm 15%,  Q1 (1)+GitLab(5)+Design Patterns Lab (7) + Attendance to final presentations (2)","Grading");
+        Announcement announcement2 = jabrayilzade.announce("Please share the links for these 2 things in the appropriate column in the Final Demo Schedule (a Google sheet to which you have write access) in the course page.","Project Demo Links");
+        c.addAnnouncement(announcement1);
+        c.addAnnouncement(announcement2);
 
+        //displaying announcements in the class
+        System.out.println("-----------CLASS ANNOUNCEMENTS-----------");
+        for(int i = 0; i < c.getAnnouncementList().size(); i++){
+            System.out.println(c.getAnnouncementList().get(i));
+        }
 
-        /*
-        this.groupRepository.deleteAll();
-        Group g1 = new Group();
-        g1.setStudentList(users);
-        this.groupRepository.save(g1);
-
-        Group g2 = new Group(2, 5);
-        g2.setStudentList(users2);
-        this.groupRepository.save(g2);
-        */
-
-        /*
-            System.out.println(users.getClass());
-            System.out.println(kim.getClass());
-
-            if(studentRepository.findByUserId(21802) == null) {
-                System.out.println("test");
+        //displaying announcements from group class
+        for(int i = 0; i < c.getGroups().size(); i++){
+            System.out.println("-----------GROUP " + (i+1) + "s ANNOUNCEMENTS-----------");
+            for(int j = 0; j < c.getGroups().get(i).getAnnouncementList().size(); j++){
+                System.out.println(c.getGroups().get(i).getAnnouncementList().get(j));
             }
-            User user = studentRepository.findByUserId(21802);
-            System.out.println(user.getUserName());
-            System.out.println(studentRepository.findByUserId(21802).getClass());
-            System.out.println(user.getClass());
-        */
+        }*/
+
+
+
+
     }
 }

@@ -16,10 +16,11 @@ public class Assignment {
     private Date artifactReviewDeadline; //Date olmayabilir
     private String title;
     private double average;
+    //TODO:PDF eklenecek
 
     //Default Constructor
     public Assignment() {
-        submissionList = new ArrayList<Submission>();
+        submissionList = new ArrayList<>();
     }
 
     //Constructor

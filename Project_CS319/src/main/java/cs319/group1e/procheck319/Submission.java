@@ -7,30 +7,29 @@ import java.util.ArrayList;
 public class Submission {
     private String title;
     private double grade;
-    private Assignment assignment;
+    //private Assignment assignment;
     private int assignmentNo;
     private InstructorFeedback feedback;
     private List<ArtifactReview> artifactReviews;
     private int groupId;
     private boolean isGraded;
-    //TODO: File nasıl eklenecek bilmiyom
 
     //Default Constructor
     public Submission() {
-        this.title = groupId + "_" + assignment.getTitle();
+        this.title = groupId + "_" + assignmentNo;
     }
 
     public Submission(Assignment assignment) {
-        this.assignment = assignment;
+        this.assignmentNo = assignmentNo;
         this.title = groupId + "_" + assignment.getTitle();
         artifactReviews = new ArrayList<>();
     }
 
     //Constructor
-    public Submission(int groupId, double grade, Assignment assignment, InstructorFeedback feedback, List<ArtifactReview> artifactReviews) {
+    public Submission(int groupId, double grade, int assignmentNo, InstructorFeedback feedback, List<ArtifactReview> artifactReviews) {
         this.groupId = groupId;
         this.grade = grade;
-        this.assignment = assignment;
+        this.assignmentNo = assignmentNo;
         this.feedback = feedback;
         this.artifactReviews = new ArrayList<>();
     }
@@ -44,8 +43,8 @@ public class Submission {
         return grade;
     }
 
-    public Assignment getAssignment() {
-        return assignment;
+    public int getAssignmentNo() {
+        return assignmentNo;
     }
 
     public InstructorFeedback getFeedback() {
@@ -69,8 +68,8 @@ public class Submission {
         this.grade = grade;
     }
 
-    public void setAssignment(Assignment assignment) {
-        this.assignment = assignment;
+    public void setAssignmentNo(int assignmentNo) {
+        this.assignmentNo = assignmentNo;
     }
 
     public void setFeedback(InstructorFeedback feedback) {

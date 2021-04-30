@@ -170,6 +170,7 @@ public class Class {
                     groups.get(i).removeGroupMember(groupStudents.get(groups.get(i).getGroupId()).get(0));
                 }
                 groups.remove(i);
+                groupIdList.remove(i);
                 i = -1;
                 flag = false;
             }
@@ -182,6 +183,8 @@ public class Class {
             }
             singles.add(students.get(i));
         }
+
+        System.out.println("SINGLES : \n" + students);
 
         int index = 0;
         int groupNumbersToCreate = 0;
@@ -196,16 +199,18 @@ public class Class {
             studentNumberToDistribute = (singles.size() % project.getMaxGroupSize()); //Sayıları bir grup oluşturmayan öğrenci sayısı
         }
 
-        for(int i = 0; i < groupNumbersToCreate; i++){
+        for(int i = 0; i < groupNumbersToCreate; i++) {
             int newId = assignGroupId();
+            System.out.println("YANLIŞ ID : " + newId);
             Group g = new Group(newId, 5);
 
             g.setMaxGroupSize(project.getMaxGroupSize());
-            for(int j = 0; j < project.getMaxGroupSize(); j++){
+            for (int j = 0; j < project.getMaxGroupSize(); j++) {
                 g.addGroupMember(singles.get(index));
                 index += 1;
             }
             groups.add(g);// en son return edilecek
+            groupIdList.add(g.getGroupId());
         }
 
         //Adds remaining students with the min-sized group
@@ -223,6 +228,11 @@ public class Class {
             groups.get(indexOfMinGroup).addGroupMemberException(singles.get(index));
             index++;
         }
+
+        System.out.println(" KOPYALA GOKHAN ");
+        System.out.println("BURASI AMINA KOYİM PART-2");
+        System.out.println(groups);
+
         return true;
         //}
         //return false;

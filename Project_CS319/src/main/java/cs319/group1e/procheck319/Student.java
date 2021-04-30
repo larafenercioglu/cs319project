@@ -1,6 +1,7 @@
 package cs319.group1e.procheck319;
 
 //import cs319.group1e.repositories.StudentRepository;
+import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 
@@ -169,7 +170,7 @@ public class Student implements User {
     /**
       Student forms a group on his/her own
      */
-    public Group formAGroup(int id, int maxGroupSize ){
+    public Group formAGroup(int id, int maxGroupSize){
         Group group = new Group(id, maxGroupSize);
         group.addGroupMember(this);
         return group;
@@ -237,9 +238,10 @@ public class Student implements User {
     /**
       Student sends a request to a group
      */
-    public void sendRequest(Group group){
-        Request request = new Request(group,this);
+    public Request sendRequest(Group group){ //TODO: BURAYA BAK Bİ HELEEEEEEEEEEEEEEE
+        Request request = new Request(group.getGroupId(),this.userId);
         group.getRequests().add(request);
+        return request;
     }
 
     /**
@@ -277,24 +279,24 @@ public class Student implements User {
         studentGroup.editCalendar(studentGroup.getCalendar());
     }
 
-    public void acceptRequest(Request req , Group studentGroup){
-        if(!studentGroup.isFull()){
-            studentGroup.addGroupMember(req.getSender());
-            studentGroup.getRequests().remove(req);
+    public void acceptRequest(Request req , Group receiverGroup, Student senderStudent){
+        if(!receiverGroup.isFull()){
+            receiverGroup.addGroupMember(senderStudent); //kabul edileni gruba kaydet
+            receiverGroup.getRequests().remove(req);
         }
     }
     /**
      Student sends an invitation to a student on behalf of the group
      Student will get the studentId of the student that will be invited to this student's group
      */
-    public void sendInvitation(Student student, Group studentGroup){
-        if(!studentGroup.isFull()){
-            Invitation invitation = new Invitation(student,studentGroup);
-            student.addInvitation(invitation);
+    public Invitation sendInvitation(Student receiverStudent, Group senderGroup){ //TODO:Test case için değiştirildi, tekrar değişti
+        if(!senderGroup.isFull()){
+            Invitation invitation = new Invitation(receiverStudent.getUserId(),senderGroup.getGroupId());
+            receiverStudent.addInvitation(invitation);
             //studentGroup.getInvitations().add(invitation);
-            student.getInvitations().add(invitation);
+            return invitation;
         }
-
+        return null;
     }
     /**
       Adding invitation to the student
@@ -303,17 +305,28 @@ public class Student implements User {
         invitations.add(invitation);
     }
 
-    public void acceptInvitation(Invitation inv){
-        if(!inv.getSender().isFull()){
-            inv.getSender().addGroupMember(inv.getReceiver());
+    /**
+     Accept incoming invitation
+     */
+    public void acceptInvitation(Invitation inv, Group senderGroup){
+        if(!senderGroup.isFull()){
+            senderGroup.addGroupMember(this);
             //inv.getSender().getInvitations().remove(inv);
-            inv.getReceiver().getInvitations().remove(inv);
+            this.getInvitations().remove(inv);
         }else {
-            //inv.getSender().getInvitations().remove(inv);
-            inv.getReceiver().getInvitations().remove(inv);
+            this.getInvitations().remove(inv);
+            //senderGroup.getInvitations().remove(inv);
         }
-
     }
+
+    /**
+     Reject incoming invitation
+     */
+    public void rejectInvitation(Invitation inv) {
+        this.getInvitations().remove(inv);
+    }
+
+    @Override
     public String toString(){
         return this.userName;
     }

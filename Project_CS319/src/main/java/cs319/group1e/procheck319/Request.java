@@ -5,36 +5,36 @@ public class Request {
     /*
         ATTRIBUTES OF GROUP
     */
-    private Group receiver;
-    private Student sender;
+    private int receiverGroupId;
+    private int senderStudentId;
     private boolean isAccepted;
     private String title;
     private String content;
 
     //default constructor
-    public Request(Group receiver, Student sender){
-        this.receiver = receiver;
-        this.sender = sender;
+    public Request(int receiverGroupId, int senderStudentId){
+        this.receiverGroupId = receiverGroupId;
+        this.senderStudentId = senderStudentId;
         this.isAccepted = false;
         this.title = null;
         this.content = null;
     }
 
     //Constructor
-    public Request(Group receiver, Student sender, boolean isAccepted, String title, String content) {
-        this.receiver = receiver;
-        this.sender = sender;
+    public Request(int receiverGroupId, int senderStudentId, boolean isAccepted, String title, String content) {
+        this.receiverGroupId = receiverGroupId;
+        this.senderStudentId = senderStudentId;
         this.isAccepted = isAccepted;
         this.title = title;
         this.content = content;
     }
-    public Group getReceiver() {
-        return receiver;
+    public int getReceiverGroupId() {
+        return receiverGroupId;
     }
 
     //Getters
-    public Student getSender() {
-        return sender;
+    public int getSenderStudentId() {
+        return senderStudentId;
     }
 
     public boolean isAccepted() {
@@ -50,12 +50,12 @@ public class Request {
     }
 
     //Setters
-    public void setReceiver(Group receiver) {
-        this.receiver = receiver;
+    public void setReceiverGroup(int receiverGroupId) {
+        this.receiverGroupId = receiverGroupId;
     }
 
-    public void setStudent(Student sender) {
-        this.sender = sender;
+    public void setSenderStudentId(int sender) {
+        this.senderStudentId = senderStudentId;
     }
 
     public void setAccepted(boolean accepted) {
@@ -69,9 +69,10 @@ public class Request {
     public void setContent(String content) {
         this.content = content;
     }
+
     public String toString(){
         String req = "";
-        req = sender + " has sent and invitation to your group: "+receiver;
+        req = senderStudentId + " has sent and invitation to your group: " + receiverGroupId;
         return req;
     }
 }

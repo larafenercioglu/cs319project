@@ -5,33 +5,33 @@ public class Invitation {
     /*
         ATTRIBUTES OF GROUP
     */
-    private Student receiver;
-    private Group sender;
+    private int receiverStudentId;
+    private int senderGroupId;
     private boolean isAccepted;
     private String title;
 
-    public Invitation(Student receiver, Group sender) {
-        this.receiver = receiver;
-        this.sender = sender;
+    public Invitation(int receiverStudentId, int senderGroupId) {
+        this.receiverStudentId = receiverStudentId;
+        this.senderGroupId = senderGroupId;
         this.isAccepted = false;
-        this.title = "Group " + sender.getGroupId()+ " Invitation";
+        this.title = "Group " + senderGroupId + " Invitation";
     }
 
     //Constructor
-    public Invitation(Student receiver, Group sender, boolean isAccepted, String title) {
-        this.receiver = receiver;
-        this.sender = sender;
+    public Invitation( int receiverStudentId, int senderGroupId, boolean isAccepted, String title) {
+        this.receiverStudentId = receiverStudentId;
+        this.senderGroupId = senderGroupId;
         this.isAccepted = isAccepted;
         this.title = title;
     }
 
     //Getters
-    public Student getReceiver() {
-        return receiver;
+    public int getReceiverStudentId() {
+        return receiverStudentId;
     }
 
-    public Group getSender() {
-        return sender;
+    public int getSenderId() {
+        return senderGroupId;
     }
 
     public boolean isAccepted() {
@@ -43,12 +43,12 @@ public class Invitation {
     }
 
     //Setters
-    public void setReceiver(Student receiver) {
-        this.receiver = receiver;
+    public void setReceiverStudentId(int receiverStudentId) {
+        this.receiverStudentId = receiverStudentId;
     }
 
-    public void setSender(Group sender) {
-        this.sender = sender;
+    public void setSenderGroupId(int senderGroupId) {
+        this.senderGroupId = senderGroupId;
     }
 
     public void setAccepted(boolean accepted) {
@@ -58,8 +58,10 @@ public class Invitation {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    @Override
     public String toString(){
-        String inv = sender + " has sent an invitation to you "+ receiver;
+        String inv = senderGroupId + " has sent an invitation to you " + receiverStudentId;
         return inv;
     }
 }
