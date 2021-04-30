@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>No Group Dashboard</title>
+    <link rel="stylesheet" href="css/noGroupDashboardCss/demo.css" />
+    <link rel="stylesheet" href="css/noGroupDashboardCss/theme1.css" />
+    <link rel="stylesheet" href="css/noGroupDashboardCss/style.css">
+
+</head>
+
+<body>
+
+<!--Row that will be split into 2 columns -->
+<div class="row mt-2 mx-2">
+
+    <!--First column, size:10/12-->
+    <div class="col-md-10">
+
+        <!--Top-->
+        <div class="mx-1 mb-2">
+            <div class="row">
+
+                <!--Progress bar module-->
+                <div class="col-md-2">
+                    <div class="mx-1 bg-white my-height-20 d-flex flex-column">
+                        <h5 class="align-self-center pb-1">Overall Progress</h5>
+                        <div class="d-flex justify-content-center pl-3">
+                            <div class="bg-white pl-4 progress align-self-center d-flex flex-column">
+                                <div class="barOverflow d-flex justify-content-center">
+                                    <div class="bar align-self-center"></div>
+                                </div>
+                                <div class="ml-3 pl-4 mt-3" style="font-size: 15px;">
+                                    <span>55</span>%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--You are not in a group module-->
+                <div class="col-md-10">
+                    <div class="mx-1 bg-white my-height-20 d-flex justify-content-center">
+                        <h1 class="align-self-center pb-5">You are Not In a Group</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Middle-->
+        <div class="mx-1 mb-2">
+            <div class="row">
+
+                <!--Form a group module-->
+                <div class="col-md-3">
+                    <div class="mx-1 bg-white my-height-40 d-flex flex-column">
+                        <h5 class="text-center py-4">Form a New Group</h5>
+                        <p class="text-center pb-3">You can form your group</p>
+                        <a href="#" class="text-center py-3">Click Here to Form A New Group</a>
+                    </div>
+                </div>
+
+                <!--Calendar module-->
+                <div class="col-md">
+                    <div class="mx-1 bg-white my-height-40 my-overflow justify-content-center">
+                        <div class="ml-5" id="caleandar">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Invitations module-->
+                <div class="col-md">
+                    <div class="mx-1 bg-white my-height-40 d-flex flex-column my-overflow">
+                        <h5 class="text-center py-4">Group Invitations</h5>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 1
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 2
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 3
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 4
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 5
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 6
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 7
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                        <div>
+                            <p class="pr-3" style="display: inline-block;">
+                                -Invitation from Group 8
+                            </p>
+                            <a href="#">View Invitation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Bottom-->
+        <div class="mx-1">
+            <div class="row">
+
+                <!--Project summary module-->
+                <div class="col-md-3">
+                    <div class="mx-1 bg-white my-height-40 d-flex flex-column">
+                        <h4 class="text-center pt-3 pb-5">Project Summary</h4>
+                        <div class="d-flex align-items-start ml-4">
+                            <p class="pr-3" style="display: inline-block;">Start Date:</p>
+                            <a href="#">06.01.2000</a>
+                        </div>
+                        <div class="d-flex align-items-start ml-4">
+                            <p class="pr-3" style="display: inline-block;">End Date:</p>
+                            <a href="#">19.07.1907</a>
+                        </div>
+                        <div class="d-flex align-items-start ml-4">
+                            <p class="pr-3" style="display: inline-block;">Project Leader:</p>
+                            <a href="#">Fatih Sultan Mehmet Han</a>
+                        </div>
+                        <div class="d-flex align-items-start ml-4">
+                            <p class="pr-3" style="display: inline-block;">Overall Status:</p>
+                            <a href="#">Istanbul Not Constantinople</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Announcement module-->
+                <div class="col-md">
+                    <div class="mx-1 bg-white my-height-40 d-flex flex-column my-overflow">
+                        <h4 class="text-center pt-3 pb-5">Announcement</h4>
+                        <div class="px-2">
+                            <a href="#" class="mr-3">About Group Formation</a>
+                            <p class="ml-3" style="display: inline-block;">
+                                posted by Erdem Tuna (Yesterday)
+                            </p>
+                        </div>
+                        <div class="px-2">
+                            <a href="#" class="mr-3">Welcome to CS319</a>
+                            <p class="ml-3" style="display: inline-block;">
+                                posted by Eray Tüzün (Yesterday)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Upcoming deadlines module-->
+                <div class="col-md">
+                    <div class="mx-1 bg-white my-height-40 my-overflow">
+                        <h4 class="text-center pt-3 pb-5">Upcoming Deadlines</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Task</th>
+                                <th scope="col">Deadline</th>
+                                <th scope="col">Time Left</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Assignment-1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Assignment-2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Assignment-3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Assignment-4</th>
+                                <td>Bu</td>
+                                <td>Gün</td>
+                                <td>Bayram</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Second column, Size:2/12-->
+    <div class="col-md-2">
+        <div class="mx-1 my-row">
+
+            <!--Project due date module-->
+            <div class="mb-2 project-end-date my-height-20 d-flex flex-column">
+                <h5 class="text-center pb-4">Projected Launch Date</h5>
+                <div class="d-flex">
+                    <i class="fas fa-flag-checkered fa-3x px-2"></i>
+                    <p class="align-self-start" style="display: inline-block;">
+                        Friday, December 15 <br>
+                        <b style="font-size: 20px;">150 days</b>
+                    </p>
+                </div>
+            </div>
+
+            <!--Other Groups module-->
+            <div class="mb-2 bg-white my-height-80">
+                <h4 class="text-center pt-3 pb-5">Other Groups</h4>
+                <div class="mb-2">
+                    <p class="pr-3" style="display: inline-block;">
+                        -Group 1
+                    </p>
+                    <a href="#">Send Join Request</a>
+                </div>
+                <div>
+                    <p class="pr-3" style="display: inline-block;">
+                        -Group 2
+                    </p>
+                    <a href="#">Send Join Request</a>
+                </div>
+                <div class="mb-2">
+                    <p class="pr-3" style="display: inline-block;">
+                        -Group 3
+                    </p>
+                    <a href="#">Send Join Request</a>
+                </div>
+                <div class="mb-2">
+                    <p class="pr-3" style="display: inline-block;">
+                        -Group 4
+                    </p>
+                    <a href="#">Send Join Request</a>
+                </div>
+                <div class="mb-2">
+                    <p class="pr-3" style="display: inline-block;">
+                        -Group 5
+                    </p>
+                    <a href="#">Send Join Request</a>
+                </div>
+                <div class="mb-2">
+                    <p class="pr-3" style="display: inline-block;">
+                        -Group 6
+                    </p>
+                    <a href="#">Send Join Request</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/noGroupDashboardJs/caleandar.js"></script>
+<script type="text/javascript" src="js/noGroupDashboardJs/app.js"></script>
+</body>
+
+</html>

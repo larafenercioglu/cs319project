@@ -65,7 +65,7 @@ public class UserManager {
                     System.out.println(theUser.getUserSurname());
                     System.out.println(theUser.getClass());
 
-                    return "dashboardIndex";
+                    return "noGroupDashboard";
                 }else{
                     return "instructorDashboard";
                 }
