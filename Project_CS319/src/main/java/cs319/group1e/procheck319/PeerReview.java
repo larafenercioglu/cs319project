@@ -1,13 +1,14 @@
 package cs319.group1e.procheck319;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PeerReview {
     private List<Integer> points;
     private List<String> reviews;
 
-    //Default constructor
-    public PeerReview(List<Integer> points) {
-        this.points = points;
+    public PeerReview() {
+        points = new ArrayList<>();
+        reviews = new ArrayList<>();
     }
 
     //Constructor

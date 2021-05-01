@@ -2,8 +2,9 @@ package cs319.group1e.procheck319;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
-@Document(collection = "allUsers")
+@Component
 public interface User {
 
     //Properties

@@ -1,10 +1,5 @@
-//package cs319.group1e.managers;
 package cs319.group1e.procheck319;
 
-import cs319.group1e.procheck319.*;
-//import cs319.group1e.repositories.InstructorAndTAsRepository;
-//import cs319.group1e.repositories.StudentRepository;
-//import cs319.group1e.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,17 +12,16 @@ import java.util.List;
 public class UserManager {
 
     @Autowired
-    private UserRepository userRepository;
     private StudentRepository studentRepository;
-    //private InstructorAndTAsRepository instructorAndTAsRepository;
+    private InstructorAndTAsRepository instructorAndTAsRepository;
     private GroupRepository groupRepository;
 
     //Constructor
-    public UserManager(UserRepository theUserRepository, StudentRepository studentRepository,
-                        GroupRepository groupRepository) {
-        userRepository = theUserRepository;
+    public UserManager(StudentRepository studentRepository,
+                       GroupRepository groupRepository, InstructorAndTAsRepository instructorAndTAsRepository) {
+
         this.studentRepository = studentRepository;
-        //this.instructorAndTAsRepository =instructorAndTAsRepository;
+        this.instructorAndTAsRepository =instructorAndTAsRepository;
         this.groupRepository = groupRepository;
     }
 
@@ -44,7 +38,7 @@ public class UserManager {
 
     /**
         Login the system
-        It is done by UserRepository class
+        It is done by StudentRepository and InstructorAndTAsRepository class
     */
     @PostMapping(value = "/checkUserInput")
     public String checkUserByLoginInput(@ModelAttribute("user") User theUser) {
@@ -53,23 +47,42 @@ public class UserManager {
         String email = theUser.getEmail();
         String password = theUser.getPassword();
 
-        List<User> newList = userRepository.findAll();
-        for(int i  = 0; i < newList.size(); i++) {
-            if(newList.get(i).getEmail().equals(email) && newList.get(i).getPassword().equals(password)) {
-                theUser.setUserName(newList.get(i).getUserName());
-                theUser.setUserSurname(newList.get(i).getUserSurname());
-                theUser.setUserId(newList.get(i).getUserId());
-                theUser.setType(newList.get(i).getType());
+        List<Student> students = studentRepository.findAll();
+        List<InstructorAndTAs> instructorAndTAs = instructorAndTAsRepository.findAll();
+
+        //Check student repository
+        for(int i  = 0; i < students.size(); i++) {
+            if(students.get(i).getEmail().equals(email) && students.get(i).getPassword().equals(password)) {
+                theUser.setUserName(students.get(i).getUserName());
+                theUser.setUserSurname(students.get(i).getUserSurname());
+                theUser.setUserId(students.get(i).getUserId());
+                theUser.setType(students.get(i).getType());
 
                 if(theUser.getType().equals("student")){
-                    System.out.println("INSIDE checkUserByLoginInput");
-                    System.out.println(theUser.getUserName());
-                    System.out.println(theUser.getUserSurname());
-                    System.out.println(theUser.getClass());
+                    if(students.get(i).isGroupMember()) {
+                        return "studentDashboard"; //TODO DEĞİŞECEK !!!!!!!!!!!!!!!!!
+                    }else{
 
-                    return "noGroupDashboard";
+                        return "noGroupDashboard";
+                    }
                 }else{
+                    return "redirect:/login";
+                }
+            }
+        }
+
+        //Check instructor repository
+        for(int i  = 0; i < instructorAndTAs.size(); i++) {
+            if(instructorAndTAs.get(i).getEmail().equals(email) && instructorAndTAs.get(i).getPassword().equals(password)) {
+                theUser.setUserName(instructorAndTAs.get(i).getUserName());
+                theUser.setUserSurname(instructorAndTAs.get(i).getUserSurname());
+                theUser.setUserId(instructorAndTAs.get(i).getUserId());
+                theUser.setType(instructorAndTAs.get(i).getType());
+
+                if(theUser.getType().equals("instructor")){
                     return "instructorDashboard";
+                }else{
+                    return "redirect:/login";
                 }
             }
         }
@@ -100,9 +113,6 @@ public class UserManager {
     */
     @PostMapping("/updateStudent")
     public String updateStudent(@ModelAttribute("user") Student theStudent) {
-
-        System.out.println(theStudent.getUserName());
-        System.out.println(theStudent.getClass());
 
         //Save the user
         studentRepository.save(theStudent);
@@ -140,6 +150,7 @@ public class UserManager {
         if(flag){
             // save the student
             theStudent.setType("student");
+            //theStudent.setGroupId(-1);
             studentRepository.save(theStudent);
 
             //Print message
@@ -150,49 +161,10 @@ public class UserManager {
         return "redirect:/login";
     }
 
-
-
-
-    /*@GetMapping(value = "/allInstructorAndTAs")
+    @GetMapping(value = "/allInstructorAndTAs")
     public List<InstructorAndTAs> getAllInstructorAndTAs() {
         return instructorAndTAsRepository.findAll();
-    }*/
-
-    @PostMapping("/formNewGroup")
-    public String formNewGroup(@ModelAttribute("user") Student theStudent) {
-
-        groupRepository.save(theStudent.formAGroup(31, 5)); //TODO id artık parametre değil sıkıntı çıkarabilir
-        studentRepository.save(theStudent);
-        return "dashboardIndex";
     }
 
-    /*
-    @PostMapping
-    public String createUser(@RequestBody User user) {
-        User newUser = userRepository.insert(user);
-        return "User " + newUser.getUserName() + " created";
-    }
-    */
 
-    /*
-    @PutMapping(value = "/{userId}")
-    public boolean updateUser(@PathVariable("userId") int id, @RequestBody User user ) {
-
-        if(user.getUserId() == id) {
-            userRepository.save(user);
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    */
-
-    /*
-    @DeleteMapping(value = "delete/{userId}")
-    public String deleteUser(@PathVariable("userId") int id) {
-        userRepository.deleteById(id);
-        return "redirect:/login";
-    }
-    */
 }

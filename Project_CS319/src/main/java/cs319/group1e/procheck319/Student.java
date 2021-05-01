@@ -31,26 +31,15 @@ public class Student implements User {
 
     //Default Constructor
     public Student() {
+        this.invitations = new ArrayList<>();
+        this.peerReviews = new ArrayList<>();
+        this.groupId = -1;
+        this.isGroupMember = false;
+        this.isRegisteredInClass = false;
     }
 
     //Constructor
-    public Student(String userName, String userSurname, String password, int userId, String email, String type, int groupId, List<PeerReview> peerReviews, boolean isGroupMember, boolean isRegisteredInClass, Group studentGroup, List<Invitation> invitations) {
-        this.userName = userName;
-        this.userSurname = userSurname;
-        this.password = password;
-        this.userId = userId;
-        this.email = email;
-        this.type = type;
-        this.groupId = groupId;
-        this.invitations = invitations;
-        this.peerReviews = peerReviews;
-        this.isGroupMember = isGroupMember;
-        this.isRegisteredInClass = isRegisteredInClass;
-        //this.studentGroup = studentGroup;
-    }
-
-    //Constructor for Seeder
-    public Student(String userName, String userSurname, String password, int userId, String email, String type) {
+    public Student(String userName, String userSurname, String password, int userId, String email, String type){
         this.userName = userName;
         this.userSurname = userSurname;
         this.password = password;
@@ -62,7 +51,6 @@ public class Student implements User {
         this.groupId = -1;
         this.isGroupMember = false;
         this.isRegisteredInClass = false;
-        //this.studentGroup = null;
     }
 
     //Getters
@@ -105,10 +93,6 @@ public class Student implements User {
     public boolean isRegisteredInClass() {
         return isRegisteredInClass;
     }
-
-    //public Group getStudentGroup() {
-    //    return studentGroup;
-    //}
 
     public List<Invitation> getInvitations() {
         return invitations;
@@ -155,10 +139,6 @@ public class Student implements User {
         isRegisteredInClass = registeredInClass;
     }
 
-    //public void setStudentGroup(Group studentGroup) {
-    //    this.studentGroup = studentGroup;
-    //}
-
     public void setInvitations(List<Invitation> invitations) {
         this.invitations = invitations;
     }
@@ -193,22 +173,15 @@ public class Student implements User {
     /**
      Student reviews a peer
      */
-    /*
-    public void reviewPeer(PeerReview pr, Student s){
-        s.getPeerReviews().add(pr);
-        System.out.println("PeerReview "+pr+" has been added to Student "+s);
-    }
-     */
-
     public void reviewPeer(Student s, int point1, int point2, int point3, int point4, int point5, String response1, String response2 ){
         if(this.groupId == s.getGroupId()){
-            List<Integer> arrPoint = new ArrayList<Integer>();
+            List<Integer> arrPoint = new ArrayList<>();
             arrPoint.add(point1);
             arrPoint.add(point2);
             arrPoint.add(point3);
             arrPoint.add(point4);
             arrPoint.add(point5);
-            List<String> arrText = new ArrayList<String>();
+            List<String> arrText = new ArrayList<>();
             arrText.add(response1);
             arrText.add(response2);
             PeerReview pr = new PeerReview(arrPoint, arrText);
@@ -277,6 +250,9 @@ public class Student implements User {
         TODO
      */
     public boolean isDeadlineClose(Group studentGroup, int index){
+       /* if(){
+
+        }*/
         return true;
     }
 
@@ -293,6 +269,7 @@ public class Student implements User {
             receiverGroup.getRequests().remove(req);
         }
     }
+
     /**
      Student sends an invitation to a student on behalf of the group
      Student will get the studentId of the student that will be invited to this student's group
@@ -306,6 +283,7 @@ public class Student implements User {
         }
         return null;
     }
+
     /**
       Adding invitation to the student
      */

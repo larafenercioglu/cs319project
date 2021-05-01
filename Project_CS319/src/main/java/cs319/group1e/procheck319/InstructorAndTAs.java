@@ -167,15 +167,6 @@ public class InstructorAndTAs implements User {
     /**
      Instructor grades a submission
      */
-    /*
-    public boolean gradeSubmission(Group group, int subNo, double grade){
-        if(group.getGroupSubmissionList().get(subNo-1) == null){
-            return false;
-        }
-        group.getGroupSubmissionList().get(subNo-1).setGrade(grade);
-        return true;
-    }*/
-
     public boolean gradeSubmission(Submission sub, double grade){
         sub.setGrade(grade);
         sub.setIsGraded(true);
@@ -241,9 +232,7 @@ public class InstructorAndTAs implements User {
      Creating a random class key
      */
     public String createClassKey(){
-        byte[] array = new byte[7]; // length is bounded by 7
-        new Random().nextBytes(array);
-        String generatedString = new String(array, Charset.forName("UTF-8"));
+        String generatedString =  "" + (int)((Math.random() * (4783829 - 1193002)) + 1193002);
         return generatedString;
     }
     public String toString(){

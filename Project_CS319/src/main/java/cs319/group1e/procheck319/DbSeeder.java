@@ -1,26 +1,18 @@
 package cs319.group1e.procheck319;
 
-//import cs319.group1e.repositories.StudentRepository;
-//import cs319.group1e.repositories.UserRepository;
-import org.springframework.aop.scope.ScopedProxyUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.sql.Array;
 import java.util.*;
 
 @Component
 public class DbSeeder implements CommandLineRunner {
 
-    private UserRepository userRepository;
     private StudentRepository studentRepository;
     private GroupRepository groupRepository;
     private ClassRepository classRepository;
     private InstructorAndTAsRepository instructorAndTAsRepository;
 
-    public DbSeeder(UserRepository userRepository, StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository, InstructorAndTAsRepository instructorAndTAsRepository) {
-        this.userRepository = userRepository;
+    public DbSeeder(StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository, InstructorAndTAsRepository instructorAndTAsRepository) {
         this.studentRepository = studentRepository;
         this.groupRepository = groupRepository;
         this.classRepository = classRepository;
@@ -33,7 +25,6 @@ public class DbSeeder implements CommandLineRunner {
         this.studentRepository.deleteAll();
         this.groupRepository.deleteAll();
         this.instructorAndTAsRepository.deleteAll();
-        this.userRepository.deleteAll();
         /*
         classRepository.deleteAll();
         Class erayClass = new Class("A", "CS",0, 319);
@@ -68,29 +59,29 @@ public class DbSeeder implements CommandLineRunner {
          */
 
         //----------------------------------------------------------------------
-        InstructorAndTAs tuzun = new InstructorAndTAs("eray","tuzun","4590",345,"lkfgb","instructor");
-        InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun","jabrayilzade","8886",315,"hehe","instructor");
+        InstructorAndTAs tuzun = new InstructorAndTAs("eray","tuzun","4590",345,"la@gmail.com","instructor");
+        InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun","jabrayilzade","8886",315,"heh@gmail.com","instructor");
         Class erayClass = tuzun.createClass("CS319",1);
-        tuzun.setClass(erayClass.getClassId());
+        jabrayilzade.setClass(erayClass.getClassId());
         Project p = erayClass.getProject();
         p.setMaxGroupSize(5);
 
         //-----------------------------Adding student and instructor-----------------------------
-        Student s1 = new Student("ayşe","fe","3243",400,"fdl","student");
-        Student s2 = new Student("fatma","fe","3243",401,"fdl","student");
-        Student s3 = new Student("hayriye","fe","3243",402,"fdl","student");
-        Student s4 = new Student("figen","fe","3243",403,"fdl","student");
-        Student s5 = new Student("lale","fe","3243",404,"fdl","student");
-        Student s6 = new Student("doga","fe","3243",405,"fdl","student");
-        Student s7 = new Student("aslı","fe","3243",406,"fdl","student");
-        Student s8 = new Student("ömer","fe","3243",407,"fdl","student");
-        Student s9 = new Student("fadik","fe","3243",408,"fdl","student");
-        Student s10 = new Student("leman","fe","3243",409,"fdl","student");
-        Student s11 = new Student("furkan","fe","3243",410,"fdl","student");
-        Student s12 = new Student("mali","fe","3243",411,"fdl","student");
-        Student s13 = new Student("leonard","fe","3243",412,"fdl","student");
-        Student s14 = new Student("lara","fe","3243",413,"fdl","student");
-        Student s15 = new Student("mehmet","se","3242",414,"fal","student");
+        User s1 = new Student("ayşe","fe","3243",400,"fdl@gmail.com","student");
+        User s2 = new Student("fatma","fe","3243",401,"dl@gmail.com","student");
+        User s3 = new Student("hayriye","fe","3243",402,"dkl@gmail.com","student");
+        User s4 = new Student("figen","fe","3243",403,"dıu@gmail.com","student");
+        User s5 = new Student("lale","fe","3243",404,"dre@gmail.com","student");
+        User s6 = new Student("doga","fe","3243",405,"fdl","student");
+        User s7 = new Student("aslı","fe","3243",406,"fdl","student");
+        User s8 = new Student("ömer","fe","3243",407,"fdl","student");
+        User s9 = new Student("fadik","fe","3243",408,"fdl","student");
+        User s10 = new Student("leman","fe","3243",409,"fdl","student");
+        User s11 = new Student("furkan","fe","3243",410,"fdl","student");
+        User s12 = new Student("mali","fe","3243",411,"fdl","student");
+        User s13 = new Student("leonard","fe","3243",412,"fdl","student");
+        User s14 = new Student("lara","fe","3243",413,"fdl","student");
+        User s15 = new Student("mehmet","se","3242",414,"fal","student");
 
         erayClass.addStudentId(s1.getUserId());
         erayClass.addStudentId(s2.getUserId());
@@ -111,7 +102,7 @@ public class DbSeeder implements CommandLineRunner {
         erayClass.addInstructorAndTAId(tuzun.getUserId());
         erayClass.addInstructorAndTAId(jabrayilzade.getUserId());
 
-        List<Student> users = Arrays.asList(s1, s2, s3,s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15);
+        List<Student> users = Arrays.asList((Student)s1, (Student)s2, (Student)s3,(Student)s4, (Student)s5, (Student)s6, (Student)s7, (Student)s8, (Student)s9, (Student)s10, (Student)s11, (Student)s12, (Student)s13, (Student)s14, (Student)s15);
 
         this.studentRepository.saveAll(users);
         this.instructorAndTAsRepository.save(tuzun);
@@ -119,26 +110,26 @@ public class DbSeeder implements CommandLineRunner {
         classRepository.save(erayClass);
 
 
-        Group g1 = s1.formAGroup(erayClass.assignGroupId(),p.getMaxGroupSize()); // GROUP s1
+        Group g1 = ((Student)s1).formAGroup(erayClass.assignGroupId(),p.getMaxGroupSize()); // GROUP s1
         erayClass.addGroupId(g1.getGroupId());//
 
-        Request req1 = s5.sendRequest(g1); // s5 GROUP 'a request a
-        s1.acceptRequest(req1,g1, s5);
+        Request req1 = ((Student)s5).sendRequest(g1); // s5 GROUP 'a request a
+        ((Student)s1).acceptRequest(req1,g1, ((Student)s5));
         studentRepository.saveAll(users);
         groupRepository.save(g1);
 
 
-        Group gg = groupRepository.findByGroupId(s1.getGroupId());
+        Group gg = groupRepository.findByGroupId(((Student)s1).getGroupId());
         g1 = gg;
-        Invitation invit = s1.sendInvitation(s15, g1); //s1 grubuna s15 i davet etti
+        Invitation invit = ((Student)s1).sendInvitation(((Student)s15), g1); //s1 grubuna s15 i davet etti
         studentRepository.saveAll(users);
         groupRepository.save(g1);
 
 
-        s15.acceptInvitation(invit,g1 ); //s15 s1 in gruba davet isteiğini kabul etti
+        ((Student)s15).acceptInvitation(invit,g1 ); //s15 s1 in gruba davet isteiğini kabul etti
 
         //Check s15
-        System.out.println(s1.getGroupId());
+        System.out.println(((Student)s1).getGroupId());
         System.out.println("DbSeeder Checkpoint for g1 student list:" + g1.getStudentIdList());
         System.out.println("DbSeeder Checkpoint for g1 id no:" + g1.getGroupId());
         studentRepository.saveAll(users);
@@ -150,21 +141,21 @@ public class DbSeeder implements CommandLineRunner {
 
         Group g2 = new Group(erayClass.assignGroupId(),p.getMaxGroupSize());
         erayClass.addGroupId(g2.getGroupId());
-        g2.addGroupMember(s2);
-        g2.addGroupMember(s3);
-        g2.addGroupMember(s4);
+        g2.addGroupMember(((Student)s2));
+        g2.addGroupMember(((Student)s3));
+        g2.addGroupMember(((Student)s4));
         groupRepository.save(g2);
 
         Group g3 = new Group(erayClass.assignGroupId(),p.getMaxGroupSize());
         erayClass.addGroupId(g3.getGroupId());
-        g3.addGroupMember(s6);
-        g3.addGroupMember(s7);
-        g3.addGroupMember(s8);
+        g3.addGroupMember(((Student)s6));
+        g3.addGroupMember(((Student)s7));
+        g3.addGroupMember(((Student)s8));
         groupRepository.save(g3);
 
         Group g4 = new Group(erayClass.assignGroupId(),p.getMaxGroupSize());
         erayClass.addGroupId(g4.getGroupId());
-        g4.addGroupMember(s14);
+        g4.addGroupMember(((Student)s14));
         groupRepository.save(g4);
         studentRepository.saveAll(users);
 
@@ -291,9 +282,9 @@ public class DbSeeder implements CommandLineRunner {
         s14 = students.get(13);
         s15 = students.get(14);
 
-        System.out.println("Group ID ::::::::::::::::::::  " + s9.getGroupId());
+        System.out.println("Group ID ::::::::::::::::::::  " + ((Student)s9).getGroupId());
 
-        System.out.println(":) " + groupRepository.findByGroupId(s9.getGroupId()));
+        System.out.println(":) " + groupRepository.findByGroupId(((Student)s9).getGroupId()));
 
         //-----------------------------adding submissions-----------------------------
         Submission s1SubToAs1 = new Submission( assignment1 );
@@ -301,22 +292,22 @@ public class DbSeeder implements CommandLineRunner {
         Submission s6SubToAs1 = new Submission( assignment1 );
         Submission s9SubToAs1 = new Submission( assignment1 );
 
-        List<Group> newGroups = Arrays.asList(groupRepository.findByGroupId(s1.getGroupId()), groupRepository.findByGroupId(s2.getGroupId()), groupRepository.findByGroupId(s6.getGroupId()), groupRepository.findByGroupId(s9.getGroupId()));
+        List<Group> newGroups = Arrays.asList(groupRepository.findByGroupId(((Student)s1).getGroupId()), groupRepository.findByGroupId(((Student)s2).getGroupId()), groupRepository.findByGroupId(((Student)s6).getGroupId()), groupRepository.findByGroupId(((Student)s9).getGroupId()));
 
-        s1.addSubmission(s1SubToAs1,assignment1, newGroups.get(0));
-        s2.addSubmission(s2SubToAs1,assignment1, newGroups.get(1));
-        s6.addSubmission(s6SubToAs1,assignment1, newGroups.get(2));
-        s9.addSubmission(s9SubToAs1,assignment1, newGroups.get(3));
+        ((Student)s1).addSubmission(s1SubToAs1,assignment1, newGroups.get(0));
+        ((Student)s2).addSubmission(s2SubToAs1,assignment1, newGroups.get(1));
+        ((Student)s6).addSubmission(s6SubToAs1,assignment1, newGroups.get(2));
+        ((Student)s9).addSubmission(s9SubToAs1,assignment1, newGroups.get(3));
         ////////////////////////////////////////////////////////2/////3
         Submission s1SubToAs2 = new Submission( assignment2 );
         Submission s2SubToAs2 = new Submission( assignment2 );
         Submission s6SubToAs2 = new Submission( assignment2 );
         Submission s9SubToAs2 = new Submission( assignment2 );
 
-        s1.addSubmission(s1SubToAs2,assignment2, newGroups.get(0));
-        s2.addSubmission(s2SubToAs2,assignment2, newGroups.get(1));
-        s6.addSubmission(s6SubToAs2,assignment2, newGroups.get(2));
-        s9.addSubmission(s9SubToAs2,assignment2, newGroups.get(3));
+        ((Student)s1).addSubmission(s1SubToAs2,assignment2, newGroups.get(0));
+        ((Student)s2).addSubmission(s2SubToAs2,assignment2, newGroups.get(1));
+        ((Student)s6).addSubmission(s6SubToAs2,assignment2, newGroups.get(2));
+        ((Student)s9).addSubmission(s9SubToAs2,assignment2, newGroups.get(3));
         ///////////////////////////////////////////////////////////////
 
         Submission s1SubToAs3 = new Submission( assignment3 );
@@ -324,10 +315,10 @@ public class DbSeeder implements CommandLineRunner {
         Submission s6SubToAs3 = new Submission( assignment3 );
         Submission s9SubToAs3 = new Submission( assignment3 );
 
-        s1.addSubmission(s1SubToAs3,assignment3, newGroups.get(0));
-        s2.addSubmission(s2SubToAs3,assignment3, newGroups.get(1));
+        ((Student)s1).addSubmission(s1SubToAs3,assignment3, newGroups.get(0));
+        ((Student)s2).addSubmission(s2SubToAs3,assignment3, newGroups.get(1));
         //s6.addSubmission(s6SubToAs3,assignment3, newGroups.get(2));
-        s9.addSubmission(s9SubToAs3,assignment3, newGroups.get(3));
+        ((Student)s9).addSubmission(s9SubToAs3,assignment3, newGroups.get(3));
         //////////////////////////////////////////////////////////////
 
         Submission s1SubToAs4 = new Submission( assignment4 );
@@ -336,10 +327,10 @@ public class DbSeeder implements CommandLineRunner {
         Submission s9SubToAs4 = new Submission( assignment4 );
 
 
-        s1.addSubmission(s1SubToAs4,assignment4, newGroups.get(0));
-        s2.addSubmission(s2SubToAs4,assignment4,newGroups.get(1));
-        s6.addSubmission(s6SubToAs4,assignment4,newGroups.get(2));
-        s9.addSubmission(s9SubToAs4,assignment4,newGroups.get(3));
+        ((Student)s1).addSubmission(s1SubToAs4,assignment4, newGroups.get(0));
+        ((Student)s2).addSubmission(s2SubToAs4,assignment4,newGroups.get(1));
+        ((Student)s6).addSubmission(s6SubToAs4,assignment4,newGroups.get(2));
+        ((Student)s9).addSubmission(s9SubToAs4,assignment4,newGroups.get(3));
         //////////////////////////////////////////////////////////////
 
         Submission s1SubToAs5 = new Submission( assignment5 );
@@ -347,12 +338,12 @@ public class DbSeeder implements CommandLineRunner {
         Submission s6SubToAs5 = new Submission( assignment5 );
         Submission s9SubToAs5 = new Submission( assignment5 );
 
-        s1.addSubmission(s1SubToAs5,assignment5, newGroups.get(0));
-        s2.addSubmission(s2SubToAs5,assignment5, newGroups.get(1));
-        s6.addSubmission(s6SubToAs5,assignment5 , newGroups.get(2));
-        s9.addSubmission(s9SubToAs5,assignment5, newGroups.get(3));
+        ((Student)s1).addSubmission(s1SubToAs5,assignment5, newGroups.get(0));
+        ((Student)s2).addSubmission(s2SubToAs5,assignment5, newGroups.get(1));
+        ((Student)s6).addSubmission(s6SubToAs5,assignment5 , newGroups.get(2));
+        ((Student)s9).addSubmission(s9SubToAs5,assignment5, newGroups.get(3));
         /////////////////////////////////////////////////////////
-        users = Arrays.asList(s1, s2, s3,s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15);
+        users = Arrays.asList((Student)s1, (Student)s2, (Student)s3,(Student)s4, (Student)s5, (Student)s6, (Student)s7, (Student)s8, (Student)s9, (Student)s10, (Student)s11, (Student)s12, (Student)s13, (Student)s14, (Student)s15);
 
         studentRepository.saveAll(users);
         groupRepository.saveAll(newGroups);

@@ -1,5 +1,7 @@
 package cs319.group1e.procheck319;
+
 import java.util.*;
+
 public class Project {
     private Map<String,Boolean> availability;
     private  int maxGroupSize;
