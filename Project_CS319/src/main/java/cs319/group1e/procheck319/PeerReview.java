@@ -5,7 +5,6 @@ public class PeerReview {
     private List<Integer> points;
     private List<String> reviews;
 
-
     //Default constructor
     public PeerReview(List<Integer> points) {
         this.points = points;
@@ -35,6 +34,7 @@ public class PeerReview {
         this.reviews = reviews;
     }
 
+    @Override
     public String toString(){
         String pr = "Points are:\n";
         for(int i = 0;i<points.size();i++){

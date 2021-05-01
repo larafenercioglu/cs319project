@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.ServletOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,6 +185,9 @@ public class Student implements User {
         submission.setGroupId( this.groupId );
         studentGroup.getGroupSubmissionList().add(submission);
         assignment.getSubmissionList().add(submission);
+        studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).setSubmissionList(assignment.getSubmissionList());
+        //studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).setSubmissionList((( studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).getSubmissionList())));
+
     }
 
     /**
@@ -212,21 +216,24 @@ public class Student implements User {
         }
     }
 
-    //TODO: subNo karar verilecek
-    public Submission reviewArtifact(String context, Group studentGroup){
+    public Submission getRandomArtifact(List<Assignment> assignmentList, Group studentGroup){
         int index = -1;
-        for( int i = 0; i < studentGroup.getGroupAssignmentList().size() ; i++ ){
-            if(studentGroup.getGroupAssignmentList().get(i).isDeadlineOver() ){
+
+        for( int i = 0; i < assignmentList.size() ; i++ ){
+            if(assignmentList.get(i).isDeadlineOver() ){
                 index = i;
             }
         }
-        if( index == -1){}
+        if( index == -1){
+        }
         else {
-            ArtifactReview ar = new ArtifactReview(context);
-            Submission submission = studentGroup.getRandomGroupArtifact(studentGroup.getGroupAssignmentList().get(index) , ar);
-            return submission;
+            return studentGroup.getRandomGroupArtifact( assignmentList.get(index) );
         }
         return null;
+    }
+
+    public void reviewArtifact(Submission sub, String context){
+        sub.getArtifactReviews().add(new ArtifactReview( context ));
     }
 
     public boolean equals(Student s) {

@@ -3,14 +3,16 @@ package cs319.group1e.procheck319;
 public class ArtifactReview {
     private String context;
 
+    //Default Constructor
     public ArtifactReview() {
     }
 
-    public void setContext(String context) {
+    //Constructor
+    public ArtifactReview(String context){
         this.context = context;
     }
 
-    public ArtifactReview(String context) {
+    public void setContext(String context) {
         this.context = context;
     }
 

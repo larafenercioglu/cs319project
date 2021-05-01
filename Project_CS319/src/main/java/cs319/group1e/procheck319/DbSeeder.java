@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.sql.Array;
 import java.util.*;
 
 @Component
@@ -35,7 +36,7 @@ public class DbSeeder implements CommandLineRunner {
         this.userRepository.deleteAll();
         /*
         classRepository.deleteAll();
-        Class erayClass = new Class("AnanZa", "CS",0, 319);
+        Class erayClass = new Class("A", "CS",0, 319);
         classRepository.save(erayClass);
 
         User bedo = new Student("Bedirhan", "Sakinoglu" , "bedo123", 21801, "bedisakinoglu@gmail.com","student");
@@ -259,6 +260,17 @@ public class DbSeeder implements CommandLineRunner {
         assignment5.setWeight(35);
         p.createAssignment(assignment5);
 
+        List<Assignment> assignments = new ArrayList<>();
+        assignments.add(assignment1);
+        assignments.add(assignment2);
+        assignments.add(assignment3);
+        assignments.add(assignment4);
+        assignments.add(assignment5);
+
+        for(int i = 0; i < groups.size(); i++) {
+            groups.get(i).setGroupAssignmentList(assignments);
+        }
+
         classRepository.save(erayClass);
         groupRepository.saveAll(groups);
         studentRepository.saveAll(students);
@@ -314,7 +326,7 @@ public class DbSeeder implements CommandLineRunner {
 
         s1.addSubmission(s1SubToAs3,assignment3, newGroups.get(0));
         s2.addSubmission(s2SubToAs3,assignment3, newGroups.get(1));
-        s6.addSubmission(s6SubToAs3,assignment3, newGroups.get(2));
+        //s6.addSubmission(s6SubToAs3,assignment3, newGroups.get(2));
         s9.addSubmission(s9SubToAs3,assignment3, newGroups.get(3));
         //////////////////////////////////////////////////////////////
 
@@ -350,7 +362,7 @@ public class DbSeeder implements CommandLineRunner {
         jabrayilzade.announce("Hey guys i am your TA. You can ask me if you have any questions via chat in ProCheck." , "Hello!", erayClass, newGroups);
         tuzun.announce("Related to Grading update that we talked about today here is the latest version: Final 30%, Project 40 %, Midterm 15%,  Q1 (1)+GitLab(5)+Design Patterns Lab (7) + Attendance to final presentations (2)","Grading",erayClass, newGroups);
         jabrayilzade.announce("Please share the links for these 2 things in the appropriate column in the Final Demo Schedule (a Google sheet to which you have write access) in the course page.","Project Demo Links",erayClass, newGroups);
-        tuzun.announceToAGroup(newGroups.get(0), "Siz nasıl grupsunuz amk :D" , "Mallar");
+        tuzun.announceToAGroup(newGroups.get(0), "Guys I can give you feedback after tomorrows lecture." , "About Assignment 2");
 
         studentRepository.saveAll(users);
         groupRepository.saveAll(newGroups);
@@ -402,6 +414,60 @@ public class DbSeeder implements CommandLineRunner {
         System.out.println( "Average of assignment 4 : " +  assignment4.getAverage() );
         System.out.println( "Average of assignment 5 : " +  assignment5.getAverage() );
 
+        studentRepository.saveAll(users);
+        groupRepository.saveAll(newGroups);
+        classRepository.save(erayClass);
+
+        users.get(0).reviewPeer(users.get(14), 1, 3, 1, 2, 4, "I didnt like him", "I would never work with him ever again!");
+        users.get(0).reviewPeer(users.get(10), 5, 5, 5, 5, 1, "He was generally good", "But I didnt like his personality");
+        users.get(0).reviewPeer(users.get(4), 8, 5,3,5,6, "He was really helpful", "");
+
+        users.get(4).reviewPeer(users.get(0),5,5,5,5,5, "bilemiyorum altan","olur giibi");
+        users.get(4).reviewPeer(users.get(14),4,4,5,5, 5, "super birisi", "");
+        users.get(4).reviewPeer(users.get(10),3,4,3,5,5,"daha iyi olabilirdi", "tamam");
+
+        users.get(14).reviewPeer(users.get(0), 1, 1,1,1,1, "Idiot", "No");
+        users.get(14).reviewPeer(users.get(4), 2, 2,3,1, 2 , "cs bilgisi yok sadece kopya çekerek gelmiş proje proje diye geziyor ama iş yapmıyor", "Çalışmam");
+        users.get(14).reviewPeer(users.get(10), 5, 5,5,5, 5 , "süper adam", "kesinlikle tekrar çalışmak isterim");
+
+        users.get(10).reviewPeer(users.get(0),3,2,1,4,3,"bana bisi yazdırmadı hic","no comment");
+        users.get(10).reviewPeer(users.get(4),1,1,1,4,5,"venedik pasta ısmarladı","vahim");
+        users.get(10).reviewPeer(users.get(14),2,2,5,1,1,"raporları yazdırmadı bana","");
+
+        studentRepository.saveAll(users);
+        groupRepository.saveAll(newGroups);
+        classRepository.save(erayClass);
+
+        //bu çalışıyor ----------------------------
+        /*
+        ArtifactReview ar = new ArtifactReview( "güzel olmuş ");
+        s1SubToAs2.getArtifactReviews().add(ar);
+        */
+        //-----------------------------------------
+
+
+        users.get(0).reviewArtifact( users.get(0).getRandomArtifact( erayClass.getProject().getAssignmentList() , groupRepository.findByGroupId(users.get(0).getGroupId())),"bunu beğenmedim canım dostlarım");
+
+        users.get(1).reviewArtifact( users.get(1).getRandomArtifact( erayClass.getProject().getAssignmentList() , groupRepository.findByGroupId(users.get(1).getGroupId())),"hiç güzel değil");
+
+        users.get(5).reviewArtifact( users.get(5).getRandomArtifact( erayClass.getProject().getAssignmentList() , groupRepository.findByGroupId(users.get(5).getGroupId())),"harika olmuş çok beğendim");
+
+        users.get(8).reviewArtifact( users.get(8).getRandomArtifact( erayClass.getProject().getAssignmentList() , groupRepository.findByGroupId(users.get(8).getGroupId())),"idare edebilir");
+
+
+        /*   BURASI BOZUK
+        System.out.println("Group Id " + randSubmission.getGroupId());
+        System.out.println("Artifact Review " + randSubmission.getArtifactReviews().get(0));
+
+
+        Submission randSubmission = users.get(0).getRandomArtifact( groupRepository.findByGroupId(users.get(0).getGroupId()) );
+        System.out.println("asdasdasdasdjhagsdasd" + randSubmission.getFeedback());
+        //erayClass.getProject().getAssignmentList().get(randSubmission.getAssignmentNo()).getSubmissionList().get(randSubmission.getAssignmentNo()).getArtifactReviews().add(new ArtifactReview("AMELE MAL"));
+        //System.out.println("MERHABA ARKADAŞLAR " + erayClass.getProject().getAssignmentList().get(randSubmission.getAssignmentNo()).getSubmissionList().get(randSubmission.getAssignmentNo()).getArtifactReviews().get(0));
+        users.get(0).reviewArtifact( randSubmission,"bunu beğenmedim canım dostlarım");
+
+        System.out.println("ARTİFACT FEEDBACK FALAN FİLAN " + randSubmission.getArtifactReviews().get(0));
+*/
         studentRepository.saveAll(users);
         groupRepository.saveAll(newGroups);
         classRepository.save(erayClass);

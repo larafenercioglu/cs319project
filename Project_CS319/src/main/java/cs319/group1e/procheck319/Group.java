@@ -22,6 +22,7 @@ public class Group{
     private Calendar calendar;
     private double progress;
     private List<Request> requests;
+    private int artifactReviewsCount;
     //private List<Invitation> invitations;
 
     //Default Constructor
@@ -31,6 +32,8 @@ public class Group{
         requests = new ArrayList<Request>();
         //invitations = new ArrayList<Invitation>();
         announcementList = new ArrayList<>();
+        groupAssignmentList = new ArrayList<>();
+        this.artifactReviewsCount = 0;
     }
 
     public Group( int maxGroupSize) {
@@ -40,6 +43,8 @@ public class Group{
         requests = new ArrayList<Request>();
         //invitations = new ArrayList<Invitation>();
         announcementList = new ArrayList<>();
+        groupAssignmentList = new ArrayList<>();
+        this.artifactReviewsCount = 0;
     }
 
     public Group( int groupId, int maxGroupSize) {
@@ -50,6 +55,8 @@ public class Group{
         this.requests = new ArrayList<Request>();
         //invitations = new ArrayList<Invitation>();
         this.announcementList = new ArrayList<>();
+        groupAssignmentList = new ArrayList<>();
+        this.artifactReviewsCount = 0;
     }
 
     //Constructor
@@ -64,6 +71,7 @@ public class Group{
         this.requests = requests;
         //this.invitations = invitations;
         this.announcementList = announcementList;
+        this.artifactReviewsCount = 0;
     }
 
     //SETTERS
@@ -81,6 +89,10 @@ public class Group{
 
     public void setGroupAssignmentList(List<Assignment> groupAssignmentList) {
         this.groupAssignmentList = groupAssignmentList;
+    }
+
+    public void setArtifactReviewsCount(int artifactReviewsCount) {
+        this.artifactReviewsCount = artifactReviewsCount;
     }
 
     public void setAnnouncementList(List<Announcement> announcementList) {
@@ -110,6 +122,10 @@ public class Group{
     //GETTERS
     public int getGroupId() {
         return groupId;
+    }
+
+    public int getArtifactReviewsCount() {
+        return artifactReviewsCount;
     }
 
     public List<Integer> getStudentIdList() {
@@ -226,27 +242,36 @@ public class Group{
     }
 
     //To get a random artifact submission
-    public Submission getRandomGroupArtifact(Assignment assignment , ArtifactReview ar){
+    public Submission getRandomGroupArtifact(Assignment assignment){
         Random rand = new Random();
 
-        int randomIndex;
+        System.out.println("*************************** "+assignment.getAssignmentNo());
+
+        int randomIndex = rand.nextInt(assignment.getSubmissionList().size());;
+        int minCount = Integer.MAX_VALUE;
         boolean flag;
 
         if(assignment.getSubmissionList().size() == 0){
+            System.out.println("***********************ARIK YETER");
             return null;
         }
         else{
-            do { //Check for if submission belongs to the group
-                flag = true;
-                System.out.println(assignment.getTitle());
-                System.out.println(assignment.getSubmissionList().size());
-                randomIndex = rand.nextInt(assignment.getSubmissionList().size()); //Assignment no eklenecek
-                if( groupId == assignment.getSubmissionList().get(randomIndex).getGroupId() ){
-                    flag = false;
+            for( int i = 0 ; i < assignment.getSubmissionList().size() ; i++ ){
+                if( minCount > assignment.getSubmissionList().get(i).getArtifactReviewCount() && groupId != assignment.getSubmissionList().get(i).getGroupId()){
+                    minCount = assignment.getSubmissionList().get(i).getArtifactReviewCount();
                 }
-            }while( flag == false );
+            }
 
-            assignment.getSubmissionList().get(randomIndex).getArtifactReviews().add(ar);
+            while( assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount() != minCount ){
+                randomIndex = rand.nextInt(assignment.getSubmissionList().size());
+            }
+
+            System.out.println( "Group Id : " + assignment.getSubmissionList().get(randomIndex).getGroupId() );
+            System.out.println(assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount());
+
+            System.out.println("çıktım");
+            this.artifactReviewsCount++;
+            assignment.getSubmissionList().get(randomIndex).setArtifactReviewCount( assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount() + 1 );
             return assignment.getSubmissionList().get(randomIndex);
         }
     }
