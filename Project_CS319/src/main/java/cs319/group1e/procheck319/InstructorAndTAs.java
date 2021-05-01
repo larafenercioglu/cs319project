@@ -27,6 +27,7 @@ public class InstructorAndTAs implements User {
 
     //Default Constructor
     public InstructorAndTAs() {
+        this.classId = -1;
     }
 
     public InstructorAndTAs(String userName, String userSurname, String password, int userId, String email, String type) {
@@ -36,6 +37,7 @@ public class InstructorAndTAs implements User {
         this.userId = userId;
         this.email = email;
         this.type = type;
+        this.classId = -1;
     }
 
     /**
@@ -60,7 +62,7 @@ public class InstructorAndTAs implements User {
         this.type = type;
         this.calendar = calendar;
         this.project = project;
-        this.classId = classId;
+        this.classId = -1;
         this.classKey = classKey;
     }
 
@@ -225,6 +227,8 @@ public class InstructorAndTAs implements User {
     public Class createClass(String className, int classId){
         Class aClass1 = new Class(createClassKey(), className ,classId);
         this.classId = classId;
+        aClass1.addInstructorAndTAId(this.getUserId());
+
         return aClass1;
     }
 

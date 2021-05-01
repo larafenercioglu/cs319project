@@ -12,7 +12,7 @@ public class Project {
     private ArrayList<Assignment> assignmentList;
 
     public Project() {
-        assignmentList = new ArrayList<Assignment>();
+        assignmentList = new ArrayList<>();
     }
 
     public Project(Map<String, Boolean> availability, int maxGroupSize, Date groupFormationDeadline, Date projectDeadline, Date peerReviewStartDate, Date peerReviewDeadline, ArrayList<Assignment> assignmentList) {

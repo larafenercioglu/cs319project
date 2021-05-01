@@ -59,6 +59,7 @@ public class Group{
         this.artifactReviewsCount = 0;
     }
 
+    /*
     //Constructor
     public Group(List<Student> studentList, List<Submission> groupSubmissionList, List<Assignment> groupAssignmentList, List<Announcement> announcementList, int maxGroupSize, Calendar calendar, double progress, List<Request> requests, List<Invitation> invitations) {
         //this.groupId = groupId;
@@ -72,7 +73,7 @@ public class Group{
         //this.invitations = invitations;
         this.announcementList = announcementList;
         this.artifactReviewsCount = 0;
-    }
+    }*/
 
     //SETTERS
     public void setGroupId(int groupId) {
@@ -87,6 +88,9 @@ public class Group{
         this.groupSubmissionList = groupSubmissionList;
     }
 
+    public void addOneAssignmentToGroup(Assignment assignment) {
+        this.groupAssignmentList.add(assignment);
+    }
     public void setGroupAssignmentList(List<Assignment> groupAssignmentList) {
         this.groupAssignmentList = groupAssignmentList;
     }

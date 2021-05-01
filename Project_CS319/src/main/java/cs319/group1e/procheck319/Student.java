@@ -21,12 +21,10 @@ public class Student implements User {
     private int userId;
     private String email;
     private String type;
-
     private int groupId;
     private List<PeerReview> peerReviews;
     private boolean isGroupMember;
     private boolean isRegisteredInClass;
-    //private Group studentGroup;
     private List<Invitation> invitations;
 
     //Default Constructor
@@ -36,6 +34,7 @@ public class Student implements User {
         this.groupId = -1;
         this.isGroupMember = false;
         this.isRegisteredInClass = false;
+        this.type = "student";
     }
 
     //Constructor
@@ -45,7 +44,7 @@ public class Student implements User {
         this.password = password;
         this.userId = userId;
         this.email = email;
-        this.type = type;
+        this.type = "student";
         this.invitations = new ArrayList<>();
         this.peerReviews = new ArrayList<>();
         this.groupId = -1;
@@ -204,6 +203,7 @@ public class Student implements User {
         }
         return null;
     }
+
 
     public void reviewArtifact(Submission sub, String context){
         sub.getArtifactReviews().add(new ArtifactReview( context ));

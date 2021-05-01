@@ -1,14 +1,9 @@
 package cs319.group1e.procheck319;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping
 public class StudentManager {
-    @Autowired
-    private StudentRepository studentRepository;
-
-    public StudentManager(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
 }

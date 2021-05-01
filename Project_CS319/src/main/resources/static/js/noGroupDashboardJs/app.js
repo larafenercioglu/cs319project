@@ -1,3 +1,10 @@
+$(document).ready(function () {
+        getAllGroupsFromDb();
+});
+
+function getAllGroupsFromDb() {
+}
+
 /*
 Progress bar
 */
