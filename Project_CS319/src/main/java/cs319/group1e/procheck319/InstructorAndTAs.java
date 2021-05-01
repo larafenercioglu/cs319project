@@ -1,10 +1,14 @@
 package cs319.group1e.procheck319;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Random;
 import java.nio.charset.Charset;
 
+@Document("InstructorsAndTAs")
 public class InstructorAndTAs implements User {
 
     //Properties
@@ -18,7 +22,7 @@ public class InstructorAndTAs implements User {
 
     private Calendar calendar;
     private Project project;
-    private Class aClass;
+    private int classId;
     private String classKey;
 
     //Default Constructor
@@ -44,10 +48,10 @@ public class InstructorAndTAs implements User {
      * @param type
      * @param calendar
      * @param project
-     * @param aClass
+     * @param classId
      * @param classKey
      */
-    public InstructorAndTAs(String userName, String userSurname, String password, int userId, String email, String type, Calendar calendar, Project project, Class aClass, String classKey) {
+    public InstructorAndTAs(String userName, String userSurname, String password, int userId, String email, String type, Calendar calendar, Project project, int classId, String classKey) {
         this.userName = userName;
         this.userSurname = userSurname;
         this.password = password;
@@ -56,7 +60,7 @@ public class InstructorAndTAs implements User {
         this.type = type;
         this.calendar = calendar;
         this.project = project;
-        this.aClass = aClass;
+        this.classId = classId;
         this.classKey = classKey;
     }
 
@@ -69,8 +73,8 @@ public class InstructorAndTAs implements User {
         return project;
     }
 
-    public Class getaClass() {
-        return aClass;
+    public int getaClass() {
+        return classId;
     }
 
     public String getClassKey() {
@@ -110,8 +114,8 @@ public class InstructorAndTAs implements User {
         this.project = project;
     }
 
-    public void setaClass(Class aClass) {
-        this.aClass = aClass;
+    public void setClass(int classId) {
+        this.classId = classId;
     }
 
     public void setClassKey(String classKey) {
@@ -157,8 +161,7 @@ public class InstructorAndTAs implements User {
      Instructor gives feedback
      */
     public InstructorFeedback giveFeedback(String context){
-        InstructorFeedback instructorFeedback = new InstructorFeedback(context);
-        return instructorFeedback;
+        return new InstructorFeedback(context, (this.userName + this.userSurname));
     }
 
     /**
@@ -189,8 +192,8 @@ public class InstructorAndTAs implements User {
     /**
      Instructor views the peer review list of a specified group's specified student
      */
-    public List<PeerReview> viewPeerReviews(List<Group> groups, int groupId, int studentId){
-        return groups.get(groupId-1).getStudentList().get(studentId-1).getPeerReviews();
+    public List<PeerReview> viewPeerReviewsOfAStudent(Student aStudent){
+        return aStudent.getPeerReviews();
     }
 
     /**
@@ -210,10 +213,11 @@ public class InstructorAndTAs implements User {
     /**
      Instructor creates an announcement
      */
-    public Announcement announce(String context, String title){
+    public Announcement announce(String context, String title, Class aClass, List<Group> groups){
         Announcement announcement = new Announcement(context, title, this.userName + " " + this.userSurname);
-        for(int i = 0 ; i < aClass.getGroups().size() ; i++){
-            aClass.getGroups().get(i).addAnnouncement(announcement);
+        aClass.getAnnouncementList().add(announcement);
+        for(int i = 0 ; i < groups.size() ; i++){
+            groups.get(i).getAnnouncementList().add(announcement);
         }
         return announcement;
     }
@@ -227,9 +231,9 @@ public class InstructorAndTAs implements User {
     /**
      Instructor creates a class
      */
-    public Class createClass(String className){
-        Class aClass1 = new Class(createClassKey(), className);
-        this.aClass = aClass1;
+    public Class createClass(String className, int classId){
+        Class aClass1 = new Class(createClassKey(), className ,classId);
+        this.classId = classId;
         return aClass1;
     }
 
@@ -241,5 +245,8 @@ public class InstructorAndTAs implements User {
         new Random().nextBytes(array);
         String generatedString = new String(array, Charset.forName("UTF-8"));
         return generatedString;
+    }
+    public String toString(){
+        return "Instructor " + this.getUserName() + "\n" ;
     }
 }

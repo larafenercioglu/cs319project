@@ -3,12 +3,13 @@ package cs319.group1e.procheck319;
 //import cs319.group1e.repositories.StudentRepository;
 import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Document("Students")
 public class Student implements User {
 
     //Properties

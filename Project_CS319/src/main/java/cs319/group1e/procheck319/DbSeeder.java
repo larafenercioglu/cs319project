@@ -16,12 +16,14 @@ public class DbSeeder implements CommandLineRunner {
     private StudentRepository studentRepository;
     private GroupRepository groupRepository;
     private ClassRepository classRepository;
+    private InstructorAndTAsRepository instructorAndTAsRepository;
 
-    public DbSeeder(UserRepository userRepository, StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository) {
+    public DbSeeder(UserRepository userRepository, StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository, InstructorAndTAsRepository instructorAndTAsRepository) {
         this.userRepository = userRepository;
         this.studentRepository = studentRepository;
         this.groupRepository = groupRepository;
         this.classRepository = classRepository;
+        this.instructorAndTAsRepository = instructorAndTAsRepository;
     }
 
     @Override
@@ -29,6 +31,8 @@ public class DbSeeder implements CommandLineRunner {
         this.classRepository.deleteAll();
         this.studentRepository.deleteAll();
         this.groupRepository.deleteAll();
+        this.instructorAndTAsRepository.deleteAll();
+        this.userRepository.deleteAll();
         /*
         classRepository.deleteAll();
         Class erayClass = new Class("AnanZa", "CS",0, 319);
@@ -63,7 +67,10 @@ public class DbSeeder implements CommandLineRunner {
          */
 
         //----------------------------------------------------------------------
-        Class erayClass = new Class("AnanZa", "CS",0, 319);
+        InstructorAndTAs tuzun = new InstructorAndTAs("eray","tuzun","4590",345,"lkfgb","instructor");
+        InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun","jabrayilzade","8886",315,"hehe","instructor");
+        Class erayClass = tuzun.createClass("CS319",1);
+        tuzun.setClass(erayClass.getClassId());
         Project p = erayClass.getProject();
         p.setMaxGroupSize(5);
 
@@ -100,11 +107,16 @@ public class DbSeeder implements CommandLineRunner {
         erayClass.addStudentId(s14.getUserId());
         erayClass.addStudentId(s15.getUserId());
 
-        classRepository.save(erayClass);
+        erayClass.addInstructorAndTAId(tuzun.getUserId());
+        erayClass.addInstructorAndTAId(jabrayilzade.getUserId());
 
         List<Student> users = Arrays.asList(s1, s2, s3,s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15);
+
         this.studentRepository.saveAll(users);
-        //-----------------------------adding groups-----------------------------
+        this.instructorAndTAsRepository.save(tuzun);
+        this.instructorAndTAsRepository.save(jabrayilzade);
+        classRepository.save(erayClass);
+
 
         Group g1 = s1.formAGroup(erayClass.assignGroupId(),p.getMaxGroupSize()); // GROUP s1
         erayClass.addGroupId(g1.getGroupId());//
@@ -167,6 +179,7 @@ public class DbSeeder implements CommandLineRunner {
 
         List<Group> groups = groupRepository.findAll();
         List<Student> students = studentRepository.findAll();
+        System.out.println("DENEME FOR INSTRUCTOR**********" + students);
         HashMap<Integer,List<Student>> studentsGroupsMap = new HashMap<>();
 
         System.out.println("BURASIII"+groups);
@@ -333,28 +346,65 @@ public class DbSeeder implements CommandLineRunner {
         groupRepository.saveAll(newGroups);
         classRepository.save(erayClass);
 
-        /*
-        Announcement announcement1 = tuzun.announce("Related to Grading update that we talked about today here is the latest version: Final 30%, Project 40 %, Midterm 15%,  Q1 (1)+GitLab(5)+Design Patterns Lab (7) + Attendance to final presentations (2)","Grading");
-        Announcement announcement2 = jabrayilzade.announce("Please share the links for these 2 things in the appropriate column in the Final Demo Schedule (a Google sheet to which you have write access) in the course page.","Project Demo Links");
-        c.addAnnouncement(announcement1);
-        c.addAnnouncement(announcement2);
+        tuzun.announce("Hey guys. Form your groups until the deadline or the the system will randomly distribute you if you don't have any groups. Take care." , "Welcome to CS 319", erayClass, newGroups);
+        jabrayilzade.announce("Hey guys i am your TA. You can ask me if you have any questions via chat in ProCheck." , "Hello!", erayClass, newGroups);
+        tuzun.announce("Related to Grading update that we talked about today here is the latest version: Final 30%, Project 40 %, Midterm 15%,  Q1 (1)+GitLab(5)+Design Patterns Lab (7) + Attendance to final presentations (2)","Grading",erayClass, newGroups);
+        jabrayilzade.announce("Please share the links for these 2 things in the appropriate column in the Final Demo Schedule (a Google sheet to which you have write access) in the course page.","Project Demo Links",erayClass, newGroups);
+        tuzun.announceToAGroup(newGroups.get(0), "Siz nasıl grupsunuz amk :D" , "Mallar");
 
-        //displaying announcements in the class
-        System.out.println("-----------CLASS ANNOUNCEMENTS-----------");
-        for(int i = 0; i < c.getAnnouncementList().size(); i++){
-            System.out.println(c.getAnnouncementList().get(i));
+        studentRepository.saveAll(users);
+        groupRepository.saveAll(newGroups);
+        classRepository.save(erayClass);
+
+        List<String> feedbacks = new ArrayList<>();
+        feedbacks.add("yaaani daha iyi olabilirdi sizden daha iyisini beklerdim...PU");
+        feedbacks.add("aferim len size keretalar");
+        feedbacks.add("on numara beş yıldız demek isterdim ama PU");
+        feedbacks.add("olay yerindeyim rıza baba ama olay yok gibi..");
+        for(int i = 0; i < erayClass.getProject().getAssignmentList().size(); i++) {
+            for (int j = 0; j < erayClass.getProject().getAssignmentList().get(i).getSubmissionList().size(); j++) {
+                InstructorFeedback instructorFeedback = tuzun.giveFeedback(feedbacks.get(j));
+                erayClass.getProject().getAssignmentList().get(i).getSubmissionList().get(j).setFeedback(instructorFeedback);
+            }
         }
 
-        //displaying announcements from group class
-        for(int i = 0; i < c.getGroups().size(); i++){
-            System.out.println("-----------GROUP " + (i+1) + "s ANNOUNCEMENTS-----------");
-            for(int j = 0; j < c.getGroups().get(i).getAnnouncementList().size(); j++){
-                System.out.println(c.getGroups().get(i).getAnnouncementList().get(j));
-            }
-        }*/
+        studentRepository.saveAll(users);
+        groupRepository.saveAll(newGroups);
+        classRepository.save(erayClass);
 
+        //----------------------GRADE PART------------------
+        tuzun.gradeSubmission(s1SubToAs1, 70);
+        tuzun.gradeSubmission(s2SubToAs1, 70);
+        tuzun.gradeSubmission(s6SubToAs1, 95);
+        tuzun.gradeSubmission(s9SubToAs1, 70);
 
+        tuzun.gradeSubmission(s1SubToAs2, 50);
+        tuzun.gradeSubmission(s2SubToAs2, 50);
+        tuzun.gradeSubmission(s6SubToAs2, 60);
+        tuzun.gradeSubmission(s9SubToAs2, 60);
 
+        tuzun.gradeSubmission(s1SubToAs3, 20);
+        tuzun.gradeSubmission(s2SubToAs3, 40);
+        tuzun.gradeSubmission(s6SubToAs3, 20);
+        tuzun.gradeSubmission(s9SubToAs3, 40);
+
+        tuzun.gradeSubmission(s1SubToAs4, 77);
+
+        tuzun.gradeSubmission(s1SubToAs5, 60);
+        tuzun.gradeSubmission(s2SubToAs5, 65);
+        tuzun.gradeSubmission(s6SubToAs5, 70);
+
+        erayClass.calculateAllAverages();
+
+        System.out.println( "Average of assignment 1 : " + assignment1.getAverage() );
+        System.out.println( "Average of assignment 2 : " +  assignment2.getAverage() );
+        System.out.println( "Average of assignment 3 : " +  assignment3.getAverage() );
+        System.out.println( "Average of assignment 4 : " +  assignment4.getAverage() );
+        System.out.println( "Average of assignment 5 : " +  assignment5.getAverage() );
+
+        studentRepository.saveAll(users);
+        groupRepository.saveAll(newGroups);
+        classRepository.save(erayClass);
 
     }
 }

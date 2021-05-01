@@ -12,7 +12,7 @@ public class Class {
     @Id
     private int classId;
     private List<Integer> studentIdList;
-    private List<InstructorAndTAs> instructorAndTAs;
+    private List<Integer> instructorAndTAsIdList;
     private List<Integer> groupIdList;
     private String className;
     private List<Double> averages;
@@ -26,24 +26,24 @@ public class Class {
         this.announcementList = new ArrayList<>();
     }
 
-    public Class(String classKey, String className, int groupCount, int classId){
+    public Class(String classKey, String className, int classId){
         this.classKey = classKey;
         this.className = className;
         this.project =  new Project();
-        this.instructorAndTAs = new ArrayList<>();
+        this.instructorAndTAsIdList = new ArrayList<>();
         this.groupIdList = new ArrayList<>();
         this.studentIdList = new ArrayList<>();
         this.averages = new ArrayList<>();
         this.groupSubmissions = new HashMap<>() ;
         this.announcementList = new ArrayList<>();
-        this.groupCount = groupCount;
+        this.groupCount = 0;
         this.classId = classId;
     }
 
-    public Class(String classKey, String className, List<Integer> studentIdList, List<InstructorAndTAs> instructorAndTAs, List<Integer> groupIdList, List<Double> averages, Project project, List<Announcement> announcementList, Map<String, List<Submission>> groupSubmissions, Boolean groupFormation, int groupCount, int classId) {
+    public Class(String classKey, String className, List<Integer> studentIdList, List<Integer> instructorAndTAs, List<Integer> groupIdList, List<Double> averages, Project project, List<Announcement> announcementList, Map<String, List<Submission>> groupSubmissions, Boolean groupFormation, int classId) {
         this.classKey = classKey;
         this.studentIdList = studentIdList;
-        this.instructorAndTAs = instructorAndTAs;
+        this.instructorAndTAsIdList = instructorAndTAs;
         this.groupIdList = groupIdList;
         this.className = className;
         this.averages = averages;
@@ -51,7 +51,7 @@ public class Class {
         this.announcementList = announcementList;
         this.groupSubmissions = groupSubmissions;
         this.groupFormation = groupFormation;
-        this.groupCount = groupCount;
+        this.groupCount = 0;
         this.classId = classId;
     }
 
@@ -64,8 +64,8 @@ public class Class {
         return studentIdList;
     }
 
-    public List<InstructorAndTAs> getInstructorAndTAs() {
-        return instructorAndTAs;
+    public List<Integer> getInstructorAndTAsIdList() {
+        return instructorAndTAsIdList;
     }
 
     public List<Integer> getGroupIdList() {
@@ -108,8 +108,8 @@ public class Class {
         this.studentIdList = students;
     }
 
-    public void setInstructorAndTAs(List<InstructorAndTAs> instructorAndTAs) {
-        this.instructorAndTAs = instructorAndTAs;
+    public void setInstructorAndTAsIdList(List<Integer> instructorAndTAsIdList) {
+        this.instructorAndTAsIdList = instructorAndTAsIdList;
     }
 
     public void setStudentIdList(List<Integer> groupIdList) {
@@ -249,9 +249,8 @@ public class Class {
     /**
      Adding a instructor or TA to the class
      */
-    public boolean addInstructorAndTAs(InstructorAndTAs instructorAndTA){
-        instructorAndTAs.add(instructorAndTA);
-        instructorAndTA.setaClass(this);
+    public boolean addInstructorAndTAId(int instructorAndTAId){
+        instructorAndTAsIdList.add(instructorAndTAId);
         return true;
     }
 
@@ -311,8 +310,9 @@ public class Class {
                 average = 0;
             }
             else {
-                average = sum / gradedLength;
+                average = (((double) sum) / gradedLength);
                 assignment.setAverage(average);
+                averages.add(assignment.getAssignmentNo()-1, average);
             }
             return average;
         }

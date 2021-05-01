@@ -20,7 +20,7 @@ public class Submission {
     }
 
     public Submission(Assignment assignment) {
-        this.assignmentNo = assignmentNo;
+        this.assignmentNo = assignment.getAssignmentNo();
         this.title = groupId + "_" + assignment.getTitle();
         artifactReviews = new ArrayList<>();
     }
