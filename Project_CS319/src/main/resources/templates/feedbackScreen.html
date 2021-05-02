@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ProCheck - PeerReview</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: monospace; 
+  margin:0;
+}
+
+label{
+	margin-left: 25px;
+}
+
+h2{
+	margin-left: 10px;
+  font-size: 30px;
+}
+
+textarea{
+	resize: none;
+  font-size: 20px;
+  font-family: monospace; 
+  margin-left: 50px;
+}
+
+/* Style the header */
+.header {
+  padding: 20px;
+  background: #7858a1;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  padding: 15px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: monospace; 
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #7858a1;
+  float: right;
+  margin-right: 50px;
+}
+
+.button1:hover {
+  background-color: #7858a1;
+  color: white;
+}
+
+
+</style>
+<link rel="icon" type="image/png" th:href="@{/img/Favicon_Image.png}"/>
+</head>
+
+
+<style>
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #7858a1;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+</style>
+
+<body>
+
+<div class="header">
+  <h1 style="text-align: center; position: relative;">
+    Give Feedback
+  </h1>
+  <p style="text-align: center;">Give feedback to this student</p>
+</div>
+
+<div class="navbar">
+  <a href="#"></a>
+</div>
+
+<br>
+<h2>Give feedback to this submission</h2>
+<textarea name="positive" id="pos_content" rows="15" cols="115" placeholder="Enter your comment here" spellcheck="false" >
+</textarea>
+
+<div><br><br><button class="button button1">Submit</button></div>
+
+</body>
+</html>
