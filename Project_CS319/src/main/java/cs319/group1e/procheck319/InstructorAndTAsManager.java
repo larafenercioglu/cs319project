@@ -6,8 +6,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 public class InstructorAndTAsManager {
+
     private InstructorAndTAsRepository instructorAndTAsRepository;
+
     public InstructorAndTAsManager(InstructorAndTAsRepository instructorAndTAsRepository){
         this.instructorAndTAsRepository = instructorAndTAsRepository;
     }
+
+    public InstructorAndTAsRepository getInstructorAndTAsRepository() {
+        return instructorAndTAsRepository;
+    }
+
+    public void setInstructorAndTAsRepository(InstructorAndTAsRepository instructorAndTAsRepository) {
+        this.instructorAndTAsRepository = instructorAndTAsRepository;
+    }
 }
+

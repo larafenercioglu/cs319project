@@ -22,21 +22,16 @@
 
     <p class="h4 mb-4">Save Employee</p>
 
-    <!-- Uncomment LATER
     <form action="#" th:action="@{/updateStudent/21801}" method="GET">
         <button type="submit" class="btn btn-primary">Update</button>
         <button type="button" class="btn btn-danger">Delete</button>
     </form>
 
-    -->
-
-    <!--
     <form action="#" th:action="@{/updateStudent}"
-          th:object="${studentModel}" method="POST">
+          th:object="${newStudentModel}" method="POST">
 
 
-        Add hidden form field to handle update
-
+        <!--Add hidden form field to handle update-->
         <input type="hidden" th:field="*{userId}" />
 
         <input type="text" th:field="*{userName}"
@@ -51,12 +46,15 @@
         <input type="text" th:field="*{password}"
                class="form-control mb-4 col-4" placeholder="password">
 
+        <input type="text" th:field="*{groupId}"
+               class="form-control mb-4 col-4" placeholder="password">
+
         <input type="hidden" th:field="*{type}" />
 
         <button type="submit" class="btn btn-info col-2">Save</button>
 
     </form>
-    -->
+
 
 </div>
 </body>

@@ -95,8 +95,13 @@ public class Class {
     public Boolean getGroupFormation() {
         return groupFormation;
     }
+
     public int getClassId() {
         return classId;
+    }
+
+    public static int getGroupCount() {
+        return groupCount;
     }
 
     //Setters
@@ -136,12 +141,20 @@ public class Class {
         this.groupSubmissions = groupSubmissions;
     }
 
+    public void setGroupIdList(List<Integer> groupIdList) {
+        this.groupIdList = groupIdList;
+    }
+
     public void setGroupFormation(Boolean groupFormation) {
         this.groupFormation = groupFormation;
     }
 
     public void setClassId(int classId) {
         this.classId = classId;
+    }
+
+    public static void setGroupCount(int groupCount) {
+        Class.groupCount = groupCount;
     }
 
     /**
@@ -345,5 +358,25 @@ public class Class {
     public void addAnnouncement(Announcement announcement, Group group){
         this.getAnnouncementList().add(announcement);
         group.addAnnouncement(announcement);
+    }
+    /* TODO YANLIŞ ÇALIŞIYO
+    public void setClassEqual(Class theClass){
+        this.setClassKey(theClass.getClassKey());
+        this.setClassId(theClass.getClassId());
+        this.setStudentIdList(theClass.getStudentIdList());
+        this.setInstructorAndTAsIdList(theClass.getInstructorAndTAsIdList());
+        this.setGroupIdList(theClass.getGroupIdList());
+        this.setClassName(theClass.getClassName());
+        this.setAverages(theClass.getAverages());
+        this.setProject(theClass.getProject());
+        this.setAnnouncementList(theClass.getAnnouncementList());
+        this.setGroupSubmissions(theClass.getGroupSubmissions());;
+        this.setGroupFormation(theClass.getGroupFormation());
+        this.setGroupCount(theClass.getGroupCount());
+
+    }*/
+    @Override
+    public String toString(){
+        return "Class Id " + this.getClassId() + " Class Name " + this.getClassName();
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Document("Students")
@@ -219,10 +220,10 @@ public class Student implements User {
     /**
       Student sends a request to a group
      */
-    public Request sendRequest(Group group){ //TODO: BURAYA BAK Bİ HELEEEEEEEEEEEEEEE
+    public Group sendRequest(Group group){ //TODO: BURAYA BAK Bİ HELEEEEEEEEEEEEEEE
         Request request = new Request(group.getGroupId(),this.userId);
         group.getRequests().add(request);
-        return request;
+        return group;
     }
 
     /**
@@ -247,13 +248,16 @@ public class Student implements User {
     }
 
     /**
-        TODO
+        TODO Parameter type doğru olmayabilir
      */
-    public boolean isDeadlineClose(Group studentGroup, int index){
-       /* if(){
+    public boolean isDeadlineClose(Project project){
 
-        }*/
-        return true;
+        Date date =  new Date();
+        int dayDifference = (int) (((date.getTime() - project.getProjectDeadline().getTime()) / (1000 * 60 * 60 * 24)) % 365);
+        if(dayDifference <= 10){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -311,7 +315,19 @@ public class Student implements User {
     public void rejectInvitation(Invitation inv) {
         this.getInvitations().remove(inv);
     }
-
+    public void studentSetEqual(Student s){
+        this.setUserId(s.getUserId());
+        this.setUserName(s.getUserName());
+        this.setUserSurname(s.getUserSurname());
+        this.setEmail(s.getEmail());
+        this.setPassword(s.getPassword());
+        this.setType(s.getType());
+        this.setGroupId(s.getGroupId());
+        this.setInvitations(s.getInvitations());
+        this.setPeerReviews(s.getPeerReviews());
+        this.setGroupMember(s.isGroupMember());
+        this.setRegisteredInClass(s.isRegisteredInClass());
+    }
     @Override
     public String toString(){
         return this.userName;

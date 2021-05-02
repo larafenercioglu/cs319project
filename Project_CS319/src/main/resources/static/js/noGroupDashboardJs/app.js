@@ -3,6 +3,38 @@ $(document).ready(function () {
 });
 
 function getAllGroupsFromDb() {
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost:8080/getAllGroups";
+
+    xhr.open("GET", url, true);
+    xhr.onload = function () {
+
+        if (this.status === 200) {
+            console.log(this.responseText);
+            var jsonData = JSON.parse(this.responseText);
+            console.log(jsonData);
+            //bu = this.responseText.groupId;
+            jsonData.forEach(function(Result) {
+
+                document.getElementById("other_group_module").innerHTML += '<div class="mb-2"> ' +
+                    '<p class="pr-3" style="display:inline-block;"> Group-' + Result.groupId + '</p> ' +
+                    '<button style="background-color: #7858a1;" class="btn btn-primary" type="submit"> Send Join Request</button> ' +
+                    '</div>';
+
+                console.log(Result.groupId);
+            });
+            /*
+            <div class="mb-2">
+                    <p class="pr-3" style="display: inline-block;">
+                        -Group 1
+                    </p>
+                    <a href="#">Send Join Request</a>
+                </div>
+                <a href="javascript:{}" class="text-center py-3" >Send Join Request</a>
+             */
+        }
+    }
+    xhr.send();
 }
 
 /*

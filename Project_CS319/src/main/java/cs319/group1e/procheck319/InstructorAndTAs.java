@@ -242,4 +242,15 @@ public class InstructorAndTAs implements User {
     public String toString(){
         return "Instructor " + this.getUserName() + "\n" ;
     }
+    public void setInstructorEqual(InstructorAndTAs ins){
+        this.setUserId(ins.getUserId());
+        this.setUserName(ins.getUserName());
+        this.setUserSurname(ins.getUserName());
+        this.setEmail(ins.getEmail());
+        this.setPassword(ins.getPassword());
+        this.setType(ins.getType());
+        this.setClass(ins.getaClass());
+        this.setCalendar(ins.getCalendar());
+        this.setProject(ins.getProject());
+    }
 }

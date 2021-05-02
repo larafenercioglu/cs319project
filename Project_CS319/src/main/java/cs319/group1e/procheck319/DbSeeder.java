@@ -20,22 +20,21 @@ public class DbSeeder implements CommandLineRunner {
         this.groupRepository = groupRepository;
         this.classRepository = classRepository;
         this.instructorAndTAsRepository = instructorAndTAsRepository;
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
 
         /////////////////////////Hep olacak/////////////////////////////////
         InstructorAndTAs tuzun = new InstructorAndTAs("eray","tuzun","4590",345,"tuzun@gmail.com","instructor");
         InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun","jabrayilzade","8886",315,"elgun@gmail.com","instructor");
         InstructorAndTAs tuna = new InstructorAndTAs("erdem","tuna","5486",815,"tuna@gmail.com","instructor");
-        instructorAndTAsRepository.save(tuzun);
-        instructorAndTAsRepository.save(jabrayilzade);
-        instructorAndTAsRepository.save(tuna);
         Class csClass = tuzun.createClass("CS319",319);
         csClass.addInstructorAndTAId(jabrayilzade.getUserId());
         csClass.addInstructorAndTAId(tuna.getUserId());
-        classRepository.save(csClass);
+        jabrayilzade.setClass(319);
+        tuna.setClass(319);
+
+        this.instructorAndTAsRepository.save(tuzun);
+        this.instructorAndTAsRepository.save(jabrayilzade);
+        this.instructorAndTAsRepository.save(tuna);
+        this.classRepository.save(csClass);
         Project p = csClass.getProject();
         /////////////////////////////////////////////////////////////////////
 
@@ -50,10 +49,14 @@ public class DbSeeder implements CommandLineRunner {
         csClass.addStudentId(tutku.getUserId());
         csClass.addStudentId(lara.getUserId());
         csClass.addStudentId(kim.getUserId());
-        classRepository.save(csClass);
+        this.classRepository.save(csClass);
 
         List<Student> users = Arrays.asList(bedo, gok, tutku, lara, kim);
         this.studentRepository.saveAll(users);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
 
     }
 }
