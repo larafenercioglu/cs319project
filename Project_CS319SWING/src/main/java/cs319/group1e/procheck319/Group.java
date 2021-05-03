@@ -189,7 +189,6 @@ public class Group{
         return true;
     }
 
-
     /**
       Calculating the progress of a group according to their submissions and assignments
      */
@@ -255,33 +254,40 @@ public class Group{
         Random rand = new Random();
 
         System.out.println("*************************** "+assignment.getAssignmentNo());
+        System.out.println("TEST FOR BOUND: " + assignment.getSubmissionList().size());
 
-        int randomIndex = rand.nextInt(assignment.getSubmissionList().size());;
-        int minCount = Integer.MAX_VALUE;
-        boolean flag;
-
-        if(assignment.getSubmissionList().size() == 0){
-            System.out.println("***********************ARIK YETER");
+        if(assignment.getSubmissionList().size() <= 0) {
+            System.out.println("BURADA PATLAYABİLİR");
             return null;
         }
-        else{
-            for( int i = 0 ; i < assignment.getSubmissionList().size() ; i++ ){
-                if( minCount > assignment.getSubmissionList().get(i).getArtifactReviewCount() && groupId != assignment.getSubmissionList().get(i).getGroupId()){
-                    minCount = assignment.getSubmissionList().get(i).getArtifactReviewCount();
+        else {
+            int randomIndex = rand.nextInt(assignment.getSubmissionList().size());
+            int minCount = Integer.MAX_VALUE;
+            boolean flag;
+
+            if(assignment.getSubmissionList().size() == 0){
+                System.out.println("***********************ARIK YETER");
+                return null;
+            }
+            else{
+                for( int i = 0 ; i < assignment.getSubmissionList().size() ; i++ ){
+                    if( minCount > assignment.getSubmissionList().get(i).getArtifactReviewCount() && groupId != assignment.getSubmissionList().get(i).getGroupId()){
+                        minCount = assignment.getSubmissionList().get(i).getArtifactReviewCount();
+                    }
                 }
+
+                while( assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount() != minCount ){
+                    randomIndex = rand.nextInt(assignment.getSubmissionList().size());
+                }
+
+                System.out.println( "Group Id : " + assignment.getSubmissionList().get(randomIndex).getGroupId() );
+                System.out.println(assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount());
+
+                System.out.println("çıktım");
+                this.artifactReviewsCount++;
+                assignment.getSubmissionList().get(randomIndex).setArtifactReviewCount( assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount() + 1 );
+                return assignment.getSubmissionList().get(randomIndex);
             }
-
-            while( assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount() != minCount ){
-                randomIndex = rand.nextInt(assignment.getSubmissionList().size());
-            }
-
-            System.out.println( "Group Id : " + assignment.getSubmissionList().get(randomIndex).getGroupId() );
-            System.out.println(assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount());
-
-            System.out.println("çıktım");
-            this.artifactReviewsCount++;
-            assignment.getSubmissionList().get(randomIndex).setArtifactReviewCount( assignment.getSubmissionList().get(randomIndex).getArtifactReviewCount() + 1 );
-            return assignment.getSubmissionList().get(randomIndex);
         }
     }
 

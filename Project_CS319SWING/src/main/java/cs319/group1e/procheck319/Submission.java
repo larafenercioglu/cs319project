@@ -9,7 +9,7 @@ public class Submission {
     private double grade;
     //private Assignment assignment;
     private int assignmentNo;
-    private InstructorFeedback feedback;
+    private String feedback;
     private List<ArtifactReview> artifactReviews;
     private int groupId;
     private boolean isGraded;
@@ -21,18 +21,21 @@ public class Submission {
     public Submission() {
         this.title = groupId + "_" + assignmentNo;
         this.artifactReviewCount = 0;
+        this.feedback = "";
     }
 
+    //Constructor
     public Submission(Assignment assignment, String url) {
         this.assignmentNo = assignment.getAssignmentNo();
         this.title = groupId + "_" + assignment.getTitle();
         this.artifactReviews = new ArrayList<>();
         this.artifactReviewCount = 0;
         this.url = url;
+        this.feedback = "";
     }
 
     //Constructor
-    public Submission(int groupId, double grade, int assignmentNo, InstructorFeedback feedback, List<ArtifactReview> artifactReviews, String url) {
+    public Submission(int groupId, double grade, int assignmentNo, List<ArtifactReview> artifactReviews, String url, String feedback) {
         this.groupId = groupId;
         this.grade = grade;
         this.assignmentNo = assignmentNo;
@@ -55,7 +58,7 @@ public class Submission {
         return assignmentNo;
     }
 
-    public InstructorFeedback getFeedback() {
+    public String getFeedback() {
         return feedback;
     }
 
@@ -88,7 +91,7 @@ public class Submission {
         this.assignmentNo = assignmentNo;
     }
 
-    public void setFeedback(InstructorFeedback feedback) {
+    public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
 
@@ -114,5 +117,17 @@ public class Submission {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    //Set submission object to another
+    public void setEqualsSubmission(Submission s) {
+        this.title = s.getTitle();
+        this.grade = s.getGrade();
+        this.assignmentNo = s.getAssignmentNo();
+        this.feedback = s.getFeedback();
+        this.artifactReviews = s.getArtifactReviews();
+        this.groupId = s.getGroupId();
+        this.isGraded = s.getIsGraded();
+        this.artifactReviewCount = s.getArtifactReviewCount();
     }
 }

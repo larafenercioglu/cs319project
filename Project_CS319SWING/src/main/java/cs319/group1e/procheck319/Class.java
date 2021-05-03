@@ -285,6 +285,7 @@ public class Class {
      */
     public void calculateAllAverages(){
         for(int i = 0 ; i < project.getAssignmentList().size() ; i++ ){
+            System.out.println("aga girdim aga");
             calculateAverageOfAnAssignment(project.getAssignmentList().get(i));
         }
     }

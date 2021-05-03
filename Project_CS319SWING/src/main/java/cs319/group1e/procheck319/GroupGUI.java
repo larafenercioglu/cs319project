@@ -234,6 +234,80 @@ public class GroupGUI extends javax.swing.JFrame {
         submitButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
+        overallProgressPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        groupMemberPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        groupMemberLabel5 = new javax.swing.JLabel();
+        groupMemberLabel1 = new javax.swing.JLabel();
+        groupMemberLabel2 = new javax.swing.JLabel();
+        groupMemberLabel3 = new javax.swing.JLabel();
+        groupMemberLabel4 = new javax.swing.JLabel();
+        groupMemberButton1 = new javax.swing.JButton();
+        groupMemberButton2 = new javax.swing.JButton();
+        groupMemberButton3 = new javax.swing.JButton();
+        groupMemberButton4 = new javax.swing.JButton();
+        groupMemberButton5 = new javax.swing.JButton();
+        projectSummaryPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        headerPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        launchDatePanel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        otherGroupsPanel = new javax.swing.JPanel();
+        artifactReviewMainLabel = new javax.swing.JLabel();
+        randomArtifactButton = new javax.swing.JButton();
+        artifactReviewURLLabel = new javax.swing.JLabel();
+        artifactURLField = new javax.swing.JTextField();
+        artifactReviewLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        artifactReviewArea = new javax.swing.JTextArea();
+        firstArtifactCheckBox = new javax.swing.JCheckBox();
+        secondArtifactCheckBox = new javax.swing.JCheckBox();
+        submitArtifactButton = new javax.swing.JButton();
+        calendarPanel = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        requestLabel1 = new javax.swing.JLabel();
+        acceptButton1 = new javax.swing.JButton();
+        rejectButton1 = new javax.swing.JButton();
+        requestLabel2 = new javax.swing.JLabel();
+        acceptButton2 = new javax.swing.JButton();
+        rejectButton2 = new javax.swing.JButton();
+        requestLabel3 = new javax.swing.JLabel();
+        acceptButton3 = new javax.swing.JButton();
+        rejectButton3 = new javax.swing.JButton();
+        requestLabel4 = new javax.swing.JLabel();
+        acceptButton4 = new javax.swing.JButton();
+        rejectButton4 = new javax.swing.JButton();
+        statisticsPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        viewARButton1 = new javax.swing.JButton();
+        viewFeedbackButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        feedbeackArea = new javax.swing.JTextArea();
+        announcementsPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        deadlinesPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel5 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel3 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel4 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel6 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel1 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel2 = new javax.swing.JLabel();
+        submitButton2 = new javax.swing.JButton();
+        submitButton1 = new javax.swing.JButton();
+        submitButton4 = new javax.swing.JButton();
+        submitButton5 = new javax.swing.JButton();
+        submitButton6 = new javax.swing.JButton();
+        submitButton3 = new javax.swing.JButton();
+        artifactReviewsFeedback = new javax.swing.JTextArea();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -270,6 +344,9 @@ public class GroupGUI extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        /*
+
+         */
         groupMemberLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupMemberLabel5.setText("jLabel24");
 
@@ -629,106 +706,34 @@ public class GroupGUI extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("View Reviews");
 
-        viewReviewLabel3.setText("jLabel30");
-
         viewARButton1.setBackground(new java.awt.Color(120, 88, 161));
         viewARButton1.setForeground(new java.awt.Color(255, 255, 255));
         viewARButton1.setText("View Artifact Review");
         viewARButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-              viewARButton1ActionPerformed(evt);
+                viewARButton1ActionPerformed(evt);
             }
         });
 
         viewFeedbackButton1.setBackground(new java.awt.Color(120, 88, 161));
         viewFeedbackButton1.setForeground(new java.awt.Color(255, 255, 255));
-        viewFeedbackButton1.setText("View Feedback");
+        viewFeedbackButton1.setText("View Feedbacks");
         viewFeedbackButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewFeedbackButton1ActionPerformed(evt);
             }
         });
 
-        viewReviewLabel1.setText("jLabel30");
 
-        viewReviewLabel2.setText("jLabel30");
+        artifactReviewsFeedback.setEditable(false);
+        artifactReviewsFeedback.setColumns(20);
+        artifactReviewsFeedback.setRows(5);
+        jScrollPane2.setViewportView(artifactReviewsFeedback);
 
-        viewReviewLabel4.setText("jLabel30");
-
-        viewReviewLabel5.setText("jLabel30");
-
-        viewARButton5.setBackground(new java.awt.Color(120, 88, 161));
-        viewARButton5.setForeground(new java.awt.Color(255, 255, 255));
-        viewARButton5.setText("View Artifact Review");
-        viewARButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewARButton5ActionPerformed(evt);
-            }
-        });
-
-        viewFeedbackButton5.setBackground(new java.awt.Color(120, 88, 161));
-        viewFeedbackButton5.setForeground(new java.awt.Color(255, 255, 255));
-        viewFeedbackButton5.setText("View Feedback");
-        viewFeedbackButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewFeedbackButton5ActionPerformed(evt);
-            }
-        });
-
-
-        viewARButton2.setBackground(new java.awt.Color(120, 88, 161));
-        viewARButton2.setForeground(new java.awt.Color(255, 255, 255));
-        viewARButton2.setText("View Artifact Review");
-        viewARButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewARButton2ActionPerformed(evt);
-            }
-        });
-
-        viewFeedbackButton2.setBackground(new java.awt.Color(120, 88, 161));
-        viewFeedbackButton2.setForeground(new java.awt.Color(255, 255, 255));
-        viewFeedbackButton2.setText("View Feedback");
-        viewFeedbackButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewFeedbackButton2ActionPerformed(evt);
-            }
-        });
-
-        viewARButton3.setBackground(new java.awt.Color(120, 88, 161));
-        viewARButton3.setForeground(new java.awt.Color(255, 255, 255));
-        viewARButton3.setText("View Artifact Review");
-        viewARButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewARButton3ActionPerformed(evt);
-            }
-        });
-
-        viewFeedbackButton3.setBackground(new java.awt.Color(120, 88, 161));
-        viewFeedbackButton3.setForeground(new java.awt.Color(255, 255, 255));
-        viewFeedbackButton3.setText("View Feedback");
-        viewFeedbackButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewFeedbackButton3ActionPerformed(evt);
-            }
-        });
-
-        viewARButton4.setBackground(new java.awt.Color(120, 88, 161));
-        viewARButton4.setForeground(new java.awt.Color(255, 255, 255));
-        viewARButton4.setText("View Artifact Review");
-        viewARButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewARButton4ActionPerformed(evt);
-            }
-        });
-
-        viewFeedbackButton4.setBackground(new java.awt.Color(120, 88, 161));
-        viewFeedbackButton4.setForeground(new java.awt.Color(255, 255, 255));
-        viewFeedbackButton4.setText("View Feedback");
-        viewFeedbackButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewFeedbackButton4ActionPerformed(evt);
-            }
-        });
+        feedbeackArea.setEditable(false);
+        feedbeackArea.setColumns(20);
+        feedbeackArea.setRows(5);
+        jScrollPane3.setViewportView(feedbeackArea);
 
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
         statisticsPanel.setLayout(statisticsPanelLayout);
@@ -739,37 +744,13 @@ public class GroupGUI extends javax.swing.JFrame {
                                 .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(statisticsPanelLayout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
                                                 .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(statisticsPanelLayout.createSequentialGroup()
-                                                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(viewReviewLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                                                        .addComponent(viewReviewLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(viewARButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                                                                        .addComponent(viewARButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(statisticsPanelLayout.createSequentialGroup()
-                                                                                .addComponent(viewFeedbackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(0, 0, Short.MAX_VALUE))
-                                                                        .addComponent(viewFeedbackButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                                        .addGroup(statisticsPanelLayout.createSequentialGroup()
-                                                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                        .addComponent(viewReviewLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                                                        .addComponent(viewReviewLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                        .addComponent(viewReviewLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(viewARButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                                                        .addComponent(viewARButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                        .addComponent(viewARButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(viewFeedbackButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                                                        .addComponent(viewFeedbackButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                        .addComponent(viewFeedbackButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                                        .addComponent(viewARButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(viewFeedbackButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))))
                                 .addContainerGap())
         );
         statisticsPanelLayout.setVerticalGroup(
@@ -778,38 +759,36 @@ public class GroupGUI extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
-                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(viewFeedbackButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(viewARButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(viewReviewLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(viewReviewLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewARButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewFeedbackButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(viewReviewLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewARButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewFeedbackButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(viewReviewLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewARButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewFeedbackButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(17, 17, 17)
-                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(viewReviewLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewARButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(viewFeedbackButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28))
+                                        .addComponent(viewARButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                                        .addComponent(viewFeedbackButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane3))
+                                .addContainerGap())
         );
 
+        //-----------------------------------------------------------ANNOUNCEMENT PART STARTS-----------------------------------------------------------
         announcementsPanel.setBackground(new java.awt.Color(232, 235, 255));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Announcements");
+
+        Class c = classRepository.findByClassId(319);
+        List<Announcement> announcements = c.getAnnouncementList();
+        String anno = "";
+        if(announcements.size() > 0){
+            for(int i = 0; i < announcements.size(); i++){
+                anno += "\n" + announcements.get(i);
+            }
+        }
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText(anno);
+        jScrollPane4.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout announcementsPanelLayout = new javax.swing.GroupLayout(announcementsPanel);
         announcementsPanel.setLayout(announcementsPanelLayout);
@@ -817,16 +796,18 @@ public class GroupGUI extends javax.swing.JFrame {
                 announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(announcementsPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                                 .addContainerGap())
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         announcementsPanelLayout.setVerticalGroup(
                 announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(announcementsPanelLayout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(jLabel6)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane4)
+                                .addContainerGap()));
 
         deadlinesPanel.setBackground(new java.awt.Color(232, 235, 255));
 
@@ -834,17 +815,19 @@ public class GroupGUI extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Upcoming Deadlines");
 
-        List<Assignment> assignments =classRepository.findByClassId(319).getProject().getAssignmentList();
 
-        upcomingDeadlinesLabel5.setText(assignments.get(4).getTitle());
+        Class classA = classRepository.findByClassId(319);
+        List<Assignment> assignmentsA = classA.getProject().getAssignmentList();
+        upcomingDeadlinesLabel5.setText(assignmentsA.get(4).getTitle());
 
-        upcomingDeadlinesLabel3.setText(assignments.get(3).getTitle());
+        upcomingDeadlinesLabel3.setText(assignmentsA.get(2).getTitle());
 
-        upcomingDeadlinesLabel4.setText(assignments.get(2).getTitle());
+        upcomingDeadlinesLabel4.setText(assignmentsA.get(3).getTitle());
 
-        upcomingDeadlinesLabel1.setText(assignments.get(1).getTitle());
+        upcomingDeadlinesLabel1.setText(assignmentsA.get(0).getTitle());
 
-        upcomingDeadlinesLabel2.setText(assignments.get(0).getTitle());
+        upcomingDeadlinesLabel2.setText(assignmentsA.get(1).getTitle());
+
 
         submitButton2.setBackground(new java.awt.Color(120, 88, 161));
         submitButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1046,22 +1029,58 @@ public class GroupGUI extends javax.swing.JFrame {
 
     //GET A RANDOM ARTIFACT BY PRESSING THE BUTTON!!!!!!!!!!!!!!!!
     private void randomArtifactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        if(firstArtifactCheckBox.isSelected() && secondArtifactCheckBox.isSelected()){
+            firstArtifactCheckBox.setSelected(false);
+            secondArtifactCheckBox.setSelected(false);
+        }
+        firstArtifactCheckBox.setSelected(true);
         List<Assignment> assignments = new ArrayList<>();
         Group g = groupRepository.findByGroupId(currentUser.getGroupId());
         assignments = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupAssignmentList();
         this.sub = currentUser.getRandomArtifact(assignments,g);
-        String url = sub.getUrl();
-        artifactURLField.setEditable(false);
-        artifactURLField.setText(url);
-        artifactReviewArea.setEnabled(true);
-        firstArtifactCheckBox.setSelected(true);
+        if(sub != null) {
+            String url = sub.getUrl();
+            artifactURLField.setEditable(false);
+            artifactURLField.setText(url);
+            artifactReviewArea.setEnabled(true);
+            submitArtifactButton.setEnabled(true);
+        }
+        else {
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"No Submission Available","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     //SUBMIT THE JTEXTFIELD TO THE SYSTEM!!!!!!!!!!!
     private void submitArtifactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
         String context = artifactReviewArea.getText();
-        currentUser.reviewArtifact(sub,context);
+        ArtifactReview doneArtifactReview = currentUser.reviewArtifact(sub,context);
+        if(firstArtifactCheckBox.isSelected()){
+            secondArtifactCheckBox.setSelected(true);
+        }
+        firstArtifactCheckBox.setSelected(true);
+
+        //Save to Class repo
         Class c = classRepository.findByClassId(319);
+        List<Submission> submissions = c.getProject().getAssignmentList().get(sub.getAssignmentNo()-1).getSubmissionList();
+        for(int i = 0; i < submissions.size(); i++){
+            if(submissions.get(i).getGroupId() == sub.getGroupId()){
+                submissions.get(i).getArtifactReviews().add(doneArtifactReview);
+            }
+        }
+        classRepository.save(c);
+
+        //Save to group's submission
+        Group group = groupRepository.findByGroupId(sub.getGroupId());
+        for(int i = 0; i < group.getGroupSubmissionList().size(); i++) {
+            if(sub.getAssignmentNo() == group.getGroupSubmissionList().get(i).getAssignmentNo()) {
+                group.getGroupSubmissionList().get(i).getArtifactReviews().add(doneArtifactReview);
+            }
+        }
+        groupRepository.save(group);
     }
 
 
@@ -1074,61 +1093,28 @@ public class GroupGUI extends javax.swing.JFrame {
     }
 
     private void viewARButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(0);
-        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
-
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        List<Submission> submissions = g.getGroupSubmissionList();
+        String text = "";
+        for(int i = 0; i < submissions.size(); i++) {
+            for( int j = 0; j < submissions.get(i).getArtifactReviews().size(); j++) {
+                text += "\nArtifact Review for " + submissions.get(i).getAssignmentNo() + ": " + submissions.get(i).getArtifactReviews().get(j);
+            }
+        }
+        artifactReviewsFeedback.setText(text);
     }
 
     private void viewFeedbackButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(0);
-        InstructorFeedback feedback = s.getFeedback();
-        double grade = s.getGrade();
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        List<Submission> submissions = g.getGroupSubmissionList();
+        String text = "";
+        for(int i = 0; i < submissions.size(); i++) {
+            for( int j = 0; j < submissions.get(i).getArtifactReviews().size(); j++) {
+                text += "\n" + submissions.get(i).getFeedback();
+            }
+        }
+        feedbeackArea.setText(text);
     }
-
-    private void viewARButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(1);
-        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
-    }
-
-    private void viewFeedbackButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(1);
-        InstructorFeedback feedback = s.getFeedback();
-        double grade = s.getGrade();
-    }
-
-    private void viewARButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(2);
-        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
-    }
-
-    private void viewFeedbackButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(2);
-        InstructorFeedback feedback = s.getFeedback();
-        double grade = s.getGrade();
-    }
-
-    private void viewARButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(3);
-        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
-    }
-
-    private void viewFeedbackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(3);
-        InstructorFeedback feedback = s.getFeedback();
-        double grade = s.getGrade();
-    }
-
-    private void viewARButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(4);
-        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
-    }
-
-    private void viewFeedbackButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(4);
-        InstructorFeedback feedback = s.getFeedback();
-        double grade = s.getGrade();
-    }
-
 
     private void submitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
         //POP UP FIFTH SUBMISSON PAGE WITH GITHUB LINK FIELD
@@ -1211,33 +1197,42 @@ public class GroupGUI extends javax.swing.JFrame {
         Group g = groupRepository.findByGroupId(currentUser.getGroupId());
         int id = g.getStudentIdList().get(0);
         Student s = studentRepository.findByUserId(id);
-        if(s.getUserId() != currentUser.getUserId()){
-            peer = s.getUserId();
-            goTo = "PeerReview";
-        }
-        else{
+        if(g.getStudentIdList().size() <= 1 || s.getUserId() == currentUser.getUserId()){
             UIManager um=new UIManager();
             um.put("OptionPane.background",new Color(120, 88, 161));
             um.put("Panel.background",new Color(120, 88, 161));
-            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+            JOptionPane.showMessageDialog(null,"Invalid review","Set Color",
                     JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            peer = s.getUserId();
+            goTo = "PeerReview";
         }
     }
 
     private void groupMemberButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
         // TODO add your handling code here:
         Group g = groupRepository.findByGroupId(currentUser.getGroupId());
-        int id = g.getStudentIdList().get(1);
-        Student s = studentRepository.findByUserId(id);
-        if(s.getUserId() != currentUser.getUserId()){
-            peer = s.getUserId();
-            goTo = "PeerReview";
+        if(g.getStudentIdList().size() > 1){
+            int id = g.getStudentIdList().get(1);
+            Student s = studentRepository.findByUserId(id);
+            if(s.getUserId() == currentUser.getUserId()){
+                UIManager um=new UIManager();
+                um.put("OptionPane.background",new Color(120, 88, 161));
+                um.put("Panel.background",new Color(120, 88, 161));
+                JOptionPane.showMessageDialog(null,"Can't review yourself","Set Color",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+                peer = s.getUserId();
+                goTo = "PeerReview";
+            }
         }
-        else{
+        else {
             UIManager um=new UIManager();
             um.put("OptionPane.background",new Color(120, 88, 161));
             um.put("Panel.background",new Color(120, 88, 161));
-            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+            JOptionPane.showMessageDialog(null,"Invalid review","Set Color",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -1245,17 +1240,26 @@ public class GroupGUI extends javax.swing.JFrame {
     private void groupMemberButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
         // TODO add your handling code here:
         Group g = groupRepository.findByGroupId(currentUser.getGroupId());
-        int id = g.getStudentIdList().get(2);
-        Student s = studentRepository.findByUserId(id);
-        if(s.getUserId() != currentUser.getUserId()){
-            peer = s.getUserId();
-            goTo = "PeerReview";
+        if(g.getStudentIdList().size() > 1){
+            int id = g.getStudentIdList().get(2);
+            Student s = studentRepository.findByUserId(id);
+            if(s.getUserId() == currentUser.getUserId()){
+                UIManager um=new UIManager();
+                um.put("OptionPane.background",new Color(120, 88, 161));
+                um.put("Panel.background",new Color(120, 88, 161));
+                JOptionPane.showMessageDialog(null,"Can't review yourself","Set Color",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+                peer = s.getUserId();
+                goTo = "PeerReview";
+            }
         }
-        else{
+        else {
             UIManager um=new UIManager();
             um.put("OptionPane.background",new Color(120, 88, 161));
             um.put("Panel.background",new Color(120, 88, 161));
-            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+            JOptionPane.showMessageDialog(null,"Invalid review","Set Color",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -1263,17 +1267,26 @@ public class GroupGUI extends javax.swing.JFrame {
     private void groupMemberButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
         // TODO add your handling code here:
         Group g = groupRepository.findByGroupId(currentUser.getGroupId());
-        int id = g.getStudentIdList().get(3);
-        Student s = studentRepository.findByUserId(id);
-        if(s.getUserId() != currentUser.getUserId()){
-            peer = s.getUserId();
-            goTo = "PeerReview";
+        if(g.getStudentIdList().size() > 1){
+            int id = g.getStudentIdList().get(3);
+            Student s = studentRepository.findByUserId(id);
+            if(s.getUserId() == currentUser.getUserId()){
+                UIManager um=new UIManager();
+                um.put("OptionPane.background",new Color(120, 88, 161));
+                um.put("Panel.background",new Color(120, 88, 161));
+                JOptionPane.showMessageDialog(null,"Can't review yourself","Set Color",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+                peer = s.getUserId();
+                goTo = "PeerReview";
+            }
         }
-        else{
+        else {
             UIManager um=new UIManager();
             um.put("OptionPane.background",new Color(120, 88, 161));
             um.put("Panel.background",new Color(120, 88, 161));
-            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+            JOptionPane.showMessageDialog(null,"Invalid review","Set Color",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -1281,22 +1294,29 @@ public class GroupGUI extends javax.swing.JFrame {
     private void groupMemberButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
         // TODO add your handling code here:
         Group g = groupRepository.findByGroupId(currentUser.getGroupId());
-        int id = g.getStudentIdList().get(4);
-        if(id != currentUser.getUserId()){
-            peer = id;
-            goTo = "PeerReview";
+        if(g.getStudentIdList().size() > 1){
+            int id = g.getStudentIdList().get(4);
+            Student s = studentRepository.findByUserId(id);
+            if(s.getUserId() == currentUser.getUserId()){
+                UIManager um=new UIManager();
+                um.put("OptionPane.background",new Color(120, 88, 161));
+                um.put("Panel.background",new Color(120, 88, 161));
+                JOptionPane.showMessageDialog(null,"Can't review yourself","Set Color",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+                peer = s.getUserId();
+                goTo = "PeerReview";
+            }
         }
-        else{
+        else {
             UIManager um=new UIManager();
             um.put("OptionPane.background",new Color(120, 88, 161));
             um.put("Panel.background",new Color(120, 88, 161));
-            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+            JOptionPane.showMessageDialog(null,"Invalid review","Set Color",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
-
-
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1411,5 +1431,12 @@ public class GroupGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox secondArtifactCheckBox;
     private javax.swing.JButton submitArtifactButton;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea feedbeackArea;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea artifactReviewsFeedback;
+
     // End of variables declaration//GEN-END:variables
 }

@@ -160,8 +160,8 @@ public class InstructorAndTAs implements User {
     /**
      Instructor gives feedback
      */
-    public InstructorFeedback giveFeedback(String context){
-        return new InstructorFeedback(context, (this.userName + " " + this.userSurname));
+    public String giveFeedback(String context){
+        return context;
     }
 
     /**

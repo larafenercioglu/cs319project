@@ -71,7 +71,6 @@ public class Procheck319Application {
         this.groupRepository.save(newGroup);
          */
 
-        System.out.println("NASI YA");
         //----------------------------------------------------------------------
         if(instructorAndTAsRepository.findAll().size() < 3) {
             InstructorAndTAs tuzun = new InstructorAndTAs("eray", "tuzun", "12345", 345, "tuzun@gmail.com", "instructor");
@@ -128,7 +127,6 @@ public class Procheck319Application {
 
             for(int i = 0; i < users.size() ; i++){
                 users.get(i).setClassId(erayClass.getClassId());
-
             }
 
             studentRepository.saveAll(users);
@@ -138,10 +136,6 @@ public class Procheck319Application {
             classRepository.save(erayClass);
 
             System.out.println("---------------ASSIGMENT------------------");
-            //HashMap<Integer,List<Submissoin>>sSubmissionMap = new HashMap<>()
-            //List<Assgnment> Assignments = ?
-            //-----------------------------assignments-----------------------------
-            //Map<Assignment,>
             Assignment assignment1 = new Assignment();
             assignment1.setAssignmentNo(1);
             assignment1.setTitle("README Document");
@@ -590,8 +584,7 @@ public class Procheck319Application {
                 flag = false;
             }
 
-            if (loginRegisterGUIScreen.getGoTo().equals("studentDashboard") || ifSwitch ) {
-                System.out.println("GİRDİM AQ");
+            if (loginRegisterGUIScreen.getGoTo().equals("studentDashboard") || ifSwitch){
                 loginRegisterGUIScreen.setVisible(false);
                 loginRegisterGUIScreen.dispose();
                 groupDashboard.setCurrentUser(studentRepository.findByUserId(loginRegisterGUIScreen.getUserId()));

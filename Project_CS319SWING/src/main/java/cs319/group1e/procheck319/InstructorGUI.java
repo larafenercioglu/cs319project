@@ -250,6 +250,7 @@ public class InstructorGUI extends javax.swing.JFrame {
         submitButton1 = new javax.swing.JButton();
         submitButton4 = new javax.swing.JButton();
         submitButton3 = new javax.swing.JButton();
+        announceField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -260,11 +261,27 @@ public class InstructorGUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Overall Progress");
-
+//------------
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("90%");
 
+
+        double progress = 0;
+        double counter = 0;
+
+        Project p = classRepository.findByClassId(319).getProject();
+        
+        for(int i = 0 ; i < p.getAssignmentList().size() ; i++ ){
+            if( p.getAssignmentList().get(i).isDeadlineOver() ){
+                counter ++;
+            }
+        }
+
+        progress = (counter/p.getAssignmentList().size())*100;
+
+
+        jLabel4.setText(Double.toString(progress));
+//--------------
         javax.swing.GroupLayout overallProgressPanelLayout = new javax.swing.GroupLayout(overallProgressPanel);
         overallProgressPanel.setLayout(overallProgressPanelLayout);
         overallProgressPanelLayout.setHorizontalGroup(
@@ -306,6 +323,7 @@ public class InstructorGUI extends javax.swing.JFrame {
         });
 
         jButton3.setText("Announce To A Group");
+
 
         javax.swing.GroupLayout formNewGroupPanelLayout = new javax.swing.GroupLayout(formNewGroupPanel);
         formNewGroupPanel.setLayout(formNewGroupPanelLayout);
@@ -1468,20 +1486,115 @@ public class InstructorGUI extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Assignment 4 :");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel17.setText("90");
+        Class aClass = classRepository.findByClassId(319);
+        boolean flag = true;
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel18.setText("60");
+        if( p.getAssignmentList()!=null ){
+            System.out.println("AGABAS : " + aClass.getAverages().size());
+            aClass.calculateAllAverages();
+            for( int i = 0 ; i < aClass.getAverages().size() ; i++ ) {
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel19.setText("70");
+                flag = false;
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel20.setText("85");
+                if(aClass.getAverages().get(i) == 0){
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel21.setText("65");
+                    System.out.println("BABABABA");
+                    System.out.println("A");
+                    jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                    jLabel17.setText("No");
+
+                    jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                    jLabel18.setText("No");
+
+                    jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                    jLabel19.setText("No");
+
+                    jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                    jLabel20.setText("No");
+
+                    jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                    jLabel21.setText("No");
+                }
+
+                else {
+
+                    if (i == 1) {
+                        System.out.println("B");
+                        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel17.setText(Double.toString(aClass.getAverages().get(0)));
+
+                        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel18.setText("No");
+
+                        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel19.setText("No");
+
+                        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel20.setText("No");
+
+                        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel21.setText("No");
+                    }
+                    if (i == 2) {
+                        System.out.println("C");
+                        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel18.setText(Double.toString(aClass.getAverages().get(1)));
+                    }
+                    if (i == 3) {
+                        System.out.println("D");
+                        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel19.setText(Double.toString(aClass.getAverages().get(2)));
+                    }
+                    if (i == 4) {
+                        System.out.println("E");
+                        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel20.setText(Double.toString(aClass.getAverages().get(3)));
+                    }
+                    if (i == 5) {
+                        System.out.println("F");
+                        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                        jLabel21.setText(Double.toString(aClass.getAverages().get(4)));
+                    }
+                }
+            }
+
+            if(flag){
+                System.out.println("GRADE YOK MORUK");
+                jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                jLabel17.setText("No");
+
+                jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                jLabel18.setText("No");
+
+                jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                jLabel19.setText("No");
+
+                jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                jLabel20.setText("No");
+
+                jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                jLabel21.setText("No");
+            }
+
+        }
+
+        else {
+            System.out.println("G");
+            jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            jLabel17.setText("No");
+
+            jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            jLabel18.setText("No");
+
+            jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            jLabel19.setText("No");
+
+            jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            jLabel20.setText("No");
+
+            jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+            jLabel21.setText("No");
+        }
 
         jButton4.setText("View Submssion List");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -2260,6 +2373,7 @@ public class InstructorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel viewReviewLabel3;
     private javax.swing.JLabel viewReviewLabel4;
     private javax.swing.JLabel viewReviewLabel5;
+    private javax.swing.JTextField announceField;
     // End of variables declaration
 }
 

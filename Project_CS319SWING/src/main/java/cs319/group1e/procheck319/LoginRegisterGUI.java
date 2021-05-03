@@ -81,7 +81,7 @@ public class LoginRegisterGUI extends javax.swing.JFrame {
         jButton4.setText("Contact");
 
         //jLabel1.setIcon(new javax.swing.ImageIcon("/images/rsz_1login_img.jpg"));
-        jLabel1.setIcon(new ImageIcon("\\images\\rsz_1login_img.jpg"));
+        jLabel1.setIcon(new ImageIcon("D:\\YAZILIM\\GitHub\\cs319project\\Project_CS319SWING\\src\\main\\java\\cs319\\group1e\\procheck319\\images\\rsz_1login_img.jpg"));
         jLabel2.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ProCheck Log In");
@@ -197,7 +197,7 @@ public class LoginRegisterGUI extends javax.swing.JFrame {
 
         picLabel.setBackground(new java.awt.Color(120, 88, 161));
         picLabel.setForeground(new java.awt.Color(204, 0, 153));
-        picLabel.setIcon(new javax.swing.ImageIcon("\\images\\rsz_1login_img.jpg")); // NOI18N
+        picLabel.setIcon(new javax.swing.ImageIcon("D:\\YAZILIM\\GitHub\\cs319project\\Project_CS319SWING\\src\\main\\java\\cs319\\group1e\\procheck319\\images\\rsz_1login_img.jpg")); // NOI18N
         picLabel.setOpaque(true);
 
         regLabel.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
@@ -335,7 +335,7 @@ public class LoginRegisterGUI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(120, 88, 161));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/images/rsz_1login_img.png")); //TODO
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\YAZILIM\\GitHub\\cs319project\\Project_CS319SWING\\src\\main\\java\\cs319\\group1e\\procheck319\\images\\rsz_1login_img.jpg")); //TODO
 
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------
         /*
@@ -492,7 +492,7 @@ public class LoginRegisterGUI extends javax.swing.JFrame {
 
         jPasswordField1.setText("jPasswordField1");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("\\images\\rsz_1login_img.jpg"));
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\YAZILIM\\GitHub\\cs319project\\Project_CS319SWING\\src\\main\\java\\cs319\\group1e\\procheck319\\images\\rsz_1login_img.jpg"));
         jButton3.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         jButton3.setText("About Us");
         jButton3.addActionListener(new java.awt.event.ActionListener() {

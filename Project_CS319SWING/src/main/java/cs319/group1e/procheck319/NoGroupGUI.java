@@ -87,6 +87,79 @@ class NoGroupGUI extends javax.swing.JFrame {
         groupButton9 = new javax.swing.JButton();
         groupButton10 = new javax.swing.JButton();
 
+        overallProgressPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        groupMemberPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        groupMemberLabel5 = new javax.swing.JLabel();
+        groupMemberLabel1 = new javax.swing.JLabel();
+        groupMemberLabel2 = new javax.swing.JLabel();
+        groupMemberLabel3 = new javax.swing.JLabel();
+        groupMemberLabel4 = new javax.swing.JLabel();
+        groupMemberButton1 = new javax.swing.JButton();
+        groupMemberButton2 = new javax.swing.JButton();
+        groupMemberButton3 = new javax.swing.JButton();
+        groupMemberButton4 = new javax.swing.JButton();
+        groupMemberButton5 = new javax.swing.JButton();
+        projectSummaryPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        headerPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        launchDatePanel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        otherGroupsPanel = new javax.swing.JPanel();
+        artifactReviewMainLabel = new javax.swing.JLabel();
+        randomArtifactButton = new javax.swing.JButton();
+        artifactReviewURLLabel = new javax.swing.JLabel();
+        artifactURLField = new javax.swing.JTextField();
+        artifactReviewLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        artifactReviewArea = new javax.swing.JTextArea();
+        firstArtifactCheckBox = new javax.swing.JCheckBox();
+        secondArtifactCheckBox = new javax.swing.JCheckBox();
+        submitArtifactButton = new javax.swing.JButton();
+        calendarPanel = new javax.swing.JPanel();
+        requestLabel1 = new javax.swing.JLabel();
+        acceptButton1 = new javax.swing.JButton();
+        rejectButton1 = new javax.swing.JButton();
+        requestLabel2 = new javax.swing.JLabel();
+        acceptButton2 = new javax.swing.JButton();
+        rejectButton2 = new javax.swing.JButton();
+        requestLabel3 = new javax.swing.JLabel();
+        acceptButton3 = new javax.swing.JButton();
+        rejectButton3 = new javax.swing.JButton();
+        requestLabel4 = new javax.swing.JLabel();
+        acceptButton4 = new javax.swing.JButton();
+        rejectButton4 = new javax.swing.JButton();
+        statisticsPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        viewARButton1 = new javax.swing.JButton();
+        viewFeedbackButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        artifactReviewsFeedback = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        feedbeackArea = new javax.swing.JTextArea();
+        announcementsPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        deadlinesPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel5 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel3 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel4 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel6 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel1 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel2 = new javax.swing.JLabel();
+        submitButton2 = new javax.swing.JButton();
+        submitButton1 = new javax.swing.JButton();
+        submitButton4 = new javax.swing.JButton();
+        submitButton5 = new javax.swing.JButton();
+        submitButton6 = new javax.swing.JButton();
+        submitButton3 = new javax.swing.JButton();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -501,21 +574,28 @@ class NoGroupGUI extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Announcements");
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane4.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout announcementsPanelLayout = new javax.swing.GroupLayout(announcementsPanel);
         announcementsPanel.setLayout(announcementsPanelLayout);
         announcementsPanelLayout.setHorizontalGroup(
                 announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(announcementsPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                                 .addContainerGap())
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         announcementsPanelLayout.setVerticalGroup(
                 announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(announcementsPanelLayout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(jLabel6)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane4)
+                                .addContainerGap())
         );
 
         deadlinesPanel.setBackground(new java.awt.Color(232, 235, 255));
@@ -914,6 +994,49 @@ class NoGroupGUI extends javax.swing.JFrame {
     private javax.swing.JLabel groupMemberLabel4;
     private javax.swing.JLabel groupMemberLabel5;
     private javax.swing.JPanel groupMemberPanel;
+    private javax.swing.JButton acceptButton1;
+    private javax.swing.JButton acceptButton2;
+    private javax.swing.JButton acceptButton3;
+    private javax.swing.JButton acceptButton4;
+    private javax.swing.JTextArea artifactReviewArea;
+    private javax.swing.JLabel artifactReviewLabel;
+    private javax.swing.JLabel artifactReviewMainLabel;
+    private javax.swing.JLabel artifactReviewURLLabel;
+    private javax.swing.JTextArea artifactReviewsFeedback;
+    private javax.swing.JTextField artifactURLField;
+    private javax.swing.JTextArea feedbeackArea;
+    private javax.swing.JCheckBox firstArtifactCheckBox;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton randomArtifactButton;
+    private javax.swing.JButton rejectButton1;
+    private javax.swing.JButton rejectButton2;
+    private javax.swing.JButton rejectButton3;
+    private javax.swing.JButton rejectButton4;
+    private javax.swing.JLabel requestLabel1;
+    private javax.swing.JLabel requestLabel2;
+    private javax.swing.JLabel requestLabel3;
+    private javax.swing.JLabel requestLabel4;
+    private javax.swing.JCheckBox secondArtifactCheckBox;
+    private javax.swing.JPanel statisticsPanel;
+    private javax.swing.JButton submitArtifactButton;
+    private javax.swing.JButton submitButton1;
+    private javax.swing.JButton submitButton2;
+    private javax.swing.JButton submitButton3;
+    private javax.swing.JButton submitButton4;
+    private javax.swing.JButton submitButton5;
+    private javax.swing.JButton submitButton6;
+    private javax.swing.JLabel upcomingDeadlinesLabel1;
+    private javax.swing.JLabel upcomingDeadlinesLabel2;
+    private javax.swing.JLabel upcomingDeadlinesLabel3;
+    private javax.swing.JLabel upcomingDeadlinesLabel4;
+    private javax.swing.JLabel upcomingDeadlinesLabel5;
+    private javax.swing.JLabel upcomingDeadlinesLabel6;
+    private javax.swing.JButton viewARButton1;
+    private javax.swing.JButton viewFeedbackButton1;
 
 
     // End of variables declaration

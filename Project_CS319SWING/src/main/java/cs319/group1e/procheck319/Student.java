@@ -113,10 +113,6 @@ public class Student implements User {
         return isRegisteredInClass;
     }
 
-    //public Group getStudentGroup() {
-    //    return studentGroup;
-    //}
-
     public List<Invitation> getInvitations() {
         return invitations;
     }
@@ -164,10 +160,6 @@ public class Student implements User {
         isRegisteredInClass = registeredInClass;
     }
 
-    //public void setStudentGroup(Group studentGroup) {
-    //    this.studentGroup = studentGroup;
-    //}
-
     public void setInvitations(List<Invitation> invitations) {
         this.invitations = invitations;
     }
@@ -175,8 +167,6 @@ public class Student implements User {
     /*
         OPERATIONS OF STUDENT
      */
-
-    //PS: Student Register to Class Deleted
 
     /**
       Student forms a group on his/her own
@@ -191,23 +181,15 @@ public class Student implements User {
      * Student adds a submission to an assignment on behalf of group
      */
     public void addSubmission(Submission submission, Assignment assignment, Group studentGroup){
-        submission.setGroupId( this.groupId );
-        studentGroup.getGroupSubmissionList().add(submission);
-        assignment.getSubmissionList().add(submission);
-        studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).setSubmissionList(assignment.getSubmissionList());
-        //studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).setSubmissionList((( studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).getSubmissionList())));
+            submission.setGroupId( this.groupId );
+            studentGroup.getGroupSubmissionList().add(submission);
+            assignment.getSubmissionList().add(submission);
+            studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).setSubmissionList(assignment.getSubmissionList());
     }
 
     /**
      Student reviews a peer
      */
-    /*
-    public void reviewPeer(PeerReview pr, Student s){
-        s.getPeerReviews().add(pr);
-        System.out.println("PeerReview "+pr+" has been added to Student "+s);
-    }
-     */
-
     public void reviewPeer(Student s, int point1, int point2, int point3, int point4, int point5, String response1, String response2 ){
         if(this.groupId == s.getGroupId()){
             List<Integer> arrPoint = new ArrayList<Integer>();
@@ -240,16 +222,12 @@ public class Student implements User {
         return null;
     }
 
-    public void reviewArtifact(Submission sub, String context){
-        sub.getArtifactReviews().add(new ArtifactReview( context ));
+    public ArtifactReview reviewArtifact(Submission sub, String context){
+        ArtifactReview artifactReview = new ArtifactReview( context );
+        //sub.getArtifactReviews().add(artifactReview);
+        return artifactReview;
     }
 
-    public boolean equals(Student s) {
-        if(this.getUserId() == s.getUserId() ){
-            return true;
-        }
-        return false;
-    }
 
     /**
       Student sends a request to a group
@@ -263,7 +241,7 @@ public class Student implements User {
     /**
       Student views specific submission's feedback
      */
-    public void viewFeedback(InstructorFeedback instructorFeedback){
+    public void viewFeedback(String instructorFeedback){
         System.out.println(instructorFeedback);
     }
 
@@ -289,11 +267,11 @@ public class Student implements User {
     }
 
     /**
-      Student edits his/her belonging group TODO?
+      Student edits his/her belonging group---- ARTIK YOK----(SILEBILIRIZ)
      */
-    public void editGroupCalendar(Group studentGroup){
+    /*public void editGroupCalendar(Group studentGroup){
         studentGroup.editCalendar(studentGroup.getCalendar());
-    }
+    }*/
 
     public void acceptRequest(Request req , Group receiverGroup, Student senderStudent){
         if(!receiverGroup.isFull()){
@@ -314,6 +292,7 @@ public class Student implements User {
         }
         return null;
     }
+
     /**
       Adding invitation to the student
      */
@@ -321,10 +300,21 @@ public class Student implements User {
         invitations.add(invitation);
     }
 
+    public boolean equals(Student s) {
+        if(this.getUserId() == s.getUserId() ){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString(){
+        return this.userName;
+    }
     /**
-     Accept incoming invitation
+     Accept incoming invitation---- ARTIK YOK----(SILEBILIRIZ)
      */
-    public void acceptInvitation(Invitation inv, Group senderGroup){
+    /*public void acceptInvitation(Invitation inv, Group senderGroup){
         if(!senderGroup.isFull()){
             senderGroup.addGroupMember(this);
             //inv.getSender().getInvitations().remove(inv);
@@ -333,17 +323,13 @@ public class Student implements User {
             this.getInvitations().remove(inv);
             //senderGroup.getInvitations().remove(inv);
         }
-    }
+    }*/
 
     /**
-     Reject incoming invitation
+     Reject incoming invitation---- ARTIK YOK----(SILEBILIRIZ)
      */
-    public void rejectInvitation(Invitation inv) {
+    /*public void rejectInvitation(Invitation inv) {
         this.getInvitations().remove(inv);
-    }
+    }*/
 
-    @Override
-    public String toString(){
-        return this.userName;
-    }
 }

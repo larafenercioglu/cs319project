@@ -118,6 +118,8 @@ public class Assignment {
     public boolean isDeadlineOver(){ //Date objesi ile doldurulacak *** RETURN DEĞİŞTİR
         Date date = new Date();
 
+        System.out.println(date);
+
         //Date date1 = new Date(a-1900, b-1, c);
         //"a" hocanın gireceği yıl
         //"b" hocanın gireceği ay
