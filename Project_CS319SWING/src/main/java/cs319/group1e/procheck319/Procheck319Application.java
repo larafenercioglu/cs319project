@@ -11,20 +11,18 @@ import static java.lang.Thread.sleep;
 @SpringBootApplication
 @Component
 public class Procheck319Application {
-
-    private static UserRepository userRepository;
     private static StudentRepository studentRepository;
     private static GroupRepository groupRepository;
     private static ClassRepository classRepository;
     private static InstructorAndTAsRepository instructorAndTAsRepository;
 
-    public static NoGroupGUI noGroupDashboard = new NoGroupGUI();
-    public static LoginRegisterGUI loginRegisterGUIScreen = new LoginRegisterGUI();
-    public static InstructorGUI instructorScreen = new InstructorGUI();
-    public static GroupGUI groupDashboard = new GroupGUI();
+    public static NoGroupGUI noGroupDashboard;
+    public static LoginRegisterGUI loginRegisterGUIScreen;
+    public static InstructorGUI instructorScreen;
+    public static GroupGUI groupDashboard;
 
-    public Procheck319Application(UserRepository userRepository, StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository, InstructorAndTAsRepository instructorAndTAsRepository){
-        this.userRepository = userRepository;
+
+    public Procheck319Application(StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository, InstructorAndTAsRepository instructorAndTAsRepository){
         this.studentRepository = studentRepository;
         this.groupRepository = groupRepository;
         this.classRepository = classRepository;
@@ -33,7 +31,7 @@ public class Procheck319Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Procheck319Application.class, args);
-
+        System.setProperty("java.awt.headless", "false"); //Disables headless
         //***********************************************************************************************************************************************************************
         System.out.println("\n\n****************SELAMLAR******************\n\n ");
 
@@ -72,65 +70,74 @@ public class Procheck319Application {
 
         System.out.println("NASI YA");
         //----------------------------------------------------------------------
-        InstructorAndTAs tuzun = new InstructorAndTAs("eray", "tuzun", "4590", 345, "tuzun@gmail.com", "instructor");
-        InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun", "jabrayilzade", "8886", 315, "jabrayilzade@gmail.com", "instructor");
-        InstructorAndTAs tuna = new InstructorAndTAs("erdem","tuna", "8886", 305, "tuna@gmail.com", "instructor");
-        Class erayClass = tuzun.createClass("CS319", 319);
-        tuzun.setClass(erayClass.getClassId());
-        tuna.setClass(erayClass.getClassId());
-        jabrayilzade.setClass(erayClass.getClassId());
-        Project p =  erayClass.getProject();
-        p.setMaxGroupSize(5);
-        classRepository.save(erayClass);
+        if(instructorAndTAsRepository.findAll().size() < 3) {
+            InstructorAndTAs tuzun = new InstructorAndTAs("eray", "tuzun", "4590", 345, "tuzun@gmail.com", "instructor");
+            InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun", "jabrayilzade", "8886", 315, "jabrayilzade@gmail.com", "instructor");
+            InstructorAndTAs tuna = new InstructorAndTAs("erdem", "tuna", "8886", 305, "tuna@gmail.com", "instructor");
+            Class erayClass = tuzun.createClass("CS319", 319);
+            tuzun.setClass(erayClass.getClassId());
+            tuna.setClass(erayClass.getClassId());
+            jabrayilzade.setClass(erayClass.getClassId());
+            Project p =  erayClass.getProject();
+            p.setMaxGroupSize(5);
+            classRepository.save(erayClass);
 
-        //-----------------------------Adding student and instructor-----------------------------
-        Student s1 = new Student("ayşe", "fe", "3243", 400, "ayse@gmail.com", "student");
-        Student s2 = new Student("fatma", "fe", "3243", 401, "fatma@gmail.com", "student");
-        Student s3 = new Student("hayriye", "fe", "kdkf43", 402, "hayriye@gmail.com", "student");
-        Student s4 = new Student("figen", "fe", "flg43", 403, "figen@gmail.com", "student");
-        Student s5 = new Student("lale", "fe", "3fdş3", 404, "lale@gmail.com", "student");
-        Student s6 = new Student("doga", "fe", "r56kty43", 405, "fkkvmdl", "student");
-        Student s7 = new Student("aslı", "fe", "fdkkk", 406, "fdredfl", "student");
-        Student s8 = new Student("ömer", "fe", "3dfll3", 407, "flckvdl", "student");
-        Student s9 = new Student("fadik", "fe", "fvk3", 408, "fdaal", "student");
-        Student s10 = new Student("leman", "fe", "3dfll3", 409, "fdssl", "student");
-        Student s11 = new Student("furkan", "fe", "fkgkk43", 410, "fdfgl", "student");
-        Student s12 = new Student("mali", "fe", "36793", 411, "fdlfd", "student");
-        Student s13 = new Student("leonard", "fe", "3dflll3", 412, "fdlfg", "student");
-        Student s14 = new Student("lara", "fe", "3dfll3", 413, "fdltı", "student");
-        Student s15 = new Student("mehmet", "se", "dfkk42", 414, "fal", "student");
 
-        erayClass.addStudentId(s1.getUserId());
-        erayClass.addStudentId(s2.getUserId());
-        erayClass.addStudentId(s3.getUserId());
-        erayClass.addStudentId(s4.getUserId());
-        erayClass.addStudentId(s5.getUserId());
-        erayClass.addStudentId(s6.getUserId());
-        erayClass.addStudentId(s7.getUserId());
-        erayClass.addStudentId(s8.getUserId());
-        erayClass.addStudentId(s9.getUserId());
-        erayClass.addStudentId(s10.getUserId());
-        erayClass.addStudentId(s11.getUserId());
-        erayClass.addStudentId(s12.getUserId());
-        erayClass.addStudentId(s13.getUserId());
-        erayClass.addStudentId(s14.getUserId());
-        erayClass.addStudentId(s15.getUserId());
+            //-----------------------------Adding student and instructor-----------------------------
+            Student s1 = new Student("ayşe", "fe", "3243", 400, "ayse@gmail.com", "student");
+            Student s2 = new Student("fatma", "fe", "3243", 401, "fatma@gmail.com", "student");
+            Student s3 = new Student("hayriye", "fe", "kdkf43", 402, "hayriye@gmail.com", "student");
+            Student s4 = new Student("figen", "fe", "flg43", 403, "figen@gmail.com", "student");
+            Student s5 = new Student("lale", "fe", "3fdş3", 404, "lale@gmail.com", "student");
+            Student s6 = new Student("doga", "fe", "r56kty43", 405, "fkkvmdl", "student");
+            Student s7 = new Student("aslı", "fe", "fdkkk", 406, "fdredfl", "student");
+            Student s8 = new Student("ömer", "fe", "3dfll3", 407, "flckvdl", "student");
+            Student s9 = new Student("fadik", "fe", "fvk3", 408, "fdaal", "student");
+            Student s10 = new Student("leman", "fe", "3dfll3", 409, "fdssl", "student");
+            Student s11 = new Student("furkan", "fe", "fkgkk43", 410, "fdfgl", "student");
+            Student s12 = new Student("mali", "fe", "36793", 411, "fdlfd", "student");
+            Student s13 = new Student("leonard", "fe", "3dflll3", 412, "fdlfg", "student");
+            Student s14 = new Student("lara", "fe", "3dfll3", 413, "fdltı", "student");
+            Student s15 = new Student("mehmet", "se", "dfkk42", 414, "fal", "student");
 
-        erayClass.addInstructorAndTAId(tuzun.getUserId());
-        erayClass.addInstructorAndTAId(jabrayilzade.getUserId());
-        erayClass.addInstructorAndTAId(tuna.getUserId());
+            erayClass.addStudentId(s1.getUserId());
+            erayClass.addStudentId(s2.getUserId());
+            erayClass.addStudentId(s3.getUserId());
+            erayClass.addStudentId(s4.getUserId());
+            erayClass.addStudentId(s5.getUserId());
+            erayClass.addStudentId(s6.getUserId());
+            erayClass.addStudentId(s7.getUserId());
+            erayClass.addStudentId(s8.getUserId());
+            erayClass.addStudentId(s9.getUserId());
+            erayClass.addStudentId(s10.getUserId());
+            erayClass.addStudentId(s11.getUserId());
+            erayClass.addStudentId(s12.getUserId());
+            erayClass.addStudentId(s13.getUserId());
+            erayClass.addStudentId(s14.getUserId());
+            erayClass.addStudentId(s15.getUserId());
 
-        List<Student> users = Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15);
+            erayClass.addInstructorAndTAId(tuzun.getUserId());
+            erayClass.addInstructorAndTAId(jabrayilzade.getUserId());
+            erayClass.addInstructorAndTAId(tuna.getUserId());
 
-        for(int i = 0; i < users.size() ; i++){
-            users.get(i).setClassId(erayClass.getClassId());
+            List<Student> users = Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15);
+
+            for(int i = 0; i < users.size() ; i++){
+                users.get(i).setClassId(erayClass.getClassId());
+
+            }
+
+            studentRepository.saveAll(users);
+            instructorAndTAsRepository.save(tuzun);
+            instructorAndTAsRepository.save(jabrayilzade);
+            instructorAndTAsRepository.save(tuna);
+            classRepository.save(erayClass);
         }
 
-        studentRepository.saveAll(users);
-        instructorAndTAsRepository.save(tuzun);
-        instructorAndTAsRepository.save(jabrayilzade);
-        classRepository.save(erayClass);
+        classRepository.findByClassId(319).setGroupCount( classRepository.findByClassId(319).getGroupIdList().size() );
+        classRepository.save(classRepository.findByClassId(319));
 
+        System.out.println("dsasad : " + classRepository.findByClassId(319).getGroupIdList().size());
 
         /*
         Group g1 = s1.formAGroup(erayClass.assignGroupId(), p.getMaxGroupSize()); // GROUP s1
@@ -487,39 +494,50 @@ public class Procheck319Application {
         groupRepository.saveAll(newGroups);
         classRepository.save(erayClass);*/
 //*********************************************************************************************************************************************************************************
+        noGroupDashboard = new NoGroupGUI( instructorAndTAsRepository, studentRepository, groupRepository, classRepository);
+        loginRegisterGUIScreen = new LoginRegisterGUI( studentRepository,  instructorAndTAsRepository,  classRepository);
+        instructorScreen = new InstructorGUI(studentRepository, instructorAndTAsRepository, groupRepository, classRepository);
+        groupDashboard = new GroupGUI( studentRepository,  groupRepository,  classRepository);
+
         loginRegisterGUIScreen.setVisible(true);
-        loginRegisterGUIScreen.setRepos(studentRepository, instructorAndTAsRepository, classRepository);
 
         //-----------------------------------------------------------
         while(loginRegisterGUIScreen.getGoTo() == null ) {
         }
         boolean flag = true;
+        boolean ifSwitch = false;
 
         //LOGIN
         while(flag == true){
+            System.out.println(loginRegisterGUIScreen.getGoTo());
             if (loginRegisterGUIScreen.getGoTo().equals("noGroupDashboard")) {
+                loginRegisterGUIScreen.setVisible(false);
                 loginRegisterGUIScreen.dispose();
                 noGroupDashboard.setCurrentUser(studentRepository.findByUserId(loginRegisterGUIScreen.getUserId()));
                 noGroupDashboard.setVisible(true);
-                noGroupDashboard.setRepos(instructorAndTAsRepository, studentRepository, groupRepository, classRepository);
-                while(!noGroupDashboard.getCurrentUser().isGroupMember()){ }
+                while(!noGroupDashboard.getCurrentUser().isGroupMember()){}
+                ifSwitch = true;
+                noGroupDashboard.setVisible(false);
+                noGroupDashboard.dispose();
             }
 
             if (loginRegisterGUIScreen.getGoTo().equals("instructorDashboard")){
+                loginRegisterGUIScreen.setVisible(false);
                 loginRegisterGUIScreen.dispose();
                 instructorScreen.setCurrentUser(instructorAndTAsRepository.findByUserId(loginRegisterGUIScreen.getUserId()));
                 instructorScreen.setVisible(true);
-                instructorScreen.setRepos(instructorAndTAsRepository,groupRepository,classRepository);
                 flag = false;
             }
-            if(noGroupDashboard.getCurrentUser() != null) {
-                if(loginRegisterGUIScreen.getGoTo().equals("studentDashboard") || noGroupDashboard.getCurrentUser().isGroupMember()){
-                    loginRegisterGUIScreen.dispose();
-                    groupDashboard.setCurrentUser(studentRepository.findByUserId(loginRegisterGUIScreen.getUserId()));
-                    groupDashboard.setVisible(true);
-                    groupDashboard.setRepos(studentRepository,groupRepository,classRepository);
-                    flag = false;
-                }
+
+            if (loginRegisterGUIScreen.getGoTo().equals("studentDashboard") || ifSwitch ) {
+                System.out.println("GİRDİM AQ");
+                loginRegisterGUIScreen.setVisible(false);
+                loginRegisterGUIScreen.dispose();
+                groupDashboard.setCurrentUser(studentRepository.findByUserId(loginRegisterGUIScreen.getUserId()));
+                groupDashboard.setVisible(true);
+                groupDashboard.repaint();
+                groupDashboard.validate();
+                flag = false;
             }
 
         }

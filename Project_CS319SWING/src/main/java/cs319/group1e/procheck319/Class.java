@@ -20,7 +20,7 @@ public class Class {
     private List<Announcement> announcementList;
     private Map<String, List<Submission>> groupSubmissions;
     private Boolean groupFormation;
-    private static int groupCount;
+    private int groupCount;
 
     public Class() {
         this.announcementList = new ArrayList<>();
@@ -104,6 +104,10 @@ public class Class {
         this.classKey = classKey;
     }
 
+    public void setGroupCount(int groupCount) {
+        this.groupCount = groupCount;
+    }
+
     public void setStudentIdLists(List<Integer> students) {
         this.studentIdList = students;
     }
@@ -147,21 +151,17 @@ public class Class {
     /**
      If there are students without group then this method will form groups randomly
      */
-    public boolean formRandomGroups(List<Group> groups, Map<Integer,List<Student>> groupStudents, List<Student> students){
-        Date date =  new Date();
-        //gathering students without group
-        //if(date.after(project.getGroupFormationDeadline())) {
-
+    public boolean formRandomGroups(List<Group> groups, Map<Integer,List<Student>> groupStudents, List<Student> students, Class c){
         //Merges groups with student number less than the half of the max size
         boolean flag = false;
         int indexOfGroupToReform = 0;
 
         for (int i = 0; i < groups.size(); i++) {
-            if ( groups.get(i).getStudentIdList().size() <= project.getMaxGroupSize() / 2 && flag == false ) {
+            if ( groups.get(i).getStudentIdList().size() <= c.getProject().getMaxGroupSize() / 2 && flag == false ) {
                 indexOfGroupToReform = i;
                 flag = true;
             }
-            else if ( groups.get(i).getStudentIdList().size() <= project.getMaxGroupSize() / 2 && flag == true ){
+            else if ( groups.get(i).getStudentIdList().size() <= c.getProject().getMaxGroupSize() / 2 && flag == true ){
                 int listSize = groups.get(i).getStudentIdList().size();
                 for( int t = 0 ; t < listSize ; t++ ) {
                     //groups.get(indexOfGroupToReform).addGroupMember(groups.get(i).getStudentList().get(0));
@@ -170,7 +170,7 @@ public class Class {
                     groups.get(i).removeGroupMember(groupStudents.get(groups.get(i).getGroupId()).get(0));
                 }
                 groups.remove(i);
-                groupIdList.remove(i);
+                c.getGroupIdList().remove(i);
                 i = -1;
                 flag = false;
             }
@@ -184,33 +184,32 @@ public class Class {
             singles.add(students.get(i));
         }
 
-        System.out.println("SINGLES : \n" + students);
-
         int index = 0;
         int groupNumbersToCreate = 0;
         int studentNumberToDistribute = 0;
 
         if(flag){
-            groupNumbersToCreate = (singles.size() / project.getMaxGroupSize()) - 1; //olabilecek tam grup sayısı
-            studentNumberToDistribute = (singles.size() % project.getMaxGroupSize()) + project.getMaxGroupSize(); //Sayıları bir grup oluşturmayan öğrenci sayısı
+            groupNumbersToCreate = (singles.size() / c.getProject().getMaxGroupSize()) - 1; //olabilecek tam grup sayısı
+            studentNumberToDistribute = (singles.size() % c.getProject().getMaxGroupSize()) + c.getProject().getMaxGroupSize(); //Sayıları bir grup oluşturmayan öğrenci sayısı
         }
         else{
-            groupNumbersToCreate = (singles.size() / project.getMaxGroupSize()); //olabilecek tam grup sayısı
-            studentNumberToDistribute = (singles.size() % project.getMaxGroupSize()); //Sayıları bir grup oluşturmayan öğrenci sayısı
+            groupNumbersToCreate = (singles.size() / c.getProject().getMaxGroupSize()); //olabilecek tam grup sayısı
+            studentNumberToDistribute = (singles.size() % c.getProject().getMaxGroupSize()); //Sayıları bir grup oluşturmayan öğrenci sayısı
         }
 
         for(int i = 0; i < groupNumbersToCreate; i++) {
-            int newId = assignGroupId();
-            System.out.println("YANLIŞ ID : " + newId);
+            int newId = c.assignGroupId();
             Group g = new Group(newId, 5);
             g.setClassId(this.getClassId());
-            g.setMaxGroupSize(project.getMaxGroupSize());
-            for (int j = 0; j < project.getMaxGroupSize(); j++) {
+
+            g.setMaxGroupSize(c.getProject().getMaxGroupSize());
+            for (int j = 0; j < c.getProject().getMaxGroupSize(); j++) {
                 g.addGroupMember(singles.get(index));
                 index += 1;
             }
             groups.add(g);// en son return edilecek
-            groupIdList.add(g.getGroupId());
+            System.out.println("------- bu eklendi " + g.getGroupId());
+            c.addGroupId(g.getGroupId());
         }
 
         //Adds remaining students with the min-sized group
@@ -228,14 +227,8 @@ public class Class {
             groups.get(indexOfMinGroup).addGroupMemberException(singles.get(index));
             index++;
         }
-
-        System.out.println(" KOPYALA GOKHAN ");
-        System.out.println("BURASI AMINA KOYİM PART-2");
-        System.out.println(groups);
-
         return true;
-        //}
-        //return false;
+
     }
 
     /**
@@ -269,7 +262,10 @@ public class Class {
      Add new group id to the list
      */
     public boolean addGroupId(int groupId) {
+        System.out.println("KANKA  : " + groupIdList.size());
         groupIdList.add(groupId);
+        System.out.println("NAPIYON : " + groupIdList.size());
+
         return true;
     }
 
@@ -278,6 +274,7 @@ public class Class {
      */
     public int assignGroupId(){
         groupCount++;
+        System.out.println("Group ID : " + groupCount);
         return groupCount;
     }
 

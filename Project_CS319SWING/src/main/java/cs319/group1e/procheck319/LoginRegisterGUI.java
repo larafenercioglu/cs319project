@@ -26,14 +26,11 @@ public class LoginRegisterGUI extends javax.swing.JFrame {
     private javax.swing.JLabel picLabel;
 
     //Constructor
-    public LoginRegisterGUI() {
-        initComponents();
-    }
-
-    public void setRepos(StudentRepository studentRepository, InstructorAndTAsRepository instructorAndTAsRepository, ClassRepository classRepository){
+    public LoginRegisterGUI(StudentRepository studentRepository, InstructorAndTAsRepository instructorAndTAsRepository, ClassRepository classRepository) {
         this.studentRepository = studentRepository;
         this.instructorAndTAsRepository = instructorAndTAsRepository;
         this.classRepository = classRepository;
+        initComponents();
     }
 
     public String getGoTo() {

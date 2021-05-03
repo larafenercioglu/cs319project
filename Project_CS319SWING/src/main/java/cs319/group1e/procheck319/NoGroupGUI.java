@@ -12,17 +12,13 @@ class NoGroupGUI extends javax.swing.JFrame {
     private GroupRepository groupRepository;
     private ClassRepository classRepository;
 
-
     //Constructor
-    public NoGroupGUI() {
-        initComponents();
-    }
-
-    public void setRepos(InstructorAndTAsRepository instructorAndTAsRepository, StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository){
+    public NoGroupGUI(InstructorAndTAsRepository instructorAndTAsRepository, StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository) {
         this.studentRepository = studentRepository;
         this.instructorAndTAsRepository = instructorAndTAsRepository;
         this.groupRepository = groupRepository;
         this.classRepository = classRepository;
+        initComponents();
     }
 
     public Student getCurrentUser() {
@@ -374,16 +370,20 @@ class NoGroupGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         //System.out.println(currentUser);
-        Group g = currentUser.formAGroup(classRepository.findByClassId(currentUser.getClassId()).assignGroupId(), classRepository.findByClassId(currentUser.getClassId()).getProject().getMaxGroupSize());
-        g.setClassId(classRepository.findByClassId(currentUser.getClassId()).getClassId());
+        Class c = classRepository.findByClassId(currentUser.getClassId());
+        Group g = currentUser.formAGroup(c.assignGroupId(), c.getProject().getMaxGroupSize());
+        g.setClassId(currentUser.getClassId());
+        c.addGroupId(g.getGroupId());
+
+        System.out.println("burası moruk : " + g.getGroupId());
+
         groupRepository.save(g);
-        classRepository.save(classRepository.findByClassId(currentUser.getClassId()));
+        classRepository.save(c);
         studentRepository.save(currentUser);
-        //System.out.println("gokhan : " + currentUser.isGroupMember() );
+        System.out.println("gokhan : " + currentUser.isGroupMember() );
+        System.out.println("uyku : " + c.getGroupIdList().size() );
         return;
     }
-
-
 
     // Variables declaration - do not modify
     private javax.swing.JPanel announcementsPanel;
