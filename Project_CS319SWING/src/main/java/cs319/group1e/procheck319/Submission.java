@@ -15,6 +15,8 @@ public class Submission {
     private boolean isGraded;
     private int artifactReviewCount;
 
+    private String url;
+
     //Default Constructor
     public Submission() {
         this.title = groupId + "_" + assignmentNo;
@@ -29,13 +31,14 @@ public class Submission {
     }
 
     //Constructor
-    public Submission(int groupId, double grade, int assignmentNo, InstructorFeedback feedback, List<ArtifactReview> artifactReviews) {
+    public Submission(int groupId, double grade, int assignmentNo, InstructorFeedback feedback, List<ArtifactReview> artifactReviews, String url) {
         this.groupId = groupId;
         this.grade = grade;
         this.assignmentNo = assignmentNo;
         this.feedback = feedback;
         this.artifactReviews = new ArrayList<>();
         this.artifactReviewCount = 0;
+        this.url = url;
     }
 
     //Getters
@@ -71,6 +74,10 @@ public class Submission {
         return artifactReviewCount;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
     //Setters
     public void setGrade(double grade) {
         this.grade = grade;
@@ -102,5 +109,9 @@ public class Submission {
 
     public void setArtifactReviewCount(int artifactReviewCount) {
         this.artifactReviewCount = artifactReviewCount;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

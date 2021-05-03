@@ -7,6 +7,7 @@ public class Project {
     private Date projectDeadline; //Time
     private Date peerReviewStartDate; //Time
     private Date peerReviewDeadline; // Time
+    private String deadline;
     private ArrayList<Assignment> assignmentList;
 
     public Project() {
@@ -32,6 +33,9 @@ public class Project {
         return maxGroupSize;
     }
 
+    public String getDeadline(){
+        return deadline;
+    }
     public Date getGroupFormationDeadline() {
         return groupFormationDeadline;
     }
@@ -63,6 +67,10 @@ public class Project {
 
     public void setGroupFormationDeadline(Date groupFormationDeadline) {
         this.groupFormationDeadline = groupFormationDeadline;
+    }
+
+    public void setDeadline(String deadline){
+        this.deadline = deadline;
     }
 
     public void setProjectDeadline(Date projectDeadline) {

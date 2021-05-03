@@ -1,5 +1,6 @@
 package cs319.group1e.procheck319;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
@@ -20,9 +21,11 @@ public class Procheck319Application {
     public static LoginRegisterGUI loginRegisterGUIScreen;
     public static InstructorGUI instructorScreen;
     public static GroupGUI groupDashboard;
+    public static PopUpPeerReview popUpPeerReview;
+    public static ReviewArtifact reviewArtifact;
 
-
-    public Procheck319Application(StudentRepository studentRepository, GroupRepository groupRepository, ClassRepository classRepository, InstructorAndTAsRepository instructorAndTAsRepository){
+    public Procheck319Application(StudentRepository studentRepository, GroupRepository groupRepository,
+                                  ClassRepository classRepository, InstructorAndTAsRepository instructorAndTAsRepository){
         this.studentRepository = studentRepository;
         this.groupRepository = groupRepository;
         this.classRepository = classRepository;
@@ -71,34 +74,35 @@ public class Procheck319Application {
         System.out.println("NASI YA");
         //----------------------------------------------------------------------
         if(instructorAndTAsRepository.findAll().size() < 3) {
-            InstructorAndTAs tuzun = new InstructorAndTAs("eray", "tuzun", "4590", 345, "tuzun@gmail.com", "instructor");
+            InstructorAndTAs tuzun = new InstructorAndTAs("eray", "tuzun", "12345", 345, "tuzun@gmail.com", "instructor");
             InstructorAndTAs jabrayilzade = new InstructorAndTAs("elgun", "jabrayilzade", "8886", 315, "jabrayilzade@gmail.com", "instructor");
-            InstructorAndTAs tuna = new InstructorAndTAs("erdem", "tuna", "8886", 305, "tuna@gmail.com", "instructor");
+            InstructorAndTAs tuna = new InstructorAndTAs("erdem", "tuna", "12345", 305, "tuna@gmail.com", "instructor");
             Class erayClass = tuzun.createClass("CS319", 319);
             tuzun.setClass(erayClass.getClassId());
             tuna.setClass(erayClass.getClassId());
             jabrayilzade.setClass(erayClass.getClassId());
             Project p =  erayClass.getProject();
             p.setMaxGroupSize(5);
+            p.setDeadline("10.01.2021");
             classRepository.save(erayClass);
 
 
             //-----------------------------Adding student and instructor-----------------------------
-            Student s1 = new Student("ayşe", "fe", "3243", 400, "ayse@gmail.com", "student");
-            Student s2 = new Student("fatma", "fe", "3243", 401, "fatma@gmail.com", "student");
-            Student s3 = new Student("hayriye", "fe", "kdkf43", 402, "hayriye@gmail.com", "student");
-            Student s4 = new Student("figen", "fe", "flg43", 403, "figen@gmail.com", "student");
-            Student s5 = new Student("lale", "fe", "3fdş3", 404, "lale@gmail.com", "student");
-            Student s6 = new Student("doga", "fe", "r56kty43", 405, "fkkvmdl", "student");
-            Student s7 = new Student("aslı", "fe", "fdkkk", 406, "fdredfl", "student");
-            Student s8 = new Student("ömer", "fe", "3dfll3", 407, "flckvdl", "student");
-            Student s9 = new Student("fadik", "fe", "fvk3", 408, "fdaal", "student");
-            Student s10 = new Student("leman", "fe", "3dfll3", 409, "fdssl", "student");
-            Student s11 = new Student("furkan", "fe", "fkgkk43", 410, "fdfgl", "student");
-            Student s12 = new Student("mali", "fe", "36793", 411, "fdlfd", "student");
-            Student s13 = new Student("leonard", "fe", "3dflll3", 412, "fdlfg", "student");
-            Student s14 = new Student("lara", "fe", "3dfll3", 413, "fdltı", "student");
-            Student s15 = new Student("mehmet", "se", "dfkk42", 414, "fal", "student");
+            Student s1 = new Student("ayşe", "fe", "123", 400, "ayse@gmail.com", "student");
+            Student s2 = new Student("fatma", "fe", "123", 401, "fatma@gmail.com", "student");
+            Student s3 = new Student("hayriye", "fe", "123", 402, "hayriye@gmail.com", "student");
+            Student s4 = new Student("figen", "fe", "123", 403, "figen@gmail.com", "student");
+            Student s5 = new Student("lale", "fe", "123", 404, "lale@gmail.com", "student");
+            Student s6 = new Student("doga", "fe", "123", 405, "fkkvmdl", "student");
+            Student s7 = new Student("aslı", "fe", "123", 406, "fdredfl", "student");
+            Student s8 = new Student("ömer", "fe", "123", 407, "flckvdl", "student");
+            Student s9 = new Student("fadik", "fe", "123", 408, "fdaal", "student");
+            Student s10 = new Student("leman", "fe", "123", 409, "fdssl", "student");
+            Student s11 = new Student("furkan", "fe", "123", 410, "fdfgl", "student");
+            Student s12 = new Student("mali", "fe", "123", 411, "fdlfd", "student");
+            Student s13 = new Student("leonard", "fe", "123", 412, "fdlfg", "student");
+            Student s14 = new Student("lara", "fe", "1234", 413, "fdltı", "student");
+            Student s15 = new Student("mehmet", "se", "123", 414, "fal", "student");
 
             erayClass.addStudentId(s1.getUserId());
             erayClass.addStudentId(s2.getUserId());
@@ -498,6 +502,7 @@ public class Procheck319Application {
         loginRegisterGUIScreen = new LoginRegisterGUI( studentRepository,  instructorAndTAsRepository,  classRepository);
         instructorScreen = new InstructorGUI(studentRepository, instructorAndTAsRepository, groupRepository, classRepository);
         groupDashboard = new GroupGUI( studentRepository,  groupRepository,  classRepository);
+        popUpPeerReview = new PopUpPeerReview(instructorAndTAsRepository, studentRepository, groupRepository,classRepository);
 
         loginRegisterGUIScreen.setVisible(true);
 
@@ -506,6 +511,7 @@ public class Procheck319Application {
         }
         boolean flag = true;
         boolean ifSwitch = false;
+        boolean newFlag = true;
 
         //LOGIN
         while(flag == true){
@@ -537,9 +543,36 @@ public class Procheck319Application {
                 groupDashboard.setVisible(true);
                 groupDashboard.repaint();
                 groupDashboard.validate();
+
+                while(newFlag) {
+                    if(groupDashboard.getGoTo() != null) {
+
+                        //Peer Review screen
+                        if(groupDashboard.getGoTo().equals("PeerReview")) {
+                            newFlag = false;
+                            Student cur = groupDashboard.getCurrentUser();
+                            int id = groupDashboard.getPeer();
+                            popUpPeerReview.setCurrentUser(cur);
+                            popUpPeerReview.setNewStudentId(id);
+                            popUpPeerReview.setVisible(true);
+                            popUpPeerReview.repaint();
+                            popUpPeerReview.validate();
+                        }
+
+                        //Artifact Review screen
+                        if(groupDashboard.getGoTo().equals("ArtifactReview")) {
+                            Student cur = groupDashboard.getCurrentUser();
+                            reviewArtifact.setCurrentUser(cur);
+                            //cur.reviewArtifact(cur.getRandomArtifact(classRepository.findByClassId(319).getProject().getAssignmentList(), groupRepository.findByGroupId(users.get(0).getGroupId())), "bunu beğenmedim canım dostlarım");
+                            reviewArtifact.setArtifactReviewGroupId(cur.getGroupId()); //BURADA BAŞKA GRUP OLMALI
+                            reviewArtifact.setVisible(true);
+                            reviewArtifact.repaint();
+                            reviewArtifact.validate();
+                        }
+                    }
+                }
                 flag = false;
             }
-
         }
     }
 

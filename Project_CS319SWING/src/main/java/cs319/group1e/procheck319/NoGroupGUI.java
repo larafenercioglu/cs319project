@@ -1,5 +1,8 @@
 package cs319.group1e.procheck319;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author bedir
@@ -60,6 +63,30 @@ class NoGroupGUI extends javax.swing.JFrame {
         deadlinesPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+
+        otherGroupsLabel1 = new javax.swing.JLabel();
+        groupButton1 = new javax.swing.JButton();
+        otherGroupsLabel4 = new javax.swing.JLabel();
+        groupButton2 = new javax.swing.JButton();
+        otherGroupsLabel2 = new javax.swing.JLabel();
+        groupButton3 = new javax.swing.JButton();
+        otherGroupsLabel3 = new javax.swing.JLabel();
+        otherGroupsLabel7 = new javax.swing.JLabel();
+        otherGroupsLabel5 = new javax.swing.JLabel();
+        otherGroupsLabel8 = new javax.swing.JLabel();
+        otherGroupsLabel10 = new javax.swing.JLabel();
+        otherGroupsLabel6 = new javax.swing.JLabel();
+        otherGroupsLabel11 = new javax.swing.JLabel();
+        otherGroupsLabel9 = new javax.swing.JLabel();
+        groupButton5 = new javax.swing.JButton();
+        groupButton6 = new javax.swing.JButton();
+        groupButton7 = new javax.swing.JButton();
+        groupButton4 = new javax.swing.JButton();
+        groupButton11 = new javax.swing.JButton();
+        groupButton8 = new javax.swing.JButton();
+        groupButton9 = new javax.swing.JButton();
+        groupButton10 = new javax.swing.JButton();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -205,20 +232,230 @@ class NoGroupGUI extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Other Groups");
 
+        otherGroupsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel1.setText("Group-1");
+
+        groupButton1.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton1.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton1.setText("Send Invitation");
+        groupButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               groupButton1ActionPerformed(evt);
+            }
+        });
+
+        otherGroupsLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel4.setText("Group-4");
+
+        groupButton2.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton2.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton2.setText("Send Invitation");
+        groupButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton2ActionPerformed(evt);
+            }
+        });
+
+        otherGroupsLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel2.setText("Group-2");
+
+        groupButton3.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton3.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton3.setText("Send Invitation");
+        groupButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton3ActionPerformed(evt);
+            }
+        });
+
+        otherGroupsLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel3.setText("Group-3");
+
+        otherGroupsLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel7.setText("Group-7");
+
+        otherGroupsLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel5.setText("Group-5");
+
+        otherGroupsLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel8.setText("Group-8");
+
+        otherGroupsLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel10.setText("Group-10");
+
+        otherGroupsLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel6.setText("Group-6");
+
+        otherGroupsLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel11.setText("Group-11");
+
+        otherGroupsLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherGroupsLabel9.setText("Group-9");
+
+        groupButton4.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton4.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton4.setText("Send Invitation");
+        groupButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton4ActionPerformed(evt);
+            }
+        });
+
+        groupButton5.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton5.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton5.setText("Send Invitation");
+        groupButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               groupButton5ActionPerformed(evt);
+            }
+        });
+
+        groupButton6.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton6.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton6.setText("Send Invitation");
+        groupButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton6ActionPerformed(evt);
+            }
+        });
+
+        groupButton7.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton7.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton7.setText("Send Invitation");
+        groupButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton7ActionPerformed(evt);
+            }
+        });
+
+        groupButton8.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton8.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton8.setText("Send Invitation");
+        groupButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               groupButton8ActionPerformed(evt);
+            }
+        });
+
+        groupButton9.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton9.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton9.setText("Send Invitation");
+        groupButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton9ActionPerformed(evt);
+            }
+        });
+
+        groupButton10.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton10.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton10.setText("Send Invitation");
+        groupButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton10ActionPerformed(evt);
+            }
+        });
+
+        groupButton11.setBackground(new java.awt.Color(120, 88, 161));
+        groupButton11.setForeground(new java.awt.Color(255, 255, 255));
+        groupButton11.setText("Send Invitation");
+        groupButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupButton11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout otherGroupsPanelLayout = new javax.swing.GroupLayout(otherGroupsPanel);
         otherGroupsPanel.setLayout(otherGroupsPanelLayout);
         otherGroupsPanelLayout.setHorizontalGroup(
                 otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, otherGroupsPanelLayout.createSequentialGroup()
+                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(otherGroupsLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(otherGroupsLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(70, 70, 70)
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(groupButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                                                .addContainerGap())
+                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(otherGroupsLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(otherGroupsLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(70, 70, 70)
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(groupButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(groupButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
         otherGroupsPanelLayout.setVerticalGroup(
                 otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(otherGroupsPanelLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
+                                .addGap(21, 21, 21)
                                 .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(otherGroupsLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                                        .addComponent(groupButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(otherGroupsLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(groupButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(otherGroupsLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(groupButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                .addComponent(otherGroupsLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(otherGroupsLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(otherGroupsLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(otherGroupsLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(4, 4, 4)
+                                                .addComponent(otherGroupsLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(otherGroupsLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(otherGroupsLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(otherGroupsLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(groupButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                .addComponent(groupButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(groupButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(groupButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(groupButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(groupButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(groupButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(groupButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -366,6 +603,241 @@ class NoGroupGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+
+
+    //------------SEND REQUEST TO GROUPS----------------
+    private void groupButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(1);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(2);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }
+        else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(3);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(4);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(5);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(6);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(7);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton8ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(8);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton9ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(9);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton10ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(10);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
+    private void groupButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(1);
+        if(g != null) {
+            if (!g.isFull()) {
+                Class c = classRepository.findByClassId(currentUser.getClassId());
+                currentUser.sendRequest(g);
+                groupRepository.save(g);
+                classRepository.save(c);
+                studentRepository.save(currentUser);
+            }
+        }else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"no such group exists","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return;
+    }
+
     //FORM GROUP BUTTON
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -375,13 +847,10 @@ class NoGroupGUI extends javax.swing.JFrame {
         g.setClassId(currentUser.getClassId());
         c.addGroupId(g.getGroupId());
 
-        System.out.println("burası moruk : " + g.getGroupId());
-
         groupRepository.save(g);
         classRepository.save(c);
         studentRepository.save(currentUser);
-        System.out.println("gokhan : " + currentUser.isGroupMember() );
-        System.out.println("uyku : " + c.getGroupIdList().size() );
+
         return;
     }
 
@@ -408,6 +877,41 @@ class NoGroupGUI extends javax.swing.JFrame {
     private javax.swing.JPanel otherGroupsPanel;
     private javax.swing.JPanel overallProgressPanel;
     private javax.swing.JPanel projectSummaryPanel;
+    private javax.swing.JLabel otherGroupsLabel1;
+    private javax.swing.JLabel otherGroupsLabel10;
+    private javax.swing.JLabel otherGroupsLabel11;
+    private javax.swing.JLabel otherGroupsLabel2;
+    private javax.swing.JLabel otherGroupsLabel3;
+    private javax.swing.JLabel otherGroupsLabel4;
+    private javax.swing.JLabel otherGroupsLabel5;
+    private javax.swing.JLabel otherGroupsLabel6;
+    private javax.swing.JLabel otherGroupsLabel7;
+    private javax.swing.JLabel otherGroupsLabel8;
+    private javax.swing.JLabel otherGroupsLabel9;
+    private javax.swing.JButton groupButton1;
+    private javax.swing.JButton groupButton10;
+    private javax.swing.JButton groupButton11;
+    private javax.swing.JButton groupButton2;
+    private javax.swing.JButton groupButton3;
+    private javax.swing.JButton groupButton4;
+    private javax.swing.JButton groupButton5;
+    private javax.swing.JButton groupButton6;
+    private javax.swing.JButton groupButton7;
+    private javax.swing.JButton groupButton8;
+    private javax.swing.JButton groupButton9;
+    private javax.swing.JButton groupMemberButton1;
+    private javax.swing.JButton groupMemberButton2;
+    private javax.swing.JButton groupMemberButton3;
+    private javax.swing.JButton groupMemberButton4;
+    private javax.swing.JButton groupMemberButton5;
+    private javax.swing.JLabel groupMemberLabel1;
+    private javax.swing.JLabel groupMemberLabel2;
+    private javax.swing.JLabel groupMemberLabel3;
+    private javax.swing.JLabel groupMemberLabel4;
+    private javax.swing.JLabel groupMemberLabel5;
+    private javax.swing.JPanel groupMemberPanel;
+
+
     // End of variables declaration
 }
 

@@ -11,7 +11,16 @@ public class Request {
     private String title;
     private String content;
 
-    //default constructor
+    //Default constructor
+    public Request() {
+        this.receiverGroupId = 0;
+        this.senderStudentId = 0;
+        this.isAccepted = false;
+        this.title = null;
+        this.content = null;
+    }
+
+    //Cconstructor
     public Request(int receiverGroupId, int senderStudentId){
         this.receiverGroupId = receiverGroupId;
         this.senderStudentId = senderStudentId;

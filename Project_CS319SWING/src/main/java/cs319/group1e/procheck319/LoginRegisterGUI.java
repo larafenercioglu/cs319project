@@ -644,7 +644,6 @@ public class LoginRegisterGUI extends javax.swing.JFrame {
         um.put("Panel.background",new Color(120, 88, 161));
         JOptionPane.showMessageDialog(null,"yoksun sen","Set Color",
                 JOptionPane.INFORMATION_MESSAGE);
-        //JOptionPane.showMessageDialog(this, "yoksun sen");
         userId = -1;
 
         //this.dispose();

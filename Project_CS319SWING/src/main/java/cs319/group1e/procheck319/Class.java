@@ -343,4 +343,5 @@ public class Class {
         this.getAnnouncementList().add(announcement);
         group.addAnnouncement(announcement);
     }
+
 }

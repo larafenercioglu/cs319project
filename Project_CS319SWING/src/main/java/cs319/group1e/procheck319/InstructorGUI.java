@@ -213,6 +213,11 @@ public class InstructorGUI extends javax.swing.JFrame {
         });
 
         jButton2.setText("Add Announcement");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAnnouncementActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Announce To A Group");
 
@@ -264,13 +269,13 @@ public class InstructorGUI extends javax.swing.JFrame {
         jLabel61.setText("Project Leader :");
 
         jLabel62.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel62.setText("03.05.2021");
+        jLabel62.setText("05.01.2022");
 
         jLabel63.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel63.setText("Eray Tüzün");
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel64.setText("28.01.2021");
+        jLabel64.setText("01.10.2021");
 
         javax.swing.GroupLayout projectSummaryPanelLayout = new javax.swing.GroupLayout(projectSummaryPanel);
         projectSummaryPanel.setLayout(projectSummaryPanelLayout);
@@ -348,10 +353,10 @@ public class InstructorGUI extends javax.swing.JFrame {
         jLabel10.setText("Projected Launch Date");
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel22.setText("03.05.2021");
+        jLabel22.setText(classRepository.findByClassId(319).getProject().getDeadline());
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel23.setText("23 Days Remaining");
+        jLabel23.setText("56 Days Remaining");
 
         javax.swing.GroupLayout launchDatePanelLayout = new javax.swing.GroupLayout(launchDatePanel);
         launchDatePanel.setLayout(launchDatePanelLayout);
@@ -425,26 +430,81 @@ public class InstructorGUI extends javax.swing.JFrame {
         jLabel35.setText("Group 10");
 
         jButton9.setText("View Group");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup1ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("View Group");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup2ActionPerformed(evt);
+            }
+        });
 
         jButton11.setText("View Group");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup3ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("View Group");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup4ActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("View Group");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup5ActionPerformed(evt);
+            }
+        });
 
         jButton14.setText("View Group");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup6ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("View Group");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup7ActionPerformed(evt);
+            }
+        });
 
         jButton16.setText("View Group");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup8ActionPerformed(evt);
+            }
+        });
 
         jButton17.setText("View Group");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup9ActionPerformed(evt);
+            }
+        });
 
         jButton18.setText("View Group");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup10ActionPerformed(evt);
+            }
+        });
 
         jButton19.setText("View Group");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewGroup11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout otherGroupsPanelLayout = new javax.swing.GroupLayout(otherGroupsPanel);
         otherGroupsPanel.setLayout(otherGroupsPanelLayout);
@@ -1774,6 +1834,66 @@ public class InstructorGUI extends javax.swing.JFrame {
         groupRepository.saveAll(groups);
         studentRepository.saveAll(students);
         classRepository.save(c);
+
+    }
+
+    private void addAnnouncementActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        //POP UP OLARAK TEXT FIELD SAYFASI GELMESİ GEREKİYOR
+    }
+
+    private void viewGroup1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup2ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup3ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup4ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup5ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup6ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup7ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup8ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup9ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup10ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
+    private void viewGroup11ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
 
     }
 

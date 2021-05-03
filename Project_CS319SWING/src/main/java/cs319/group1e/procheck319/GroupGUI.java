@@ -1,5 +1,9 @@
 package cs319.group1e.procheck319;
 
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
 /**
  *
  * @author bedir
@@ -7,10 +11,13 @@ package cs319.group1e.procheck319;
 public class GroupGUI extends javax.swing.JFrame {
 
     private Student currentUser;
-
     private GroupRepository groupRepository;
     private ClassRepository classRepository;
     private StudentRepository studentRepository;
+    private String goTo;
+    private int peer;
+    private int artifactReviewId;
+
 
     /**
      * Creates new form procheckGUI
@@ -24,6 +31,24 @@ public class GroupGUI extends javax.swing.JFrame {
 
     public void setCurrentUser(Student currentUser) {
         this.currentUser = currentUser;
+    }
+
+    public int getPeer() {
+        return peer;
+    }
+    public void setPeer(int peer) {
+        this.peer = peer;
+    }
+
+    public Student getCurrentUser() {
+        return currentUser;
+    }
+
+    public int getArtifactReviewId() {
+        return artifactReviewId;
+    }
+    public void setArtifactReviewId(int artifactReviewId) {
+        this.artifactReviewId = artifactReviewId;
     }
 
     /**
@@ -116,6 +141,8 @@ public class GroupGUI extends javax.swing.JFrame {
         submitButton5 = new javax.swing.JButton();
         submitButton6 = new javax.swing.JButton();
         submitButton3 = new javax.swing.JButton();
+        requestLabel1 = new javax.swing.JLabel();
+        acceptButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -199,7 +226,7 @@ public class GroupGUI extends javax.swing.JFrame {
         groupMemberButton4.setText("Review Peer");
         groupMemberButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupMemberButton4ActionPerformed(evt);
+               groupMemberButton4ActionPerformed(evt);
             }
         });
 
@@ -348,7 +375,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton1.setBackground(new java.awt.Color(120, 88, 161));
         groupButton1.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton1.setText("Group-1");
+        groupButton1.setText("Review Artifact");
         groupButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton1ActionPerformed(evt);
@@ -360,7 +387,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton2.setBackground(new java.awt.Color(120, 88, 161));
         groupButton2.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton2.setText("Group-2");
+        groupButton2.setText("Review Artifact");
         groupButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton2ActionPerformed(evt);
@@ -372,7 +399,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton3.setBackground(new java.awt.Color(120, 88, 161));
         groupButton3.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton3.setText("Group-3");
+        groupButton3.setText("Review Artifact");
         groupButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton3ActionPerformed(evt);
@@ -405,7 +432,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton5.setBackground(new java.awt.Color(120, 88, 161));
         groupButton5.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton5.setText("Group-5");
+        groupButton5.setText("Review Artifact");
         groupButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton5ActionPerformed(evt);
@@ -414,7 +441,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton6.setBackground(new java.awt.Color(120, 88, 161));
         groupButton6.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton6.setText("Group-6");
+        groupButton6.setText("Review Artifact");
         groupButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton6ActionPerformed(evt);
@@ -423,7 +450,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton7.setBackground(new java.awt.Color(120, 88, 161));
         groupButton7.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton7.setText("Group-7");
+        groupButton7.setText("Review Artifact");
         groupButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton7ActionPerformed(evt);
@@ -432,7 +459,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton4.setBackground(new java.awt.Color(120, 88, 161));
         groupButton4.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton4.setText("Group-4");
+        groupButton4.setText("Review Artifact");
         groupButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton4ActionPerformed(evt);
@@ -441,7 +468,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton11.setBackground(new java.awt.Color(120, 88, 161));
         groupButton11.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton11.setText("Group-11");
+        groupButton11.setText("Review Artifact");
         groupButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton11ActionPerformed(evt);
@@ -450,7 +477,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton8.setBackground(new java.awt.Color(120, 88, 161));
         groupButton8.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton8.setText("Group-8");
+        groupButton8.setText("Review Artifact");
         groupButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton8ActionPerformed(evt);
@@ -459,7 +486,7 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton9.setBackground(new java.awt.Color(120, 88, 161));
         groupButton9.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton9.setText("Group-9");
+        groupButton9.setText("Review Artifact");
         groupButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton9ActionPerformed(evt);
@@ -468,13 +495,14 @@ public class GroupGUI extends javax.swing.JFrame {
 
         groupButton10.setBackground(new java.awt.Color(120, 88, 161));
         groupButton10.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton10.setText("Group-10");
+        groupButton10.setText("Review Artifact");
         groupButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupButton10ActionPerformed(evt);
             }
         });
 
+        //ARTIFACT REVIEW PANEL --> OLD otherGroupsPanel
         javax.swing.GroupLayout otherGroupsPanelLayout = new javax.swing.GroupLayout(otherGroupsPanel);
         otherGroupsPanel.setLayout(otherGroupsPanelLayout);
         otherGroupsPanelLayout.setHorizontalGroup(
@@ -570,11 +598,24 @@ public class GroupGUI extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+
+        //REQUEST PANEL
         calendarPanel.setBackground(new java.awt.Color(232, 235, 255));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Calendar");
+        jLabel12.setText("Requests");
+
+        requestLabel1.setText("Student's Request Can Be Seen From Here ->");
+
+        acceptButton1.setBackground(new java.awt.Color(120, 88, 161));
+        acceptButton1.setForeground(new java.awt.Color(255, 255, 255));
+        acceptButton1.setText("View Request");
+        acceptButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout calendarPanelLayout = new javax.swing.GroupLayout(calendarPanel);
         calendarPanel.setLayout(calendarPanelLayout);
@@ -584,13 +625,39 @@ public class GroupGUI extends javax.swing.JFrame {
                                 .addGap(131, 131, 131)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                                 .addGap(137, 137, 137))
+                        .addGroup(calendarPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(requestLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(acceptButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        )
+                                .addGap(18, 18, 18)
+                                .addGroup(calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         calendarPanelLayout.setVerticalGroup(
                 calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(calendarPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel12)
-                                .addContainerGap(365, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(requestLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(acceptButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+
+                                        )
+                                .addGap(18, 18, 18)
+                                .addGroup(calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+
+                                        )
+                                .addGap(18, 18, 18)
+                                .addGroup(calendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        )
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         statisticsPanel.setBackground(new java.awt.Color(232, 235, 255));
@@ -604,10 +671,20 @@ public class GroupGUI extends javax.swing.JFrame {
         viewARButton1.setBackground(new java.awt.Color(120, 88, 161));
         viewARButton1.setForeground(new java.awt.Color(255, 255, 255));
         viewARButton1.setText("View Artifact Review");
+        viewARButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+              viewARButton1ActionPerformed(evt);
+            }
+        });
 
         viewFeedbackButton1.setBackground(new java.awt.Color(120, 88, 161));
         viewFeedbackButton1.setForeground(new java.awt.Color(255, 255, 255));
         viewFeedbackButton1.setText("View Feedback");
+        viewFeedbackButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewFeedbackButton1ActionPerformed(evt);
+            }
+        });
 
         viewReviewLabel1.setText("jLabel30");
 
@@ -620,34 +697,75 @@ public class GroupGUI extends javax.swing.JFrame {
         viewARButton5.setBackground(new java.awt.Color(120, 88, 161));
         viewARButton5.setForeground(new java.awt.Color(255, 255, 255));
         viewARButton5.setText("View Artifact Review");
+        viewARButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewARButton5ActionPerformed(evt);
+            }
+        });
 
         viewFeedbackButton5.setBackground(new java.awt.Color(120, 88, 161));
         viewFeedbackButton5.setForeground(new java.awt.Color(255, 255, 255));
         viewFeedbackButton5.setText("View Feedback");
+        viewFeedbackButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewFeedbackButton5ActionPerformed(evt);
+            }
+        });
+
 
         viewARButton2.setBackground(new java.awt.Color(120, 88, 161));
         viewARButton2.setForeground(new java.awt.Color(255, 255, 255));
         viewARButton2.setText("View Artifact Review");
+        viewARButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewARButton2ActionPerformed(evt);
+            }
+        });
 
         viewFeedbackButton2.setBackground(new java.awt.Color(120, 88, 161));
         viewFeedbackButton2.setForeground(new java.awt.Color(255, 255, 255));
         viewFeedbackButton2.setText("View Feedback");
+        viewFeedbackButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewFeedbackButton2ActionPerformed(evt);
+            }
+        });
 
         viewARButton3.setBackground(new java.awt.Color(120, 88, 161));
         viewARButton3.setForeground(new java.awt.Color(255, 255, 255));
         viewARButton3.setText("View Artifact Review");
+        viewARButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewARButton3ActionPerformed(evt);
+            }
+        });
 
         viewFeedbackButton3.setBackground(new java.awt.Color(120, 88, 161));
         viewFeedbackButton3.setForeground(new java.awt.Color(255, 255, 255));
         viewFeedbackButton3.setText("View Feedback");
+        viewFeedbackButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewFeedbackButton3ActionPerformed(evt);
+            }
+        });
 
         viewARButton4.setBackground(new java.awt.Color(120, 88, 161));
         viewARButton4.setForeground(new java.awt.Color(255, 255, 255));
         viewARButton4.setText("View Artifact Review");
+        viewARButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewARButton4ActionPerformed(evt);
+            }
+        });
 
         viewFeedbackButton4.setBackground(new java.awt.Color(120, 88, 161));
         viewFeedbackButton4.setForeground(new java.awt.Color(255, 255, 255));
         viewFeedbackButton4.setText("View Feedback");
+        viewFeedbackButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewFeedbackButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
         statisticsPanel.setLayout(statisticsPanelLayout);
@@ -768,26 +886,56 @@ public class GroupGUI extends javax.swing.JFrame {
         submitButton2.setBackground(new java.awt.Color(120, 88, 161));
         submitButton2.setForeground(new java.awt.Color(255, 255, 255));
         submitButton2.setText("Make Submission");
+        submitButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButton2ActionPerformed(evt);
+            }
+        });
 
         submitButton1.setBackground(new java.awt.Color(120, 88, 161));
         submitButton1.setForeground(new java.awt.Color(255, 255, 255));
         submitButton1.setText("Make Submission");
+        submitButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButton1ActionPerformed(evt);
+            }
+        });
 
         submitButton4.setBackground(new java.awt.Color(120, 88, 161));
         submitButton4.setForeground(new java.awt.Color(255, 255, 255));
         submitButton4.setText("Make Submission");
+        submitButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButton4ActionPerformed(evt);
+            }
+        });
 
         submitButton5.setBackground(new java.awt.Color(120, 88, 161));
         submitButton5.setForeground(new java.awt.Color(255, 255, 255));
         submitButton5.setText("Make Submission");
+        submitButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButton5ActionPerformed(evt);
+            }
+        });
 
         submitButton6.setBackground(new java.awt.Color(120, 88, 161));
         submitButton6.setForeground(new java.awt.Color(255, 255, 255));
         submitButton6.setText("Make Submission");
+        submitButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButton6ActionPerformed(evt);
+            }
+        });
 
         submitButton3.setBackground(new java.awt.Color(120, 88, 161));
         submitButton3.setForeground(new java.awt.Color(255, 255, 255));
         submitButton3.setText("Make Submission");
+        submitButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout deadlinesPanelLayout = new javax.swing.GroupLayout(deadlinesPanel);
         deadlinesPanel.setLayout(deadlinesPanelLayout);
@@ -916,45 +1064,285 @@ public class GroupGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //REQUEST ACCEPT OR REJECT
+    private void acceptButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton11ActionPerformed
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        Class c = classRepository.findByClassId(319);
+        Request request = new Request(g.getGroupId(), g.getRequests().get(0).getSenderStudentId());
+        String info = "";
+        if(request != null) {
+            int studentId = request.getSenderStudentId();
+            Student student = studentRepository.findByUserId(studentId);
+            info = student.getUserName() + " " + student.getUserSurname() + " has send request to join your group";
+            UIManager um = new UIManager();
+            um.put("OptionPane.background", new Color(120, 88, 161));
+            um.put("Panel.background", new Color(120, 88, 161));
+            int result = JOptionPane.showConfirmDialog(null,info, "Join Request",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+
+            //Accept request
+            if(result == JOptionPane.YES_OPTION) {
+                g.addGroupMember(student);
+                g.getRequests().remove(0);
+                studentRepository.save(student);
+                groupRepository.save(g);
+                classRepository.save(c);
+            }else{
+                g.getRequests().remove(0);
+                groupRepository.save(g);
+                classRepository.save(c);
+            }
+        }
+
+    }
+
+    public String getGoTo() {
+        return goTo;
+    }
+
+    public void setGoTo(String goTo) {
+        this.goTo = goTo;
+    }
+
+    private void viewARButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(0);
+        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
+
+    }
+
+    private void viewFeedbackButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(0);
+        InstructorFeedback feedback = s.getFeedback();
+        double grade = s.getGrade();
+    }
+
+    private void viewARButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(1);
+        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
+    }
+
+    private void viewFeedbackButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(1);
+        InstructorFeedback feedback = s.getFeedback();
+        double grade = s.getGrade();
+    }
+
+    private void viewARButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(2);
+        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
+    }
+
+    private void viewFeedbackButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(2);
+        InstructorFeedback feedback = s.getFeedback();
+        double grade = s.getGrade();
+    }
+
+    private void viewARButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(3);
+        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
+    }
+
+    private void viewFeedbackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(3);
+        InstructorFeedback feedback = s.getFeedback();
+        double grade = s.getGrade();
+    }
+
+    private void viewARButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(4);
+        List<ArtifactReview> reviews = groupRepository.findByGroupId(currentUser.getGroupId()).showArtifactReviewsDoneByOthers(s);
+    }
+
+    private void viewFeedbackButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        Submission s = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupSubmissionList().get(4);
+        InstructorFeedback feedback = s.getFeedback();
+        double grade = s.getGrade();
+    }
+
+    private void submitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        //POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+    }
+
+    private void submitButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+    }
+
+    private void submitButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+    }
+
+    private void submitButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+    }
+
+    private void submitButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+    }
+
+    private void submitButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+    }
+
+    //Peer Review for Group Member 1
+    private void groupMemberButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        int id = g.getStudentIdList().get(0);
+        Student s = studentRepository.findByUserId(id);
+        if(s.getUserId() != currentUser.getUserId()){
+            peer = s.getUserId();
+            goTo = "PeerReview";
+        }
+        else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void groupMemberButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        int id = g.getStudentIdList().get(1);
+        Student s = studentRepository.findByUserId(id);
+        if(s.getUserId() != currentUser.getUserId()){
+            peer = s.getUserId();
+            goTo = "PeerReview";
+        }
+        else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void groupMemberButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        int id = g.getStudentIdList().get(2);
+        Student s = studentRepository.findByUserId(id);
+        if(s.getUserId() != currentUser.getUserId()){
+            peer = s.getUserId();
+            goTo = "PeerReview";
+        }
+        else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void groupMemberButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        int id = g.getStudentIdList().get(3);
+        Student s = studentRepository.findByUserId(id);
+        if(s.getUserId() != currentUser.getUserId()){
+            peer = s.getUserId();
+            goTo = "PeerReview";
+        }
+        else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void groupMemberButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        // TODO add your handling code here:
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        int id = g.getStudentIdList().get(4);
+        if(id != currentUser.getUserId()){
+            peer = id;
+            goTo = "PeerReview";
+        }
+        else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"You can't peer review yourself","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
     private void groupButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton1ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        int id = g.getStudentIdList().get(4);
+        if(id != currentUser.getGroupId()){
+            peer = id;
+            goTo = "ArtifactReview";
+        }
+        else{
+            UIManager um=new UIManager();
+            um.put("OptionPane.background",new Color(120, 88, 161));
+            um.put("Panel.background",new Color(120, 88, 161));
+            JOptionPane.showMessageDialog(null,"You can't artifact review your group","Set Color",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }
 
     private void groupButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton2ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton3ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton5ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton6ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton7ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton4ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton11ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton11ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton8ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
     private void groupButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_groupButton9ActionPerformed
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
+
+    private void groupButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton9ActionPerformed
+        // TODO add your handling code here:
+        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
+    }
 
 
 
@@ -1041,5 +1429,13 @@ public class GroupGUI extends javax.swing.JFrame {
     private javax.swing.JLabel viewReviewLabel3;
     private javax.swing.JLabel viewReviewLabel4;
     private javax.swing.JLabel viewReviewLabel5;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+
+    private javax.swing.JButton acceptButton1;
+    private javax.swing.JLabel requestLabel1;
     // End of variables declaration//GEN-END:variables
 }
