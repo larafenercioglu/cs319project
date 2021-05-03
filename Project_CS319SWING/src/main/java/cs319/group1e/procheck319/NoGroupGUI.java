@@ -819,7 +819,7 @@ class NoGroupGUI extends javax.swing.JFrame {
 
     private void groupButton11ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Group g = groupRepository.findByGroupId(1);
+        Group g = groupRepository.findByGroupId(11);
         if(g != null) {
             if (!g.isFull()) {
                 Class c = classRepository.findByClassId(currentUser.getClassId());
@@ -838,7 +838,7 @@ class NoGroupGUI extends javax.swing.JFrame {
         return;
     }
 
-    //FORM GROUP BUTTON
+    //FORM NEW GROUP BUTTON
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         //System.out.println(currentUser);
@@ -846,6 +846,10 @@ class NoGroupGUI extends javax.swing.JFrame {
         Group g = currentUser.formAGroup(c.assignGroupId(), c.getProject().getMaxGroupSize());
         g.setClassId(currentUser.getClassId());
         c.addGroupId(g.getGroupId());
+
+        //Set group according to class
+        g.setGroupAssignmentList(c.getProject().getAssignmentList());
+        g.setAnnouncementList(c.getAnnouncementList());
 
         groupRepository.save(g);
         classRepository.save(c);

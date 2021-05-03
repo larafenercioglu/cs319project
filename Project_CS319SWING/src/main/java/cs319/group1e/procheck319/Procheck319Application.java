@@ -136,6 +136,61 @@ public class Procheck319Application {
             instructorAndTAsRepository.save(jabrayilzade);
             instructorAndTAsRepository.save(tuna);
             classRepository.save(erayClass);
+
+            System.out.println("---------------ASSIGMENT------------------");
+            //HashMap<Integer,List<Submissoin>>sSubmissionMap = new HashMap<>()
+            //List<Assgnment> Assignments = ?
+            //-----------------------------assignments-----------------------------
+            //Map<Assignment,>
+            Assignment assignment1 = new Assignment();
+            assignment1.setAssignmentNo(1);
+            assignment1.setTitle("README Document");
+            assignment1.setVisibility(true);
+            assignment1.setWeight(5);
+            assignment1.setDeadline(2021, 1, 3);
+            p.createAssignment(assignment1);
+
+            Assignment assignment2 = new Assignment();
+            assignment2.setAssignmentNo(2);
+            assignment2.setTitle("Analysis Report Iteration 1");
+            assignment2.setVisibility(true);
+            assignment2.setWeight(0);
+            assignment2.setDeadline(2022, 1, 6);
+            p.createAssignment(assignment2);
+
+            Assignment assignment3 = new Assignment();
+            assignment3.setAssignmentNo(3);
+            assignment3.setTitle("Design Report Iteration 1");
+            assignment3.setVisibility(true);
+            assignment3.setDeadline(2021, 4, 6);
+            assignment3.setWeight(0);
+            p.createAssignment(assignment3);
+
+            Assignment assignment4 = new Assignment();
+            assignment4.setAssignmentNo(4);
+            assignment4.setTitle("Analysis Report Iteration 2");
+            assignment4.setVisibility(true);
+            assignment4.setWeight(25);
+            assignment4.setDeadline(2021, 5, 3);
+            p.createAssignment(assignment4);
+
+            Assignment assignment5 = new Assignment();
+            assignment5.setAssignmentNo(5);
+            assignment5.setTitle("Design Report Iteration 2");
+            assignment5.setVisibility(true);
+            assignment5.setDeadline(2021, 11, 26);
+            assignment5.setWeight(35);
+            p.createAssignment(assignment5);
+
+            List<Assignment> assignments = new ArrayList<>();
+            assignments.add(assignment1);
+            assignments.add(assignment2);
+            assignments.add(assignment3);
+            assignments.add(assignment4);
+            assignments.add(assignment5);
+            classRepository.save(erayClass);
+            studentRepository.saveAll(users);
+
         }
 
         classRepository.findByClassId(319).setGroupCount( classRepository.findByClassId(319).getGroupIdList().size() );

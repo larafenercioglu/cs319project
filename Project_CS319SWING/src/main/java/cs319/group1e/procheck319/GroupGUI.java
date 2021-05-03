@@ -2,6 +2,7 @@ package cs319.group1e.procheck319;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public class GroupGUI extends javax.swing.JFrame {
     private String goTo;
     private int peer;
     private int artifactReviewId;
+    private Submission sub;
 
 
     /**
@@ -29,6 +31,12 @@ public class GroupGUI extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void setSub(Submission sub){
+        this.sub = sub;
+    }
+    public Submission getSub(){
+        return sub;
+    }
     public void setCurrentUser(Student currentUser) {
         this.currentUser = currentUser;
     }
@@ -143,6 +151,89 @@ public class GroupGUI extends javax.swing.JFrame {
         submitButton3 = new javax.swing.JButton();
         requestLabel1 = new javax.swing.JLabel();
         acceptButton1 = new javax.swing.JButton();
+
+        overallProgressPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        groupMemberPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        groupMemberLabel5 = new javax.swing.JLabel();
+        groupMemberLabel1 = new javax.swing.JLabel();
+        groupMemberLabel2 = new javax.swing.JLabel();
+        groupMemberLabel3 = new javax.swing.JLabel();
+        groupMemberLabel4 = new javax.swing.JLabel();
+        groupMemberButton1 = new javax.swing.JButton();
+        groupMemberButton2 = new javax.swing.JButton();
+        groupMemberButton3 = new javax.swing.JButton();
+        groupMemberButton4 = new javax.swing.JButton();
+        groupMemberButton5 = new javax.swing.JButton();
+        projectSummaryPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        headerPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        launchDatePanel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        otherGroupsPanel = new javax.swing.JPanel();
+        artifactReviewMainLabel = new javax.swing.JLabel();
+        randomArtifactButton = new javax.swing.JButton();
+        artifactReviewURLLabel = new javax.swing.JLabel();
+        artifactURLField = new javax.swing.JTextField();
+        artifactReviewLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        artifactReviewArea = new javax.swing.JTextArea();
+        firstArtifactCheckBox = new javax.swing.JCheckBox();
+        secondArtifactCheckBox = new javax.swing.JCheckBox();
+        submitArtifactButton = new javax.swing.JButton();
+        calendarPanel = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        requestLabel1 = new javax.swing.JLabel();
+        acceptButton1 = new javax.swing.JButton();
+        rejectButton1 = new javax.swing.JButton();
+        requestLabel2 = new javax.swing.JLabel();
+        acceptButton2 = new javax.swing.JButton();
+        rejectButton2 = new javax.swing.JButton();
+        requestLabel3 = new javax.swing.JLabel();
+        acceptButton3 = new javax.swing.JButton();
+        rejectButton3 = new javax.swing.JButton();
+        requestLabel4 = new javax.swing.JLabel();
+        acceptButton4 = new javax.swing.JButton();
+        rejectButton4 = new javax.swing.JButton();
+        statisticsPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        viewReviewLabel3 = new javax.swing.JLabel();
+        viewARButton1 = new javax.swing.JButton();
+        viewFeedbackButton1 = new javax.swing.JButton();
+        viewReviewLabel1 = new javax.swing.JLabel();
+        viewReviewLabel2 = new javax.swing.JLabel();
+        viewReviewLabel4 = new javax.swing.JLabel();
+        viewReviewLabel5 = new javax.swing.JLabel();
+        viewARButton5 = new javax.swing.JButton();
+        viewFeedbackButton5 = new javax.swing.JButton();
+        viewARButton2 = new javax.swing.JButton();
+        viewFeedbackButton2 = new javax.swing.JButton();
+        viewARButton3 = new javax.swing.JButton();
+        viewFeedbackButton3 = new javax.swing.JButton();
+        viewARButton4 = new javax.swing.JButton();
+        viewFeedbackButton4 = new javax.swing.JButton();
+        announcementsPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        deadlinesPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel5 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel3 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel4 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel6 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel1 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel2 = new javax.swing.JLabel();
+        submitButton2 = new javax.swing.JButton();
+        submitButton1 = new javax.swing.JButton();
+        submitButton4 = new javax.swing.JButton();
+        submitButton5 = new javax.swing.JButton();
+        submitButton6 = new javax.swing.JButton();
+        submitButton3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -364,145 +455,57 @@ public class GroupGUI extends javax.swing.JFrame {
                                 .addContainerGap(109, Short.MAX_VALUE))
         );
 
-        otherGroupsPanel.setBackground(new java.awt.Color(232, 235, 255));
+        //****************************************************************************
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Other Groups");
+        //OLD VERSION PART
 
-        otherGroupsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel1.setText("Group-1");
-
-        groupButton1.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton1.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton1.setText("Review Artifact");
-        groupButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton1ActionPerformed(evt);
-            }
-        });
-
-        otherGroupsLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel4.setText("Group-4");
-
-        groupButton2.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton2.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton2.setText("Review Artifact");
-        groupButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton2ActionPerformed(evt);
-            }
-        });
-
-        otherGroupsLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel2.setText("Group-2");
-
-        groupButton3.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton3.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton3.setText("Review Artifact");
-        groupButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton3ActionPerformed(evt);
-            }
-        });
-
-        otherGroupsLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel3.setText("Group-3");
-
-        otherGroupsLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel7.setText("Group-7");
-
-        otherGroupsLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel5.setText("Group-5");
-
-        otherGroupsLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel8.setText("Group-8");
-
-        otherGroupsLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel10.setText("Group-10");
-
-        otherGroupsLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel6.setText("Group-6");
-
-        otherGroupsLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel11.setText("Group-11");
-
-        otherGroupsLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherGroupsLabel9.setText("Group-9");
-
-        groupButton5.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton5.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton5.setText("Review Artifact");
-        groupButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton5ActionPerformed(evt);
-            }
-        });
-
-        groupButton6.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton6.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton6.setText("Review Artifact");
-        groupButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton6ActionPerformed(evt);
-            }
-        });
-
-        groupButton7.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton7.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton7.setText("Review Artifact");
-        groupButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton7ActionPerformed(evt);
-            }
-        });
-
-        groupButton4.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton4.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton4.setText("Review Artifact");
-        groupButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton4ActionPerformed(evt);
-            }
-        });
-
-        groupButton11.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton11.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton11.setText("Review Artifact");
-        groupButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton11ActionPerformed(evt);
-            }
-        });
-
-        groupButton8.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton8.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton8.setText("Review Artifact");
-        groupButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton8ActionPerformed(evt);
-            }
-        });
-
-        groupButton9.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton9.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton9.setText("Review Artifact");
-        groupButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton9ActionPerformed(evt);
-            }
-        });
-
-        groupButton10.setBackground(new java.awt.Color(120, 88, 161));
-        groupButton10.setForeground(new java.awt.Color(255, 255, 255));
-        groupButton10.setText("Review Artifact");
-        groupButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupButton10ActionPerformed(evt);
-            }
-        });
+        //***********************************************************************************
 
         //ARTIFACT REVIEW PANEL --> OLD otherGroupsPanel
+        otherGroupsPanel.setBackground(new java.awt.Color(232, 235, 255));
+
+        artifactReviewMainLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        artifactReviewMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        artifactReviewMainLabel.setText("Artifact Review");
+
+        randomArtifactButton.setBackground(new java.awt.Color(120, 88, 161));
+        randomArtifactButton.setForeground(new java.awt.Color(255, 255, 255));
+        randomArtifactButton.setText("Review Random Artifact");
+        randomArtifactButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randomArtifactButtonActionPerformed(evt);
+            }
+        });
+
+        artifactReviewURLLabel.setText("URL: ");
+
+        artifactURLField.setEditable(false);
+        artifactURLField.setText("Press \"Review Random Artifact\" Button First");
+
+        artifactReviewLabel.setText("Write Your Feedback: ");
+
+        artifactReviewArea.setColumns(20);
+        artifactReviewArea.setRows(5);
+        artifactReviewArea.setEnabled(false);
+        jScrollPane1.setViewportView(artifactReviewArea);
+
+        firstArtifactCheckBox.setText("First Artifact Review State");
+        firstArtifactCheckBox.setEnabled(false);
+
+        secondArtifactCheckBox.setText("Second Artifact Review State");
+        secondArtifactCheckBox.setEnabled(false);
+
+        submitArtifactButton.setBackground(new java.awt.Color(120, 88, 161));
+        submitArtifactButton.setForeground(new java.awt.Color(255, 255, 255));
+        submitArtifactButton.setText("Submit Review");
+        submitArtifactButton.setEnabled(false);
+        submitArtifactButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitArtifactButtonActionPerformed(evt);
+            }
+        });
+
+        //*****************************************************************************
         javax.swing.GroupLayout otherGroupsPanelLayout = new javax.swing.GroupLayout(otherGroupsPanel);
         otherGroupsPanel.setLayout(otherGroupsPanelLayout);
         otherGroupsPanelLayout.setHorizontalGroup(
@@ -512,90 +515,50 @@ public class GroupGUI extends javax.swing.JFrame {
                                 .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(otherGroupsPanelLayout.createSequentialGroup()
                                                 .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(otherGroupsLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(otherGroupsLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(70, 70, 70)
-                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(groupButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(artifactReviewMainLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                                .addComponent(artifactReviewURLLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(artifactURLField))
+                                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(firstArtifactCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(artifactReviewLabel)
+                                                                        .addComponent(secondArtifactCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                .addGap(0, 134, Short.MAX_VALUE)))
                                                 .addContainerGap())
-                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
-                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(otherGroupsLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(otherGroupsLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGap(70, 70, 70)
-                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(groupButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(groupButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, otherGroupsPanelLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(randomArtifactButton, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(45, 45, 45))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, otherGroupsPanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(submitArtifactButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))
         );
         otherGroupsPanelLayout.setVerticalGroup(
                 otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(otherGroupsPanelLayout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addComponent(jLabel8)
+                                .addComponent(artifactReviewMainLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(randomArtifactButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(otherGroupsLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                                        .addComponent(groupButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(otherGroupsLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(groupButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(otherGroupsLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(groupButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
-                                                .addComponent(otherGroupsLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(otherGroupsLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(otherGroupsLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(otherGroupsLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(4, 4, 4)
-                                                .addComponent(otherGroupsLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(otherGroupsLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(otherGroupsLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(otherGroupsLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(groupButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
-                                                .addComponent(groupButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(groupButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(groupButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(groupButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(groupButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(groupButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(groupButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(artifactReviewURLLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(artifactURLField, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(artifactReviewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(firstArtifactCheckBox)
+                                .addGap(18, 18, 18)
+                                .addComponent(secondArtifactCheckBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(submitArtifactButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36))
         );
 
 
@@ -606,7 +569,7 @@ public class GroupGUI extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Requests");
 
-        requestLabel1.setText("Student's Request Can Be Seen From Here ->");
+        requestLabel1.setText("Student's Request Can Be Seen From Here ------->");
 
         acceptButton1.setBackground(new java.awt.Color(120, 88, 161));
         acceptButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -871,17 +834,17 @@ public class GroupGUI extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Upcoming Deadlines");
 
-        upcomingDeadlinesLabel5.setText("jLabel24");
+        List<Assignment> assignments =classRepository.findByClassId(319).getProject().getAssignmentList();
 
-        upcomingDeadlinesLabel3.setText("jLabel24");
+        upcomingDeadlinesLabel5.setText(assignments.get(4).getTitle());
 
-        upcomingDeadlinesLabel4.setText("jLabel24");
+        upcomingDeadlinesLabel3.setText(assignments.get(3).getTitle());
 
-        upcomingDeadlinesLabel6.setText("jLabel24");
+        upcomingDeadlinesLabel4.setText(assignments.get(2).getTitle());
 
-        upcomingDeadlinesLabel1.setText("jLabel24");
+        upcomingDeadlinesLabel1.setText(assignments.get(1).getTitle());
 
-        upcomingDeadlinesLabel2.setText("jLabel24");
+        upcomingDeadlinesLabel2.setText(assignments.get(0).getTitle());
 
         submitButton2.setBackground(new java.awt.Color(120, 88, 161));
         submitButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -919,15 +882,6 @@ public class GroupGUI extends javax.swing.JFrame {
             }
         });
 
-        submitButton6.setBackground(new java.awt.Color(120, 88, 161));
-        submitButton6.setForeground(new java.awt.Color(255, 255, 255));
-        submitButton6.setText("Make Submission");
-        submitButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitButton6ActionPerformed(evt);
-            }
-        });
-
         submitButton3.setBackground(new java.awt.Color(120, 88, 161));
         submitButton3.setForeground(new java.awt.Color(255, 255, 255));
         submitButton3.setText("Make Submission");
@@ -937,39 +891,32 @@ public class GroupGUI extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setText("Submission Link");
+
         javax.swing.GroupLayout deadlinesPanelLayout = new javax.swing.GroupLayout(deadlinesPanel);
         deadlinesPanel.setLayout(deadlinesPanelLayout);
         deadlinesPanelLayout.setHorizontalGroup(
                 deadlinesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(deadlinesPanelLayout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deadlinesPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(deadlinesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                                        .addGroup(deadlinesPanelLayout.createSequentialGroup()
-                                                .addComponent(upcomingDeadlinesLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(submitButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(deadlinesPanelLayout.createSequentialGroup()
-                                                .addComponent(upcomingDeadlinesLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(submitButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(deadlinesPanelLayout.createSequentialGroup()
-                                                .addComponent(upcomingDeadlinesLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(submitButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(deadlinesPanelLayout.createSequentialGroup()
-                                                .addComponent(upcomingDeadlinesLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(submitButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(deadlinesPanelLayout.createSequentialGroup()
-                                                .addComponent(upcomingDeadlinesLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(submitButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(deadlinesPanelLayout.createSequentialGroup()
-                                                .addComponent(upcomingDeadlinesLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(submitButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(deadlinesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, deadlinesPanelLayout.createSequentialGroup()
+                                                .addGroup(deadlinesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(upcomingDeadlinesLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(upcomingDeadlinesLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(upcomingDeadlinesLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(upcomingDeadlinesLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                                        .addComponent(upcomingDeadlinesLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(deadlinesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(submitButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+                                                        .addComponent(submitButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(submitButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(submitButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(submitButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addContainerGap())
         );
         deadlinesPanelLayout.setVerticalGroup(
@@ -979,7 +926,7 @@ public class GroupGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(deadlinesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(upcomingDeadlinesLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(submitButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1000,10 +947,8 @@ public class GroupGUI extends javax.swing.JFrame {
                                         .addComponent(upcomingDeadlinesLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(submitButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(deadlinesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(upcomingDeadlinesLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(submitButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(83, Short.MAX_VALUE))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1047,17 +992,19 @@ public class GroupGUI extends javax.swing.JFrame {
                                         .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(otherGroupsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(groupMemberPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(calendarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(statisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(statisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(calendarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(projectSummaryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(announcementsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(deadlinesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                        .addComponent(deadlinesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(otherGroupsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
 
@@ -1096,6 +1043,27 @@ public class GroupGUI extends javax.swing.JFrame {
         }
 
     }
+
+    //GET A RANDOM ARTIFACT BY PRESSING THE BUTTON!!!!!!!!!!!!!!!!
+    private void randomArtifactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        List<Assignment> assignments = new ArrayList<>();
+        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
+        assignments = groupRepository.findByGroupId(currentUser.getGroupId()).getGroupAssignmentList();
+        this.sub = currentUser.getRandomArtifact(assignments,g);
+        String url = sub.getUrl();
+        artifactURLField.setEditable(false);
+        artifactURLField.setText(url);
+        artifactReviewArea.setEnabled(true);
+        firstArtifactCheckBox.setSelected(true);
+    }
+
+    //SUBMIT THE JTEXTFIELD TO THE SYSTEM!!!!!!!!!!!
+    private void submitArtifactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
+        String context = artifactReviewArea.getText();
+        currentUser.reviewArtifact(sub,context);
+        Class c = classRepository.findByClassId(319);
+    }
+
 
     public String getGoTo() {
         return goTo;
@@ -1161,28 +1129,80 @@ public class GroupGUI extends javax.swing.JFrame {
         double grade = s.getGrade();
     }
 
+
     private void submitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        //POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+        //POP UP FIFTH SUBMISSON PAGE WITH GITHUB LINK FIELD
+        Assignment assignment = classRepository.findByClassId(319).getProject().getAssignmentList().get(0);
+        String context = jTextField1.getText();
+        Class c = classRepository.findByClassId(319);
+        Submission submission = new Submission(assignment,context);
+        c.getProject().getAssignmentList().get(0).addSubmission(submission);
+        Group group = groupRepository.findByGroupId(currentUser.getGroupId());
+        currentUser.addSubmission(submission,assignment,group);
+        Student s = studentRepository.findByUserId(currentUser.getUserId());
+        studentRepository.save(s);
+        groupRepository.save(group);
+        classRepository.save(c);
     }
 
     private void submitButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+        //POP UP FIRST SUBMISSON PAGE WITH GITHUB LINK FIELD
+        Assignment assignment = classRepository.findByClassId(319).getProject().getAssignmentList().get(1);
+        String context = jTextField1.getText();
+        Class c = classRepository.findByClassId(319);
+        Submission submission = new Submission(assignment,context);
+        c.getProject().getAssignmentList().get(1).addSubmission(submission);
+        Group group = groupRepository.findByGroupId(currentUser.getGroupId());
+        currentUser.addSubmission(submission,assignment,group);
+        Student s = studentRepository.findByUserId(currentUser.getUserId());
+        studentRepository.save(s);
+        groupRepository.save(group);
+        classRepository.save(c);
     }
 
     private void submitButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+        //POP UP SECOND SUBMISSON PAGE WITH GITHUB LINK FIELD
+        Assignment assignment = classRepository.findByClassId(319).getProject().getAssignmentList().get(2);
+        String context = jTextField1.getText();
+        Class c = classRepository.findByClassId(319);
+        Submission submission = new Submission(assignment,context);
+        c.getProject().getAssignmentList().get(2).addSubmission(submission);
+        Group group = groupRepository.findByGroupId(currentUser.getGroupId());
+        currentUser.addSubmission(submission,assignment,group);
+        Student s = studentRepository.findByUserId(currentUser.getUserId());
+        studentRepository.save(s);
+        groupRepository.save(group);
+        classRepository.save(c);
     }
 
     private void submitButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+        //POP UP THIRD SUBMISSON PAGE WITH GITHUB LINK FIELD
+        Assignment assignment = classRepository.findByClassId(319).getProject().getAssignmentList().get(3);
+        String context = jTextField1.getText();
+        Class c = classRepository.findByClassId(319);
+        Submission submission = new Submission(assignment,context);
+        c.getProject().getAssignmentList().get(3).addSubmission(submission);
+        Group group = groupRepository.findByGroupId(currentUser.getGroupId());
+        currentUser.addSubmission(submission,assignment,group);
+        Student s = studentRepository.findByUserId(currentUser.getUserId());
+        studentRepository.save(s);
+        groupRepository.save(group);
+        classRepository.save(c);
     }
 
     private void submitButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
-    }
-
-    private void submitButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-//POP UP SUBMISSON PAGE WITH GITHUB LINK FIELD
+        //POP UP FORTH SUBMISSON PAGE WITH GITHUB LINK FIELD
+        Assignment assignment = classRepository.findByClassId(319).getProject().getAssignmentList().get(4);
+        String context = jTextField1.getText();
+        Class c = classRepository.findByClassId(319);
+        Submission submission = new Submission(assignment,context);
+        c.getProject().getAssignmentList().get(4).addSubmission(submission);
+        Group group = groupRepository.findByGroupId(currentUser.getGroupId());
+        currentUser.addSubmission(submission,assignment,group);
+        Student s = studentRepository.findByUserId(currentUser.getUserId());
+        studentRepository.save(s);
+        groupRepository.save(group);
+        classRepository.save(c);
     }
 
     //Peer Review for Group Member 1
@@ -1275,74 +1295,6 @@ public class GroupGUI extends javax.swing.JFrame {
         }
     }
 
-    private void groupButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton1ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-        Group g = groupRepository.findByGroupId(currentUser.getGroupId());
-        int id = g.getStudentIdList().get(4);
-        if(id != currentUser.getGroupId()){
-            peer = id;
-            goTo = "ArtifactReview";
-        }
-        else{
-            UIManager um=new UIManager();
-            um.put("OptionPane.background",new Color(120, 88, 161));
-            um.put("Panel.background",new Color(120, 88, 161));
-            JOptionPane.showMessageDialog(null,"You can't artifact review your group","Set Color",
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
-
-    }
-
-    private void groupButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton2ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton3ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton5ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton6ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton7ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton4ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton11ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton8ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton9ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
-
-    private void groupButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupButton9ActionPerformed
-        // TODO add your handling code here:
-        //GITHUB LINKI GELECEK VE TEXT FIELD KISMI OLACAK ORAYA YAZACAKLAR REVIEW
-    }
 
 
 
@@ -1437,5 +1389,27 @@ public class GroupGUI extends javax.swing.JFrame {
 
     private javax.swing.JButton acceptButton1;
     private javax.swing.JLabel requestLabel1;
+
+    private javax.swing.JButton acceptButton2;
+    private javax.swing.JButton acceptButton3;
+    private javax.swing.JButton acceptButton4;
+    private javax.swing.JTextArea artifactReviewArea;
+    private javax.swing.JLabel artifactReviewLabel;
+    private javax.swing.JLabel artifactReviewMainLabel;
+    private javax.swing.JLabel artifactReviewURLLabel;
+    private javax.swing.JTextField artifactURLField;
+    private javax.swing.JCheckBox firstArtifactCheckBox;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton randomArtifactButton;
+    private javax.swing.JButton rejectButton1;
+    private javax.swing.JButton rejectButton2;
+    private javax.swing.JButton rejectButton3;
+    private javax.swing.JButton rejectButton4;
+    private javax.swing.JLabel requestLabel2;
+    private javax.swing.JLabel requestLabel3;
+    private javax.swing.JLabel requestLabel4;
+    private javax.swing.JCheckBox secondArtifactCheckBox;
+    private javax.swing.JButton submitArtifactButton;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

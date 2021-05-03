@@ -23,11 +23,12 @@ public class Submission {
         this.artifactReviewCount = 0;
     }
 
-    public Submission(Assignment assignment) {
+    public Submission(Assignment assignment, String url) {
         this.assignmentNo = assignment.getAssignmentNo();
         this.title = groupId + "_" + assignment.getTitle();
         this.artifactReviews = new ArrayList<>();
         this.artifactReviewCount = 0;
+        this.url = url;
     }
 
     //Constructor

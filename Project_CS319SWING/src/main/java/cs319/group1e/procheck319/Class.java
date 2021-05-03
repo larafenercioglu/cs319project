@@ -201,6 +201,8 @@ public class Class {
             int newId = c.assignGroupId();
             Group g = new Group(newId, 5);
             g.setClassId(this.getClassId());
+            g.setGroupAssignmentList(project.getAssignmentList());
+            g.setAnnouncementList(getAnnouncementList());
 
             g.setMaxGroupSize(c.getProject().getMaxGroupSize());
             for (int j = 0; j < c.getProject().getMaxGroupSize(); j++) {

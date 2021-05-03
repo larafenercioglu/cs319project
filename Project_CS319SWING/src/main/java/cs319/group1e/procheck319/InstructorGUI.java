@@ -165,6 +165,92 @@ public class InstructorGUI extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
 
+        overallProgressPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        groupMemberPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        groupMemberLabel5 = new javax.swing.JLabel();
+        groupMemberLabel1 = new javax.swing.JLabel();
+        groupMemberLabel2 = new javax.swing.JLabel();
+        groupMemberLabel3 = new javax.swing.JLabel();
+        groupMemberLabel4 = new javax.swing.JLabel();
+        groupMemberButton1 = new javax.swing.JButton();
+        groupMemberButton2 = new javax.swing.JButton();
+        groupMemberButton3 = new javax.swing.JButton();
+        groupMemberButton4 = new javax.swing.JButton();
+        groupMemberButton5 = new javax.swing.JButton();
+        projectSummaryPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        headerPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        launchDatePanel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        otherGroupsPanel = new javax.swing.JPanel();
+        artifactReviewMainLabel = new javax.swing.JLabel();
+        addAssignmentToClass = new javax.swing.JButton();
+        assignmentStartLabel = new javax.swing.JLabel();
+        createAssignmentButton = new javax.swing.JButton();
+        assignmentStartMonthField = new javax.swing.JTextField();
+        assignmentStartYearField = new javax.swing.JTextField();
+        assignmentEndLabel = new javax.swing.JLabel();
+        assignmentStartDayField = new javax.swing.JTextField();
+        assignmentEndDayField = new javax.swing.JTextField();
+        assignmentEndMonthField = new javax.swing.JTextField();
+        assignmentEndYearField = new javax.swing.JTextField();
+        artifactDeadlineMonthField = new javax.swing.JTextField();
+        artifactDeadlineDayField = new javax.swing.JTextField();
+        artifactDeadlineLabel = new javax.swing.JLabel();
+        artifactDeadlineYearField = new javax.swing.JTextField();
+        assignmentTitleLabel = new javax.swing.JLabel();
+        assignmentTitleField = new javax.swing.JTextField();
+        assignmentWeightLabel = new javax.swing.JLabel();
+        assignmentWeightField = new javax.swing.JTextField();
+        calendarPanel = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        requestLabel1 = new javax.swing.JLabel();
+        acceptButton1 = new javax.swing.JButton();
+        rejectButton1 = new javax.swing.JButton();
+        requestLabel2 = new javax.swing.JLabel();
+        acceptButton2 = new javax.swing.JButton();
+        rejectButton2 = new javax.swing.JButton();
+        requestLabel3 = new javax.swing.JLabel();
+        acceptButton3 = new javax.swing.JButton();
+        rejectButton3 = new javax.swing.JButton();
+        requestLabel4 = new javax.swing.JLabel();
+        acceptButton4 = new javax.swing.JButton();
+        rejectButton4 = new javax.swing.JButton();
+        statisticsPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        viewReviewLabel3 = new javax.swing.JLabel();
+        viewARButton1 = new javax.swing.JButton();
+        viewFeedbackButton1 = new javax.swing.JButton();
+        viewReviewLabel1 = new javax.swing.JLabel();
+        viewReviewLabel2 = new javax.swing.JLabel();
+        viewReviewLabel4 = new javax.swing.JLabel();
+        viewReviewLabel5 = new javax.swing.JLabel();
+        viewARButton5 = new javax.swing.JButton();
+        viewFeedbackButton5 = new javax.swing.JButton();
+        viewARButton2 = new javax.swing.JButton();
+        viewFeedbackButton2 = new javax.swing.JButton();
+        viewARButton3 = new javax.swing.JButton();
+        viewFeedbackButton3 = new javax.swing.JButton();
+        viewARButton4 = new javax.swing.JButton();
+        viewFeedbackButton4 = new javax.swing.JButton();
+        announcementsPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        deadlinesPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel3 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel4 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel1 = new javax.swing.JLabel();
+        upcomingDeadlinesLabel2 = new javax.swing.JLabel();
+        submitButton2 = new javax.swing.JButton();
+        submitButton1 = new javax.swing.JButton();
+        submitButton4 = new javax.swing.JButton();
+        submitButton3 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1920, 1000));
@@ -390,124 +476,188 @@ public class InstructorGUI extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        //Assignment Panel
         otherGroupsPanel.setBackground(new java.awt.Color(232, 235, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Groups");
+        artifactReviewMainLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        artifactReviewMainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        artifactReviewMainLabel.setText("Assignment");
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel25.setText("Group 1");
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel26.setText("Group 2");
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel27.setText("Group 3");
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel28.setText("Group 4");
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel29.setText("Group 5");
-
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel30.setText("Group 6");
-
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel31.setText("Group 6");
-
-        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel32.setText("Group 7");
-
-        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel33.setText("Group 8");
-
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel34.setText("Group 9");
-
-        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel35.setText("Group 10");
-
-        jButton9.setText("View Group");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        addAssignmentToClass.setBackground(new java.awt.Color(120, 88, 161));
+        addAssignmentToClass.setForeground(new java.awt.Color(255, 255, 255));
+        addAssignmentToClass.setText("Create New Assignment");
+        addAssignmentToClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup1ActionPerformed(evt);
+                //addAssignmentToClassActionPerformed(evt);
             }
         });
 
-        jButton10.setText("View Group");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        assignmentStartLabel.setText("Start Date");
+
+        createAssignmentButton.setBackground(new java.awt.Color(120, 88, 161));
+        createAssignmentButton.setForeground(new java.awt.Color(255, 255, 255));
+        createAssignmentButton.setText("Create Assignment");
+        createAssignmentButton.setEnabled(false);
+
+        assignmentStartMonthField.setText("Month");
+        assignmentStartMonthField.setEnabled(false);
+
+        assignmentStartYearField.setText("Year");
+        assignmentStartYearField.setEnabled(false);
+
+        assignmentEndLabel.setText("End Date");
+
+        assignmentStartDayField.setEditable(false);
+        assignmentStartDayField.setText("Day");
+        assignmentStartDayField.setEnabled(false);
+        assignmentStartDayField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup2ActionPerformed(evt);
+                //assignmentStartDayFieldActionPerformed(evt);
             }
         });
 
-        jButton11.setText("View Group");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        assignmentEndDayField.setText("Day");
+        assignmentEndDayField.setEnabled(false);
+
+        assignmentEndMonthField.setText("Month");
+        assignmentEndMonthField.setEnabled(false);
+
+        assignmentEndYearField.setText("Year");
+        assignmentEndYearField.setEnabled(false);
+        assignmentEndYearField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup3ActionPerformed(evt);
+                //assignmentEndYearFieldActionPerformed(evt);
             }
         });
 
-        jButton12.setText("View Group");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        artifactDeadlineMonthField.setText("Month");
+        artifactDeadlineMonthField.setEnabled(false);
+
+        artifactDeadlineDayField.setText("Day");
+        artifactDeadlineDayField.setEnabled(false);
+        artifactDeadlineDayField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup4ActionPerformed(evt);
+                //artifactDeadlineDayFieldActionPerformed(evt);
             }
         });
 
-        jButton13.setText("View Group");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup5ActionPerformed(evt);
-            }
-        });
+        artifactDeadlineLabel.setText("Artifact Review Deadline");
 
-        jButton14.setText("View Group");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup6ActionPerformed(evt);
-            }
-        });
+        artifactDeadlineYearField.setText("Year");
+        artifactDeadlineYearField.setEnabled(false);
 
-        jButton15.setText("View Group");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup7ActionPerformed(evt);
-            }
-        });
+        assignmentTitleLabel.setText("Assignment Title");
 
-        jButton16.setText("View Group");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup8ActionPerformed(evt);
-            }
-        });
+        assignmentTitleField.setEnabled(false);
 
-        jButton17.setText("View Group");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup9ActionPerformed(evt);
-            }
-        });
+        assignmentWeightLabel.setText("Assignment Weight");
 
-        jButton18.setText("View Group");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        assignmentWeightField.setEnabled(false);
+        assignmentWeightField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup10ActionPerformed(evt);
-            }
-        });
-
-        jButton19.setText("View Group");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewGroup11ActionPerformed(evt);
+                //assignmentWeightFieldActionPerformed(evt);
             }
         });
 
         javax.swing.GroupLayout otherGroupsPanelLayout = new javax.swing.GroupLayout(otherGroupsPanel);
         otherGroupsPanel.setLayout(otherGroupsPanelLayout);
+        otherGroupsPanelLayout.setHorizontalGroup(
+                otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, otherGroupsPanelLayout.createSequentialGroup()
+                                                .addGap(0, 45, Short.MAX_VALUE)
+                                                .addComponent(addAssignmentToClass, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(45, 45, 45))
+                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(artifactReviewMainLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                                                        .addComponent(assignmentEndLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                        .addComponent(assignmentStartLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                                        .addComponent(assignmentEndDayField)
+                                                                                                        .addComponent(assignmentStartDayField, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)))
+                                                                                        .addComponent(artifactDeadlineLabel))
+                                                                                .addGap(11, 11, 11))
+                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, otherGroupsPanelLayout.createSequentialGroup()
+                                                                                .addComponent(artifactDeadlineDayField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                                                .addComponent(artifactDeadlineMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(artifactDeadlineYearField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                        .addComponent(assignmentStartMonthField, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                                                                                        .addComponent(assignmentEndMonthField))
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                        .addComponent(assignmentStartYearField, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                                                                        .addComponent(assignmentEndYearField))))
+                                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                                .addContainerGap())
+                                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(assignmentWeightLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(assignmentTitleLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(assignmentTitleField)
+                                                        .addComponent(assignmentWeightField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, otherGroupsPanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(createAssignmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+        );
+        otherGroupsPanelLayout.setVerticalGroup(
+                otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(otherGroupsPanelLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(artifactReviewMainLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(addAssignmentToClass, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(assignmentStartYearField, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                        .addComponent(assignmentStartLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(assignmentStartDayField)
+                                        .addComponent(assignmentStartMonthField))
+                                .addGap(18, 18, 18)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(assignmentEndLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(assignmentEndYearField)
+                                        .addComponent(assignmentEndMonthField)
+                                        .addComponent(assignmentEndDayField))
+                                .addGap(18, 18, 18)
+                                .addComponent(artifactDeadlineLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(artifactDeadlineMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(artifactDeadlineDayField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(artifactDeadlineYearField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(assignmentTitleField, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                                        .addComponent(assignmentTitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(otherGroupsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(assignmentWeightField, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                        .addComponent(assignmentWeightLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(294, 294, 294)
+                                .addComponent(createAssignmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+        );
+
         /*
         int groupNumber = 0;
         if(groupRepository != null) {
@@ -2043,6 +2193,73 @@ public class InstructorGUI extends javax.swing.JFrame {
     private javax.swing.JPanel otherGroupsPanel;
     private javax.swing.JPanel overallProgressPanel;
     private javax.swing.JPanel projectSummaryPanel;
+
+    private javax.swing.JButton acceptButton1;
+    private javax.swing.JButton acceptButton2;
+    private javax.swing.JButton acceptButton3;
+    private javax.swing.JButton acceptButton4;
+    private javax.swing.JButton addAssignmentToClass;
+    private javax.swing.JTextField artifactDeadlineDayField;
+    private javax.swing.JLabel artifactDeadlineLabel;
+    private javax.swing.JTextField artifactDeadlineMonthField;
+    private javax.swing.JTextField artifactDeadlineYearField;
+    private javax.swing.JLabel artifactReviewMainLabel;
+    private javax.swing.JTextField assignmentEndDayField;
+    private javax.swing.JLabel assignmentEndLabel;
+    private javax.swing.JTextField assignmentEndMonthField;
+    private javax.swing.JTextField assignmentEndYearField;
+    private javax.swing.JTextField assignmentStartDayField;
+    private javax.swing.JLabel assignmentStartLabel;
+    private javax.swing.JTextField assignmentStartMonthField;
+    private javax.swing.JTextField assignmentStartYearField;
+    private javax.swing.JTextField assignmentTitleField;
+    private javax.swing.JLabel assignmentTitleLabel;
+    private javax.swing.JTextField assignmentWeightField;
+    private javax.swing.JLabel assignmentWeightLabel;
+    private javax.swing.JButton createAssignmentButton;
+    private javax.swing.JButton groupMemberButton1;
+    private javax.swing.JButton groupMemberButton2;
+    private javax.swing.JButton groupMemberButton3;
+    private javax.swing.JButton groupMemberButton4;
+    private javax.swing.JButton groupMemberButton5;
+    private javax.swing.JLabel groupMemberLabel1;
+    private javax.swing.JLabel groupMemberLabel2;
+    private javax.swing.JLabel groupMemberLabel3;
+    private javax.swing.JLabel groupMemberLabel4;
+    private javax.swing.JLabel groupMemberLabel5;
+    private javax.swing.JPanel groupMemberPanel;
+    private javax.swing.JButton rejectButton1;
+    private javax.swing.JButton rejectButton2;
+    private javax.swing.JButton rejectButton3;
+    private javax.swing.JButton rejectButton4;
+    private javax.swing.JLabel requestLabel1;
+    private javax.swing.JLabel requestLabel2;
+    private javax.swing.JLabel requestLabel3;
+    private javax.swing.JLabel requestLabel4;
+    private javax.swing.JPanel statisticsPanel;
+    private javax.swing.JButton submitButton1;
+    private javax.swing.JButton submitButton2;
+    private javax.swing.JButton submitButton3;
+    private javax.swing.JButton submitButton4;
+    private javax.swing.JLabel upcomingDeadlinesLabel1;
+    private javax.swing.JLabel upcomingDeadlinesLabel2;
+    private javax.swing.JLabel upcomingDeadlinesLabel3;
+    private javax.swing.JLabel upcomingDeadlinesLabel4;
+    private javax.swing.JButton viewARButton1;
+    private javax.swing.JButton viewARButton2;
+    private javax.swing.JButton viewARButton3;
+    private javax.swing.JButton viewARButton4;
+    private javax.swing.JButton viewARButton5;
+    private javax.swing.JButton viewFeedbackButton1;
+    private javax.swing.JButton viewFeedbackButton2;
+    private javax.swing.JButton viewFeedbackButton3;
+    private javax.swing.JButton viewFeedbackButton4;
+    private javax.swing.JButton viewFeedbackButton5;
+    private javax.swing.JLabel viewReviewLabel1;
+    private javax.swing.JLabel viewReviewLabel2;
+    private javax.swing.JLabel viewReviewLabel3;
+    private javax.swing.JLabel viewReviewLabel4;
+    private javax.swing.JLabel viewReviewLabel5;
     // End of variables declaration
 }
 

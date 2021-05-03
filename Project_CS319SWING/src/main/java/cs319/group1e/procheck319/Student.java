@@ -196,7 +196,6 @@ public class Student implements User {
         assignment.getSubmissionList().add(submission);
         studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).setSubmissionList(assignment.getSubmissionList());
         //studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).setSubmissionList((( studentGroup.getGroupAssignmentList().get(assignment.getAssignmentNo()-1).getSubmissionList())));
-
     }
 
     /**
