@@ -283,51 +283,55 @@ public class GroupGUI extends javax.swing.JFrame {
 
 
         Group groupM = groupRepository.findByGroupId(currentUser.getGroupId());
-        /*
-        Student m5 = studentRepository.findByUserId(groupM.getStudentIdList().get(4));
-        if(m5 == null){
-            groupMemberLabel5.setText("");
-        }else{
-            groupMemberLabel5.setText(m5.getUserName());
+        if(groupM.getStudentIdList().size() >= 5) {
+            Student m5 = studentRepository.findByUserId(groupM.getStudentIdList().get(4));
+            if(m5 == null){
+                groupMemberLabel5.setText("");
+            }else{
+                groupMemberLabel5.setText(m5.getUserName());
 
+            }
         }
-
-         */
 
 
         //groupMemberLabel1.setText("");
-        Student m1 = studentRepository.findByUserId(groupM.getStudentIdList().get(0));
-        if(m1 == null){
-            groupMemberLabel1.setText("");
-        }else{
-            groupMemberLabel1.setText(m1.getUserName());
+        if(groupM.getStudentIdList().size() >= 1) {
+            Student m1 = studentRepository.findByUserId(groupM.getStudentIdList().get(0));
+            if(m1 == null){
+                groupMemberLabel1.setText("");
+            }else{
+                groupMemberLabel1.setText(m1.getUserName());
+            }
         }
-
 
         //groupMemberLabel2.setText("");
-        Student m2 = studentRepository.findByUserId(groupM.getStudentIdList().get(1));
-        if(m2 == null){
-            groupMemberLabel2.setText("");
-        }else{
-            groupMemberLabel2.setText(m2.getUserName());
+        if(groupM.getStudentIdList().size() >= 2) {
+            Student m2 = studentRepository.findByUserId(groupM.getStudentIdList().get(1));
+            if(m2 == null){
+                groupMemberLabel2.setText("");
+            }else{
+                groupMemberLabel2.setText(m2.getUserName());
+            }
         }
-
 
         //groupMemberLabel3.setText("");
-        Student m3 = studentRepository.findByUserId(groupM.getStudentIdList().get(2));
-        if(m3 == null){
-            groupMemberLabel3.setText("");
-        }else{
-            groupMemberLabel3.setText(m3.getUserName());
+        if(groupM.getStudentIdList().size() >=3) {
+            Student m3 = studentRepository.findByUserId(groupM.getStudentIdList().get(2));
+            if(m3 == null){
+                groupMemberLabel3.setText("");
+            }else{
+                groupMemberLabel3.setText(m3.getUserName());
+            }
         }
 
-
         //groupMemberLabel4.setText("");
-        Student m4 = studentRepository.findByUserId(groupM.getStudentIdList().get(3));
-        if(m4 == null){
-            groupMemberLabel4.setText("");
-        }else{
-            groupMemberLabel4.setText(m4.getUserName());
+        if(groupM.getStudentIdList().size() >= 4 ) {
+            Student m4 = studentRepository.findByUserId(groupM.getStudentIdList().get(3));
+            if(m4 == null){
+                groupMemberLabel4.setText("");
+            }else{
+                groupMemberLabel4.setText(m4.getUserName());
+            }
         }
 
         groupMemberButton1.setBackground(new java.awt.Color(120, 88, 161));
