@@ -282,6 +282,7 @@ public class GroupGUI extends javax.swing.JFrame {
         //groupMemberLabel5.setText("");
 
 
+
         Group groupM = groupRepository.findByGroupId(currentUser.getGroupId());
         if(groupM.getStudentIdList().size() >= 5) {
             Student m5 = studentRepository.findByUserId(groupM.getStudentIdList().get(4));

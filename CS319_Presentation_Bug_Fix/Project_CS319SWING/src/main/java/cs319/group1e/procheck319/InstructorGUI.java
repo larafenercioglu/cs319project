@@ -1,5 +1,6 @@
 package cs319.group1e.procheck319;
 import java.util.*;
+import java.util.concurrent.Callable;
 
 /**
  *
@@ -187,6 +188,100 @@ public class InstructorGUI extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel53 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
+
+        overallProgressPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        formNewGroupPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        projectSummaryPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        headerPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        launchDatePanel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        otherGroupsPanel = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        calendarPanel = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        invitationsPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        announcementsPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jButton30 = new javax.swing.JButton();
+        jButton37 = new javax.swing.JButton();
+        deadlinesPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -917,82 +1012,27 @@ public class InstructorGUI extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Submissions");
 
-        jLabel46.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel46.setText("Group 5's Submission For Assignment 4");
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
 
-        jLabel47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel47.setText("Group 5's Submission For Assignment 4");
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane4.setViewportView(jTextArea4);
 
-        jLabel48.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel48.setText("Group 5's Submission For Assignment 4");
+        jButton30.setText("View Peer Reviews");
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
 
-        jLabel49.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel49.setText("Group 5's Submission For Assignment 4");
-
-        jLabel50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel50.setText("Group 5's Submission For Assignment 4");
-
-        jLabel51.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel51.setText("Group 5's Submission For Assignment 4");
-
-        jLabel52.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel52.setText("Group 5's Submission For Assignment 4");
-
-        jButton20.setText("Give Feedback");
-
-        jButton21.setText("Grade");
-
-        jButton22.setText("View Artifact Reviews");
-
-        jButton23.setText("View");
-
-        jButton24.setText("View");
-
-        jButton25.setText("View");
-
-        jButton26.setText("View");
-
-        jButton27.setText("View");
-
-        jButton28.setText("View");
-
-        jButton29.setText("View");
-
-        jButton31.setText("Give Feedback");
-
-        jButton32.setText("Give Feedback");
-
-        jButton33.setText("Give Feedback");
-
-        jButton34.setText("Give Feedback");
-
-        jButton35.setText("Give Feedback");
-
-        jButton36.setText("Give Feedback");
-
-        jButton38.setText("Grade");
-
-        jButton39.setText("Grade");
-
-        jButton40.setText("Grade");
-
-        jButton41.setText("Grade");
-
-        jButton42.setText("Grade");
-
-        jButton43.setText("Grade");
-
-        jButton45.setText("View Artifact Reviews");
-
-        jButton46.setText("View Artifact Reviews");
-
-        jButton47.setText("View Artifact Reviews");
-
-        jButton48.setText("View Artifact Reviews");
-
-        jButton51.setText("View Artifact Reviews");
-
-        jButton52.setText("View Artifact Reviews");
+        jButton37.setText("View Artifact Reviews");
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout announcementsPanelLayout = new javax.swing.GroupLayout(announcementsPanel);
         announcementsPanel.setLayout(announcementsPanelLayout);
@@ -1000,134 +1040,32 @@ public class InstructorGUI extends javax.swing.JFrame {
                 announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(announcementsPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
                                 .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel46)
-                                        .addComponent(jLabel52)
-                                        .addComponent(jLabel51)
-                                        .addComponent(jLabel50)
-                                        .addComponent(jLabel49)
-                                        .addComponent(jLabel48)
-                                        .addComponent(jLabel47))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                                        .addComponent(jButton23)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jButton20)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton21)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton22))
-                                                .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                                        .addComponent(jButton24)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jButton31)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton38)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jButton45))
-                                                .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                                        .addComponent(jButton26)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jButton33)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton40)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton47))
-                                                .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                                        .addComponent(jButton27)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jButton34)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton41)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton48))
-                                                .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                                        .addComponent(jButton28)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jButton35)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton42)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton51))
-                                                .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                                        .addComponent(jButton29)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jButton36)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton43)
-                                                        .addPreferredGap(
-                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jButton52)))
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(announcementsPanelLayout.createSequentialGroup()
-                                                .addComponent(jButton25)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jButton32)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton39)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jButton46)))
-                                .addContainerGap())
+                                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                                                        .addComponent(jButton30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                                                        .addComponent(jButton37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(38, 38, 38))))
         );
         announcementsPanelLayout.setVerticalGroup(
                 announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(announcementsPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel6)
-                                .addGap(57, 57, 57)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel46)
-                                        .addComponent(jButton20)
-                                        .addComponent(jButton21)
-                                        .addComponent(jButton22)
-                                        .addComponent(jButton23))
-                                .addGap(29, 29, 29)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel47)
-                                        .addComponent(jButton24)
-                                        .addComponent(jButton31)
-                                        .addComponent(jButton38)
-                                        .addComponent(jButton45))
-                                .addGap(27, 27, 27)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel48)
-                                        .addComponent(jButton25)
-                                        .addComponent(jButton32)
-                                        .addComponent(jButton39)
-                                        .addComponent(jButton46))
-                                .addGap(25, 25, 25)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel49)
-                                        .addComponent(jButton26)
-                                        .addComponent(jButton33)
-                                        .addComponent(jButton40)
-                                        .addComponent(jButton47))
-                                .addGap(29, 29, 29)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel50)
-                                        .addComponent(jButton27)
-                                        .addComponent(jButton34)
-                                        .addComponent(jButton41)
-                                        .addComponent(jButton48))
-                                .addGap(31, 31, 31)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel51)
-                                        .addComponent(jButton28)
-                                        .addComponent(jButton35)
-                                        .addComponent(jButton42)
-                                        .addComponent(jButton51))
-                                .addGap(35, 35, 35)
-                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel52)
-                                        .addComponent(jButton29)
-                                        .addComponent(jButton36)
-                                        .addComponent(jButton43)
-                                        .addComponent(jButton52))
-                                .addContainerGap(86, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButton30, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                        .addComponent(jButton37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(announcementsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane4))
+                                .addGap(38, 38, 38))
         );
 
         deadlinesPanel.setBackground(new java.awt.Color(232, 235, 255));
@@ -1338,6 +1276,49 @@ public class InstructorGUI extends javax.swing.JFrame {
 
     }
 
+    //peer review?
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Class c = classRepository.findByClassId(319);
+        String s = "";
+        for(int i = 0; i < c.getGroupIdList().size(); i++){
+            //each group
+            Group g = groupRepository.findByGroupId(c.getGroupIdList().get(i));
+            for(int j = 0; j < g.getStudentIdList().size(); j++){
+                Student stu = studentRepository.findByUserId(g.getStudentIdList().get(j));
+                s += "\n" + stu.getUserName() + " has peer reviews: ";
+                for(int k = 0; k < stu.getPeerReviews().size(); k++){
+                    s+= stu.getPeerReviews().get(k) + " ";
+                }
+            }
+        }
+        jTextArea3.setText(s);
+    }
+
+    //artifac review?
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        List<Group> allGroups = groupRepository.findAll();
+        String s = "";
+        for(int i = 0; i < allGroups.size(); i++) {
+            Group g = allGroups.get(i);
+            s += "\nGroup " + allGroups.get(i).getGroupId() + " has artifact reviews of: ";
+            for (int j = 0; j < g.getGroupSubmissionList().size(); j++) {
+                if(g.getGroupSubmissionList().get(j) != null ) {
+                    if(g.getGroupSubmissionList().get(j).getArtifactReviews() != null) {
+                        List<ArtifactReview> artifactReviewList = g.getGroupSubmissionList().get(j).getArtifactReviews();
+                        s += "\n    Submission No " + g.getGroupSubmissionList().get(j).getAssignmentNo();
+                        for(int k = 0; k < artifactReviewList.size(); k++) {
+                            s += "-" + artifactReviewList.get(k) + " ";
+                        }
+                    }
+                }
+            }
+        }
+        jTextArea4.setText(s);
+    }
+//benimki oldu gibi
+
     private void viewGroup1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
@@ -1542,6 +1523,39 @@ public class InstructorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel65;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton37;
+
+    private javax.swing.JButton jButton9;
+
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+
     // End of variables declaration
 }
 
